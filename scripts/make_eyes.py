@@ -7,11 +7,11 @@ Needs Pillow.
 
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter  # type: ignore[import-not-found,unused-ignore]
 
 PLAYERS = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "icons" / "players"
 
-# Ellipses of the two eyes as fractions of the image, measured on the 192 pixel head: x, y, radius x, radius y.
+# Ellipses of the two eyes as fractions of the 192 pixel head: x, y, radius x, radius y.
 EYES = ((0.305, 0.375, 0.128, 0.138), (0.700, 0.375, 0.128, 0.138))
 SCALE = 8  # draw large and shrink, so the edge is smooth
 
