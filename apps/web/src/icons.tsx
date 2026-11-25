@@ -231,13 +231,13 @@ export function PlayerHead({ hue, size }: { hue: number; size: number }) {
 }
 
 /** One head for a solo lift, a few overlapped heads when several players have to grab the monster. */
-export function Heads({ count }: { count: number }) {
+export function Heads({ count, size = 22 }: { count: number; size?: number }) {
   const [hues] = useState(shuffledHues);
   const shown = Math.min(Math.max(count, 1), 3);
   return (
     <span className="heads" aria-hidden="true">
       {hues.slice(0, shown).map((hue) => (
-        <PlayerHead key={hue} hue={hue} size={22} />
+        <PlayerHead key={hue} hue={hue} size={size} />
       ))}
     </span>
   );

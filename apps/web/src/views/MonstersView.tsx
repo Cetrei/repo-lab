@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useChannel } from "../channel";
 import { ChannelMonsterDialog, MonsterCard } from "../components/MonsterCard";
-import { NumberField } from "../components/NumberField";
-import { SegmentBar } from "../components/SegmentBar";
+import { TeamEditor } from "../components/TeamEditor";
 import { Outcome, Panel, Stat, Stats } from "../components/ui";
 import { integer } from "../format";
 import { useGameField } from "../game/GameProvider";
 import { useCall } from "../hooks/useCall";
-import { GlyphTile, PlayerHead, shuffledHues } from "../icons";
 import { teamStrength } from "../lift";
 
 const FALLBACK_MAX_PLAYERS = 6;
@@ -25,14 +23,9 @@ export function MonstersView() {
   const maxPlayers = catalog.data?.max_players ?? FALLBACK_MAX_PLAYERS;
   const cap = strengthCap(catalog.data?.monsters);
   const [upgrades, setUpgrades] = useGameField("team");
-  const [hues] = useState(shuffledHues);
   const [onlyLiftable, setOnlyLiftable] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const result = useCall("monsters.lift", { upgrades });
-
-  const resize = (count: number) => {
-    setUpgrades(Array.from({ length: count }, (_, index) => upgrades[index] ?? 0));
-  };
 
   return (
     <div className="workspace">
@@ -45,26 +38,7 @@ export function MonstersView() {
             : "Cada jugador tiene 0 de fuerza sin mejoras y suma 1 por cada mejora de Fuerza."
         }
       >
-        <NumberField label="Jugadores" value={upgrades.length} min={1} max={maxPlayers} onChange={resize} />
-        <ul className="lobby" aria-label="Tu equipo">
-          {upgrades.map((value, index) => (
-            // The position is the identity: players have no name and the list only grows or shrinks at the end.
-            <li key={index} className="lobby__row">
-              <PlayerHead hue={hues[index % hues.length] ?? 0} size={40} />
-              <GlyphTile kind="upgrade" id="strength" size={32} />
-              <SegmentBar
-                className="lobby__bar"
-                label={`Mejoras de Fuerza del jugador ${index + 1}`}
-                value={Math.min(value, cap)}
-                segments={cap}
-                onChange={(next) => {
-                  setUpgrades(upgrades.map((current, at) => (at === index ? next : current)));
-                }}
-                segmentLabel={(count) => `Jugador ${index + 1}: ${count} ${count === 1 ? "mejora" : "mejoras"} de Fuerza`}
-              />
-            </li>
-          ))}
-        </ul>
+        <TeamEditor team={upgrades} maxPlayers={maxPlayers} cap={cap} onChange={setUpgrades} />
       </Panel>
 
       <div className="stack">

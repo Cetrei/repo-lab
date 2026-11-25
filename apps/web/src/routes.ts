@@ -1,4 +1,4 @@
-import { BookOpen, Gamepad2, Gem, Package, Radar, ShoppingCart, Skull, type LucideIcon } from "lucide-react";
+import { BookOpen, Gamepad2, Package, Radar, ShoppingCart, Skull, type LucideIcon } from "lucide-react";
 import type { ComponentType } from "react";
 import { useSyncExternalStore } from "react";
 import { CHANNEL, useChannel, type Channel } from "./channel";
@@ -8,7 +8,6 @@ import { PartidaView } from "./views/PartidaView";
 import { SourcesView } from "./views/SourcesView";
 import { SpawningView } from "./views/SpawningView";
 import { UpgradesView } from "./views/UpgradesView";
-import { ValuablesView } from "./views/ValuablesView";
 
 export interface Route {
   id: string;
@@ -25,13 +24,12 @@ const MEJORAS: Route = { id: "mejoras", label: "Mejoras", icon: ShoppingCart, vi
 const APARICIONES: Route = { id: "apariciones", label: "Apariciones", icon: Radar, view: SpawningView };
 const FUENTES: Route = { id: "fuentes", label: "Fuentes", icon: BookOpen, view: SourcesView };
 
-/** The views of the test channel, which the stable site does not have yet. */
+/** The one view of the test channel, which holds what the stable tabs of boxes, monsters and spawning show apart. */
 const PARTIDA: Route = { id: "partida", label: "Partida", icon: Gamepad2, view: PartidaView };
-const VALUABLES: Route = { id: "valuables", label: "Valuables", icon: Gem, view: ValuablesView };
 
-/** The tabs of a channel. The test channel is the stable one plus the views being tried. */
+/** The tabs of a channel. The test channel swaps the boxes, monsters and spawning tabs for the single Partida view. */
 export function routesFor(channel: Channel): Routes {
-  if (channel === "next") return [CAJAS, MONSTRUOS, MEJORAS, APARICIONES, PARTIDA, VALUABLES, FUENTES];
+  if (channel === "next") return [PARTIDA, MEJORAS, FUENTES];
   return [CAJAS, MONSTRUOS, MEJORAS, APARICIONES, FUENTES];
 }
 

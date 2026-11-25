@@ -104,16 +104,16 @@ describe("App on the test channel", () => {
     expect(screen.getByRole("link", { name: "Volver a la versión estable" }).getAttribute("href")).toBe("../");
   });
 
-  it("adds the Partida and Valuables tabs and opens them", async () => {
+  it("has one Partida view in place of the boxes, monsters, spawning and valuables tabs", async () => {
     open("#/partida");
     renderNext();
-    expect(screen.getByRole("link", { name: "Valuables" })).toBeTruthy();
+    for (const gone of ["Cajas", "Monstruos", "Apariciones", "Valuables"]) {
+      expect(screen.queryByRole("link", { name: gone })).toBeNull();
+    }
     expect(screen.getByRole("link", { name: "Partida" }).getAttribute("aria-current")).toBe("page");
-    expect(await screen.findByRole("heading", { name: /^Partida en el nivel/ })).toBeTruthy();
-    act(() => {
-      open("#/valuables");
-    });
-    expect(await screen.findByRole("heading", { name: "Valuables por mapa" })).toBeTruthy();
-    expect(document.title).toBe("Valuables | REPO Lab");
+    expect(await screen.findByRole("heading", { name: "Equipo" })).toBeTruthy();
+    expect(await screen.findByRole("heading", { name: "Cajas" })).toBeTruthy();
+    expect(await screen.findByRole("heading", { name: "Monstruos" })).toBeTruthy();
+    expect(document.title).toBe("REPO Lab");
   });
 });
