@@ -1373,3 +1373,13 @@ section > h3 {
     justify-items: start;
   }
 }
+
+/* Toasts keep the dark panel look */
+
+.toast-title {
+  color: var(--text-primary) !important;
+}
+
+.toast-description {
+  color: var(--text-secondary) !important;
+}

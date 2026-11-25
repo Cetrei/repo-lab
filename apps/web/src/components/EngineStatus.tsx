@@ -1,13 +1,13 @@
 import { sileo } from "sileo";
-import { CircleCheck, Loader, TriangleAlert } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { Loader, TriangleAlert } from "lucide-react";
+import { useEffect } from "react";
 import { useEngineState } from "../engine/EngineProvider";
-import type { EnginePhase } from "../engine/protocol";
 
-/** The header line that says whether Python is loading, ready or broken. */
+/** The header line while Python loads or when it breaks. Once it is ready there is nothing to say. */
 export function EngineStatus() {
   const { phase, detail } = useEngineState();
-  const Icon = phase === "ready" ? CircleCheck : phase === "failed" ? TriangleAlert : Loader;
+  if (phase === "ready") return null;
+  const Icon = phase === "failed" ? TriangleAlert : Loader;
   return (
     <p className="engine" data-state={phase} role="status">
       <Icon aria-hidden size={18} className={phase === "loading" ? "spin" : undefined} />
@@ -16,16 +16,17 @@ export function EngineStatus() {
   );
 }
 
-/** One toast when Python becomes ready after a wait, and one when it fails. */
+/** One dark toast when Python fails to start. Nothing is shown when it works. */
 export function useEngineToasts(): void {
   const { phase, detail } = useEngineState();
-  const previous = useRef<EnginePhase | null>(null);
   useEffect(() => {
     if (phase === "failed") {
-      sileo.error({ title: "No se pudo iniciar Python", description: detail });
-    } else if (phase === "ready" && previous.current === "loading") {
-      sileo.success({ title: "Python listo", description: "Los cálculos corren en tu navegador." });
+      sileo.error({
+        title: "No se pudo iniciar Python",
+        description: detail,
+        fill: "#151a17",
+        styles: { title: "toast-title", description: "toast-description" },
+      });
     }
-    previous.current = phase;
   }, [phase, detail]);
 }
