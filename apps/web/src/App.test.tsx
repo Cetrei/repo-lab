@@ -1,6 +1,7 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { App } from "./App";
+import { ChannelContext } from "./channel";
 import { EngineProvider } from "./engine/EngineProvider";
 import { ROUTES, routeFromHash } from "./routes";
 import { replayEngine } from "./test/replay";
@@ -73,5 +74,46 @@ describe("App", () => {
     renderApp(replayEngine({ phase: "failed", detail: "Sin red para bajar Pyodide" }));
     const status = screen.getByText("Sin red para bajar Pyodide").closest(".engine");
     expect(status?.getAttribute("data-state")).toBe("failed");
+  });
+
+  it("has no test banner and no test views on the stable site", () => {
+    open("");
+    renderApp();
+    expect(screen.queryByRole("note")).toBeNull();
+    expect(screen.queryByRole("link", { name: "Partida" })).toBeNull();
+    expect(screen.queryByRole("link", { name: "Valuables" })).toBeNull();
+  });
+});
+
+describe("App on the test channel", () => {
+  function renderNext() {
+    return render(
+      <EngineProvider engine={replayEngine()}>
+        <ChannelContext.Provider value="next">
+          <App />
+        </ChannelContext.Provider>
+      </EngineProvider>,
+    );
+  }
+
+  it("says it is the test channel and links back to the stable site", () => {
+    open("");
+    renderNext();
+    const banner = screen.getByRole("note");
+    expect(banner.textContent).toContain("Canal de pruebas");
+    expect(screen.getByRole("link", { name: "Volver a la versión estable" }).getAttribute("href")).toBe("../");
+  });
+
+  it("adds the Partida and Valuables tabs and opens them", async () => {
+    open("#/partida");
+    renderNext();
+    expect(screen.getByRole("link", { name: "Valuables" })).toBeTruthy();
+    expect(screen.getByRole("link", { name: "Partida" }).getAttribute("aria-current")).toBe("page");
+    expect(await screen.findByRole("heading", { name: /^Partida en el nivel/ })).toBeTruthy();
+    act(() => {
+      open("#/valuables");
+    });
+    expect(await screen.findByRole("heading", { name: "Valuables por mapa" })).toBeTruthy();
+    expect(document.title).toBe("Valuables | REPO Lab");
   });
 });

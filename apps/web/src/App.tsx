@@ -5,19 +5,23 @@ import { PatchProvider, PatchSelector } from "./components/Patch";
 import { SaveMenu } from "./components/SaveMenu";
 import { Splash } from "./components/Splash";
 import { useEngineState } from "./engine/EngineProvider";
+import { useChannel } from "./channel";
 import { GameProvider } from "./game/GameProvider";
 import { GlyphTile } from "./icons";
-import { ROUTES, useRoute } from "./routes";
+import { routesFor, useRoute } from "./routes";
 
 export function App() {
   const route = useRoute();
   const View = route.view;
   useEngineToasts();
   const { phase } = useEngineState();
+  const channel = useChannel();
+  const routes = routesFor(channel);
+  const home = routes[0].id;
 
   useEffect(() => {
-    document.title = route.id === ROUTES[0].id ? "REPO Lab" : `${route.label} | REPO Lab`;
-  }, [route]);
+    document.title = route.id === home ? "REPO Lab" : `${route.label} | REPO Lab`;
+  }, [route, home]);
 
   // The calculators wait for Python, so they never show a half loaded page.
   if (phase === "loading") return <Splash />;
@@ -26,6 +30,12 @@ export function App() {
     <GameProvider>
       <PatchProvider>
       <div className="hazard" aria-hidden />
+      {channel === "next" ? (
+        <aside className="banner" role="note">
+          <strong>Canal de pruebas.</strong> Aquí están las vistas que todavía se están probando y pueden cambiar o fallar.{" "}
+          <a href="../">Volver a la versión estable</a>
+        </aside>
+      ) : null}
       <div className="shell">
         <header className="header">
           <div className="brand">
@@ -46,7 +56,7 @@ export function App() {
           </div>
         </header>
         <nav className="tabs" aria-label="Calculadoras">
-          {ROUTES.map((item) => (
+          {routes.map((item) => (
             <a
               key={item.id}
               className="tab"

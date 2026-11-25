@@ -10,6 +10,13 @@ export function integer(value: number): string {
   return integerFormat.format(value);
 }
 
+const plainFormat = new Intl.NumberFormat(LOCALE, { maximumFractionDigits: 2 });
+
+/** A number with as many decimals as it has, up to two: 0,5 and 3 stay as they are. */
+export function plain(value: number): string {
+  return plainFormat.format(value);
+}
+
 export function decimal(value: number, digits = 2): string {
   return decimalFormat(digits).format(value);
 }
@@ -43,6 +50,11 @@ export function duration(seconds: number): string {
 /** A range of seconds, collapsed when both ends are equal. */
 export function durationRange(low: number, high: number): string {
   return low === high ? duration(low) : `${duration(low)} a ${duration(high)}`;
+}
+
+/** A value range in dollars, collapsed when both ends are equal. */
+export function moneyRange(low: number, high: number): string {
+  return low === high ? `$${integer(low)}` : `$${integer(low)} a $${integer(high)}`;
 }
 
 export function clamp(value: number, low: number, high: number): number {

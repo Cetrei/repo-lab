@@ -1,16 +1,14 @@
-import type { LiftCheck } from "@repo-lab/contract";
-import { Zap } from "lucide-react";
 import { useState } from "react";
-import { GlyphTile, Heads, PlayerHead, shuffledHues } from "../icons";
-import { Modal } from "../components/Modal";
+import { useChannel } from "../channel";
+import { ChannelMonsterDialog, MonsterCard } from "../components/MonsterCard";
 import { NumberField } from "../components/NumberField";
 import { SegmentBar } from "../components/SegmentBar";
 import { Outcome, Panel, Stat, Stats } from "../components/ui";
-import { integer, signed } from "../format";
+import { integer } from "../format";
 import { useGameField } from "../game/GameProvider";
 import { useCall } from "../hooks/useCall";
-import { liftVerdict, stunVerdict } from "../lift";
-import type { Verdict } from "../lift";
+import { GlyphTile, PlayerHead, shuffledHues } from "../icons";
+import { teamStrength } from "../lift";
 
 const FALLBACK_MAX_PLAYERS = 6;
 const FALLBACK_STRENGTH_CAP = 13;
@@ -22,6 +20,7 @@ export function strengthCap(monsters: readonly { solo_upgrades: number | null }[
 }
 
 export function MonstersView() {
+  const effort = useChannel() === "next";
   const catalog = useCall("monsters.catalog", undefined);
   const maxPlayers = catalog.data?.max_players ?? FALLBACK_MAX_PLAYERS;
   const cap = strengthCap(catalog.data?.monsters);
@@ -42,8 +41,8 @@ export function MonstersView() {
         title="Tu equipo"
         hint={
           catalog.data
-            ? `Cada jugador empieza con ${catalog.data.base_strength} de fuerza y suma 1 por cada mejora de Fuerza. La fuerza de quienes agarran se suma. La barra llega a ${cap}: con más mejoras no se levanta nada nuevo.`
-            : "Cada jugador empieza con una fuerza base y suma 1 por cada mejora de Fuerza."
+            ? `Cada jugador tiene 0 de fuerza sin mejoras y suma 1 por cada mejora de Fuerza. Al agarrar entre varios la fuerza se suma, y cada jugador extra aporta ${catalog.data.base_strength} más. La barra llega a ${cap}: con más mejoras no se levanta nada nuevo.`
+            : "Cada jugador tiene 0 de fuerza sin mejoras y suma 1 por cada mejora de Fuerza."
         }
       >
         <NumberField label="Jugadores" value={upgrades.length} min={1} max={maxPlayers} onChange={resize} />
@@ -72,9 +71,13 @@ export function MonstersView() {
         <Outcome result={result}>
           {(data) => {
             const can = data.rows.filter((row) => row.liftable && row.can_lift);
+            const withEffort = data.rows.filter((row) => row.effort === "hard");
             const liftableCount = data.rows.filter((row) => row.liftable).length;
-            const shown = onlyLiftable ? data.rows.filter((row) => row.can_lift) : data.rows;
+            const reachable = (row: (typeof data.rows)[number]) =>
+              effort ? row.effort === "easy" || row.effort === "hard" : row.can_lift;
+            const shown = onlyLiftable ? data.rows.filter(reachable) : data.rows;
             const selected = data.rows.find((row) => row.monster_id === open);
+            const big = catalog.data?.monsters.find((monster) => monster.id === open)?.big ?? false;
             return (
               <Panel
                 title="Qué monstruos puedes levantar"
@@ -82,8 +85,9 @@ export function MonstersView() {
               >
                 <div className="toolbar">
                   <Stats>
-                    <Stat label="Fuerza del equipo" value={integer(data.rows[0]?.combined ?? 0)} />
+                    <Stat label="Fuerza del equipo" value={teamStrength(data.rows)} />
                     <Stat label="Los levantan" value={`${can.length} de ${liftableCount}`} tone="good" />
+                    {effort ? <Stat label="Con esfuerzo" value={integer(withEffort.length)} /> : null}
                   </Stats>
                   <button
                     type="button"
@@ -96,6 +100,7 @@ export function MonstersView() {
                     Solo los que puedo levantar
                   </button>
                 </div>
+                {effort ? <EffortLegend /> : null}
                 {shown.length === 0 ? (
                   <p className="muted">Con este equipo no levantas ninguno todavía.</p>
                 ) : (
@@ -104,6 +109,7 @@ export function MonstersView() {
                       <li key={row.monster_id}>
                         <MonsterCard
                           row={row}
+                          effort={effort}
                           onOpen={() => {
                             setOpen(row.monster_id);
                           }}
@@ -113,9 +119,10 @@ export function MonstersView() {
                   </ul>
                 )}
                 {selected ? (
-                  <MonsterDialog
+                  <ChannelMonsterDialog
                     row={selected}
                     players={upgrades.length}
+                    big={big}
                     onClose={() => {
                       setOpen(null);
                     }}
@@ -130,70 +137,13 @@ export function MonstersView() {
   );
 }
 
-function VerdictLine({ label, verdict, stun }: { label: string; verdict: Verdict; stun?: boolean }) {
+/** What the three colors of the test channel mean, so a player never has to guess. */
+export function EffortLegend() {
   return (
-    <div className="verdict" data-tone={verdict.tone}>
-      <span className="verdict__label">
-        {stun ? <Zap size={14} aria-hidden="true" /> : null}
-        {label}
-      </span>
-      <span className="verdict__value">
-        {verdict.players !== null ? <Heads count={verdict.players} /> : null}
-        {verdict.text}
-      </span>
-    </div>
-  );
-}
-
-/** Every card has the same size, so the grid reads as a table. The calculation opens in a dialog. */
-function MonsterCard({ row, onOpen }: { row: LiftCheck; onOpen(): void }) {
-  const lift = liftVerdict(row);
-  const stun = stunVerdict(row);
-  return (
-    <button type="button" className="mcard" data-tone={lift.tone} aria-haspopup="dialog" onClick={onOpen}>
-      <GlyphTile kind="monster" id={row.monster_id} size={56} />
-      <span className="mcard__name">{row.name}</span>
-      <VerdictLine label="Levantar" verdict={lift} />
-      <VerdictLine label="Aturdido" verdict={stun} stun />
-    </button>
-  );
-}
-
-function MonsterDialog({ row, players, onClose }: { row: LiftCheck; players: number; onClose(): void }) {
-  const total = row.upgrades_from_zero?.[players - 1];
-  return (
-    <Modal title={row.name} onClose={onClose}>
-      <dl className="detail">
-        <div>
-          <dt>Fuerza necesaria</dt>
-          <dd className="num">{row.required === null ? "No se levanta" : integer(row.required)}</dd>
-        </div>
-        <div>
-          <dt>Tu equipo</dt>
-          <dd className="num">
-            {integer(row.combined)}
-            {row.margin === null ? "" : ` (${signed(row.margin)})`}
-          </dd>
-        </div>
-        <div>
-          <dt>Fuerza aturdido</dt>
-          <dd className="num">{row.stunned_required === null ? "Sin dato" : integer(row.stunned_required)}</dd>
-        </div>
-        <div>
-          <dt>{`Mejoras en total con ${players} ${players === 1 ? "jugador" : "jugadores"}`}</dt>
-          <dd className="num">{total === undefined ? "No aplica" : integer(total)}</dd>
-        </div>
-        <div>
-          <dt>Vida</dt>
-          <dd className="num">{row.health === null ? "Sin dato" : integer(row.health)}</dd>
-        </div>
-        {row.note ? (
-          <div className="detail__note">
-            <dt>Nota</dt>
-            <dd>{row.note}</dd>
-          </div>
-        ) : null}
-      </dl>
-    </Modal>
+    <ul className="legend" aria-label="Qué significa cada color">
+      <li data-tone="good">Verde: tu equipo llega a la fuerza que pide</li>
+      <li data-tone="warn">Amarillo: lo sostiene, pero con esfuerzo</li>
+      <li data-tone="bad">Rojo: todavía no lo levanta</li>
+    </ul>
   );
 }

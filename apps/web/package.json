@@ -6,7 +6,8 @@
   "scripts": {
     "bundle": "uv run python ../../scripts/build_bundle.py",
     "dev": "npm run bundle && vite",
-    "build": "npm run bundle && tsc --noEmit && vite build",
+    "build": "npm run bundle && tsc --noEmit && vite build && npm run build:next",
+    "build:next": "vite build --mode next --outDir dist/next --emptyOutDir false",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"

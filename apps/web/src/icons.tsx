@@ -20,6 +20,7 @@ import {
   Flame,
   Flower2,
   Footprints,
+  Gem,
   Ghost,
   Hand,
   Heart,
@@ -101,13 +102,14 @@ export const UPGRADE_GLYPHS: Record<string, LucideIcon> = {
   "death-head-battery": BatteryMedium,
 };
 
-type Kind = "monster" | "upgrade" | "rarity" | "player";
+type Kind = "monster" | "upgrade" | "rarity" | "player" | "valuable";
 
 const FOLDER: Record<Kind, string> = {
   monster: "monsters",
   upgrade: "upgrades",
   rarity: "rarities",
   player: "players",
+  valuable: "valuables",
 };
 
 /**
@@ -122,6 +124,7 @@ export function iconUrl(kind: Kind, id: string): string {
 function glyphFor(kind: Kind, id: string): LucideIcon {
   if (kind === "rarity") return Package;
   if (kind === "player") return User;
+  if (kind === "valuable") return Gem;
   return (kind === "monster" ? MONSTER_GLYPHS : UPGRADE_GLYPHS)[id] ?? CircleHelp;
 }
 

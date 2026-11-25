@@ -178,6 +178,18 @@ describe("MonstersView", () => {
     expect(screen.getByRole("group", { name: "Mejoras de Fuerza del jugador 3" })).toBeTruthy();
   });
 
+  it("shows the strength of the team as the player knows it, with the base of the player taken off", async () => {
+    const engine = show(<MonstersView />);
+    await screen.findByRole("heading", { name: "Qué monstruos puedes levantar" });
+    const answer = (await engine.transport.send("monsters.lift", { upgrades: [0, 0] })) as {
+      ok: true;
+      data: { rows: { combined: number; base_strength: number }[] };
+    };
+    const row = answer.data.rows[0] as { combined: number; base_strength: number };
+    const stat = screen.getByText("Fuerza del equipo").parentElement as HTMLElement;
+    expect(within(stat).getByText(String(row.combined - row.base_strength))).toBeTruthy();
+  });
+
   it("keeps what was typed when the team shrinks", async () => {
     const engine = show(<MonstersView />);
     await screen.findByRole("heading", { name: "Qué monstruos puedes levantar" });

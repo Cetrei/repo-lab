@@ -1,4 +1,5 @@
 import { RARITIES } from "@repo-lab/contract";
+import type { ValuableSize } from "@repo-lab/contract";
 
 export const RARITY_LABEL = {
   common: "Común",
@@ -14,6 +15,16 @@ export type Target = (typeof TARGETS)[number];
 export const TARGET_LABEL: Record<Target, string> = {
   any: "Cualquier caja",
   ...RARITY_LABEL,
+};
+
+export const SIZE_LABEL: Record<ValuableSize, string> = {
+  tiny: "Diminuto",
+  small: "Pequeño",
+  medium: "Mediano",
+  big: "Grande",
+  wide: "Ancho",
+  tall: "Alto",
+  very_tall: "Muy alto",
 };
 
 export const TIER_LABEL = {
