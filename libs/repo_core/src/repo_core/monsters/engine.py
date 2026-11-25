@@ -33,6 +33,7 @@ class LiftCheck:
     monster_id: str
     name: str
     health: int | None
+    drain: int | None
     note: str
     liftable: bool
     required: int | None
@@ -141,6 +142,7 @@ def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
         monster_id=monster.id,
         name=monster.name,
         health=monster.health,
+        drain=monster.drain,
         note=monster.note,
         liftable=need is not None,
         required=need,

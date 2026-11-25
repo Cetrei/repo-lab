@@ -108,6 +108,7 @@ export const monster = z.strictObject({
   weight: z.int(),
   big: z.boolean(),
   health: z.int().nullable(),
+  drain: z.int().nullable(),
   note: z.string(),
 });
 export type Monster = z.infer<typeof monster>;
@@ -122,6 +123,7 @@ export const liftCheck = z.strictObject({
   monster_id: z.string(),
   name: z.string(),
   health: z.int().nullable(),
+  drain: z.int().nullable(),
   note: z.string(),
   liftable: z.boolean(),
   required: z.int().nullable(),

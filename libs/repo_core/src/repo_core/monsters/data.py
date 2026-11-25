@@ -6,7 +6,8 @@ combined internal strength (base strength per player plus their upgrades) with t
 `solo_upgrades`. `None` means the monster cannot be lifted while it is active.
 
 `weight` is the weight class of the wiki, 0 (very light) to 4 (very heavy). Health is only filled where a
-source states it. A missing value stays `None`, never a guess.
+source states it. A missing value stays `None`, never a guess. `drain` is the most health a monster that
+cannot be grabbed takes from a player (the Tick), which is not its own health.
 
 `stunned_upgrades` holds the stunned figures the sources give, sorted. Empty means no source has one, one
 value is a sure figure and several are a range, because the sources disagree.
@@ -34,6 +35,7 @@ class Monster:
     weight: int = 2
     big: bool = False
     health: int | None = None
+    drain: int | None = None
     note: str = ""
 
 
@@ -55,7 +57,7 @@ def _load() -> tuple[TableCatalog[Monster], int, int, float, int, list[dict[str,
         raise DataError(f"monsters.yaml: rules.big_weight must be between 0 and {MAX_WEIGHT}")
     monsters = []
     for row in table.rows("monsters"):
-        row.only("name", "tier", "lift", "stunned", "weight", "health", "note")
+        row.only("name", "tier", "lift", "stunned", "weight", "health", "drain", "note")
         name = row.text("name")
         tier = row.integer("tier")
         if tier not in (1, 2, 3):
@@ -75,6 +77,7 @@ def _load() -> tuple[TableCatalog[Monster], int, int, float, int, list[dict[str,
                 weight=weight,
                 big=weight >= big_weight,
                 health=row.opt_integer("health"),
+                drain=row.opt_integer("drain"),
                 note=row.opt_text("note"),
             )
         )

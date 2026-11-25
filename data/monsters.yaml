@@ -5,6 +5,7 @@
 # ejemplo `stunned: [1, 4]`, y la web da el rango. Sin `stunned` ninguna fuente tiene la cifra.
 # `weight` es la clase de peso de la wiki, de 0 (muy ligero) a 4 (muy pesado).
 # `health` queda vacio cuando ninguna fuente legible lo dice, nunca se inventa.
+# `drain` es lo maximo que quita de vida un monstruo que no se puede agarrar (la Tick), no su vida.
 
 sources:
   - name: itemlevel.net, How much strength do you need to pick up each monster
@@ -31,7 +32,7 @@ rules:
 monsters:
   - {name: Gnome, tier: 1, lift: 0, stunned: 0, health: 20, weight: 0}
   - {name: Banger, tier: 2, lift: 0, stunned: 0, health: 50, weight: 0, note: Se suelta solo a los 3 segundos.}
-  - {name: Tick, tier: 1, lift: null, weight: 1, note: "No se puede agarrar: se pega y drena hasta 100 de vida. La wiki lo lista en 0 y otra tabla en 13."}
+  - {name: Tick, tier: 1, lift: null, drain: 100, weight: 1, note: "No se puede agarrar: se pega y drena hasta 100 de vida. La wiki lo lista en 0 y otra tabla en 13."}
   - {name: Spewer, tier: 1, lift: 4, stunned: 0, health: 65, weight: 2}
   - {name: Birthday Boy, tier: 1, lift: 4, stunned: 0, health: 150, weight: 1}
   - {name: Rugrat, tier: 2, lift: 4, stunned: 0, health: 150, weight: 1}

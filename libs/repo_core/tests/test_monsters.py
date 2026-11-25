@@ -49,6 +49,12 @@ class MonsterTests(unittest.TestCase):
         self.assertTrue(lift_check(MONSTERS.get("rugrat"), [0, 0]).can_lift)
         self.assertFalse(lift_check(MONSTERS.get("rugrat"), [0]).can_lift)
 
+    def test_tick_drains_health_instead_of_having_its_own(self) -> None:
+        tick = lift_check(MONSTERS.get("tick"), [0])
+        self.assertIsNone(tick.health)
+        self.assertEqual(tick.drain, 100)
+        self.assertIsNone(lift_check(MONSTERS.get("gnome"), [0]).drain)
+
     def test_gnome_always_lifts_and_tick_is_never_grabbed(self) -> None:
         self.assertEqual(lift_check(MONSTERS.get("gnome"), [0]).effort, EASY)
         tick = lift_check(MONSTERS.get("tick"), [99])
