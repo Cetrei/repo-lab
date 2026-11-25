@@ -1,0 +1,3080 @@
+[
+  {
+    "name": "rulesets",
+    "endpoint": "cosmetics.rulesets",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "default": "may-2026",
+        "rulesets": [
+          {
+            "id": "may-2026",
+            "label": "Parche del 25 de mayo de 2026",
+            "patch": "2026-05-25",
+            "spawn_by_step": [
+              0.25,
+              0.33,
+              0.41,
+              0.49,
+              0.57,
+              0.65
+            ],
+            "rarity_by_step": [
+              [
+                0.6990000000000001,
+                0.282,
+                0.019,
+                0.0
+              ],
+              [
+                0.6642664266426643,
+                0.29912991299129915,
+                0.036103610361036105,
+                0.0005000500050005
+              ],
+              [
+                0.6189,
+                0.3159,
+                0.0603,
+                0.0049
+              ],
+              [
+                0.5607,
+                0.33270000000000005,
+                0.09390000000000001,
+                0.0127
+              ],
+              [
+                0.48210000000000003,
+                0.34700000000000003,
+                0.1381,
+                0.032799999999999996
+              ],
+              [
+                0.37579999999999997,
+                0.35840000000000005,
+                0.1974,
+                0.0684
+              ]
+            ],
+            "bad_luck_bonus": 0.25,
+            "note": "Tablas sacadas del juego descompilado y espejadas en la wiki."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "level one",
+    "endpoint": "cosmetics.level",
+    "request": {
+      "level": 1
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "level": 1,
+        "bad_luck": 0,
+        "modifier": 0.0,
+        "slots": [
+          {
+            "slot": 1,
+            "step": 1,
+            "base_spawn": 0.25,
+            "spawn": 0.25,
+            "rarity": {
+              "common": 0.6990000000000001,
+              "uncommon": 0.282,
+              "rare": 0.019,
+              "ultra": 0.0
+            }
+          }
+        ],
+        "count_distribution": [
+          0.75,
+          0.25,
+          0.0,
+          0.0
+        ],
+        "p_dry": 0.75,
+        "p_any": 0.25,
+        "expected_boxes": 0.25,
+        "expected_by_rarity": {
+          "common": 0.17475000000000002,
+          "uncommon": 0.0705,
+          "rare": 0.00475,
+          "ultra": 0.0
+        },
+        "p_at_least_one": {
+          "common": 0.17474999999999996,
+          "uncommon": 0.07050000000000001,
+          "rare": 0.004750000000000032,
+          "ultra": 0.0
+        }
+      }
+    }
+  },
+  {
+    "name": "level twelve with bad luck",
+    "endpoint": "cosmetics.level",
+    "request": {
+      "level": 12,
+      "bad_luck": 3
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "level": 12,
+        "bad_luck": 3,
+        "modifier": 0.75,
+        "slots": [
+          {
+            "slot": 1,
+            "step": 6,
+            "base_spawn": 0.65,
+            "spawn": 0.9999999999999998,
+            "rarity": {
+              "common": 0.37579999999999997,
+              "uncommon": 0.35840000000000005,
+              "rare": 0.1974,
+              "ultra": 0.0684
+            }
+          },
+          {
+            "slot": 2,
+            "step": 6,
+            "base_spawn": 0.65,
+            "spawn": 0.6499999999999999,
+            "rarity": {
+              "common": 0.37579999999999997,
+              "uncommon": 0.35840000000000005,
+              "rare": 0.1974,
+              "ultra": 0.0684
+            }
+          },
+          {
+            "slot": 3,
+            "step": 2,
+            "base_spawn": 0.33,
+            "spawn": 0.33,
+            "rarity": {
+              "common": 0.6642664266426643,
+              "uncommon": 0.29912991299129915,
+              "rare": 0.036103610361036105,
+              "ultra": 0.0005000500050005
+            }
+          }
+        ],
+        "count_distribution": [
+          0.0,
+          0.23449999999999996,
+          0.5509999999999999,
+          0.21450000000000002
+        ],
+        "p_dry": 0.0,
+        "p_any": 1.0,
+        "expected_boxes": 1.9799999999999998,
+        "expected_by_rarity": {
+          "common": 0.8392779207920791,
+          "uncommon": 0.6900728712871287,
+          "rare": 0.33762419141914185,
+          "ultra": 0.11302501650165014
+        },
+        "p_at_least_one": {
+          "common": 0.6316795556360395,
+          "uncommon": 0.5564469840601982,
+          "rare": 0.30871699346646875,
+          "ultra": 0.10996583056501663
+        }
+      }
+    }
+  },
+  {
+    "name": "run of five levels",
+    "endpoint": "cosmetics.run",
+    "request": {
+      "start_level": 1,
+      "levels": 5
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "ruleset_id": "may-2026",
+        "start_level": 1,
+        "bad_luck": 0,
+        "rows": [
+          {
+            "level": 1,
+            "p_any": 0.25,
+            "expected_boxes": 0.25,
+            "expected_by_rarity": {
+              "common": 0.17475000000000002,
+              "uncommon": 0.0705,
+              "rare": 0.00475,
+              "ultra": 0.0
+            },
+            "cumulative": {
+              "any": 0.25,
+              "common": 0.17474999999999996,
+              "uncommon": 0.07050000000000001,
+              "rare": 0.004750000000000032,
+              "ultra": 0.0
+            }
+          },
+          {
+            "level": 2,
+            "p_any": 0.5175000000000001,
+            "expected_boxes": 0.5175000000000001,
+            "expected_by_rarity": {
+              "common": 0.3437578757875788,
+              "uncommon": 0.15479972997299732,
+              "rare": 0.01868361836183619,
+              "ultra": 0.0002587758775877588
+            },
+            "cumulative": {
+              "any": 0.685,
+              "common": 0.4802012916291629,
+              "uncommon": 0.21834047254725486,
+              "rare": 0.023377025952595387,
+              "ultra": 0.0002587758775878246
+            }
+          },
+          {
+            "level": 3,
+            "p_any": 0.6093749999999998,
+            "expected_boxes": 0.609375,
+            "expected_by_rarity": {
+              "common": 0.3771421875,
+              "uncommon": 0.19250156249999995,
+              "rare": 0.03674531249999999,
+              "ultra": 0.0029859375
+            },
+            "cumulative": {
+              "any": 0.97165,
+              "common": 0.7173772917670544,
+              "uncommon": 0.37883241125840694,
+              "rare": 0.05949641205246925,
+              "ultra": 0.003244193496849679
+            }
+          },
+          {
+            "level": 4,
+            "p_any": 0.60926475,
+            "expected_boxes": 0.60926475,
+            "expected_by_rarity": {
+              "common": 0.3416147453249999,
+              "uncommon": 0.202702382325,
+              "rare": 0.057209960025000006,
+              "ultra": 0.007737662325
+            },
+            "cumulative": {
+              "any": 1.0,
+              "common": 0.820706356798794,
+              "uncommon": 0.508708131407148,
+              "rare": 0.11363838118194813,
+              "ultra": 0.010961182453806173
+            }
+          },
+          {
+            "level": 5,
+            "p_any": 0.6820755324999997,
+            "expected_boxes": 0.6820755324999997,
+            "expected_by_rarity": {
+              "common": 0.32882861421825,
+              "uncommon": 0.23668020977749996,
+              "rare": 0.09419463103825,
+              "ultra": 0.022372077466
+            },
+            "cumulative": {
+              "any": 1.0,
+              "common": 0.883897723037051,
+              "uncommon": 0.6292470117147834,
+              "rare": 0.19788438497906513,
+              "ultra": 0.033114841058389244
+            }
+          }
+        ],
+        "milestones": {
+          "any": {
+            "target": "any",
+            "median": 2,
+            "p90": 3,
+            "expected": 2.09335,
+            "p_within_horizon": 1.0
+          },
+          "common": {
+            "target": "common",
+            "median": 3,
+            "p90": 6,
+            "expected": 3.0702172917001604,
+            "p_within_horizon": 1.0
+          },
+          "uncommon": {
+            "target": "uncommon",
+            "median": 4,
+            "p90": 9,
+            "expected": 4.869470042830619,
+            "p_within_horizon": 1.0
+          },
+          "rare": {
+            "target": "rare",
+            "median": 8,
+            "p90": 14,
+            "expected": 8.893410948137085,
+            "p_within_horizon": 1.0
+          },
+          "ultra": {
+            "target": "ultra",
+            "median": 15,
+            "p90": 26,
+            "expected": 15.933116304427434,
+            "p_within_horizon": 1.0
+          }
+        },
+        "horizon": 400
+      }
+    }
+  },
+  {
+    "name": "run with bad luck",
+    "endpoint": "cosmetics.run",
+    "request": {
+      "start_level": 4,
+      "levels": 3,
+      "bad_luck": 2
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "ruleset_id": "may-2026",
+        "start_level": 4,
+        "bad_luck": 2,
+        "rows": [
+          {
+            "level": 4,
+            "p_any": 0.99,
+            "expected_boxes": 0.99,
+            "expected_by_rarity": {
+              "common": 0.555093,
+              "uncommon": 0.329373,
+              "rare": 0.09296100000000002,
+              "ultra": 0.012572999999999999
+            },
+            "cumulative": {
+              "any": 0.99,
+              "common": 0.555093,
+              "uncommon": 0.329373,
+              "rare": 0.09296099999999996,
+              "ultra": 0.012573000000000056
+            }
+          },
+          {
+            "level": 5,
+            "p_any": 0.5742999999999999,
+            "expected_boxes": 0.5742999999999999,
+            "expected_by_rarity": {
+              "common": 0.27687003000000004,
+              "uncommon": 0.1992821,
+              "rare": 0.07931083,
+              "ultra": 0.01883704
+            },
+            "cumulative": {
+              "any": 1.0,
+              "common": 0.6794251388789999,
+              "uncommon": 0.4635084143299999,
+              "rare": 0.164954218963,
+              "ultra": 0.031174975192000076
+            }
+          },
+          {
+            "level": 6,
+            "p_any": 0.82796125,
+            "expected_boxes": 1.0170675,
+            "expected_by_rarity": {
+              "common": 0.4664536225,
+              "uncommon": 0.34460390500000004,
+              "rare": 0.1542705025,
+              "ultra": 0.05173947
+            },
+            "cumulative": {
+              "any": 1.0,
+              "common": 0.8178356045941456,
+              "uncommon": 0.6431619016857335,
+              "rare": 0.29468489028677736,
+              "ultra": 0.08143595652596369
+            }
+          }
+        ],
+        "milestones": {
+          "any": {
+            "target": "any",
+            "median": 1,
+            "p90": 1,
+            "expected": 1.01,
+            "p_within_horizon": 1.0
+          },
+          "common": {
+            "target": "common",
+            "median": 1,
+            "p90": 5,
+            "expected": 2.1629975543073674,
+            "p_within_horizon": 1.0
+          },
+          "uncommon": {
+            "target": "uncommon",
+            "median": 3,
+            "p90": 6,
+            "expected": 3.1708903885393327,
+            "p_within_horizon": 1.0
+          },
+          "rare": {
+            "target": "rare",
+            "median": 6,
+            "p90": 11,
+            "expected": 6.154081788564035,
+            "p_within_horizon": 1.0
+          },
+          "ultra": {
+            "target": "ultra",
+            "median": 12,
+            "p90": 23,
+            "expected": 12.943860854759613,
+            "p_within_horizon": 1.0
+          }
+        },
+        "horizon": 400
+      }
+    }
+  },
+  {
+    "name": "level below one",
+    "endpoint": "cosmetics.level",
+    "request": {
+      "level": 0
+    },
+    "response": {
+      "ok": false,
+      "error": {
+        "code": "invalid_input",
+        "message": "level must be between 1 and 10000"
+      }
+    }
+  },
+  {
+    "name": "monster catalog",
+    "endpoint": "monsters.catalog",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "base_strength": 5,
+        "max_players": 6,
+        "monsters": [
+          {
+            "id": "gnome",
+            "name": "Gnome",
+            "solo_upgrades": 0,
+            "stunned_upgrades": null,
+            "health": 20,
+            "note": ""
+          },
+          {
+            "id": "banger",
+            "name": "Banger",
+            "solo_upgrades": 0,
+            "stunned_upgrades": 0,
+            "health": 50,
+            "note": "Se suelta solo a los 3 segundos."
+          },
+          {
+            "id": "tick",
+            "name": "Tick",
+            "solo_upgrades": 0,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13."
+          },
+          {
+            "id": "spewer",
+            "name": "Spewer",
+            "solo_upgrades": 4,
+            "stunned_upgrades": null,
+            "health": 65,
+            "note": ""
+          },
+          {
+            "id": "birthday-boy",
+            "name": "Birthday Boy",
+            "solo_upgrades": 4,
+            "stunned_upgrades": 1,
+            "health": 150,
+            "note": ""
+          },
+          {
+            "id": "rugrat",
+            "name": "Rugrat",
+            "solo_upgrades": 4,
+            "stunned_upgrades": null,
+            "health": 150,
+            "note": ""
+          },
+          {
+            "id": "animal",
+            "name": "Animal",
+            "solo_upgrades": 4,
+            "stunned_upgrades": 1,
+            "health": null,
+            "note": "Con 2 o más jugadores se congela y deja 2 a 3 golpes."
+          },
+          {
+            "id": "upscream",
+            "name": "Upscream",
+            "solo_upgrades": 4,
+            "stunned_upgrades": null,
+            "health": 50,
+            "note": ""
+          },
+          {
+            "id": "hidden",
+            "name": "Hidden",
+            "solo_upgrades": 4,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": "El agarre es inconsistente."
+          },
+          {
+            "id": "mentalist",
+            "name": "Mentalist",
+            "solo_upgrades": 4,
+            "stunned_upgrades": null,
+            "health": 150,
+            "note": ""
+          },
+          {
+            "id": "headgrab",
+            "name": "Headgrab",
+            "solo_upgrades": 4,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": ""
+          },
+          {
+            "id": "bowtie",
+            "name": "Bowtie",
+            "solo_upgrades": 7,
+            "stunned_upgrades": 2,
+            "health": null,
+            "note": ""
+          },
+          {
+            "id": "shadow-child",
+            "name": "Shadow Child",
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "health": 150,
+            "note": ""
+          },
+          {
+            "id": "bella",
+            "name": "Bella",
+            "solo_upgrades": 9,
+            "stunned_upgrades": 0,
+            "health": 200,
+            "note": ""
+          },
+          {
+            "id": "chef",
+            "name": "Chef",
+            "solo_upgrades": 9,
+            "stunned_upgrades": 1,
+            "health": 250,
+            "note": ""
+          },
+          {
+            "id": "gambit",
+            "name": "Gambit",
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": ""
+          },
+          {
+            "id": "heart-hugger",
+            "name": "Heart Hugger",
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": ""
+          },
+          {
+            "id": "oogly",
+            "name": "Oogly",
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": ""
+          },
+          {
+            "id": "huntsman",
+            "name": "Huntsman",
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "health": 250,
+            "note": "Dispara si lo agarras en mal momento."
+          },
+          {
+            "id": "reaper",
+            "name": "Reaper",
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "health": 250,
+            "note": ""
+          },
+          {
+            "id": "headman",
+            "name": "Headman",
+            "solo_upgrades": 13,
+            "stunned_upgrades": null,
+            "health": 250,
+            "note": ""
+          },
+          {
+            "id": "robe",
+            "name": "Robe",
+            "solo_upgrades": 13,
+            "stunned_upgrades": null,
+            "health": 250,
+            "note": ""
+          },
+          {
+            "id": "clown",
+            "name": "Clown",
+            "solo_upgrades": 13,
+            "stunned_upgrades": 1,
+            "health": 250,
+            "note": ""
+          },
+          {
+            "id": "trudge",
+            "name": "Trudge",
+            "solo_upgrades": 13,
+            "stunned_upgrades": null,
+            "health": 500,
+            "note": ""
+          },
+          {
+            "id": "cleanup-crew",
+            "name": "Cleanup Crew",
+            "solo_upgrades": 13,
+            "stunned_upgrades": 2,
+            "health": null,
+            "note": "Una tabla nueva lo lista en 12. Se usa 13 por seguridad."
+          },
+          {
+            "id": "loom",
+            "name": "Loom",
+            "solo_upgrades": 13,
+            "stunned_upgrades": null,
+            "health": null,
+            "note": "El daño por caída no le afecta."
+          },
+          {
+            "id": "peeper",
+            "name": "Peeper",
+            "solo_upgrades": null,
+            "stunned_upgrades": null,
+            "health": 30,
+            "note": "No se puede agarrar. Romper la línea de visión."
+          },
+          {
+            "id": "apex-predator",
+            "name": "Apex Predator",
+            "solo_upgrades": null,
+            "stunned_upgrades": 0,
+            "health": 150,
+            "note": "Agarrar al pato lo transforma. No cuenta como levantarlo."
+          },
+          {
+            "id": "elsa",
+            "name": "Elsa",
+            "solo_upgrades": null,
+            "stunned_upgrades": 0,
+            "health": 600,
+            "note": "Se puede acariciar, no levantar."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "lift with one player",
+    "endpoint": "monsters.lift",
+    "request": {
+      "upgrades": [
+        4
+      ]
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "rows": [
+          {
+            "monster_id": "banger",
+            "name": "Banger",
+            "health": 50,
+            "note": "Se suelta solo a los 3 segundos.",
+            "liftable": true,
+            "required": 5,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 4,
+            "missing": 0,
+            "min_players_without_upgrades": 1,
+            "upgrades_from_zero": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "gnome",
+            "name": "Gnome",
+            "health": 20,
+            "note": "",
+            "liftable": true,
+            "required": 5,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 4,
+            "missing": 0,
+            "min_players_without_upgrades": 1,
+            "upgrades_from_zero": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "tick",
+            "name": "Tick",
+            "health": null,
+            "note": "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13.",
+            "liftable": true,
+            "required": 5,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 4,
+            "missing": 0,
+            "min_players_without_upgrades": 1,
+            "upgrades_from_zero": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "animal",
+            "name": "Animal",
+            "health": null,
+            "note": "Con 2 o más jugadores se congela y deja 2 a 3 golpes.",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "birthday-boy",
+            "name": "Birthday Boy",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "headgrab",
+            "name": "Headgrab",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "hidden",
+            "name": "Hidden",
+            "health": null,
+            "note": "El agarre es inconsistente.",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "mentalist",
+            "name": "Mentalist",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "rugrat",
+            "name": "Rugrat",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "spewer",
+            "name": "Spewer",
+            "health": 65,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "upscream",
+            "name": "Upscream",
+            "health": 50,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 9,
+            "can_lift": true,
+            "margin": 0,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "bowtie",
+            "name": "Bowtie",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 12,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -3,
+            "missing": 3,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              7,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 7,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "bella",
+            "name": "Bella",
+            "health": 200,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "chef",
+            "name": "Chef",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "gambit",
+            "name": "Gambit",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "heart-hugger",
+            "name": "Heart Hugger",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "huntsman",
+            "name": "Huntsman",
+            "health": 250,
+            "note": "Dispara si lo agarras en mal momento.",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "oogly",
+            "name": "Oogly",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "reaper",
+            "name": "Reaper",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "shadow-child",
+            "name": "Shadow Child",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "cleanup-crew",
+            "name": "Cleanup Crew",
+            "health": null,
+            "note": "Una tabla nueva lo lista en 12. Se usa 13 por seguridad.",
+            "liftable": true,
+            "required": 18,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -9,
+            "missing": 9,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 7,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "clown",
+            "name": "Clown",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -9,
+            "missing": 9,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "headman",
+            "name": "Headman",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -9,
+            "missing": 9,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "loom",
+            "name": "Loom",
+            "health": null,
+            "note": "El daño por caída no le afecta.",
+            "liftable": true,
+            "required": 18,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -9,
+            "missing": 9,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "robe",
+            "name": "Robe",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -9,
+            "missing": 9,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "trudge",
+            "name": "Trudge",
+            "health": 500,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -9,
+            "missing": 9,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "apex-predator",
+            "name": "Apex Predator",
+            "health": 150,
+            "note": "Agarrar al pato lo transforma. No cuenta como levantarlo.",
+            "liftable": false,
+            "required": null,
+            "combined": 9,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "elsa",
+            "name": "Elsa",
+            "health": 600,
+            "note": "Se puede acariciar, no levantar.",
+            "liftable": false,
+            "required": null,
+            "combined": 9,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "peeper",
+            "name": "Peeper",
+            "health": 30,
+            "note": "No se puede agarrar. Romper la línea de visión.",
+            "liftable": false,
+            "required": null,
+            "combined": 9,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": null,
+            "can_lift_stunned": null
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "lift with a full team",
+    "endpoint": "monsters.lift",
+    "request": {
+      "upgrades": [
+        2,
+        0,
+        5,
+        1,
+        0,
+        3
+      ]
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "rows": [
+          {
+            "monster_id": "banger",
+            "name": "Banger",
+            "health": 50,
+            "note": "Se suelta solo a los 3 segundos.",
+            "liftable": true,
+            "required": 5,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 36,
+            "missing": 0,
+            "min_players_without_upgrades": 1,
+            "upgrades_from_zero": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "gnome",
+            "name": "Gnome",
+            "health": 20,
+            "note": "",
+            "liftable": true,
+            "required": 5,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 36,
+            "missing": 0,
+            "min_players_without_upgrades": 1,
+            "upgrades_from_zero": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "tick",
+            "name": "Tick",
+            "health": null,
+            "note": "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13.",
+            "liftable": true,
+            "required": 5,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 36,
+            "missing": 0,
+            "min_players_without_upgrades": 1,
+            "upgrades_from_zero": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "animal",
+            "name": "Animal",
+            "health": null,
+            "note": "Con 2 o más jugadores se congela y deja 2 a 3 golpes.",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "birthday-boy",
+            "name": "Birthday Boy",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "headgrab",
+            "name": "Headgrab",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "hidden",
+            "name": "Hidden",
+            "health": null,
+            "note": "El agarre es inconsistente.",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "mentalist",
+            "name": "Mentalist",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "rugrat",
+            "name": "Rugrat",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "spewer",
+            "name": "Spewer",
+            "health": 65,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "upscream",
+            "name": "Upscream",
+            "health": 50,
+            "note": "",
+            "liftable": true,
+            "required": 9,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 32,
+            "missing": 0,
+            "min_players_without_upgrades": 2,
+            "upgrades_from_zero": [
+              4,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "bowtie",
+            "name": "Bowtie",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 12,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 29,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              7,
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 7,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "bella",
+            "name": "Bella",
+            "health": 200,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "chef",
+            "name": "Chef",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "gambit",
+            "name": "Gambit",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "heart-hugger",
+            "name": "Heart Hugger",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "huntsman",
+            "name": "Huntsman",
+            "health": 250,
+            "note": "Dispara si lo agarras en mal momento.",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "oogly",
+            "name": "Oogly",
+            "health": null,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "reaper",
+            "name": "Reaper",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "shadow-child",
+            "name": "Shadow Child",
+            "health": 150,
+            "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "cleanup-crew",
+            "name": "Cleanup Crew",
+            "health": null,
+            "note": "Una tabla nueva lo lista en 12. Se usa 13 por seguridad.",
+            "liftable": true,
+            "required": 18,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 23,
+            "missing": 0,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 7,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "clown",
+            "name": "Clown",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 23,
+            "missing": 0,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 6,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "headman",
+            "name": "Headman",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 23,
+            "missing": 0,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "loom",
+            "name": "Loom",
+            "health": null,
+            "note": "El daño por caída no le afecta.",
+            "liftable": true,
+            "required": 18,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 23,
+            "missing": 0,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "robe",
+            "name": "Robe",
+            "health": 250,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 23,
+            "missing": 0,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "trudge",
+            "name": "Trudge",
+            "health": 500,
+            "note": "",
+            "liftable": true,
+            "required": 18,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 23,
+            "missing": 0,
+            "min_players_without_upgrades": 4,
+            "upgrades_from_zero": [
+              13,
+              8,
+              3,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": null,
+            "can_lift_stunned": null
+          },
+          {
+            "monster_id": "apex-predator",
+            "name": "Apex Predator",
+            "health": 150,
+            "note": "Agarrar al pato lo transforma. No cuenta como levantarlo.",
+            "liftable": false,
+            "required": null,
+            "combined": 41,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "elsa",
+            "name": "Elsa",
+            "health": 600,
+            "note": "Se puede acariciar, no levantar.",
+            "liftable": false,
+            "required": null,
+            "combined": 41,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true
+          },
+          {
+            "monster_id": "peeper",
+            "name": "Peeper",
+            "health": 30,
+            "note": "No se puede agarrar. Romper la línea de visión.",
+            "liftable": false,
+            "required": null,
+            "combined": 41,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": null,
+            "can_lift_stunned": null
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "lift without players",
+    "endpoint": "monsters.lift",
+    "request": {
+      "upgrades": []
+    },
+    "response": {
+      "ok": false,
+      "error": {
+        "code": "invalid_input",
+        "message": "players must be between 1 and 6"
+      }
+    }
+  },
+  {
+    "name": "upgrade catalog",
+    "endpoint": "upgrades.catalog",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "upgrades": [
+          {
+            "id": "strength",
+            "name": "Strength",
+            "cap": 2,
+            "permanent": false
+          },
+          {
+            "id": "range",
+            "name": "Range",
+            "cap": 3,
+            "permanent": false
+          },
+          {
+            "id": "stamina",
+            "name": "Stamina",
+            "cap": 4,
+            "permanent": false
+          },
+          {
+            "id": "sprint",
+            "name": "Sprint",
+            "cap": 3,
+            "permanent": false
+          },
+          {
+            "id": "crouch-rest",
+            "name": "Crouch Rest",
+            "cap": 3,
+            "permanent": false
+          },
+          {
+            "id": "health",
+            "name": "Health",
+            "cap": 2,
+            "permanent": false
+          },
+          {
+            "id": "map-player-count",
+            "name": "Map Player Count",
+            "cap": 1,
+            "permanent": true
+          },
+          {
+            "id": "tumble-launch",
+            "name": "Tumble Launch",
+            "cap": 1,
+            "permanent": false
+          },
+          {
+            "id": "tumble-wings",
+            "name": "Tumble Wings",
+            "cap": 1,
+            "permanent": false
+          },
+          {
+            "id": "tumble-climb",
+            "name": "Tumble Climb",
+            "cap": 1,
+            "permanent": false
+          },
+          {
+            "id": "extra-jump",
+            "name": "Extra Jump",
+            "cap": 1,
+            "permanent": false
+          },
+          {
+            "id": "death-head-battery",
+            "name": "Death Head Battery",
+            "cap": 1,
+            "permanent": false
+          }
+        ],
+        "total_units": 23,
+        "shop": {
+          "id": "v0.4",
+          "label": "Tienda actual (v0.4.x)",
+          "shop_slots": 10,
+          "truck_capacity": 16,
+          "reroll_step": 5000,
+          "selection_model": "uniform over available units (assumption)",
+          "note": "El primer reroll cuesta 5000 y cada siguiente suma otros 5000."
+        }
+      }
+    }
+  },
+  {
+    "name": "fresh shop",
+    "endpoint": "upgrades.shop",
+    "request": {},
+    "response": {
+      "ok": true,
+      "data": {
+        "slots": 10,
+        "pool_total": 23,
+        "held_total": 0,
+        "truck_capacity": 16,
+        "truck_units": 0,
+        "truck_free": 16,
+        "void_units": 0,
+        "guaranteed": false,
+        "rows": [
+          {
+            "upgrade_id": "strength",
+            "name": "Strength",
+            "cap": 2,
+            "held": 0,
+            "pool": 2,
+            "p_appears": 0.691699604743083,
+            "expected_units": 0.8695652173913043,
+            "certain": false
+          },
+          {
+            "upgrade_id": "range",
+            "name": "Range",
+            "cap": 3,
+            "held": 0,
+            "pool": 3,
+            "p_appears": 0.8385093167701864,
+            "expected_units": 1.3043478260869565,
+            "certain": false
+          },
+          {
+            "upgrade_id": "stamina",
+            "name": "Stamina",
+            "cap": 4,
+            "held": 0,
+            "pool": 4,
+            "p_appears": 0.9192546583850931,
+            "expected_units": 1.7391304347826086,
+            "certain": false
+          },
+          {
+            "upgrade_id": "sprint",
+            "name": "Sprint",
+            "cap": 3,
+            "held": 0,
+            "pool": 3,
+            "p_appears": 0.8385093167701864,
+            "expected_units": 1.3043478260869565,
+            "certain": false
+          },
+          {
+            "upgrade_id": "crouch-rest",
+            "name": "Crouch Rest",
+            "cap": 3,
+            "held": 0,
+            "pool": 3,
+            "p_appears": 0.8385093167701864,
+            "expected_units": 1.3043478260869565,
+            "certain": false
+          },
+          {
+            "upgrade_id": "health",
+            "name": "Health",
+            "cap": 2,
+            "held": 0,
+            "pool": 2,
+            "p_appears": 0.691699604743083,
+            "expected_units": 0.8695652173913043,
+            "certain": false
+          },
+          {
+            "upgrade_id": "map-player-count",
+            "name": "Map Player Count",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.4347826086956522,
+            "expected_units": 0.43478260869565216,
+            "certain": false
+          },
+          {
+            "upgrade_id": "tumble-launch",
+            "name": "Tumble Launch",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.4347826086956522,
+            "expected_units": 0.43478260869565216,
+            "certain": false
+          },
+          {
+            "upgrade_id": "tumble-wings",
+            "name": "Tumble Wings",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.4347826086956522,
+            "expected_units": 0.43478260869565216,
+            "certain": false
+          },
+          {
+            "upgrade_id": "tumble-climb",
+            "name": "Tumble Climb",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.4347826086956522,
+            "expected_units": 0.43478260869565216,
+            "certain": false
+          },
+          {
+            "upgrade_id": "extra-jump",
+            "name": "Extra Jump",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.4347826086956522,
+            "expected_units": 0.43478260869565216,
+            "certain": false
+          },
+          {
+            "upgrade_id": "death-head-battery",
+            "name": "Death Head Battery",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.4347826086956522,
+            "expected_units": 0.43478260869565216,
+            "certain": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "shop with units held",
+    "endpoint": "upgrades.shop",
+    "request": {
+      "held": {
+        "strength": 1,
+        "range": 2
+      },
+      "consumed": [
+        "stamina"
+      ]
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "slots": 10,
+        "pool_total": 20,
+        "held_total": 3,
+        "truck_capacity": 16,
+        "truck_units": 3,
+        "truck_free": 13,
+        "void_units": 0,
+        "guaranteed": false,
+        "rows": [
+          {
+            "upgrade_id": "strength",
+            "name": "Strength",
+            "cap": 2,
+            "held": 1,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "range",
+            "name": "Range",
+            "cap": 3,
+            "held": 2,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "stamina",
+            "name": "Stamina",
+            "cap": 4,
+            "held": 0,
+            "pool": 4,
+            "p_appears": 0.956656346749226,
+            "expected_units": 2.0,
+            "certain": false
+          },
+          {
+            "upgrade_id": "sprint",
+            "name": "Sprint",
+            "cap": 3,
+            "held": 0,
+            "pool": 3,
+            "p_appears": 0.8947368421052632,
+            "expected_units": 1.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "crouch-rest",
+            "name": "Crouch Rest",
+            "cap": 3,
+            "held": 0,
+            "pool": 3,
+            "p_appears": 0.8947368421052632,
+            "expected_units": 1.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "health",
+            "name": "Health",
+            "cap": 2,
+            "held": 0,
+            "pool": 2,
+            "p_appears": 0.7631578947368421,
+            "expected_units": 1.0,
+            "certain": false
+          },
+          {
+            "upgrade_id": "map-player-count",
+            "name": "Map Player Count",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "tumble-launch",
+            "name": "Tumble Launch",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "tumble-wings",
+            "name": "Tumble Wings",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "tumble-climb",
+            "name": "Tumble Climb",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "extra-jump",
+            "name": "Extra Jump",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          },
+          {
+            "upgrade_id": "death-head-battery",
+            "name": "Death Head Battery",
+            "cap": 1,
+            "held": 0,
+            "pool": 1,
+            "p_appears": 0.5,
+            "expected_units": 0.5,
+            "certain": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "stash plan",
+    "endpoint": "upgrades.stash",
+    "request": {
+      "wanted": [
+        "strength",
+        "health"
+      ]
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "stash": {
+          "stamina": 4,
+          "crouch-rest": 3,
+          "range": 3,
+          "sprint": 3
+        },
+        "units_to_stash": 13,
+        "held_after": 13,
+        "truck_units": 13,
+        "void_units": 0,
+        "all_wanted_guaranteed": true,
+        "filler": {
+          "map-player-count": 1,
+          "tumble-launch": 1,
+          "tumble-wings": 1,
+          "tumble-climb": 1,
+          "extra-jump": 1,
+          "death-head-battery": 1
+        },
+        "after": {
+          "slots": 10,
+          "pool_total": 10,
+          "held_total": 13,
+          "truck_capacity": 16,
+          "truck_units": 13,
+          "truck_free": 3,
+          "void_units": 0,
+          "guaranteed": true,
+          "rows": [
+            {
+              "upgrade_id": "strength",
+              "name": "Strength",
+              "cap": 2,
+              "held": 0,
+              "pool": 2,
+              "p_appears": 1.0,
+              "expected_units": 2.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "range",
+              "name": "Range",
+              "cap": 3,
+              "held": 3,
+              "pool": 0,
+              "p_appears": 0.0,
+              "expected_units": 0.0,
+              "certain": false
+            },
+            {
+              "upgrade_id": "stamina",
+              "name": "Stamina",
+              "cap": 4,
+              "held": 4,
+              "pool": 0,
+              "p_appears": 0.0,
+              "expected_units": 0.0,
+              "certain": false
+            },
+            {
+              "upgrade_id": "sprint",
+              "name": "Sprint",
+              "cap": 3,
+              "held": 3,
+              "pool": 0,
+              "p_appears": 0.0,
+              "expected_units": 0.0,
+              "certain": false
+            },
+            {
+              "upgrade_id": "crouch-rest",
+              "name": "Crouch Rest",
+              "cap": 3,
+              "held": 3,
+              "pool": 0,
+              "p_appears": 0.0,
+              "expected_units": 0.0,
+              "certain": false
+            },
+            {
+              "upgrade_id": "health",
+              "name": "Health",
+              "cap": 2,
+              "held": 0,
+              "pool": 2,
+              "p_appears": 1.0,
+              "expected_units": 2.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "map-player-count",
+              "name": "Map Player Count",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 1.0,
+              "expected_units": 1.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "tumble-launch",
+              "name": "Tumble Launch",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 1.0,
+              "expected_units": 1.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "tumble-wings",
+              "name": "Tumble Wings",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 1.0,
+              "expected_units": 1.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "tumble-climb",
+              "name": "Tumble Climb",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 1.0,
+              "expected_units": 1.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "extra-jump",
+              "name": "Extra Jump",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 1.0,
+              "expected_units": 1.0,
+              "certain": true
+            },
+            {
+              "upgrade_id": "death-head-battery",
+              "name": "Death Head Battery",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 1.0,
+              "expected_units": 1.0,
+              "certain": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "use units",
+    "endpoint": "upgrades.use",
+    "request": {
+      "used": {
+        "strength": 1
+      },
+      "held": {
+        "strength": 2,
+        "range": 1
+      }
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "held": {
+          "strength": 1,
+          "range": 1
+        },
+        "consumed": [],
+        "units_used": 1,
+        "released_from_void": 0,
+        "void_after": 0,
+        "after": {
+          "slots": 10,
+          "pool_total": 21,
+          "held_total": 2,
+          "truck_capacity": 16,
+          "truck_units": 2,
+          "truck_free": 14,
+          "void_units": 0,
+          "guaranteed": false,
+          "rows": [
+            {
+              "upgrade_id": "strength",
+              "name": "Strength",
+              "cap": 2,
+              "held": 1,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            },
+            {
+              "upgrade_id": "range",
+              "name": "Range",
+              "cap": 3,
+              "held": 1,
+              "pool": 2,
+              "p_appears": 0.7380952380952381,
+              "expected_units": 0.9523809523809523,
+              "certain": false
+            },
+            {
+              "upgrade_id": "stamina",
+              "name": "Stamina",
+              "cap": 4,
+              "held": 0,
+              "pool": 4,
+              "p_appears": 0.9448621553884712,
+              "expected_units": 1.9047619047619047,
+              "certain": false
+            },
+            {
+              "upgrade_id": "sprint",
+              "name": "Sprint",
+              "cap": 3,
+              "held": 0,
+              "pool": 3,
+              "p_appears": 0.8759398496240601,
+              "expected_units": 1.4285714285714286,
+              "certain": false
+            },
+            {
+              "upgrade_id": "crouch-rest",
+              "name": "Crouch Rest",
+              "cap": 3,
+              "held": 0,
+              "pool": 3,
+              "p_appears": 0.8759398496240601,
+              "expected_units": 1.4285714285714286,
+              "certain": false
+            },
+            {
+              "upgrade_id": "health",
+              "name": "Health",
+              "cap": 2,
+              "held": 0,
+              "pool": 2,
+              "p_appears": 0.7380952380952381,
+              "expected_units": 0.9523809523809523,
+              "certain": false
+            },
+            {
+              "upgrade_id": "map-player-count",
+              "name": "Map Player Count",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            },
+            {
+              "upgrade_id": "tumble-launch",
+              "name": "Tumble Launch",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            },
+            {
+              "upgrade_id": "tumble-wings",
+              "name": "Tumble Wings",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            },
+            {
+              "upgrade_id": "tumble-climb",
+              "name": "Tumble Climb",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            },
+            {
+              "upgrade_id": "extra-jump",
+              "name": "Extra Jump",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            },
+            {
+              "upgrade_id": "death-head-battery",
+              "name": "Death Head Battery",
+              "cap": 1,
+              "held": 0,
+              "pool": 1,
+              "p_appears": 0.47619047619047616,
+              "expected_units": 0.47619047619047616,
+              "certain": false
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "locate units",
+    "endpoint": "upgrades.locate",
+    "request": {
+      "bought": [
+        "strength",
+        "range",
+        "range"
+      ]
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "truck": [
+          "strength",
+          "range",
+          "range"
+        ],
+        "void": []
+      }
+    }
+  },
+  {
+    "name": "reroll price",
+    "endpoint": "upgrades.reroll",
+    "request": {
+      "rerolls": 3
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "rerolls": 3,
+        "total_cost": 30000
+      }
+    }
+  },
+  {
+    "name": "spawning rules",
+    "endpoint": "spawning.rules",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "bands": [
+          [
+            1,
+            2,
+            {
+              "tier1": 1,
+              "tier2": 0,
+              "tier3": 1
+            }
+          ],
+          [
+            3,
+            5,
+            {
+              "tier1": 1,
+              "tier2": 1,
+              "tier3": 1
+            }
+          ],
+          [
+            6,
+            8,
+            {
+              "tier1": 2,
+              "tier2": 2,
+              "tier3": 2
+            }
+          ],
+          [
+            9,
+            10,
+            {
+              "tier1": 2,
+              "tier2": 3,
+              "tier3": 2
+            }
+          ],
+          [
+            11,
+            null,
+            {
+              "tier1": 2,
+              "tier2": 3,
+              "tier3": 3
+            }
+          ]
+        ],
+        "group_chance": 0.032,
+        "despawn_first_part": [
+          180,
+          240
+        ],
+        "despawn_second_part": [
+          20,
+          40
+        ],
+        "despawn_bubble_units": 20,
+        "early_level_minutes": 10,
+        "late_level_minutes": 50,
+        "early_respawn": [
+          240,
+          300
+        ],
+        "late_respawn": [
+          1,
+          1
+        ],
+        "kill_multiplier": 3,
+        "final_extraction_respawn": 1,
+        "noise_seconds_removed_per_second": 5,
+        "respawn_distance_units": [
+          18,
+          34
+        ],
+        "sources": [
+          {
+            "name": "alter ego, REPO Spawning, Vision, and Noise Detection Explained",
+            "url": "https://www.youtube.com/watch?v=GyCMcu3uPIE",
+            "note": "Enemigos por nivel, grupos, despawn, respawn y ruido."
+          },
+          {
+            "name": "itemlevel.net, Spawning, Vision and Noise Detection Explained",
+            "url": "",
+            "note": "Mayo de 2025. Coincide en las cantidades por tier."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "outlook for level seven",
+    "endpoint": "spawning.outlook",
+    "request": {
+      "level": 7
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "level": 7,
+        "counts": {
+          "tier1": 2,
+          "tier2": 2,
+          "tier3": 2
+        },
+        "group_chance": 0.032,
+        "expected_groups": 0.064,
+        "p_any_group": 0.06297600000000003
+      }
+    }
+  },
+  {
+    "name": "outlook for level twelve",
+    "endpoint": "spawning.outlook",
+    "request": {
+      "level": 12
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "level": 12,
+        "counts": {
+          "tier1": 2,
+          "tier2": 3,
+          "tier3": 3
+        },
+        "group_chance": 0.032,
+        "expected_groups": 0.096,
+        "p_any_group": 0.09296076800000008
+      }
+    }
+  },
+  {
+    "name": "despawn window",
+    "endpoint": "spawning.despawn",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "low": 200,
+        "high": 280
+      }
+    }
+  },
+  {
+    "name": "respawn after a kill",
+    "endpoint": "spawning.respawn",
+    "request": {
+      "minutes_on_level": 20,
+      "killed": true,
+      "noise_seconds": 10
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "known": false,
+        "low": null,
+        "high": null,
+        "reason": "the video states the timer up to 10 and past 50 minutes"
+      }
+    }
+  },
+  {
+    "name": "respawn late",
+    "endpoint": "spawning.respawn",
+    "request": {
+      "minutes_on_level": 55,
+      "killed": false
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "known": true,
+        "low": 1,
+        "high": 1,
+        "reason": "over 50 minutes"
+      }
+    }
+  },
+  {
+    "name": "sources",
+    "endpoint": "meta.sources",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "cosmetics": [
+          {
+            "name": "R.E.P.O. wiki, Cosmetic Boxes",
+            "url": "https://repo-2025horror.fandom.com/wiki/Cosmetic_Boxes",
+            "note": "Tablas del parche de mayo de 2026, espejo de la guia de FiziqR."
+          },
+          {
+            "name": "FiziqR, guia en Steam sobre el juego descompilado",
+            "url": "",
+            "note": "Origen de las tablas de aparicion y rareza."
+          },
+          {
+            "name": "SiniK, R.E.P.O. Cosmetics Probabilities And Farming Strategies",
+            "url": "https://www.youtube.com/watch?v=cYPnWvc24v4",
+            "note": "Metodo de calculo con la regla del complemento."
+          }
+        ],
+        "monsters": [
+          {
+            "name": "itemlevel.net, How much strength do you need to pick up each monster",
+            "url": "",
+            "note": "Tabla principal, 1 de octubre de 2026, 29 monstruos."
+          },
+          {
+            "name": "Deltia's Gaming y gamerblurb, tablas de fuerza",
+            "url": "",
+            "note": "Fuerza con el monstruo aturdido y algunos valores sueltos."
+          },
+          {
+            "name": "R.E.P.O. wiki, Monsters",
+            "url": "https://repo-2025horror.fandom.com/wiki/Monsters",
+            "note": "Vida de los monstruos donde la tabla se pudo leer."
+          },
+          {
+            "name": "pcgamer y fantime",
+            "url": "",
+            "note": "Vida de algunos monstruos."
+          }
+        ],
+        "upgrades": [
+          {
+            "name": "R.E.P.O. wiki, Purchased Items y Upgrades",
+            "url": "https://repo-2025horror.fandom.com/wiki/Upgrades",
+            "note": "Limites por mejora y reglas de la tienda."
+          },
+          {
+            "name": "SiniK, Why You Should NOT Use Your Upgrades On R.E.P.O",
+            "url": "https://www.youtube.com/watch?v=xYEGPmfww9A",
+            "note": "Fondo comun, tienda, camion y void, y la manipulacion de mejoras."
+          }
+        ],
+        "spawning": [
+          {
+            "name": "alter ego, REPO Spawning, Vision, and Noise Detection Explained",
+            "url": "https://www.youtube.com/watch?v=GyCMcu3uPIE",
+            "note": "Enemigos por nivel, grupos, despawn, respawn y ruido."
+          },
+          {
+            "name": "itemlevel.net, Spawning, Vision and Noise Detection Explained",
+            "url": "",
+            "note": "Mayo de 2025. Coincide en las cantidades por tier."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "unknown endpoint",
+    "endpoint": "nothing.here",
+    "request": null,
+    "response": {
+      "ok": false,
+      "error": {
+        "code": "unknown_endpoint",
+        "message": "unknown endpoint 'nothing.here'"
+      }
+    }
+  },
+  {
+    "name": "request is not an object",
+    "endpoint": "monsters.lift",
+    "request": [
+      1,
+      2
+    ],
+    "response": {
+      "ok": false,
+      "error": {
+        "code": "invalid_input",
+        "message": "request body must be an object"
+      }
+    }
+  }
+]
