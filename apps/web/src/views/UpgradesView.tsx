@@ -1,22 +1,27 @@
-import type { ShopOutlook, Upgrade } from "@repo-lab/contract";
-import { useMemo, useState } from "react";
+import type { ShopOutlook, StashPlan, Upgrade } from "@repo-lab/contract";
+import { Info, Star } from "lucide-react";
+import { useId, useMemo, useState } from "react";
 import { NumberField } from "../components/NumberField";
-import { GlyphTile } from "../icons";
 import { Meter, Notice, Outcome, Panel, Stat, Stats } from "../components/ui";
 import { decimal, integer, percent } from "../format";
+import type { CallResult } from "../hooks/useCall";
 import { useCall } from "../hooks/useCall";
+import { GlyphTile, UpgradeArt, iconUrl } from "../icons";
 
 type Counts = Record<string, number>;
+type Row = ShopOutlook["rows"][number];
 
 /** The engine reads a missing id as zero, so zeros are left out and the request stays small. */
 function compact(counts: Counts): Counts {
   return Object.fromEntries(Object.entries(counts).filter(([, count]) => count > 0));
 }
 
-function listUnits(counts: Counts, names: Map<string, string>): string {
-  return Object.entries(counts)
-    .map(([id, count]) => `${names.get(id) ?? id} x${count}`)
-    .join(", ");
+function toggle(list: string[], id: string): string[] {
+  return list.includes(id) ? list.filter((item) => item !== id) : [...list, id];
+}
+
+function units(count: number): string {
+  return `${integer(count)} ${count === 1 ? "unidad" : "unidades"}`;
 }
 
 export function UpgradesView() {
@@ -42,123 +47,53 @@ export function UpgradesView() {
   const use = useCall("upgrades.use", anyUsed ? { used: compact(usable), held: heldRequest, consumed } : null);
   const reroll = useCall("upgrades.reroll", { rerolls });
 
-  const toggle = (list: string[], id: string): string[] =>
-    list.includes(id) ? list.filter((item) => item !== id) : [...list, id];
+  // With a plan the cards show the shop as it will be after keeping the units, otherwise as it is now.
+  const plan = wanted.length > 0 ? stash.data : undefined;
+  const outlook = plan ? plan.after : shop.data;
+  const rows = useMemo(() => new Map((outlook?.rows ?? []).map((row) => [row.upgrade_id, row])), [outlook]);
 
   return (
-    <div className="workspace">
+    <div className="upgrades">
+      {catalog.error ? (
+        <Notice tone="error" title="No se pudo leer el catálogo">
+          {catalog.error.message}
+        </Notice>
+      ) : null}
+
+      <PlanSummary wanted={wanted} stash={stash} outlook={outlook} names={names} slots={catalog.data?.shop.shop_slots} />
+
       <Panel
-        className="controls"
-        title="Lo que tienes"
-        hint="Unidades compradas que todavía no usaste. Cuentan como en circulación y la tienda no las vuelve a ofrecer."
+        title="Tus mejoras"
+        hint="La estrella marca las que quieres ver en la tienda. El contador es cuántas unidades compradas tienes sin usar."
       >
-        {catalog.error ? <Notice tone="error" title="No se pudo leer el catálogo">{catalog.error.message}</Notice> : null}
-        <div className="fields-grid">
+        <ul className="ugrid">
           {upgrades.map((upgrade) => (
-            <NumberField
-              key={upgrade.id}
-              icon={<GlyphTile kind="upgrade" id={upgrade.id} size={24} />}
-              label={`${upgrade.name} (tope ${upgrade.cap})`}
-              value={held[upgrade.id] ?? 0}
-              min={0}
-              max={upgrade.cap}
-              onChange={(next) => {
-                setHeld({ ...held, [upgrade.id]: next });
-              }}
-            />
-          ))}
-        </div>
-        {upgrades.some((u) => u.permanent) ? (
-          <div className="field">
-            <span className="label">Ya usadas y permanentes</span>
-            <div className="chips">
-              {upgrades
-                .filter((u) => u.permanent)
-                .map((upgrade) => (
-                  <button
-                    key={upgrade.id}
-                    type="button"
-                    className="chip"
-                    aria-pressed={consumed.includes(upgrade.id)}
-                    onClick={() => {
-                      setConsumed(toggle(consumed, upgrade.id));
-                    }}
-                  >
-                    <GlyphTile kind="upgrade" id={upgrade.id} size={20} />
-                    {upgrade.name}
-                  </button>
-                ))}
-            </div>
-            <p className="hint">Una mejora permanente no vuelve al fondo común una vez usada.</p>
-          </div>
-        ) : null}
-      </Panel>
-
-      <div className="stack">
-        <Panel
-          title="La tienda"
-          hint={
-            catalog.data
-              ? `La tienda muestra ${catalog.data.shop.shop_slots} unidades sacadas del fondo común, y se asume que cada unidad disponible tiene la misma probabilidad.`
-              : undefined
-          }
-        >
-          <Outcome result={shop}>{(data) => <ShopTable data={data} />}</Outcome>
-        </Panel>
-
-        <Panel
-          title="Controlar la tienda"
-          hint="Elige qué mejoras quieres ver. Se te dice qué unidades comprar y guardar para que el fondo común quede del tamaño de la tienda."
-        >
-          <div className="chips">
-            {upgrades.map((upgrade) => (
-              <WantedChip
-                key={upgrade.id}
+            <li key={upgrade.id}>
+              <UpgradeCard
                 upgrade={upgrade}
-                pressed={wanted.includes(upgrade.id)}
-                onToggle={() => {
+                held={held[upgrade.id] ?? 0}
+                buy={plan?.stash[upgrade.id] ?? 0}
+                row={rows.get(upgrade.id)}
+                wanted={wanted.includes(upgrade.id)}
+                plan={plan}
+                consumed={consumed.includes(upgrade.id)}
+                onHeld={(next) => {
+                  setHeld({ ...held, [upgrade.id]: next });
+                }}
+                onWanted={() => {
                   setWanted(toggle(wanted, upgrade.id));
                 }}
+                onConsumed={() => {
+                  setConsumed(toggle(consumed, upgrade.id));
+                }}
               />
-            ))}
-          </div>
-          {wanted.length === 0 ? (
-            <p className="muted">Marca al menos una mejora para ver el plan.</p>
-          ) : (
-            <Outcome result={stash}>
-              {(plan) => (
-                <>
-                  <Stats>
-                    <Stat label="Unidades a guardar" value={integer(plan.units_to_stash)} />
-                    <Stat label="En el camión" value={integer(plan.truck_units)} />
-                    <Stat label="En el void" value={integer(plan.void_units)} tone={plan.void_units > 0 ? "bad" : undefined} />
-                    <Stat
-                      label="Salen todas las que quieres"
-                      value={plan.all_wanted_guaranteed ? "Sí" : "No"}
-                      tone={plan.all_wanted_guaranteed ? "good" : "bad"}
-                    />
-                  </Stats>
-                  {plan.units_to_stash > 0 ? (
-                    <p>
-                      <strong>Compra y guarda: </strong>
-                      <span className="num">{listUnits(plan.stash, names)}</span>
-                    </p>
-                  ) : (
-                    <p className="muted">Con lo que tienes ya no hace falta guardar nada.</p>
-                  )}
-                  {!plan.all_wanted_guaranteed ? (
-                    <Notice title="La tienda no queda asegurada">
-                      Las mejoras que quieres son más que los espacios de la tienda, así que algunas pueden no aparecer.
-                      Las probabilidades reales siguen abajo.
-                    </Notice>
-                  ) : null}
-                  <ShopTable data={plan.after} />
-                </>
-              )}
-            </Outcome>
-          )}
-        </Panel>
+            </li>
+          ))}
+        </ul>
+      </Panel>
 
+      <details className="tools">
+        <summary>Más herramientas: usar mejoras y recargar la tienda</summary>
         <div className="pair">
           <Panel
             title="Usar mejoras"
@@ -171,6 +106,7 @@ export function UpgradesView() {
                   .map((upgrade) => (
                     <NumberField
                       key={upgrade.id}
+                      icon={<GlyphTile kind="upgrade" id={upgrade.id} size={24} />}
                       label={`Usar ${upgrade.name}`}
                       value={Math.min(used[upgrade.id] ?? 0, held[upgrade.id] ?? 0)}
                       min={0}
@@ -182,7 +118,7 @@ export function UpgradesView() {
                   ))}
               </div>
             ) : (
-              <p className="muted">Anota unidades en Lo que tienes para poder usarlas aquí.</p>
+              <p className="muted">Anota unidades en Tus mejoras para poder usarlas aquí.</p>
             )}
             {anyUsed ? (
               <Outcome result={use}>
@@ -212,79 +148,285 @@ export function UpgradesView() {
             </Outcome>
           </Panel>
         </div>
-      </div>
+      </details>
     </div>
   );
 }
 
-function WantedChip({
-  upgrade,
-  pressed,
+function InfoButton({
+  open,
+  controls,
+  label,
   onToggle,
 }: {
-  upgrade: Upgrade;
-  pressed: boolean;
+  open: boolean;
+  controls: string;
+  label: string;
   onToggle(): void;
 }) {
   return (
-    <button type="button" className="chip" aria-pressed={pressed} onClick={onToggle}>
-      <GlyphTile kind="upgrade" id={upgrade.id} size={20} />
-      {upgrade.name}
+    <button type="button" className="info" aria-expanded={open} aria-controls={controls} aria-label={label} onClick={onToggle}>
+      <Info aria-hidden size={20} />
     </button>
+  );
+}
+
+/** The answer first: how many units to buy and keep, as a shopping list, with the numbers behind (i). */
+function PlanSummary({
+  wanted,
+  stash,
+  outlook,
+  names,
+  slots,
+}: {
+  wanted: string[];
+  stash: CallResult<StashPlan>;
+  outlook: ShopOutlook | undefined;
+  names: Map<string, string>;
+  slots: number | undefined;
+}) {
+  const [open, setOpen] = useState(false);
+  const infoId = useId();
+  const state = wanted.length === 0 || !stash.data ? "idle" : stash.data.all_wanted_guaranteed ? "ok" : "bad";
+
+  return (
+    <section className="panel plan" data-state={state}>
+      <header className="plan__header">
+        <h2>Qué comprar</h2>
+        <InfoButton
+          open={open}
+          controls={infoId}
+          label="Cómo se calcula el plan"
+          onToggle={() => {
+            setOpen(!open);
+          }}
+        />
+      </header>
+      {wanted.length === 0 ? (
+        <p className="plan__lead muted">
+          Marca con la estrella las mejoras que quieres ver en la tienda y te digo cuántas comprar de cada una.
+        </p>
+      ) : (
+        <Outcome result={stash}>{(plan) => <PlanAnswer plan={plan} wanted={wanted.length} names={names} />}</Outcome>
+      )}
+      {open ? (
+        <div id={infoId} className="plan__info">
+          <p className="muted">
+            {slots === undefined ? "La tienda" : `La tienda muestra ${units(slots)}`} sacadas al azar del fondo común: todas las
+            mejoras en circulación menos las que tú tienes. Si el fondo común queda del tamaño de la tienda, salen todas
+            seguro. Por eso se compran y se guardan unidades de relleno, y lo que no cabe en el camión se queda en el void.
+          </p>
+          {outlook ? (
+            <Stats>
+              <Stat label="Fondo común" value={integer(outlook.pool_total)} />
+              <Stat label="Unidades tuyas" value={integer(outlook.held_total)} />
+              <Stat label="Camión" value={`${integer(outlook.truck_units)} de ${integer(outlook.truck_capacity)}`} />
+              <Stat label="Void" value={integer(outlook.void_units)} tone={outlook.void_units > 0 ? "bad" : undefined} />
+            </Stats>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+function PlanAnswer({ plan, wanted, names }: { plan: StashPlan; wanted: number; names: Map<string, string> }) {
+  const entries = Object.entries(plan.stash).filter(([, count]) => count > 0);
+  const total = plan.units_to_stash;
+  const ones = wanted === 1;
+  let lead: string;
+  if (plan.all_wanted_guaranteed) {
+    const sale = ones ? "te sale la que quieres" : `te salen las ${integer(wanted)} que quieres`;
+    lead = total > 0 ? `Compra y guarda ${units(total)} y ${sale}.` : `Ya ${sale}, no hace falta guardar nada.`;
+  } else {
+    lead = total > 0 ? `Compra y guarda ${units(total)}, aun así no salen todas.` : "Con lo que tienes no se pueden asegurar todas.";
+  }
+  return (
+    <>
+      <p className="plan__lead">
+        <strong>{lead}</strong>
+      </p>
+      {entries.length > 0 ? (
+        <ul className="shopping" aria-label="Lista de compra">
+          {entries.map(([id, count]) => (
+            <li key={id} className="shopitem">
+              <GlyphTile kind="upgrade" id={id} size={32} />
+              <span>{names.get(id) ?? id}</span>
+              <b className="num">{`×${count}`}</b>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {!plan.all_wanted_guaranteed ? (
+        <Notice title="La tienda no queda asegurada">
+          Las mejoras que quieres son más que los espacios de la tienda, así que algunas pueden no aparecer. El porcentaje de
+          cada tarjeta es su probabilidad real.
+        </Notice>
+      ) : null}
+    </>
+  );
+}
+
+type Tone = "buy" | "good" | "bad" | "muted";
+
+function statusOf(
+  buy: number,
+  wanted: boolean,
+  plan: StashPlan | undefined,
+  row: Row | undefined,
+): { tone: Tone; text: string } | null {
+  if (buy > 0) return { tone: "buy", text: `Comprar y guardar ${integer(buy)}` };
+  if (row && row.pool === 0) return { tone: wanted ? "bad" : "muted", text: "No sale en la tienda" };
+  if (wanted && plan) {
+    return plan.all_wanted_guaranteed
+      ? { tone: "good", text: "Te saldrá" }
+      : { tone: "bad", text: `Aparece ${percent(row?.p_appears ?? 0)}` };
+  }
+  if (!row) return null;
+  return { tone: "muted", text: row.certain ? "Aparece seguro" : `Aparece ${percent(row.p_appears)}` };
+}
+
+/** One box per unit the player can hold: owned ones lit, units to buy dashed, free slots dim. */
+function Pips({ id, cap, held, buy }: { id: string; cap: number; held: number; buy: number }) {
+  return (
+    <span className="pips" aria-hidden="true">
+      {Array.from({ length: cap }, (_, index) => (
+        <span key={index} className="pip" data-state={index < held ? "held" : index < held + buy ? "buy" : "free"}>
+          <img src={iconUrl("upgrade", id)} alt="" width={20} height={28} loading="lazy" decoding="async" draggable={false} />
+        </span>
+      ))}
+    </span>
+  );
+}
+
+interface CardProps {
+  upgrade: Upgrade;
+  held: number;
+  buy: number;
+  row: Row | undefined;
+  wanted: boolean;
+  plan: StashPlan | undefined;
+  consumed: boolean;
+  onHeld(next: number): void;
+  onWanted(): void;
+  onConsumed(): void;
+}
+
+function UpgradeCard({ upgrade, held, buy, row, wanted, plan, consumed, onHeld, onWanted, onConsumed }: CardProps) {
+  const [open, setOpen] = useState(false);
+  const detailId = useId();
+  const status = statusOf(buy, wanted, plan, row);
+
+  return (
+    <article className="ucard" data-wanted={wanted} data-buy={buy > 0}>
+      <div className="ucard__art">
+        <UpgradeArt id={upgrade.id} />
+      </div>
+      <div className="ucard__body">
+        <div className="ucard__top">
+          <h3 className="ucard__name">{upgrade.name}</h3>
+          <button
+            type="button"
+            className="want"
+            aria-pressed={wanted}
+            aria-label={`Quiero ${upgrade.name}`}
+            onClick={onWanted}
+          >
+            <Star aria-hidden size={20} />
+          </button>
+          <InfoButton
+            open={open}
+            controls={detailId}
+            label={`Más información sobre ${upgrade.name}`}
+            onToggle={() => {
+              setOpen(!open);
+            }}
+          />
+        </div>
+        <NumberField label={`Tengo ${upgrade.name}`} hideLabel value={held} min={0} max={upgrade.cap} onChange={onHeld} />
+        <div className="ucard__foot">
+          <Pips id={upgrade.id} cap={upgrade.cap} held={held} buy={buy} />
+          {status ? (
+            <span className="status" data-tone={status.tone}>
+              {status.text}
+            </span>
+          ) : null}
+        </div>
+      </div>
+      {open ? (
+        <div id={detailId} className="ucard__more">
+          <dl className="detail">
+            <div>
+              <dt>Tope en circulación</dt>
+              <dd className="num">{integer(upgrade.cap)}</dd>
+            </div>
+            {row ? (
+              <>
+                <div>
+                  <dt>En el fondo común</dt>
+                  <dd className="num">{integer(row.pool)}</dd>
+                </div>
+                <div>
+                  <dt>Aparece</dt>
+                  <dd>
+                    <Meter value={row.p_appears} text={row.certain ? "Seguro" : percent(row.p_appears)} />
+                  </dd>
+                </div>
+                <div>
+                  <dt>Unidades esperadas</dt>
+                  <dd className="num">{decimal(row.expected_units, 2)}</dd>
+                </div>
+              </>
+            ) : null}
+          </dl>
+          {upgrade.permanent ? (
+            <>
+              <button type="button" className="chip" aria-pressed={consumed} onClick={onConsumed}>
+                Ya la usé
+              </button>
+              <p className="hint">Una mejora permanente no vuelve al fondo común una vez usada.</p>
+            </>
+          ) : null}
+        </div>
+      ) : null}
+    </article>
   );
 }
 
 function ShopTable({ data }: { data: ShopOutlook }) {
   return (
-    <>
-      <Stats>
-        <Stat label="Fondo común" value={integer(data.pool_total)} />
-        <Stat label="Unidades tuyas" value={integer(data.held_total)} />
-        <Stat label="Camión" value={`${integer(data.truck_units)} de ${integer(data.truck_capacity)}`} />
-        <Stat label="Void" value={integer(data.void_units)} tone={data.void_units > 0 ? "bad" : undefined} />
-      </Stats>
-      {data.guaranteed ? (
-        <Notice title="La tienda sale completa">
-          {`El fondo común tiene ${integer(data.pool_total)} unidades, no más que los ${integer(data.slots)} espacios, así que aparecen todas.`}
-        </Notice>
-      ) : null}
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Mejora</th>
-              <th scope="col" className="right">
-                Tienes
+    <div className="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Mejora</th>
+            <th scope="col" className="right">
+              Tienes
+            </th>
+            <th scope="col" className="right">
+              En el fondo
+            </th>
+            <th scope="col">Aparece</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.rows.map((row) => (
+            <tr key={row.upgrade_id}>
+              <th scope="row">
+                <span className="named">
+                  <GlyphTile kind="upgrade" id={row.upgrade_id} size={28} />
+                  {row.name}
+                </span>
               </th>
-              <th scope="col" className="right">
-                En el fondo
-              </th>
-              <th scope="col">Aparece</th>
-              <th scope="col" className="right">
-                Unidades esperadas
-              </th>
+              <td className="right num">{`${integer(row.held)} de ${integer(row.cap)}`}</td>
+              <td className="right num">{integer(row.pool)}</td>
+              <td>
+                <Meter value={row.p_appears} text={row.certain ? "Seguro" : percent(row.p_appears)} />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {data.rows.map((row) => (
-              <tr key={row.upgrade_id}>
-                <th scope="row">
-                  <span className="named">
-                    <GlyphTile kind="upgrade" id={row.upgrade_id} size={28} />
-                    {row.name}
-                  </span>
-                </th>
-                <td className="right num">{`${integer(row.held)} de ${integer(row.cap)}`}</td>
-                <td className="right num">{integer(row.pool)}</td>
-                <td>
-                  <Meter value={row.p_appears} text={row.certain ? "Seguro" : percent(row.p_appears)} />
-                </td>
-                <td className="right num">{decimal(row.expected_units, 2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

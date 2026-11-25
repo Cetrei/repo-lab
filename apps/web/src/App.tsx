@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { EngineStatus, useEngineToasts } from "./components/EngineStatus";
+import { GlyphTile } from "./icons";
 import { ROUTES, useRoute } from "./routes";
 
 export function App() {
@@ -19,6 +20,11 @@ export function App() {
           <div className="brand">
             <h1>REPO Lab</h1>
             <p>Calculadoras para R.E.P.O.: cajas, monstruos, mejoras y apariciones.</p>
+          </div>
+          <div className="squad" aria-hidden>
+            {["gnome", "reaper", "apex-predator"].map((id) => (
+              <GlyphTile key={id} kind="monster" id={id} size={56} />
+            ))}
           </div>
           <EngineStatus />
         </header>

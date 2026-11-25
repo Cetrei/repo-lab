@@ -132,7 +132,7 @@ function MonsterCard({ row, players }: { row: LiftCheck; players: number }) {
   return (
     <details className="mcard" data-tone={lift.tone}>
       <summary>
-        <GlyphTile kind="monster" id={row.monster_id} />
+        <GlyphTile kind="monster" id={row.monster_id} size={56} />
         <span className="mcard__name">{row.name}</span>
         <ChevronDown className="mcard__chevron" size={16} aria-hidden="true" />
         <VerdictLine label="Levantar" verdict={lift} />

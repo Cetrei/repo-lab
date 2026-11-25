@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import cases from "../../../packages/contract/fixtures/cases.json";
+import manifest from "../public/icons/manifest.json";
 import { MONSTER_GLYPHS, UPGRADE_GLYPHS } from "./icons";
 import { verdict } from "./lift";
 
@@ -36,5 +37,23 @@ describe("glyphs", () => {
   it("cover every upgrade of the catalog", () => {
     const upgrades = catalog<{ upgrades: { id: string }[] }>("upgrades.catalog").upgrades;
     expect(upgrades.filter((item) => !(item.id in UPGRADE_GLYPHS)).map((item) => item.id)).toEqual([]);
+  });
+});
+
+describe("game art", () => {
+  const files = Object.keys(import.meta.glob("../public/icons/*/*.png"));
+
+  it("has a PNG and a wiki source for every monster and upgrade of the catalogs", () => {
+    const monsters = catalog<{ monsters: { id: string }[] }>("monsters.catalog").monsters;
+    const upgrades = catalog<{ upgrades: { id: string }[] }>("upgrades.catalog").upgrades;
+    const wanted = [
+      ...monsters.map((item) => ["monsters", item.id] as const),
+      ...upgrades.map((item) => ["upgrades", item.id] as const),
+    ];
+    const missing = wanted.filter(([folder, id]) => !files.includes(`../public/icons/${folder}/${id}.png`));
+    expect(missing).toEqual([]);
+    const listed = new Set(manifest.icons.map((icon) => icon.file));
+    expect(wanted.filter(([folder, id]) => !listed.has(`${folder}/${id}.png`))).toEqual([]);
+    expect(manifest.icons.every((icon) => icon.source.startsWith(manifest.wiki))).toBe(true);
   });
 });

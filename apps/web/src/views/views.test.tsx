@@ -95,41 +95,51 @@ describe("MonstersView", () => {
 describe("UpgradesView", () => {
   it("builds the shop request from the units held", async () => {
     const engine = show(<UpgradesView />);
-    const range = await screen.findByLabelText("Range (tope 3)");
-    fireEvent.change(range, { target: { value: "2" } });
+    fireEvent.change(await screen.findByLabelText("Tengo Range"), { target: { value: "2" } });
     await waitFor(() => {
       expect(engine.payloads("upgrades.shop").at(-1)).toEqual({ held: { range: 2 }, consumed: [] });
     });
-    expect(await screen.findByRole("heading", { name: "La tienda" })).toBeTruthy();
+    expect(await screen.findByRole("heading", { name: "Tus mejoras" })).toBeTruthy();
   });
 
-  it("marks a permanent upgrade as used", async () => {
+  it("keeps the numbers behind the (i) of each card until they are asked for", async () => {
+    show(<UpgradesView />);
+    await screen.findByLabelText("Tengo Range");
+    expect(screen.queryByText("En el fondo común")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Más información sobre Range" }));
+    expect(screen.getByText("En el fondo común")).toBeTruthy();
+    expect(screen.getByText("Unidades esperadas")).toBeTruthy();
+  });
+
+  it("marks a permanent upgrade as used from its details", async () => {
     const engine = show(<UpgradesView />);
-    await screen.findByLabelText("Range (tope 3)");
-    const held = within(screen.getByRole("heading", { name: "Lo que tienes" }).closest("section")!);
-    fireEvent.click(held.getByRole("button", { name: "Map Player Count" }));
+    await screen.findByLabelText("Tengo Range");
+    fireEvent.click(screen.getByRole("button", { name: "Más información sobre Map Player Count" }));
+    fireEvent.click(screen.getByRole("button", { name: "Ya la usé" }));
     await waitFor(() => {
       expect(engine.payloads("upgrades.shop").at(-1)).toEqual({ held: {}, consumed: ["map-player-count"] });
     });
   });
 
-  it("asks for a stash plan only once something is wanted, and names the units to keep", async () => {
+  it("asks for a stash plan only once something is wanted, and lists what to buy", async () => {
     const engine = show(<UpgradesView />);
-    expect(await screen.findByText("Marca al menos una mejora para ver el plan.")).toBeTruthy();
+    expect(await screen.findByText(/Marca con la estrella/)).toBeTruthy();
     expect(engine.payloads("upgrades.stash")).toHaveLength(0);
-    const wanted = within(screen.getByRole("heading", { name: "Controlar la tienda" }).closest("section")!);
-    fireEvent.click(wanted.getByRole("button", { name: "Strength" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Quiero Strength" }));
     await waitFor(() => {
       expect(engine.payloads("upgrades.stash").at(-1)).toEqual({ wanted: ["strength"], held: {}, consumed: [] });
     });
     expect(await screen.findByText(/Compra y guarda/)).toBeTruthy();
-    expect(screen.getByText(/Stamina x4/)).toBeTruthy();
+    const list = within(screen.getByRole("list", { name: "Lista de compra" }));
+    expect(list.getByText("Stamina")).toBeTruthy();
+    expect(list.getByText("×4")).toBeTruthy();
+    expect(screen.getAllByText(/Comprar y guardar/).length).toBeGreaterThan(0);
   });
 
   it("offers to use only what is held, and asks Python what that leaves", async () => {
     const engine = show(<UpgradesView />);
-    expect(await screen.findByText("Anota unidades en Lo que tienes para poder usarlas aquí.")).toBeTruthy();
-    fireEvent.change(await screen.findByLabelText("Range (tope 3)"), { target: { value: "2" } });
+    expect(await screen.findByText("Anota unidades en Tus mejoras para poder usarlas aquí.")).toBeTruthy();
+    fireEvent.change(await screen.findByLabelText("Tengo Range"), { target: { value: "2" } });
     fireEvent.change(await screen.findByLabelText("Usar Range"), { target: { value: "1" } });
     await waitFor(() => {
       expect(engine.payloads("upgrades.use").at(-1)).toEqual({
@@ -143,7 +153,7 @@ describe("UpgradesView", () => {
 
   it("drops what was set to use when the stock is lowered below it", async () => {
     const engine = show(<UpgradesView />);
-    const range = await screen.findByLabelText("Range (tope 3)");
+    const range = await screen.findByLabelText("Tengo Range");
     fireEvent.change(range, { target: { value: "2" } });
     fireEvent.change(await screen.findByLabelText("Usar Range"), { target: { value: "2" } });
     fireEvent.change(range, { target: { value: "1" } });

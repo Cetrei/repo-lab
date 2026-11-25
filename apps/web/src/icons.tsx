@@ -42,11 +42,12 @@ import {
   Wind,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useState } from "react";
 
 /**
- * Stylized glyphs, one per monster and per upgrade. They are not game art: they only give each row a
- * quick visual anchor. An id without an entry falls back to a question mark, and a test keeps the two
- * lists in step with the catalogs.
+ * Stylized glyphs, one per monster and per upgrade. They are the fallback when the game art of an entry
+ * is missing or fails to load. An id without an entry falls back to a question mark, and a test keeps
+ * the two lists in step with the catalogs.
  */
 export const MONSTER_GLYPHS: Record<string, LucideIcon> = {
   gnome: Sprout,
@@ -97,12 +98,71 @@ export const UPGRADE_GLYPHS: Record<string, LucideIcon> = {
 
 type Kind = "monster" | "upgrade";
 
-/** A square tile with the glyph of a monster or an upgrade. Decorative: the name always sits next to it. */
+const FOLDER: Record<Kind, string> = { monster: "monsters", upgrade: "upgrades" };
+
+/**
+ * Where the game art of a monster or an upgrade lives. The PNGs come from the community wiki through
+ * scripts/fetch_icons.py, and icons/manifest.json lists the wiki page of each one. The base is relative,
+ * so the same build works on a project page and locally.
+ */
+export function iconUrl(kind: Kind, id: string): string {
+  return `${import.meta.env.BASE_URL}icons/${FOLDER[kind]}/${id}.png`;
+}
+
+function glyphFor(kind: Kind, id: string): LucideIcon {
+  return (kind === "monster" ? MONSTER_GLYPHS : UPGRADE_GLYPHS)[id] ?? CircleHelp;
+}
+
+/**
+ * A square tile with the game art of a monster or an upgrade. Decorative: the name always sits next to
+ * it. If the image cannot load, the stylized glyph takes its place.
+ */
 export function GlyphTile({ kind, id, size = 40 }: { kind: Kind; id: string; size?: number }) {
-  const Glyph = (kind === "monster" ? MONSTER_GLYPHS : UPGRADE_GLYPHS)[id] ?? CircleHelp;
+  const [failed, setFailed] = useState(false);
+  const Glyph = glyphFor(kind, id);
   return (
     <span className="glyph" data-kind={kind} style={{ width: size, height: size }} aria-hidden="true">
-      <Glyph size={Math.round(size * 0.55)} strokeWidth={1.75} />
+      {failed ? (
+        <Glyph size={Math.round(size * 0.55)} strokeWidth={1.75} />
+      ) : (
+        <img
+          src={iconUrl(kind, id)}
+          alt=""
+          width={size}
+          height={size}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          onError={() => {
+            setFailed(true);
+          }}
+        />
+      )}
     </span>
+  );
+}
+
+/** The portrait of an upgrade box at its natural proportions (183 by 277), for cards. */
+export function UpgradeArt({ id }: { id: string }) {
+  const [failed, setFailed] = useState(false);
+  const Glyph = glyphFor("upgrade", id);
+  return failed ? (
+    <span className="art art--fallback" aria-hidden="true">
+      <Glyph size={28} strokeWidth={1.75} />
+    </span>
+  ) : (
+    <img
+      className="art"
+      src={iconUrl("upgrade", id)}
+      alt=""
+      width={72}
+      height={109}
+      loading="lazy"
+      decoding="async"
+      draggable={false}
+      onError={() => {
+        setFailed(true);
+      }}
+    />
   );
 }
