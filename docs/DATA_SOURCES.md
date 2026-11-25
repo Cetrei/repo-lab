@@ -40,6 +40,15 @@ with 5 plus the listed upgrades.
 * Conflict, Headman stunned: fantime says 1 and gamerblurb says 4, and no source read settles it. Both are kept
   in `stunned: [1, 4]`, so the site shows the range (6 to 9 internal) and only says a team holds it stunned from
   the highest figure. One value in `stunned` is a sure figure, a list is a range, no key is no data (Pony).
+* Research 2026-11-25 on the stunned figures (owner asked for more sources). The in game chart of the Monster
+  Update (v0.3.0, 2025-10-30) is copied by Deltia's Gaming, gamerblurb and the awtysm Bae guide, and the three
+  agree (Chef 1, Clown 1, Hidden 0, Reaper 0, Robe 4, Trudge 1, Gambit 4, Headman 4, Cleanup Crew 2). They are
+  one source, not three, and they predate patch v0.3.1 (2025-11-14), which says "Enemies: corrected required
+  grab force for some enemies" without listing them. The wiki table (Chef 2, Clown 3, Hidden 1, Reaper 1,
+  Robe 6, Trudge 5, Gambit 3, Cleanup Crew 5) is later, so it stays. fantime is later too but inconsistent
+  (Trudge 4 against the wiki 5, Headgrab "???"), so it only counts for Headman. The Steam guide Entity Strength
+  Chart (2026) is an image and could not be read. Nothing found shows which Headman figure is right: only a
+  test in game does (a lone player with 1 upgrade against a stunned Headman).
 * Conflict, Cleanup Crew: 13 in itemlevel, 12 in a newer chart. 13 is used.
 * Conflict, Tick: 0 and "do not grab" in itemlevel, 13 in gamerblurb. 0 is used with a note.
 * Health: only where a source states it (wiki Monsters, pcgamer, fantime). Missing health stays empty
