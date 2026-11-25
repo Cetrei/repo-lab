@@ -1,0 +1,456 @@
+{
+  "wiki": "https://repo-2025horror.fandom.com",
+  "icons": [
+    {
+      "kind": "upgrades",
+      "id": "strength",
+      "file": "upgrades/strength.png",
+      "title": "Strength Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Strength_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "range",
+      "file": "upgrades/range.png",
+      "title": "Range Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Range_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "stamina",
+      "file": "upgrades/stamina.png",
+      "title": "Stamina Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Stamina_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "sprint",
+      "file": "upgrades/sprint.png",
+      "title": "Sprint Speed Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Sprint_Speed_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "crouch-rest",
+      "file": "upgrades/crouch-rest.png",
+      "title": "Crouch Rest Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Crouch_Rest_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "health",
+      "file": "upgrades/health.png",
+      "title": "Upgrade Health Albedo.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Upgrade_Health_Albedo.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "map-player-count",
+      "file": "upgrades/map-player-count.png",
+      "title": "Player Count Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Player_Count_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "tumble-launch",
+      "file": "upgrades/tumble-launch.png",
+      "title": "Tumble Launch Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Tumble_Launch_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "tumble-wings",
+      "file": "upgrades/tumble-wings.png",
+      "title": "Tumble Wings Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Tumble_Wings_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "tumble-climb",
+      "file": "upgrades/tumble-climb.png",
+      "title": "Tumble Climb Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Tumble_Climb_Upgrade.png",
+      "original": [
+        181,
+        279
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "extra-jump",
+      "file": "upgrades/extra-jump.png",
+      "title": "Extra Jump Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Extra_Jump_Upgrade.png",
+      "original": [
+        183,
+        277
+      ]
+    },
+    {
+      "kind": "upgrades",
+      "id": "death-head-battery",
+      "file": "upgrades/death-head-battery.png",
+      "title": "Death Head Battery Upgrade.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Death_Head_Battery_Upgrade.png",
+      "original": [
+        181,
+        278
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "gnome",
+      "file": "monsters/gnome.png",
+      "title": "Gnome Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Gnome_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "banger",
+      "file": "monsters/banger.png",
+      "title": "Banger Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Banger_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "tick",
+      "file": "monsters/tick.png",
+      "title": "Tick monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Tick_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "spewer",
+      "file": "monsters/spewer.png",
+      "title": "Spewer Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Spewer_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "birthday-boy",
+      "file": "monsters/birthday-boy.png",
+      "title": "Birthday Boy monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Birthday_Boy_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "rugrat",
+      "file": "monsters/rugrat.png",
+      "title": "Rugrat Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Rugrat_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "animal",
+      "file": "monsters/animal.png",
+      "title": "Animal Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Animal_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "upscream",
+      "file": "monsters/upscream.png",
+      "title": "Upscream Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Upscream_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "hidden",
+      "file": "monsters/hidden.png",
+      "title": "Hidden Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Hidden_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "mentalist",
+      "file": "monsters/mentalist.png",
+      "title": "Mentalist Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Mentalist_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "headgrab",
+      "file": "monsters/headgrab.png",
+      "title": "Headgrab monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Headgrab_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "bowtie",
+      "file": "monsters/bowtie.png",
+      "title": "Bowtie Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Bowtie_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "shadow-child",
+      "file": "monsters/shadow-child.png",
+      "title": "Shadow Child Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Shadow_Child_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "bella",
+      "file": "monsters/bella.png",
+      "title": "Bella monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Bella_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "chef",
+      "file": "monsters/chef.png",
+      "title": "Chef Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Chef_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "gambit",
+      "file": "monsters/gambit.png",
+      "title": "Gambit monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Gambit_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "heart-hugger",
+      "file": "monsters/heart-hugger.png",
+      "title": "Heart Hugger monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Heart_Hugger_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "oogly",
+      "file": "monsters/oogly.png",
+      "title": "Oogly monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Oogly_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "huntsman",
+      "file": "monsters/huntsman.png",
+      "title": "Huntsman Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Huntsman_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "reaper",
+      "file": "monsters/reaper.png",
+      "title": "Reaper Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Reaper_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "headman",
+      "file": "monsters/headman.png",
+      "title": "Headman Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Headman_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "robe",
+      "file": "monsters/robe.png",
+      "title": "Robe Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Robe_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "clown",
+      "file": "monsters/clown.png",
+      "title": "Clown beamer.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Clown_beamer.png",
+      "original": [
+        678,
+        559
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "trudge",
+      "file": "monsters/trudge.png",
+      "title": "Trudge Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Trudge_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "cleanup-crew",
+      "file": "monsters/cleanup-crew.png",
+      "title": "Cleanup Crew monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Cleanup_Crew_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "loom",
+      "file": "monsters/loom.png",
+      "title": "Loom monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Loom_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "peeper",
+      "file": "monsters/peeper.png",
+      "title": "Peeper Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Peeper_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "apex-predator",
+      "file": "monsters/apex-predator.png",
+      "title": "Apex Predator Transparent.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Apex_Predator_Transparent.png",
+      "original": [
+        512,
+        512
+      ]
+    },
+    {
+      "kind": "monsters",
+      "id": "elsa",
+      "file": "monsters/elsa.png",
+      "title": "Elsa monster.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Elsa_monster.png",
+      "original": [
+        512,
+        512
+      ]
+    }
+  ]
+}
