@@ -28,6 +28,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "valuables.yaml"
 ICONS = ROOT / "apps" / "web" / "public" / "icons" / "valuables"
 
+# The wiki says that only valuables with a maximum impact damage of 30 or more stun big enemies.
+BIG_STUN_DAMAGE = 30
+BIG_STUN_SOURCE = "R.E.P.O. wiki, Valuables"
+
 SIZES = ("Tiny", "Small", "Medium", "Big", "Wide", "Tall", "Very Tall")
 ROW = re.compile(r"\{\{ValuablesTableRow\s*\n(.*?)\n\}\}", re.DOTALL)
 FIELD = re.compile(r"^\|(\w+)=(.*)$")
@@ -188,6 +192,10 @@ def write_data(rows: list[dict[str, Any]]) -> None:
         "",
         "locations:",
         *(f"  - {{id: {slug(place)}, name: {quoted(place)}}}" for place in places),
+        "",
+        "rules:",
+        f"  # Impact damage at the heavy hit from which a valuable stuns big enemies ({BIG_STUN_SOURCE}).",
+        f"  big_stun_damage: {BIG_STUN_DAMAGE}",
         "",
         "valuables:",
         *(render(row) for row in rows),

@@ -1,0 +1,1 @@
+"""Valuables of every map."""

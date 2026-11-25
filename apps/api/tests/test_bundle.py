@@ -28,6 +28,7 @@ class BundleTests(unittest.TestCase):
             bundle.extractall(folder)
             names = set(bundle.namelist())
             self.assertIn("data/monsters.yaml", names)
+            self.assertIn("data/valuables.yaml", names)
             self.assertNotIn("repo_api/http.py", names)
             code = (
                 "import json, repo_core\n"

@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 from .dispatch import Dispatcher, Registry
-from .endpoints import cosmetics, meta, monsters, spawning, upgrades
+from .endpoints import cosmetics, meta, monsters, spawning, upgrades, valuables
 
-MODULES = (meta, cosmetics, monsters, upgrades, spawning)
+MODULES = (meta, cosmetics, monsters, upgrades, spawning, valuables)
 
 
 def build_registry() -> Registry:

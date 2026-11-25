@@ -3609,6 +3609,4829 @@
     }
   },
   {
+    "name": "valuable catalog",
+    "endpoint": "valuables.catalog",
+    "request": null,
+    "response": {
+      "ok": true,
+      "data": {
+        "big_stun_damage": 30,
+        "locations": [
+          {
+            "id": "any",
+            "name": "Any"
+          },
+          {
+            "id": "headman-manor",
+            "name": "Headman Manor"
+          },
+          {
+            "id": "mcjannek-station",
+            "name": "McJannek Station"
+          },
+          {
+            "id": "museum-of-human-art",
+            "name": "Museum of Human Art"
+          },
+          {
+            "id": "sunstone-valley-resort",
+            "name": "Sunstone Valley Resort"
+          },
+          {
+            "id": "swiftbroom-academy",
+            "name": "Swiftbroom Academy"
+          }
+        ],
+        "valuables": [
+          {
+            "id": "emerald-bracelet",
+            "name": "Emerald Bracelet",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "goblet",
+            "name": "Goblet",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "ocarina",
+            "name": "Ocarina",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "pocket-watch",
+            "name": "Pocket Watch",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "uranium-mug",
+            "name": "Uranium Mug",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "Radiation: 10 dps",
+            "stuns_big": false
+          },
+          {
+            "id": "coffee-cup",
+            "name": "Coffee Cup",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "eraser",
+            "name": "Eraser",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "keycard",
+            "name": "Keycard",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 250,
+            "high": 500,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "phone",
+            "name": "Phone",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "pills",
+            "name": "Pills",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "smartwatch",
+            "name": "Smartwatch",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "stapler",
+            "name": "Stapler",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "uranium-petri-dish",
+            "name": "Uranium Petri Dish",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "usb-stick",
+            "name": "USB Stick",
+            "location": "mcjannek-station",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "cool-brain",
+            "name": "Cool Brain",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "fish",
+            "name": "Fish",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "golden-tooth",
+            "name": "Golden Tooth",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "gold-fish",
+            "name": "Gold Fish",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "ruben-doll",
+            "name": "Ruben Doll",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "silver-fish",
+            "name": "Silver Fish",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "toast",
+            "name": "Toast",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "tooth",
+            "name": "Tooth",
+            "location": "museum-of-human-art",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "fossil",
+            "name": "Fossil",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "golden-coin",
+            "name": "Golden Coin",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "golden-horseshoe",
+            "name": "Golden Horseshoe",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "golden-lock",
+            "name": "Golden Lock",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "lighter",
+            "name": "Lighter",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 950,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "mouth-harp",
+            "name": "Mouth Harp",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "magnet",
+            "name": "Magnet",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "snow-globe",
+            "name": "Snow Globe",
+            "location": "sunstone-valley-resort",
+            "size": "tiny",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "bird-skull",
+            "name": "Bird Skull",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "bug",
+            "name": "Bug",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "diamond",
+            "name": "Diamond",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "eyeball",
+            "name": "Eyeball",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "glowing-jar",
+            "name": "Glowing Jar",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-gem",
+            "name": "Small Gem",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 500,
+            "high": 650,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-potion",
+            "name": "Small Potion",
+            "location": "swiftbroom-academy",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-enemy-valuable",
+            "name": "Small Enemy Valuable",
+            "location": "any",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-surplus-valuable",
+            "name": "Small Surplus Valuable",
+            "location": "any",
+            "size": "small",
+            "low": 1,
+            "high": 5000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "doll",
+            "name": "Doll",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 500,
+            "high": 600,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "frog",
+            "name": "Frog",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": 15,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "globe",
+            "name": "Globe",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "instrument",
+            "name": "Instrument",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.5,
+            "damage": [
+              0,
+              7,
+              15,
+              22
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "money",
+            "name": "Money",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 500,
+            "high": 600,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "music-box",
+            "name": "Music Box",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 35,
+            "trigger": "When grabbed",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-vase",
+            "name": "Small Vase",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "toy-monkey",
+            "name": "Toy Monkey",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "uranium-plate",
+            "name": "Uranium Plate",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "bonsai-tree",
+            "name": "Bonsai Tree",
+            "location": "mcjannek-station",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "calculator",
+            "name": "Calculator",
+            "location": "mcjannek-station",
+            "size": "small",
+            "low": 850,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "camera",
+            "name": "Camera",
+            "location": "mcjannek-station",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "hdd",
+            "name": "HDD",
+            "location": "mcjannek-station",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "vhs",
+            "name": "VHS",
+            "location": "mcjannek-station",
+            "size": "small",
+            "low": 900,
+            "high": 2000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "banana-bow",
+            "name": "Banana Bow",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "cocktail",
+            "name": "Cocktail",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 3500,
+            "high": 5000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "cube-ball",
+            "name": "Cube Ball",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "cubic-tower",
+            "name": "Cubic Tower",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "duck-man",
+            "name": "Duck Man",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "flesh-blob",
+            "name": "Flesh Blob",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "lady-bug",
+            "name": "Lady Bug",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "pimple-guy",
+            "name": "Pimple Guy",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "toy-car",
+            "name": "Toy Car",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "toy-plane",
+            "name": "Toy Plane",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "wire-figure",
+            "name": "Wire Figure",
+            "location": "museum-of-human-art",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "gold-bar",
+            "name": "Gold Bar",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "harmonica",
+            "name": "Harmonica",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "horse-on-wheels",
+            "name": "Horse on Wheels",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 850,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "lunch-box",
+            "name": "Lunch Box",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "pan-flute",
+            "name": "Pan Flute",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "post-card",
+            "name": "Post Card",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "rattlesnake",
+            "name": "Rattlesnake",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "snake-in-a-can",
+            "name": "Snake in a Can",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 850,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "sippy-cup",
+            "name": "Sippy Cup",
+            "location": "sunstone-valley-resort",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "chomp-book",
+            "name": "Chomp Book",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": 35,
+            "trigger": "Random Timer or Being Damaged",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "crown",
+            "name": "Crown",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "fortune-card",
+            "name": "Fortune Card",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 850,
+            "high": 1100,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "gem-box",
+            "name": "Gem Box",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "levitation-potion",
+            "name": "Levitation Potion",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "love-potion",
+            "name": "Love Potion",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "pendant",
+            "name": "Pendant",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "red-mushroom",
+            "name": "Red Mushroom",
+            "location": "swiftbroom-academy",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "medium-enemy-valuable",
+            "name": "Medium Enemy Valuable",
+            "location": "any",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "medium-surplus-valuable",
+            "name": "Medium Surplus Valuable",
+            "location": "any",
+            "size": "medium",
+            "low": 5001,
+            "high": 10000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "bottle",
+            "name": "Bottle",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 15,
+            "trigger": "Being Damaged",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "clown-doll",
+            "name": "Clown Doll",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "gramophone",
+            "name": "Gramophone",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "kettle",
+            "name": "Kettle",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "magnifying-glass",
+            "name": "Magnifying Glass",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 850,
+            "high": 1100,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "map",
+            "name": "Map",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "old-camera",
+            "name": "Old Camera",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "radio",
+            "name": "Radio",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "ship-in-a-bottle",
+            "name": "Ship in a Bottle",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "trophy",
+            "name": "Trophy",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "vase",
+            "name": "Vase",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "3d-printer",
+            "name": "3D Printer",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 5500,
+            "high": 7500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "computer",
+            "name": "Computer",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "fan",
+            "name": "Fan",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 35,
+            "trigger": "When grabbed",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "fire-extinguisher",
+            "name": "Fire Extinguisher",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.5,
+            "damage": [
+              0,
+              7,
+              15,
+              22
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "flashlight",
+            "name": "Flashlight",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.5,
+            "damage": [
+              0,
+              7,
+              15,
+              22
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "laptop",
+            "name": "Laptop",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "propane-tank",
+            "name": "Propane Tank",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 15,
+            "trigger": "Being Damaged",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "sample-six-pack",
+            "name": "Sample Six Pack",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "sample",
+            "name": "Sample",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "scale",
+            "name": "Scale",
+            "location": "mcjannek-station",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "cubic-sculpture",
+            "name": "Cubic Sculpture",
+            "location": "museum-of-human-art",
+            "size": "medium",
+            "low": 4500,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "gumball-machine",
+            "name": "Gumball Machine",
+            "location": "museum-of-human-art",
+            "size": "medium",
+            "low": 5500,
+            "high": 7500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "handface",
+            "name": "Handface",
+            "location": "museum-of-human-art",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "monkey-box",
+            "name": "Monkey Box",
+            "location": "museum-of-human-art",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "pacifier",
+            "name": "Pacifier",
+            "location": "museum-of-human-art",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "teeth-bot",
+            "name": "Teeth Bot",
+            "location": "museum-of-human-art",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "backpack",
+            "name": "Backpack",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "banjo",
+            "name": "Banjo",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "cowboy-action-figure",
+            "name": "Cowboy Action Figure",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.5,
+            "damage": [
+              0,
+              7,
+              15,
+              22
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "cowboy-boot-trophy",
+            "name": "Cowboy Boot Trophy",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "fluffy-buddy",
+            "name": "Fluffy Buddy",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "golden-shovel",
+            "name": "Golden Shovel",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "mineral-case",
+            "name": "Mineral Case",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 4000,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "suitcase",
+            "name": "Suitcase",
+            "location": "sunstone-valley-resort",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "crystal",
+            "name": "Crystal",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "crystal-ball",
+            "name": "Crystal Ball",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 5600,
+            "high": 6000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "eye-of-orpigox",
+            "name": "Eye of Orpigox",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.5,
+            "damage": [
+              0,
+              17,
+              35,
+              52
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "goblin-head",
+            "name": "Goblin Head",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "poison-chalice",
+            "name": "Poison Chalice",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "power-crystal",
+            "name": "Power Crystal",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "star-wand",
+            "name": "Star Wand",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 4500,
+            "high": 5000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "tentacle",
+            "name": "Tentacle",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "time-glass",
+            "name": "Time Glass",
+            "location": "swiftbroom-academy",
+            "size": "medium",
+            "low": 5500,
+            "high": 7500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "big-enemy-valuable",
+            "name": "Big Enemy Valuable",
+            "location": "any",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "big-surplus-valuable",
+            "name": "Big Surplus Valuable",
+            "location": "any",
+            "size": "big",
+            "low": 10001,
+            "high": 10001,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "big-vase",
+            "name": "Big Vase",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "chunky-vase",
+            "name": "Chunky Vase",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 9500,
+            "high": 12000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "diamond-display",
+            "name": "Diamond Display",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 4500,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "scream-doll",
+            "name": "Scream Doll",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "telescope",
+            "name": "Telescope",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "television",
+            "name": "Television",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "barrel",
+            "name": "Barrel",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 9500,
+            "high": 12000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "big-sample",
+            "name": "Big Sample",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "creature-leg",
+            "name": "Creature Leg",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 9500,
+            "high": 12000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "flamethrower",
+            "name": "Flamethrower",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": 5,
+            "trigger": "When damaged or when pulling the red trigger",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "guitar",
+            "name": "Guitar",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "icepick",
+            "name": "Icepick",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "ice-saw",
+            "name": "Ice Saw",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 15,
+            "trigger": "When grabbed",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "sample-cooler",
+            "name": "Sample Cooler",
+            "location": "mcjannek-station",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "baby-head",
+            "name": "Baby Head",
+            "location": "museum-of-human-art",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "egg",
+            "name": "Egg",
+            "location": "museum-of-human-art",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              0,
+              0,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "Varies (Up to 45)",
+            "stuns_big": true
+          },
+          {
+            "id": "gem-burger",
+            "name": "Gem Burger",
+            "location": "museum-of-human-art",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 3.5,
+            "damage": [
+              0,
+              17,
+              35,
+              52
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "golden-swirl",
+            "name": "Golden Swirl",
+            "location": "museum-of-human-art",
+            "size": "big",
+            "low": 9500,
+            "high": 12000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "museum-boombox",
+            "name": "Museum Boombox",
+            "location": "museum-of-human-art",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "uranium-mug-deluxe",
+            "name": "Uranium Mug Deluxe",
+            "location": "museum-of-human-art",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 3.5,
+            "damage": [
+              0,
+              17,
+              35,
+              52
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "energy-crystal-chunk",
+            "name": "Energy Crystal Chunk",
+            "location": "sunstone-valley-resort",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "golden-wheel",
+            "name": "Golden Wheel",
+            "location": "sunstone-valley-resort",
+            "size": "big",
+            "low": 4000,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "rocking-chair",
+            "name": "Rocking Chair",
+            "location": "sunstone-valley-resort",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "cauldron-box",
+            "name": "Cauldron Box",
+            "location": "swiftbroom-academy",
+            "size": "big",
+            "low": 4500,
+            "high": 5000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "cube-of-knowledge",
+            "name": "Cube of Knowledge",
+            "location": "swiftbroom-academy",
+            "size": "big",
+            "low": 9500,
+            "high": 12000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "forever-candle",
+            "name": "Forever Candle",
+            "location": "swiftbroom-academy",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "master-potion",
+            "name": "Master Potion",
+            "location": "swiftbroom-academy",
+            "size": "big",
+            "low": 4500,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "spider-potion",
+            "name": "Spider Potion",
+            "location": "swiftbroom-academy",
+            "size": "big",
+            "low": 4500,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "unicorn-horn",
+            "name": "Unicorn Horn",
+            "location": "swiftbroom-academy",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.5,
+            "damage": [
+              0,
+              7,
+              15,
+              22
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "animal-crate",
+            "name": "Animal Crate",
+            "location": "headman-manor",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": 35,
+            "trigger": "Not Standing Up-Right",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "dinosaur",
+            "name": "Dinosaur",
+            "location": "headman-manor",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "piano",
+            "name": "Piano",
+            "location": "headman-manor",
+            "size": "wide",
+            "low": 30000,
+            "high": 45000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "centrifuge",
+            "name": "Centrifuge",
+            "location": "mcjannek-station",
+            "size": "wide",
+            "low": 9500,
+            "high": 12000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "ice-block",
+            "name": "Ice Block",
+            "location": "mcjannek-station",
+            "size": "wide",
+            "low": 9500,
+            "high": 12000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "snow-bike",
+            "name": "Snow Bike",
+            "location": "mcjannek-station",
+            "size": "wide",
+            "low": 9500,
+            "high": 12000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "wide-sample-cooler",
+            "name": "Wide Sample Cooler",
+            "location": "mcjannek-station",
+            "size": "wide",
+            "low": 5500,
+            "high": 7500,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "horse",
+            "name": "Horse",
+            "location": "museum-of-human-art",
+            "size": "wide",
+            "low": 30000,
+            "high": 45000,
+            "mass": 8.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "tray",
+            "name": "Tray",
+            "location": "museum-of-human-art",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "vinyl",
+            "name": "Vinyl",
+            "location": "museum-of-human-art",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "worm",
+            "name": "Worm",
+            "location": "museum-of-human-art",
+            "size": "wide",
+            "low": 9500,
+            "high": 12000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "distillery",
+            "name": "Distillery",
+            "location": "sunstone-valley-resort",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "golfcart",
+            "name": "Golfcart",
+            "location": "sunstone-valley-resort",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "alchemy-station",
+            "name": "Alchemy Station",
+            "location": "swiftbroom-academy",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "dragon-skull",
+            "name": "Dragon Skull",
+            "location": "swiftbroom-academy",
+            "size": "wide",
+            "low": 45000,
+            "high": 50000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "goblin-arm",
+            "name": "Goblin Arm",
+            "location": "swiftbroom-academy",
+            "size": "wide",
+            "low": 9500,
+            "high": 12000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "griffin-statue",
+            "name": "Griffin Statue",
+            "location": "swiftbroom-academy",
+            "size": "wide",
+            "low": 30000,
+            "high": 45000,
+            "mass": 8.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "harp",
+            "name": "Harp",
+            "location": "headman-manor",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "painting",
+            "name": "Painting",
+            "location": "headman-manor",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "heavy-water",
+            "name": "Heavy Water",
+            "location": "mcjannek-station",
+            "size": "tall",
+            "low": 30000,
+            "high": 45000,
+            "mass": 8.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "jackhammer",
+            "name": "Jackhammer",
+            "location": "mcjannek-station",
+            "size": "tall",
+            "low": 9500,
+            "high": 12000,
+            "mass": 3.5,
+            "damage": [
+              0,
+              17,
+              35,
+              52
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "science-station",
+            "name": "Science Station",
+            "location": "mcjannek-station",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "milk",
+            "name": "Milk",
+            "location": "museum-of-human-art",
+            "size": "tall",
+            "low": 9500,
+            "high": 12000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "tall-guy",
+            "name": "Tall Guy",
+            "location": "museum-of-human-art",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "bird-cage",
+            "name": "Bird Cage",
+            "location": "sunstone-valley-resort",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "popcorn-stand",
+            "name": "Popcorn Stand",
+            "location": "sunstone-valley-resort",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "shooting-cowboy",
+            "name": "Shooting Cowboy",
+            "location": "sunstone-valley-resort",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "dumgolf-s-staff",
+            "name": "Dumgolf's Staff",
+            "location": "swiftbroom-academy",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 3.5,
+            "damage": [
+              0,
+              17,
+              35,
+              52
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "sword",
+            "name": "Sword",
+            "location": "swiftbroom-academy",
+            "size": "tall",
+            "low": 9500,
+            "high": 12000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "coffin",
+            "name": "Coffin",
+            "location": "headman-manor",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "golden-statue",
+            "name": "Golden Statue",
+            "location": "headman-manor",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "grandfather-clock",
+            "name": "Grandfather Clock",
+            "location": "headman-manor",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": 60,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "cryo-pod",
+            "name": "Cryo Pod",
+            "location": "mcjannek-station",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "server-rack",
+            "name": "Server Rack",
+            "location": "mcjannek-station",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "blender",
+            "name": "Blender",
+            "location": "museum-of-human-art",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "traffic-light",
+            "name": "Traffic Light",
+            "location": "museum-of-human-art",
+            "size": "very_tall",
+            "low": 30000,
+            "high": 45000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "explosive-tower",
+            "name": "Explosive Tower",
+            "location": "sunstone-valley-resort",
+            "size": "very_tall",
+            "low": 45000,
+            "high": 50000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "zero-grav-crystal",
+            "name": "Zero-Grav Crystal",
+            "location": "sunstone-valley-resort",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "broom",
+            "name": "Broom",
+            "location": "swiftbroom-academy",
+            "size": "very_tall",
+            "low": 9500,
+            "high": 12000,
+            "mass": 3.5,
+            "damage": [
+              0,
+              17,
+              35,
+              52
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "troll-finger",
+            "name": "Troll Finger",
+            "location": "swiftbroom-academy",
+            "size": "very_tall",
+            "low": 45000,
+            "high": 50000,
+            "mass": 8.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "valuables of a map",
+    "endpoint": "valuables.map",
+    "request": {
+      "location": "headman-manor"
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "location": {
+          "id": "headman-manor",
+          "name": "Headman Manor"
+        },
+        "own": [
+          {
+            "id": "piano",
+            "name": "Piano",
+            "location": "headman-manor",
+            "size": "wide",
+            "low": 30000,
+            "high": 45000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "animal-crate",
+            "name": "Animal Crate",
+            "location": "headman-manor",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": 35,
+            "trigger": "Not Standing Up-Right",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "coffin",
+            "name": "Coffin",
+            "location": "headman-manor",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              40,
+              80,
+              120
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "dinosaur",
+            "name": "Dinosaur",
+            "location": "headman-manor",
+            "size": "wide",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "golden-statue",
+            "name": "Golden Statue",
+            "location": "headman-manor",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "grandfather-clock",
+            "name": "Grandfather Clock",
+            "location": "headman-manor",
+            "size": "very_tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 5.0,
+            "damage": [
+              0,
+              25,
+              50,
+              75
+            ],
+            "noise": 60,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "harp",
+            "name": "Harp",
+            "location": "headman-manor",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "painting",
+            "name": "Painting",
+            "location": "headman-manor",
+            "size": "tall",
+            "low": 18000,
+            "high": 25000,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "chunky-vase",
+            "name": "Chunky Vase",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 9500,
+            "high": 12000,
+            "mass": 6.0,
+            "damage": [
+              0,
+              30,
+              60,
+              90
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "big-vase",
+            "name": "Big Vase",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "scream-doll",
+            "name": "Scream Doll",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "television",
+            "name": "Television",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 4.0,
+            "damage": [
+              0,
+              20,
+              40,
+              60
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "diamond-display",
+            "name": "Diamond Display",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 4500,
+            "high": 5000,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "music-box",
+            "name": "Music Box",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 35,
+            "trigger": "When grabbed",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "old-camera",
+            "name": "Old Camera",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "radio",
+            "name": "Radio",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "ship-in-a-bottle",
+            "name": "Ship in a Bottle",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "telescope",
+            "name": "Telescope",
+            "location": "headman-manor",
+            "size": "big",
+            "low": 3500,
+            "high": 4500,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "bottle",
+            "name": "Bottle",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 15,
+            "trigger": "Being Damaged",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "clown-doll",
+            "name": "Clown Doll",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "gramophone",
+            "name": "Gramophone",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "kettle",
+            "name": "Kettle",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "map",
+            "name": "Map",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "trophy",
+            "name": "Trophy",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "uranium-plate",
+            "name": "Uranium Plate",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "vase",
+            "name": "Vase",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 2000,
+            "high": 3000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "frog",
+            "name": "Frog",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": 15,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "globe",
+            "name": "Globe",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "instrument",
+            "name": "Instrument",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 1.5,
+            "damage": [
+              0,
+              7,
+              15,
+              22
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-vase",
+            "name": "Small Vase",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "uranium-mug",
+            "name": "Uranium Mug",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 1200,
+            "high": 2000,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "Radiation: 10 dps",
+            "stuns_big": false
+          },
+          {
+            "id": "toy-monkey",
+            "name": "Toy Monkey",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 900,
+            "high": 1100,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": 35,
+            "trigger": "Random Timer",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "magnifying-glass",
+            "name": "Magnifying Glass",
+            "location": "headman-manor",
+            "size": "medium",
+            "low": 850,
+            "high": 1100,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "doll",
+            "name": "Doll",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 500,
+            "high": 600,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "emerald-bracelet",
+            "name": "Emerald Bracelet",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "goblet",
+            "name": "Goblet",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "money",
+            "name": "Money",
+            "location": "headman-manor",
+            "size": "small",
+            "low": 500,
+            "high": 600,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "ocarina",
+            "name": "Ocarina",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "pocket-watch",
+            "name": "Pocket Watch",
+            "location": "headman-manor",
+            "size": "tiny",
+            "low": 500,
+            "high": 600,
+            "mass": 0.5,
+            "damage": [
+              0,
+              2,
+              5,
+              8
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          }
+        ],
+        "anywhere": [
+          {
+            "id": "big-surplus-valuable",
+            "name": "Big Surplus Valuable",
+            "location": "any",
+            "size": "big",
+            "low": 10001,
+            "high": 10001,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "medium-surplus-valuable",
+            "name": "Medium Surplus Valuable",
+            "location": "any",
+            "size": "medium",
+            "low": 5001,
+            "high": 10000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "big-enemy-valuable",
+            "name": "Big Enemy Valuable",
+            "location": "any",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-surplus-valuable",
+            "name": "Small Surplus Valuable",
+            "location": "any",
+            "size": "small",
+            "low": 1,
+            "high": 5000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "medium-enemy-valuable",
+            "name": "Medium Enemy Valuable",
+            "location": "any",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-enemy-valuable",
+            "name": "Small Enemy Valuable",
+            "location": "any",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "valuables of the any map",
+    "endpoint": "valuables.map",
+    "request": {
+      "location": "any"
+    },
+    "response": {
+      "ok": true,
+      "data": {
+        "location": {
+          "id": "any",
+          "name": "Any"
+        },
+        "own": [],
+        "anywhere": [
+          {
+            "id": "big-surplus-valuable",
+            "name": "Big Surplus Valuable",
+            "location": "any",
+            "size": "big",
+            "low": 10001,
+            "high": 10001,
+            "mass": 3.0,
+            "damage": [
+              0,
+              15,
+              30,
+              45
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "medium-surplus-valuable",
+            "name": "Medium Surplus Valuable",
+            "location": "any",
+            "size": "medium",
+            "low": 5001,
+            "high": 10000,
+            "mass": 2.0,
+            "damage": [
+              0,
+              10,
+              20,
+              30
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": true
+          },
+          {
+            "id": "big-enemy-valuable",
+            "name": "Big Enemy Valuable",
+            "location": "any",
+            "size": "big",
+            "low": 5500,
+            "high": 7500,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-surplus-valuable",
+            "name": "Small Surplus Valuable",
+            "location": "any",
+            "size": "small",
+            "low": 1,
+            "high": 5000,
+            "mass": 1.0,
+            "damage": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "medium-enemy-valuable",
+            "name": "Medium Enemy Valuable",
+            "location": "any",
+            "size": "medium",
+            "low": 3500,
+            "high": 4500,
+            "mass": 0.8,
+            "damage": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          },
+          {
+            "id": "small-enemy-valuable",
+            "name": "Small Enemy Valuable",
+            "location": "any",
+            "size": "small",
+            "low": 2000,
+            "high": 3000,
+            "mass": 0.65,
+            "damage": [
+              0,
+              3,
+              6,
+              10
+            ],
+            "noise": null,
+            "trigger": "",
+            "note": "",
+            "stuns_big": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "valuables of an unknown map",
+    "endpoint": "valuables.map",
+    "request": {
+      "location": "nowhere"
+    },
+    "response": {
+      "ok": false,
+      "error": {
+        "code": "unknown_id",
+        "message": "unknown location 'nowhere'"
+      }
+    }
+  },
+  {
     "name": "sources",
     "endpoint": "meta.sources",
     "request": null,
@@ -3681,6 +8504,13 @@
             "name": "R.E.P.O. wiki, Monsters",
             "url": "https://repo-2025horror.fandom.com/wiki/Monsters",
             "note": "Los grupos que reemplazan a un tier 3 y cuantos monstruos traen."
+          }
+        ],
+        "valuables": [
+          {
+            "name": "R.E.P.O. wiki, Valuables",
+            "url": "https://repo-2025horror.fandom.com/wiki/Valuables",
+            "note": "Table of all valuables and table of trap valuables, read on the day the file was generated."
           }
         ]
       }

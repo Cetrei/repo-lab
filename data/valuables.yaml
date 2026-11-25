@@ -16,6 +16,10 @@ locations:
   - {id: sunstone-valley-resort, name: "Sunstone Valley Resort"}
   - {id: swiftbroom-academy, name: "Swiftbroom Academy"}
 
+rules:
+  # Impact damage at the heavy hit from which a valuable stuns big enemies (R.E.P.O. wiki, Valuables).
+  big_stun_damage: 30
+
 valuables:
   - {id: emerald-bracelet, name: "Emerald Bracelet", location: headman-manor, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
   - {id: goblet, name: "Goblet", location: headman-manor, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}

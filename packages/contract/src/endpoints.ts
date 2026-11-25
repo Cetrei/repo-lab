@@ -30,6 +30,11 @@ export const endpoints = {
     request: z.strictObject({ upgrades: z.array(z.int()) }),
     response: s.liftTable,
   },
+  "valuables.catalog": { request: none, response: s.valuableCatalog },
+  "valuables.map": {
+    request: z.strictObject({ location: z.string() }),
+    response: s.mapValuables,
+  },
   "upgrades.catalog": { request: none, response: s.upgradeCatalog },
   "upgrades.shop": {
     request: z.strictObject({ held: counts.optional(), consumed: z.array(z.string()).optional() }),

@@ -142,6 +142,43 @@ export type LiftCheck = z.infer<typeof liftCheck>;
 
 export const liftTable = z.strictObject({ rows: z.array(liftCheck) });
 
+/** Valuables. */
+
+export const valuableSize = z.enum(["tiny", "small", "medium", "big", "wide", "tall", "very_tall"]);
+export type ValuableSize = z.infer<typeof valuableSize>;
+
+export const valuableLocation = z.strictObject({ id: z.string(), name: z.string() });
+export type ValuableLocation = z.infer<typeof valuableLocation>;
+
+export const valuable = z.strictObject({
+  id: z.string(),
+  name: z.string(),
+  location: z.string(),
+  size: valuableSize,
+  low: z.int(),
+  high: z.int(),
+  mass: z.number(),
+  damage: z.tuple([z.int(), z.int(), z.int(), z.int()]),
+  noise: z.int().nullable(),
+  trigger: z.string(),
+  note: z.string(),
+  stuns_big: z.boolean(),
+});
+export type Valuable = z.infer<typeof valuable>;
+
+export const valuableCatalog = z.strictObject({
+  big_stun_damage: z.int(),
+  locations: z.array(valuableLocation),
+  valuables: z.array(valuable),
+});
+
+export const mapValuables = z.strictObject({
+  location: valuableLocation,
+  own: z.array(valuable),
+  anywhere: z.array(valuable),
+});
+export type MapValuables = z.infer<typeof mapValuables>;
+
 /** Upgrade shop. */
 
 export const upgrade = z.strictObject({
@@ -297,4 +334,5 @@ export const sources = z.strictObject({
   monsters: z.array(source),
   upgrades: z.array(source),
   spawning: z.array(source),
+  valuables: z.array(source),
 });
