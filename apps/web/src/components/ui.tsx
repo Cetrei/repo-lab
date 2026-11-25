@@ -38,6 +38,25 @@ export function Stat({ label, value, tone }: { label: string; value: ReactNode; 
   );
 }
 
+/** The (i) button that opens the details of a block. The block itself decides what it shows. */
+export function InfoButton({
+  open,
+  controls,
+  label,
+  onToggle,
+}: {
+  open: boolean;
+  controls: string;
+  label: string;
+  onToggle(): void;
+}) {
+  return (
+    <button type="button" className="info" aria-expanded={open} aria-controls={controls} aria-label={label} onClick={onToggle}>
+      <Info aria-hidden size={20} />
+    </button>
+  );
+}
+
 type Rarity = "common" | "uncommon" | "rare" | "ultra";
 
 /** A probability bar with its number next to it, so the bar never carries the meaning alone. */

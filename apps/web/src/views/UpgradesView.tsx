@@ -1,8 +1,8 @@
 import type { ShopOutlook, StashPlan, Upgrade } from "@repo-lab/contract";
-import { Info, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { useId, useMemo, useState } from "react";
 import { NumberField } from "../components/NumberField";
-import { Meter, Notice, Outcome, Panel, Stat, Stats } from "../components/ui";
+import { InfoButton, Meter, Notice, Outcome, Panel, Stat, Stats } from "../components/ui";
 import { decimal, integer, percent } from "../format";
 import type { CallResult } from "../hooks/useCall";
 import { useCall } from "../hooks/useCall";
@@ -150,24 +150,6 @@ export function UpgradesView() {
         </div>
       </details>
     </div>
-  );
-}
-
-function InfoButton({
-  open,
-  controls,
-  label,
-  onToggle,
-}: {
-  open: boolean;
-  controls: string;
-  label: string;
-  onToggle(): void;
-}) {
-  return (
-    <button type="button" className="info" aria-expanded={open} aria-controls={controls} aria-label={label} onClick={onToggle}>
-      <Info aria-hidden size={20} />
-    </button>
   );
 }
 

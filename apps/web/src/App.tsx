@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { EngineStatus, useEngineToasts } from "./components/EngineStatus";
+import { PatchProvider, PatchSelector } from "./components/Patch";
 import { GlyphTile } from "./icons";
 import { ROUTES, useRoute } from "./routes";
 
@@ -13,7 +14,7 @@ export function App() {
   }, [route]);
 
   return (
-    <>
+    <PatchProvider>
       <div className="hazard" aria-hidden />
       <div className="shell">
         <header className="header">
@@ -26,7 +27,10 @@ export function App() {
               <GlyphTile key={id} kind="monster" id={id} size={56} />
             ))}
           </div>
-          <EngineStatus />
+          <div className="corner">
+            <PatchSelector />
+            <EngineStatus />
+          </div>
         </header>
         <nav className="tabs" aria-label="Calculadoras">
           {ROUTES.map((item) => (
@@ -48,6 +52,6 @@ export function App() {
           Proyecto de la comunidad, sin relación con los creadores de R.E.P.O. Los cálculos corren en tu navegador.
         </footer>
       </div>
-    </>
+    </PatchProvider>
   );
 }

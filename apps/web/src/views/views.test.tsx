@@ -7,6 +7,7 @@ import { CosmeticsView } from "./CosmeticsView";
 import { MonstersView } from "./MonstersView";
 import { SourcesView } from "./SourcesView";
 import { SpawningView } from "./SpawningView";
+import { PatchProvider, PatchSelector } from "../components/Patch";
 import { UpgradesView } from "./UpgradesView";
 
 function show(view: ReactElement) {
@@ -22,15 +23,45 @@ function type(label: string, value: string) {
 describe("CosmeticsView", () => {
   it("shows the odds of the level and of the run from Python's answers", async () => {
     show(<CosmeticsView />);
-    expect(await screen.findByText("Por rareza")).toBeTruthy();
+    expect(await screen.findByRole("list", { name: "Cajas por rareza" })).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Nivel 1" })).toBeTruthy();
-    expect(await screen.findByText("Cuántos niveles hacen falta para ver la primera caja")).toBeTruthy();
+    expect(await screen.findByRole("list", { name: "Espera hasta la primera caja" })).toBeTruthy();
     expect(screen.getAllByText("Cualquier caja").length).toBeGreaterThan(0);
+  });
+
+  it("keeps the tables behind the (i) buttons until they are opened", async () => {
+    show(<CosmeticsView />);
+    await screen.findByRole("list", { name: "Espera hasta la primera caja" });
+    expect(screen.queryByText("Cuántos niveles hacen falta para ver la primera caja")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Más información sobre la espera hasta la primera caja" }));
+    expect(await screen.findByText("Cuántos niveles hacen falta para ver la primera caja")).toBeTruthy();
+  });
+
+  it("follows the patch chosen in the corner of the page", async () => {
+    const engine = replayEngine();
+    render(
+      <EngineProvider engine={engine}>
+        <PatchProvider>
+          <PatchSelector />
+          <CosmeticsView />
+        </PatchProvider>
+      </EngineProvider>,
+    );
+    const select = await screen.findByLabelText("Parche");
+    const first = engine.payloads("cosmetics.level")[0];
+    expect(first).not.toHaveProperty("ruleset");
+    const options = Array.from((select as HTMLSelectElement).options).map((option) => option.value);
+    if (options.length > 1) {
+      fireEvent.change(select, { target: { value: options[1] } });
+      await waitFor(() => {
+        expect(engine.payloads("cosmetics.level").at(-1)).toMatchObject({ ruleset: options[1] });
+      });
+    }
   });
 
   it("asks again with the level and the bad luck that were typed", async () => {
     const engine = show(<CosmeticsView />);
-    await screen.findByText("Por rareza");
+    await screen.findByRole("list", { name: "Cajas por rareza" });
     type("Nivel", "12");
     type("Mala suerte", "3");
     await waitFor(() => {
@@ -43,7 +74,7 @@ describe("CosmeticsView", () => {
 
   it("never sends a level the engine would refuse", async () => {
     const engine = show(<CosmeticsView />);
-    await screen.findByText("Por rareza");
+    await screen.findByRole("list", { name: "Cajas por rareza" });
     const before = engine.payloads("cosmetics.level").length;
     type("Nivel", "0");
     expect(engine.payloads("cosmetics.level")).toHaveLength(before);
@@ -179,25 +210,15 @@ describe("SpawningView", () => {
     expect(await screen.findByText(/en adelante/)).toBeTruthy();
   });
 
-  it("says when the source gives no respawn timer instead of inventing one", async () => {
-    show(<SpawningView />);
-    expect(await screen.findByText("Sin dato para esos minutos")).toBeTruthy();
-    expect(await screen.findByText(/no se inventa un número/)).toBeTruthy();
-  });
-
-  it("sends the kill, the noise and the extraction to the respawn calculation", async () => {
+  it("has no adjustable timers, only the level", async () => {
     const engine = show(<SpawningView />);
-    await screen.findByText("Sin dato para esos minutos");
-    fireEvent.click(screen.getByRole("button", { name: "Lo mataron" }));
-    fireEvent.click(screen.getByRole("button", { name: "Extracción final hecha" }));
-    type("Segundos de ruido", "10");
+    await screen.findByRole("heading", { name: "Enemigos en el nivel 1" });
+    expect(screen.queryByLabelText("Minutos en el nivel")).toBeNull();
+    expect(screen.queryByLabelText("Segundos de ruido")).toBeNull();
+    expect(engine.payloads("spawning.respawn")).toHaveLength(0);
+    type("Nivel", "7");
     await waitFor(() => {
-      expect(engine.payloads("spawning.respawn").at(-1)).toEqual({
-        minutes_on_level: 5,
-        killed: true,
-        noise_seconds: 10,
-        final_extraction_done: true,
-      });
+      expect(engine.payloads("spawning.outlook").at(-1)).toEqual({ level: 7 });
     });
   });
 });

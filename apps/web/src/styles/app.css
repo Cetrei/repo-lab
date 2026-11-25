@@ -1242,3 +1242,134 @@ section > h3 {
 .tools > .pair {
   margin-top: var(--space-2);
 }
+
+/* Header corner: the global patch and the engine status */
+
+.corner {
+  display: grid;
+  justify-items: end;
+  gap: var(--space-2);
+}
+
+.patch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.patch > label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* Cajas: one card per rarity with its crate, like the upgrade cards */
+
+.cajas {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+}
+
+.rgrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+.rgrid > li {
+  display: grid;
+}
+
+.rcard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--border-subtle);
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.rcard[data-rarity="common"] {
+  border-left-color: var(--rarity-common);
+}
+
+.rcard[data-rarity="uncommon"] {
+  border-left-color: var(--rarity-uncommon);
+}
+
+.rcard[data-rarity="rare"] {
+  border-left-color: var(--rarity-rare);
+}
+
+.rcard[data-rarity="ultra"] {
+  border-left-color: var(--rarity-ultra);
+}
+
+.rcard__body {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+  flex: 1;
+}
+
+.rcard__body h3 {
+  font-size: var(--text-md);
+}
+
+.rcard__big {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.rcard__big > span {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.rcard__label {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.crate {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  color: var(--text-secondary);
+}
+
+.crate img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+  transition: transform var(--motion-base) var(--ease-enter);
+}
+
+.rcard:hover .crate img {
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 40rem) {
+  .corner {
+    justify-items: start;
+  }
+}

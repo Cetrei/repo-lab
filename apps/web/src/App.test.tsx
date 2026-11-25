@@ -40,14 +40,15 @@ describe("App", () => {
     const nav = screen.getByRole("navigation", { name: "Calculadoras" });
     expect(nav.querySelectorAll("a")).toHaveLength(ROUTES.length);
     expect(screen.getByRole("link", { name: "Cajas" }).getAttribute("aria-current")).toBe("page");
-    expect(await screen.findByText("Por rareza")).toBeTruthy();
+    expect(await screen.findByRole("list", { name: "Cajas por rareza" })).toBeTruthy();
+    expect(await screen.findByLabelText("Parche")).toBeTruthy();
     expect(document.title).toBe("REPO Lab");
   });
 
   it("follows the address when it changes", async () => {
     open("");
     renderApp();
-    await screen.findByText("Por rareza");
+    await screen.findByRole("list", { name: "Cajas por rareza" });
     act(() => {
       open("#/monstruos");
     });

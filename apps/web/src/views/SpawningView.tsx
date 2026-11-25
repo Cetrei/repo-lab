@@ -1,26 +1,16 @@
 import { useState } from "react";
 import { NumberField } from "../components/NumberField";
-import { Notice, Outcome, Panel, Stat, Stats } from "../components/ui";
-import { decimal, duration, durationRange, integer, percent } from "../format";
+import { Outcome, Panel, Stat, Stats } from "../components/ui";
+import { decimal, duration, integer, percent } from "../format";
 import { useCall } from "../hooks/useCall";
 import { TIER_LABEL } from "../labels";
 
 export function SpawningView() {
   const [level, setLevel] = useState(1);
-  const [minutes, setMinutes] = useState(5);
-  const [killed, setKilled] = useState(false);
-  const [noise, setNoise] = useState(0);
-  const [finalExtraction, setFinalExtraction] = useState(false);
 
   const rules = useCall("spawning.rules", undefined);
   const outlook = useCall("spawning.outlook", { level });
   const despawn = useCall("spawning.despawn", undefined);
-  const respawn = useCall("spawning.respawn", {
-    minutes_on_level: minutes,
-    killed,
-    noise_seconds: noise,
-    final_extraction_done: finalExtraction,
-  });
 
   return (
     <div className="workspace">
@@ -47,72 +37,6 @@ export function SpawningView() {
             )}
           </Outcome>
         </Panel>
-
-        <div className="pair">
-          <Panel
-            title="Cuándo desaparecen"
-            hint="Un enemigo que ningún jugador llega a ver se va solo pasado este tiempo."
-          >
-            <Outcome result={despawn}>
-              {(data) => (
-                <Stats>
-                  <Stat label="Desaparece entre" value={durationRange(data.low, data.high)} />
-                </Stats>
-              )}
-            </Outcome>
-          </Panel>
-
-          <Panel title="Cuándo vuelven" hint="Lo que tarda un enemigo en reaparecer, según cuánto llevas en el nivel.">
-            <div className="row">
-              <NumberField label="Minutos en el nivel" value={minutes} min={0} max={10000} onChange={setMinutes} />
-              <NumberField
-                label="Segundos de ruido"
-                value={noise}
-                min={0}
-                max={100000}
-                onChange={setNoise}
-                hint="El ruido acorta la espera."
-              />
-            </div>
-            <div className="chips">
-              <button
-                type="button"
-                className="chip"
-                aria-pressed={killed}
-                onClick={() => {
-                  setKilled(!killed);
-                }}
-              >
-                Lo mataron
-              </button>
-              <button
-                type="button"
-                className="chip"
-                aria-pressed={finalExtraction}
-                onClick={() => {
-                  setFinalExtraction(!finalExtraction);
-                }}
-              >
-                Extracción final hecha
-              </button>
-            </div>
-            <Outcome result={respawn}>
-              {(data) =>
-                data.known && data.low !== null && data.high !== null ? (
-                  <Stats>
-                    <Stat label="Vuelve en" value={durationRange(data.low, data.high)} />
-                  </Stats>
-                ) : (
-                  <Notice title="Sin dato para esos minutos">
-                    {rules.data
-                      ? `La fuente da el temporizador hasta los ${integer(rules.data.early_level_minutes)} minutos y pasados los ${integer(rules.data.late_level_minutes)}. En medio no dice nada y no se inventa un número.`
-                      : "La fuente no da un temporizador para esos minutos y no se inventa un número."}
-                  </Notice>
-                )
-              }
-            </Outcome>
-          </Panel>
-        </div>
 
         <Panel title="Enemigos por nivel" hint="La tabla completa de la que sale el cálculo.">
           <details>
@@ -152,7 +76,7 @@ export function SpawningView() {
             </Outcome>
           </details>
           {despawn.data ? (
-            <p className="hint">{`Sin jugadores cerca, el despawn tarda entre ${duration(despawn.data.low)} y ${duration(despawn.data.high)}.`}</p>
+            <p className="hint">{`Un enemigo que ningún jugador ve desaparece solo entre ${duration(despawn.data.low)} y ${duration(despawn.data.high)}.`}</p>
           ) : null}
         </Panel>
       </div>
