@@ -1,4 +1,5 @@
 import unittest
+from dataclasses import replace
 
 from repo_core.errors import InvalidInput
 from repo_core.monsters.data import MONSTERS
@@ -100,9 +101,17 @@ class MonsterTests(unittest.TestCase):
         self.assertEqual(check.stunned_required_min, 7)
         self.assertFalse(check.can_lift_stunned)
 
-    def test_headman_stunned_is_a_range_because_the_sources_disagree(self) -> None:
+    def test_headman_stunned_uses_the_most_likely_figure(self) -> None:
+        # The live wiki has no figure for it; 4 is the old chart value the owner chose (b70).
         headman = MONSTERS.get("headman")
-        self.assertEqual(headman.stunned_upgrades, (1, 4))
+        self.assertEqual(headman.stunned_upgrades, (4,))
+        check = lift_check(headman, [0])
+        self.assertEqual((check.stunned_required_min, check.stunned_required), (9, 9))
+        self.assertFalse(lift_check(headman, [3]).can_lift_stunned)
+        self.assertTrue(lift_check(headman, [4]).can_lift_stunned)
+
+    def test_a_stunned_range_is_shown_when_the_sources_disagree(self) -> None:
+        headman = replace(MONSTERS.get("headman"), stunned_upgrades=(1, 4))
         check = lift_check(headman, [0])
         self.assertEqual((check.stunned_required_min, check.stunned_required), (6, 9))
         self.assertFalse(check.can_lift_stunned)  # 5 misses even the lowest figure
@@ -110,10 +119,11 @@ class MonsterTests(unittest.TestCase):
         self.assertTrue(lift_check(headman, [4]).can_lift_stunned)  # 9 reaches the highest
 
     def test_a_range_gives_the_sure_players_and_the_best_case(self) -> None:
-        check = lift_check(MONSTERS.get("headman"), [3, 0, 0])
+        headman = replace(MONSTERS.get("headman"), stunned_upgrades=(1, 4))
+        check = lift_check(headman, [3, 0, 0])
         self.assertEqual(check.players_needed_stunned, 2)
         self.assertEqual(check.players_needed_stunned_min, 1)
-        alone = lift_check(MONSTERS.get("headman"), [2])
+        alone = lift_check(headman, [2])
         self.assertIsNone(alone.players_needed_stunned)
         self.assertEqual(alone.players_needed_stunned_min, 1)
 

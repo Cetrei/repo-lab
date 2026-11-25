@@ -50,7 +50,7 @@ monsters:
   - {name: Huntsman, tier: 3, lift: 9, stunned: 1, health: 250, weight: 3, note: Dispara si lo agarras en mal momento.}
   - {name: Reaper, tier: 3, lift: 9, stunned: 1, health: 250, weight: 3}
   - {name: Pony, tier: 3, lift: 9, health: 400, weight: 3, note: "Llegó con la actualización 0.5.0. Te agarra con la lengua."}
-  - {name: Headman, tier: 3, lift: 13, stunned: [1, 4], health: 250, weight: 3, note: "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb."}
+  - {name: Headman, tier: 3, lift: 13, stunned: 4, health: 250, weight: 3, note: "La wiki actual no trae la cifra aturdido. Se usa 4, la de la tabla del parche 0.3.0 y la más probable; fantime dice 1 y por su masa saldría 3. Sin confirmar en juego."}
   - {name: Robe, tier: 3, lift: 13, stunned: 6, health: 250, weight: 3}
   - {name: Clown, tier: 3, lift: 13, stunned: 3, health: 250, weight: 4}
   - {name: Trudge, tier: 3, lift: 13, stunned: 5, health: 500, weight: 4}

@@ -37,9 +37,16 @@ with 5 plus the listed upgrades.
   with 0 and 1 upgrades, held with effort with 2 and 3, and clean with 4. It does not apply to the stunned
   figure. The hunter grabbed by the feet or the head when knocked out is a partial grab and is not modeled.
 * Conflict, Rugrat: pcgamer says 7 upgrades, itemlevel and gamerblurb say 4. 4 is used, pcgamer is older.
-* Conflict, Headman stunned: fantime says 1 and gamerblurb says 4, and no source read settles it. Both are kept
-  in `stunned: [1, 4]`, so the site shows the range (6 to 9 internal) and only says a team holds it stunned from
-  the highest figure. One value in `stunned` is a sure figure, a list is a range, no key is no data (Pony).
+* Headman stunned: the live wiki has no figure (the infobox field `str._to_grab_stun` is empty, page edited
+  2026-11-05), fantime says 1 and the v0.3.0 chart says 4. The owner chose 4 as the most likely (decision b70) and
+  it is still unconfirmed in game (b65). Its mass is 6.00, the same as the Clown (stunned 3), and in the lift 13
+  group stunned is the mass minus 3 for Clown, Trudge, Loom and Robe, which would give 3: a deduction, not a
+  source, so it is only in the note. One value in `stunned` is a sure figure, a list is a range (the engine and the
+  site still support it), no key is no data (Pony). Bowtie stunned 2 comes only from the old chart, its wiki field
+  is empty too.
+* Check against the wiki: `python3 scripts/wiki_check.py` makes one request to the public MediaWiki API of
+  repo-2025horror.fandom.com, with an honest User-Agent, and prints the lift, the stunned figure and the mass of each
+  monster next to the yaml. On 2026-11-25 every figure in the yaml matched the infobox except the empty fields.
 * Research 2026-11-25 on the stunned figures (owner asked for more sources). The in game chart of the Monster
   Update (v0.3.0, 2025-10-30) is copied by Deltia's Gaming, gamerblurb and the awtysm Bae guide, and the three
   agree (Chef 1, Clown 1, Hidden 0, Reaper 0, Robe 4, Trudge 1, Gambit 4, Headman 4, Cleanup Crew 2). They are

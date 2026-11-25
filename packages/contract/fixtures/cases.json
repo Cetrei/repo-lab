@@ -746,13 +746,12 @@
             "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": [
-              1,
               4
             ],
             "weight": 3,
             "big": true,
             "health": 250,
-            "note": "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb."
+            "note": "La wiki actual no trae la cifra aturdido. Se usa 4, la de la tabla del parche 0.3.0 y la más probable; fantime dice 1 y por su masa saldría 3. Sin confirmar en juego."
           },
           {
             "id": "robe",
@@ -1536,7 +1535,7 @@
             "monster_id": "headman",
             "name": "Headman",
             "health": 250,
-            "note": "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb.",
+            "note": "La wiki actual no trae la cifra aturdido. Se usa 4, la de la tabla del parche 0.3.0 y la más probable; fantime dice 1 y por su masa saldría 3. Sin confirmar en juego.",
             "liftable": true,
             "required": 18,
             "combined": 9,
@@ -1554,7 +1553,7 @@
               0
             ],
             "stunned_required": 9,
-            "stunned_required_min": 6,
+            "stunned_required_min": 9,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
@@ -2429,7 +2428,7 @@
             "monster_id": "headman",
             "name": "Headman",
             "health": 250,
-            "note": "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb.",
+            "note": "La wiki actual no trae la cifra aturdido. Se usa 4, la de la tabla del parche 0.3.0 y la más probable; fantime dice 1 y por su masa saldría 3. Sin confirmar en juego.",
             "liftable": true,
             "required": 18,
             "combined": 41,
@@ -2447,7 +2446,7 @@
               0
             ],
             "stunned_required": 9,
-            "stunned_required_min": 6,
+            "stunned_required_min": 9,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
