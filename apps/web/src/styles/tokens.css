@@ -72,7 +72,7 @@
   --radius-md: 4px;
   --border-width: 1px;
   --target-min: 44px;
-  --content-width: 72rem;
+  --content-width: 84rem;
 
   /* Motion: 100 to 400 ms, ease out to enter and ease in to leave */
   --motion-fast: 100ms;

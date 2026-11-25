@@ -637,3 +637,185 @@ section > h3 {
     transition-duration: 1ms !important;
   }
 }
+
+/* Glyph tiles */
+
+.glyph {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+}
+
+.glyph[data-kind="upgrade"] {
+  color: var(--text-primary);
+}
+
+/* Monster cards: one pass shows who can lift what, a click opens the calculation */
+
+.players {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.mcard {
+  padding: 0;
+  background: var(--surface-raised);
+  border-left: 3px solid var(--border-strong);
+}
+
+.mcard[data-tone="good"] {
+  border-left-color: var(--positive);
+}
+
+.mcard[data-tone="bad"] {
+  border-left-color: var(--negative);
+}
+
+.mcard summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "tile name chevron"
+    "lift lift lift"
+    "stun stun stun";
+  gap: var(--space-2) var(--space-3);
+  align-items: center;
+  padding: var(--space-3);
+  list-style: none;
+}
+
+.mcard summary::-webkit-details-marker {
+  display: none;
+}
+
+.mcard summary > .glyph {
+  grid-area: tile;
+}
+
+.mcard__name {
+  grid-area: name;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.mcard__chevron {
+  grid-area: chevron;
+  color: var(--text-secondary);
+  transition: transform var(--motion-base) var(--ease-enter);
+}
+
+.mcard[open] .mcard__chevron {
+  transform: rotate(180deg);
+}
+
+.verdict {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.verdict:nth-of-type(1) {
+  grid-area: lift;
+}
+
+.verdict:nth-of-type(2) {
+  grid-area: stun;
+}
+
+.verdict__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-secondary);
+}
+
+.verdict__value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 600;
+}
+
+.verdict[data-tone="good"] .verdict__value {
+  color: var(--positive);
+}
+
+.verdict[data-tone="bad"] .verdict__value {
+  color: var(--negative);
+}
+
+.verdict[data-tone="muted"] .verdict__value {
+  color: var(--text-disabled);
+  font-weight: 400;
+}
+
+.detail {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3);
+  border-top: var(--border-width) solid var(--border-subtle);
+  font-size: var(--text-sm);
+}
+
+.detail > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.detail dt {
+  color: var(--text-secondary);
+}
+
+.detail dd {
+  margin: 0;
+  text-align: right;
+}
+
+.detail > .detail__note {
+  display: grid;
+}
+
+.detail > .detail__note dd {
+  text-align: left;
+}

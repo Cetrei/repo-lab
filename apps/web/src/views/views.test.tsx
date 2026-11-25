@@ -55,17 +55,18 @@ describe("MonstersView", () => {
   it("lists every monster with what the team can do", async () => {
     show(<MonstersView />);
     expect(await screen.findByRole("heading", { name: "Qué monstruos puedes levantar" })).toBeTruthy();
-    expect(screen.getByRole("rowheader", { name: "Gnome" })).toBeTruthy();
-    expect(screen.getByRole("rowheader", { name: "Elsa" })).toBeTruthy();
+    expect(screen.getByText("Gnome")).toBeTruthy();
+    expect(screen.getByText("Elsa")).toBeTruthy();
     expect(screen.getAllByText("Sin dato").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Solo").length).toBeGreaterThan(0);
   });
 
   it("filters down to what the team can lift", async () => {
     show(<MonstersView />);
-    await screen.findByRole("rowheader", { name: "Shadow Child" });
+    await screen.findByText("Shadow Child");
     fireEvent.click(screen.getByRole("button", { name: "Solo los que puedo levantar" }));
-    expect(screen.queryByRole("rowheader", { name: "Shadow Child" })).toBeNull();
-    expect(screen.getByRole("rowheader", { name: "Gnome" })).toBeTruthy();
+    expect(screen.queryByText("Shadow Child")).toBeNull();
+    expect(screen.getByText("Gnome")).toBeTruthy();
   });
 
   it("sends one entry per player and grows the team at the end", async () => {
