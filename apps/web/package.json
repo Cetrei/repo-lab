@@ -12,6 +12,8 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@fontsource/chakra-petch": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
     "@repo-lab/contract": "*",
     "lucide-react": "^1.79.0",
     "react": "^19.3.1",

@@ -1,0 +1,83 @@
+/*
+ * Design tokens. This is the only file with raw color values.
+ * Layers: raw palette, then semantic tokens. Components only read semantic tokens.
+ * The look follows the R.E.P.O. truck terminal: near black green panels, hazard amber, blocky corners.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Raw palette */
+  --raw-ink-950: #0c0f0d;
+  --raw-ink-900: #121714;
+  --raw-ink-800: #1a211d;
+  --raw-ink-700: #27312b;
+  --raw-ink-500: #5a6a60;
+  --raw-ink-300: #9fada4;
+  --raw-ink-100: #e1e8de;
+  --raw-amber-400: #ffc21a;
+  --raw-amber-600: #c78f00;
+  --raw-green-400: #62d26f;
+  --raw-red-400: #f0644f;
+  --raw-blue-400: #55a8ff;
+  --raw-violet-400: #c978ff;
+
+  /* Surfaces and text */
+  --surface-page: var(--raw-ink-950);
+  --surface-panel: var(--raw-ink-900);
+  --surface-raised: var(--raw-ink-800);
+  --border-subtle: var(--raw-ink-700);
+  --border-strong: var(--raw-ink-500);
+  --text-primary: var(--raw-ink-100);
+  --text-secondary: var(--raw-ink-300);
+  --text-disabled: var(--raw-ink-500);
+
+  /* Interaction */
+  --accent: var(--raw-amber-400);
+  --accent-pressed: var(--raw-amber-600);
+  --on-accent: var(--raw-ink-950);
+  --focus-ring: var(--raw-blue-400);
+  --positive: var(--raw-green-400);
+  --negative: var(--raw-red-400);
+
+  /* Rarity of cosmetic boxes */
+  --rarity-common: var(--raw-ink-300);
+  --rarity-uncommon: var(--raw-green-400);
+  --rarity-rare: var(--raw-blue-400);
+  --rarity-ultra: var(--raw-violet-400);
+
+  /* Spacing, a 4px scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* Type */
+  --font-ui: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --leading-tight: 1.2;
+  --leading-body: 1.5;
+
+  /* Shape and sizing */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --border-width: 1px;
+  --target-min: 44px;
+  --content-width: 72rem;
+
+  /* Motion: 100 to 400 ms, ease out to enter and ease in to leave */
+  --motion-fast: 100ms;
+  --motion-base: 200ms;
+  --motion-slow: 400ms;
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-leave: cubic-bezier(0.4, 0, 1, 1);
+}
