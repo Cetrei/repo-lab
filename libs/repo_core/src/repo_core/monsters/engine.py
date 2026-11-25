@@ -35,6 +35,8 @@ class LiftCheck:
     upgrades_from_zero: tuple[int, ...] | None
     stunned_required: int | None
     can_lift_stunned: bool | None
+    players_needed: int | None
+    players_needed_stunned: int | None
 
 
 def combined_strength(upgrades: Sequence[int]) -> int:
@@ -58,6 +60,21 @@ def upgrades_from_zero(monster: Monster) -> tuple[int, ...] | None:
     return tuple(max(0, need - BASE_STRENGTH * n) for n in range(1, MAX_PLAYERS + 1))
 
 
+def players_needed(need: int | None, upgrades: Sequence[int]) -> int | None:
+    """Fewest players of this team that reach `need` together, strongest first.
+
+    None when the monster has no figure or when the whole team still falls short.
+    """
+    if need is None:
+        return None
+    total = 0
+    for count, bought in enumerate(sorted(upgrades, reverse=True), start=1):
+        total += BASE_STRENGTH + bought
+        if total >= need:
+            return count
+    return None
+
+
 def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
     combined = combined_strength(upgrades)
     need = required_strength(monster)
@@ -77,6 +94,8 @@ def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
         upgrades_from_zero=upgrades_from_zero(monster),
         stunned_required=stunned_need,
         can_lift_stunned=None if stunned_need is None else combined >= stunned_need,
+        players_needed=players_needed(need, upgrades),
+        players_needed_stunned=players_needed(stunned_need, upgrades),
     )
 
 

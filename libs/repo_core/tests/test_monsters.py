@@ -7,6 +7,7 @@ from repo_core.monsters.engine import (
     combined_strength,
     lift_check,
     lift_table,
+    players_needed,
     upgrades_from_zero,
 )
 
@@ -57,6 +58,15 @@ class MonsterTests(unittest.TestCase):
         self.assertEqual(rows[-1].required, None)
         required = [r.required for r in rows if r.required is not None]
         self.assertEqual(required, sorted(required))
+
+    def test_players_needed_takes_the_strongest_first(self) -> None:
+        headman = MONSTERS.get("headman")
+        self.assertEqual(lift_check(headman, [13]).players_needed, 1)
+        self.assertEqual(lift_check(headman, [0, 6, 2]).players_needed, 2)
+        self.assertEqual(lift_check(headman, [0, 0]).players_needed, None)
+
+    def test_players_needed_without_a_figure(self) -> None:
+        self.assertEqual(players_needed(None, [9, 9]), None)
 
     def test_invalid_players(self) -> None:
         with self.assertRaises(InvalidInput):

@@ -130,6 +130,8 @@ export const liftCheck = z.strictObject({
   upgrades_from_zero: z.array(z.int()).nullable(),
   stunned_required: z.int().nullable(),
   can_lift_stunned: z.boolean().nullable(),
+  players_needed: z.int().nullable(),
+  players_needed_stunned: z.int().nullable(),
 });
 export type LiftCheck = z.infer<typeof liftCheck>;
 
