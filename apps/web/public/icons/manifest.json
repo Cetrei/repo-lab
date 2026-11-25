@@ -498,17 +498,6 @@
     },
     {
       "kind": "players",
-      "id": "robot",
-      "file": "players/robot.png",
-      "title": "Semibot.png",
-      "source": "https://repo-2025horror.fandom.com/wiki/File:Semibot.png",
-      "original": [
-        628,
-        1317
-      ]
-    },
-    {
-      "kind": "players",
       "id": "head",
       "file": "players/head.png",
       "title": "Semibot Cropped.png",

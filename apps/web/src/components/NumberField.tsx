@@ -9,6 +9,8 @@ interface NumberFieldProps {
   icon?: ReactNode;
   /** Keeps the label for screen readers only, for compact steppers whose context is already on screen. */
   hideLabel?: boolean;
+  /** sign: the level plate of the game, big and 2D. compact: a small row stepper for lists. */
+  variant?: "sign" | "compact";
   value: number;
   min: number;
   max: number;
@@ -29,7 +31,7 @@ function parse(text: string, min: number, max: number): number | null {
  * last valid number stays in force, so nothing invalid ever reaches the engine.
  * States: default, hover and active (border and fill), focus (ring), invalid (red), disabled (greyed).
  */
-export function NumberField({ label, icon, hideLabel, value, min, max, onChange, hint, step = 1, disabled }: NumberFieldProps) {
+export function NumberField({ label, icon, hideLabel, variant, value, min, max, onChange, hint, step = 1, disabled }: NumberFieldProps) {
   const id = useId();
   const hintId = `${id}-hint`;
   const [draft, setDraft] = useState<string | null>(null);
@@ -42,7 +44,7 @@ export function NumberField({ label, icon, hideLabel, value, min, max, onChange,
   };
 
   return (
-    <div className="field">
+    <div className={variant ? `field field--${variant}` : "field"}>
       <label htmlFor={id} className={hideLabel ? "sr-only" : undefined}>
         {icon}
         {label}
@@ -65,6 +67,7 @@ export function NumberField({ label, icon, hideLabel, value, min, max, onChange,
           inputMode="numeric"
           autoComplete="off"
           value={text}
+          data-len={variant === "sign" ? Math.min(text.length, 5) : undefined}
           disabled={disabled}
           aria-invalid={invalid}
           aria-describedby={hint ? hintId : undefined}

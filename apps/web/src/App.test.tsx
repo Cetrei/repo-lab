@@ -41,7 +41,7 @@ describe("App", () => {
     expect(nav.querySelectorAll("a")).toHaveLength(ROUTES.length);
     expect(screen.getByRole("link", { name: "Cajas" }).getAttribute("aria-current")).toBe("page");
     expect(await screen.findByRole("list", { name: "Cajas por rareza" })).toBeTruthy();
-    expect(await screen.findByLabelText("Parche")).toBeTruthy();
+    expect(await screen.findByRole("button", { name: "Parche del juego" })).toBeTruthy();
     expect(document.title).toBe("REPO Lab");
   });
 
@@ -58,6 +58,14 @@ describe("App", () => {
     expect(await screen.findByRole("heading", { name: "Qué monstruos puedes levantar" })).toBeTruthy();
     expect(screen.getByRole("link", { name: "Cajas" }).getAttribute("aria-current")).toBeNull();
     expect(document.title).toBe("Monstruos | REPO Lab");
+  });
+
+  it("shows only the loading screen until Python is ready", () => {
+    open("");
+    renderApp(replayEngine({ phase: "loading", detail: "Cargando PyYAML" }));
+    expect(screen.getByRole("progressbar")).toBeTruthy();
+    expect(screen.getByText("Cargando PyYAML")).toBeTruthy();
+    expect(screen.queryByRole("navigation", { name: "Calculadoras" })).toBeNull();
   });
 
   it("shows the state of the engine in the header", () => {

@@ -32,7 +32,7 @@ export function CosmeticsView() {
         hint="La mala suerte cuenta los niveles seguidos que terminaste sin ninguna caja. Cualquier caja la reinicia."
       >
         <div className="fields-grid fields-grid--wide">
-          <NumberField label="Nivel" value={level} min={1} max={10000} onChange={setLevel} />
+          <NumberField label="Nivel" variant="sign" value={level} min={1} max={10000} onChange={setLevel} />
           <NumberField label="Mala suerte" value={badLuck} min={0} max={500} onChange={setBadLuck} />
         </div>
       </Panel>

@@ -47,15 +47,21 @@ describe("CosmeticsView", () => {
         </PatchProvider>
       </EngineProvider>,
     );
-    const select = await screen.findByLabelText("Parche");
+    const wrench = await screen.findByRole("button", { name: "Parche del juego" });
     const first = engine.payloads("cosmetics.level")[0];
     expect(first).not.toHaveProperty("ruleset");
-    const options = Array.from((select as HTMLSelectElement).options).map((option) => option.value);
+    // Nothing about the patches shows until the wrench is pressed.
+    expect(screen.queryByRole("listbox")).toBeNull();
+    fireEvent.click(wrench);
+    const options = within(screen.getByRole("listbox", { name: "Parche" })).getAllByRole("option");
+    expect(options.filter((option) => option.getAttribute("aria-selected") === "true")).toHaveLength(1);
     if (options.length > 1) {
-      fireEvent.change(select, { target: { value: options[1] } });
+      const other = options.find((option) => option.getAttribute("aria-selected") === "false");
+      if (other) fireEvent.click(other);
       await waitFor(() => {
-        expect(engine.payloads("cosmetics.level").at(-1)).toMatchObject({ ruleset: options[1] });
+        expect(engine.payloads("cosmetics.level").at(-1)).toHaveProperty("ruleset");
       });
+      expect(screen.queryByRole("listbox")).toBeNull();
     }
   });
 
@@ -100,6 +106,19 @@ describe("MonstersView", () => {
     expect(screen.getByText("Elsa")).toBeTruthy();
     expect(screen.getAllByText("Sin dato").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Solo").length).toBeGreaterThan(0);
+  });
+
+  it("opens the calculation of a monster in a dialog and keeps every card the same", async () => {
+    show(<MonstersView />);
+    await screen.findByText("Gnome");
+    expect(document.querySelector(".mcard details")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /Gnome/ }));
+    const dialog = await screen.findByRole("dialog", { name: "Gnome" });
+    expect(within(dialog).getByText("Fuerza necesaria")).toBeTruthy();
+    fireEvent.keyDown(dialog, { key: "Escape" });
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).toBeNull();
+    });
   });
 
   it("filters down to what the team can lift", async () => {
@@ -179,7 +198,7 @@ describe("UpgradesView", () => {
 
   it("offers to use only what is held, and asks Python what that leaves", async () => {
     const engine = show(<UpgradesView />);
-    expect(await screen.findByText("Anota unidades en Tus mejoras para poder usarlas aquí.")).toBeTruthy();
+    expect(await screen.findByText(/Anota arriba cuántas unidades tienes/)).toBeTruthy();
     fireEvent.change(await screen.findByLabelText("Tengo Range"), { target: { value: "2" } });
     fireEvent.change(await screen.findByLabelText("Usar Range"), { target: { value: "1" } });
     await waitFor(() => {
@@ -189,7 +208,7 @@ describe("UpgradesView", () => {
         consumed: [],
       });
     });
-    expect(await screen.findByText("Unidades usadas")).toBeTruthy();
+    expect(await screen.findByText(/Gastas 1 unidad y vuelven al fondo común/)).toBeTruthy();
   });
 
   it("drops what was set to use when the stock is lowered below it", async () => {

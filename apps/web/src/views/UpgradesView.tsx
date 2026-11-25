@@ -1,4 +1,4 @@
-import type { ShopOutlook, StashPlan, Upgrade } from "@repo-lab/contract";
+import type { ShopOutlook, StashPlan, Upgrade, UseResult } from "@repo-lab/contract";
 import { Star } from "lucide-react";
 import { useId, useMemo, useState } from "react";
 import { NumberField } from "../components/NumberField";
@@ -92,63 +92,100 @@ export function UpgradesView() {
         </ul>
       </Panel>
 
-      <details className="tools">
-        <summary>Más herramientas: usar mejoras y recargar la tienda</summary>
-        <div className="pair">
-          <Panel
-            title="Usar mejoras"
-            hint="Las unidades usadas vuelven al fondo común, salvo las permanentes, y el void rellena el camión."
-          >
-            {Object.entries(held).some(([, count]) => count > 0) ? (
-              <div className="row">
-                {upgrades
-                  .filter((u) => (held[u.id] ?? 0) > 0)
-                  .map((upgrade) => (
-                    <NumberField
-                      key={upgrade.id}
-                      icon={<GlyphTile kind="upgrade" id={upgrade.id} size={24} />}
-                      label={`Usar ${upgrade.name}`}
-                      value={Math.min(used[upgrade.id] ?? 0, held[upgrade.id] ?? 0)}
-                      min={0}
-                      max={held[upgrade.id] ?? 0}
-                      onChange={(next) => {
-                        setUsed({ ...used, [upgrade.id]: next });
-                      }}
-                    />
-                  ))}
-              </div>
-            ) : (
-              <p className="muted">Anota unidades en Tus mejoras para poder usarlas aquí.</p>
-            )}
-            {anyUsed ? (
-              <Outcome result={use}>
-                {(result) => (
-                  <>
-                    <Stats>
-                      <Stat label="Unidades usadas" value={integer(result.units_used)} />
-                      <Stat label="Salen del void" value={integer(result.released_from_void)} />
-                      <Stat label="Quedan en el void" value={integer(result.void_after)} />
-                      <Stat label="Fondo común" value={integer(result.after.pool_total)} />
-                    </Stats>
-                    <ShopTable data={result.after} />
-                  </>
-                )}
-              </Outcome>
-            ) : null}
-          </Panel>
+      <Panel
+        title="Gastar mejoras"
+        hint="Una mejora que gastas vuelve al fondo común y puede reaparecer en la tienda, salvo las permanentes. Aquí ves cómo cambia la tienda si gastas algunas."
+      >
+        {upgrades.some((upgrade) => (held[upgrade.id] ?? 0) > 0) ? (
+          <ul className="spend" aria-label="Mejoras que puedes gastar">
+            {upgrades
+              .filter((upgrade) => (held[upgrade.id] ?? 0) > 0)
+              .map((upgrade) => (
+                <li key={upgrade.id} className="spend__row">
+                  <GlyphTile kind="upgrade" id={upgrade.id} size={32} />
+                  <span className="spend__name">{upgrade.name}</span>
+                  <span className="muted num">{`de ${integer(held[upgrade.id] ?? 0)}`}</span>
+                  <NumberField
+                    hideLabel
+                    variant="compact"
+                    label={`Usar ${upgrade.name}`}
+                    value={Math.min(used[upgrade.id] ?? 0, held[upgrade.id] ?? 0)}
+                    min={0}
+                    max={held[upgrade.id] ?? 0}
+                    onChange={(next) => {
+                      setUsed({ ...used, [upgrade.id]: next });
+                    }}
+                  />
+                </li>
+              ))}
+          </ul>
+        ) : (
+          <p className="muted">Anota arriba cuántas unidades tienes y aquí pruebas qué pasa al gastarlas.</p>
+        )}
+        {anyUsed ? (
+          <Outcome result={use}>{(result) => <SpendResult result={result} before={shop.data} wanted={wanted} />}</Outcome>
+        ) : null}
+      </Panel>
 
-          <Panel title="Recargar la tienda" hint="El primer reroll cuesta una cantidad fija y cada siguiente suma otra igual.">
-            <NumberField label="Rerolls" value={rerolls} min={0} max={1000} onChange={setRerolls} />
-            <Outcome result={reroll}>
-              {(data) => (
-                <Stats>
-                  <Stat label="Costo total" value={`${integer(data.total_cost)}`} />
-                </Stats>
-              )}
-            </Outcome>
-          </Panel>
-        </div>
+      <details className="tools">
+        <summary>Más herramientas: recargar la tienda</summary>
+        <Panel title="Recargar la tienda" hint="El primer reroll cuesta una cantidad fija y cada siguiente suma otra igual.">
+          <NumberField label="Rerolls" value={rerolls} min={0} max={1000} onChange={setRerolls} />
+          <Outcome result={reroll}>
+            {(data) => (
+              <Stats>
+                <Stat label="Costo total" value={`${integer(data.total_cost)}`} />
+              </Stats>
+            )}
+          </Outcome>
+        </Panel>
       </details>
+    </div>
+  );
+}
+
+/** What spending units does: where they go and which upgrades become more or less likely in the shop. */
+function SpendResult({
+  result,
+  before,
+  wanted,
+}: {
+  result: UseResult;
+  before: ShopOutlook | undefined;
+  wanted: string[];
+}) {
+  const was = new Map((before?.rows ?? []).map((row) => [row.upgrade_id, row.p_appears]));
+  const changes = result.after.rows
+    .map((row) => ({ id: row.upgrade_id, name: row.name, from: was.get(row.upgrade_id) ?? 0, to: row.p_appears }))
+    .filter((change) => Math.abs(change.to - change.from) >= 0.0005)
+    .sort((a, b) => {
+      const mine = Number(wanted.includes(b.id)) - Number(wanted.includes(a.id));
+      return mine !== 0 ? mine : Math.abs(b.to - b.from) - Math.abs(a.to - a.from);
+    })
+    .slice(0, 8);
+  return (
+    <div className="spend__result">
+      <p className="plan__lead">
+        <strong>{`Gastas ${units(result.units_used)} y vuelven al fondo común, que pasa a ${integer(result.after.pool_total)}.`}</strong>
+      </p>
+      {result.released_from_void > 0 ? (
+        <p className="muted">{`Del void entran ${units(result.released_from_void)} al camión y quedan ${integer(result.void_after)} allí.`}</p>
+      ) : result.void_after > 0 ? (
+        <p className="muted">{`El void sigue con ${units(result.void_after)}.`}</p>
+      ) : null}
+      {changes.length > 0 ? (
+        <ul className="changes" aria-label="Cómo cambia la tienda">
+          {changes.map((change) => (
+            <li key={change.id}>
+              <GlyphTile kind="upgrade" id={change.id} size={28} />
+              <span>{change.name}</span>
+              <b className="num" data-up={change.to > change.from}>{`${percent(change.from)} → ${percent(change.to)}`}</b>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="muted">La tienda queda igual.</p>
+      )}
     </div>
   );
 }
@@ -372,43 +409,5 @@ function UpgradeCard({ upgrade, held, buy, row, wanted, plan, consumed, onHeld, 
         </div>
       ) : null}
     </article>
-  );
-}
-
-function ShopTable({ data }: { data: ShopOutlook }) {
-  return (
-    <div className="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Mejora</th>
-            <th scope="col" className="right">
-              Tienes
-            </th>
-            <th scope="col" className="right">
-              En el fondo
-            </th>
-            <th scope="col">Aparece</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.rows.map((row) => (
-            <tr key={row.upgrade_id}>
-              <th scope="row">
-                <span className="named">
-                  <GlyphTile kind="upgrade" id={row.upgrade_id} size={28} />
-                  {row.name}
-                </span>
-              </th>
-              <td className="right num">{`${integer(row.held)} de ${integer(row.cap)}`}</td>
-              <td className="right num">{integer(row.pool)}</td>
-              <td>
-                <Meter value={row.p_appears} text={row.certain ? "Seguro" : percent(row.p_appears)} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
   );
 }

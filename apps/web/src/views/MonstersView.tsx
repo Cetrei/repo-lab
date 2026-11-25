@@ -1,7 +1,8 @@
 import type { LiftCheck } from "@repo-lab/contract";
-import { ChevronDown, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { useState } from "react";
-import { GlyphTile, Heads, PlayerArt } from "../icons";
+import { GlyphTile, Heads, PlayerHead, shuffledHues } from "../icons";
+import { Modal } from "../components/Modal";
 import { NumberField } from "../components/NumberField";
 import { Outcome, Panel, Stat, Stats } from "../components/ui";
 import { integer, signed } from "../format";
@@ -15,7 +16,9 @@ export function MonstersView() {
   const catalog = useCall("monsters.catalog", undefined);
   const maxPlayers = catalog.data?.max_players ?? FALLBACK_MAX_PLAYERS;
   const [upgrades, setUpgrades] = useState<number[]>([0, 0]);
+  const [hues] = useState(shuffledHues);
   const [onlyLiftable, setOnlyLiftable] = useState(false);
+  const [open, setOpen] = useState<string | null>(null);
   const result = useCall("monsters.lift", { upgrades });
 
   const resize = (count: number) => {
@@ -34,25 +37,23 @@ export function MonstersView() {
         }
       >
         <NumberField label="Jugadores" value={upgrades.length} min={1} max={maxPlayers} onChange={resize} />
-        <ul className="players" aria-label="Tu equipo">
+        <ul className="lobby" aria-label="Tu equipo">
           {upgrades.map((value, index) => (
             // The position is the identity: players have no name and the list only grows or shrinks at the end.
-            <li key={index} className="player">
-              <PlayerArt kind="robot" height={96} />
-              <span className="player__name">{`Jugador ${index + 1}`}</span>
-              <div className="player__strength">
-                <GlyphTile kind="upgrade" id="strength" size={28} />
-                <NumberField
-                  hideLabel
-                  label={`Mejoras de Fuerza del jugador ${index + 1}`}
-                  value={value}
-                  min={0}
-                  max={99}
-                  onChange={(next) => {
-                    setUpgrades(upgrades.map((current, at) => (at === index ? next : current)));
-                  }}
-                />
-              </div>
+            <li key={index} className="lobby__row">
+              <PlayerHead hue={hues[index % hues.length] ?? 0} size={40} />
+              <GlyphTile kind="upgrade" id="strength" size={32} />
+              <NumberField
+                hideLabel
+                variant="compact"
+                label={`Mejoras de Fuerza del jugador ${index + 1}`}
+                value={value}
+                min={0}
+                max={99}
+                onChange={(next) => {
+                  setUpgrades(upgrades.map((current, at) => (at === index ? next : current)));
+                }}
+              />
             </li>
           ))}
         </ul>
@@ -64,6 +65,7 @@ export function MonstersView() {
             const can = data.rows.filter((row) => row.liftable && row.can_lift);
             const liftableCount = data.rows.filter((row) => row.liftable).length;
             const shown = onlyLiftable ? data.rows.filter((row) => row.can_lift) : data.rows;
+            const selected = data.rows.find((row) => row.monster_id === open);
             return (
               <Panel
                 title="Qué monstruos puedes levantar"
@@ -85,28 +87,31 @@ export function MonstersView() {
                     Solo los que puedo levantar
                   </button>
                 </div>
-                <div className="legend" aria-hidden="true">
-                  <span>
-                    <Heads count={1} /> Solo
-                  </span>
-                  <span>
-                    <Heads count={2} /> Con varios jugadores
-                  </span>
-                  <span>
-                    <Zap size={14} /> Aturdido
-                  </span>
-                </div>
                 {shown.length === 0 ? (
                   <p className="muted">Con este equipo no levantas ninguno todavía.</p>
                 ) : (
                   <ul className="cards">
                     {shown.map((row) => (
                       <li key={row.monster_id}>
-                        <MonsterCard row={row} players={upgrades.length} />
+                        <MonsterCard
+                          row={row}
+                          onOpen={() => {
+                            setOpen(row.monster_id);
+                          }}
+                        />
                       </li>
                     ))}
                   </ul>
                 )}
+                {selected ? (
+                  <MonsterDialog
+                    row={selected}
+                    players={upgrades.length}
+                    onClose={() => {
+                      setOpen(null);
+                    }}
+                  />
+                ) : null}
               </Panel>
             );
           }}
@@ -131,19 +136,24 @@ function VerdictLine({ label, verdict, stun }: { label: string; verdict: Verdict
   );
 }
 
-function MonsterCard({ row, players }: { row: LiftCheck; players: number }) {
+/** Every card has the same size, so the grid reads as a table. The calculation opens in a dialog. */
+function MonsterCard({ row, onOpen }: { row: LiftCheck; onOpen(): void }) {
   const lift = liftVerdict(row);
   const stun = stunVerdict(row);
+  return (
+    <button type="button" className="mcard" data-tone={lift.tone} aria-haspopup="dialog" onClick={onOpen}>
+      <GlyphTile kind="monster" id={row.monster_id} size={56} />
+      <span className="mcard__name">{row.name}</span>
+      <VerdictLine label="Levantar" verdict={lift} />
+      <VerdictLine label="Aturdido" verdict={stun} stun />
+    </button>
+  );
+}
+
+function MonsterDialog({ row, players, onClose }: { row: LiftCheck; players: number; onClose(): void }) {
   const total = row.upgrades_from_zero?.[players - 1];
   return (
-    <details className="mcard" data-tone={lift.tone}>
-      <summary>
-        <GlyphTile kind="monster" id={row.monster_id} size={56} />
-        <span className="mcard__name">{row.name}</span>
-        <ChevronDown className="mcard__chevron" size={16} aria-hidden="true" />
-        <VerdictLine label="Levantar" verdict={lift} />
-        <VerdictLine label="Aturdido" verdict={stun} stun />
-      </summary>
+    <Modal title={row.name} onClose={onClose}>
       <dl className="detail">
         <div>
           <dt>Fuerza necesaria</dt>
@@ -175,6 +185,6 @@ function MonsterCard({ row, players }: { row: LiftCheck; players: number }) {
           </div>
         ) : null}
       </dl>
-    </details>
+    </Modal>
   );
 }

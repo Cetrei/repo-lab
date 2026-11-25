@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { EngineStatus, useEngineToasts } from "./components/EngineStatus";
 import { PatchProvider, PatchSelector } from "./components/Patch";
+import { Splash } from "./components/Splash";
+import { useEngineState } from "./engine/EngineProvider";
 import { GlyphTile } from "./icons";
 import { ROUTES, useRoute } from "./routes";
 
@@ -8,10 +10,14 @@ export function App() {
   const route = useRoute();
   const View = route.view;
   useEngineToasts();
+  const { phase } = useEngineState();
 
   useEffect(() => {
     document.title = route.id === ROUTES[0].id ? "REPO Lab" : `${route.label} | REPO Lab`;
   }, [route]);
+
+  // The calculators wait for Python, so they never show a half loaded page.
+  if (phase === "loading") return <Splash />;
 
   return (
     <PatchProvider>

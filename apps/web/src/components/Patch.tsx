@@ -1,5 +1,5 @@
-import { Wrench } from "lucide-react";
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { Check, Wrench } from "lucide-react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useCall } from "../hooks/useCall";
 
 interface PatchState {
@@ -29,36 +29,72 @@ export function patchRequest(id: string): { ruleset?: string } {
   return id === "" ? {} : { ruleset: id };
 }
 
-/** A compact patch picker for the corner of the header. With a single patch it only says which one the numbers follow. */
+/**
+ * The patch picker, as small as it can be: one wrench in the header corner. The patch in force and the other
+ * options only show when the wrench is pressed, and the list closes on a choice, Escape or a click elsewhere.
+ */
 export function PatchSelector() {
   const { id, choose } = usePatch();
   const rulesets = useCall("cosmetics.rulesets", undefined);
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const outside = (event: MouseEvent) => {
+      if (root.current && !root.current.contains(event.target as Node)) setOpen(false);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", outside);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("mousedown", outside);
+      document.removeEventListener("keydown", escape);
+    };
+  }, [open]);
+
   const data = rulesets.data;
   if (!data) return null;
   const current = id === "" ? data.default : id;
-  const note = data.rulesets.find((ruleset) => ruleset.id === current)?.note;
+
   return (
-    <div className="patch">
-      <label htmlFor="patch">
-        <Wrench aria-hidden size={16} />
-        Parche
-      </label>
-      <select
-        id="patch"
-        className="select"
-        value={current}
-        disabled={data.rulesets.length < 2}
-        title={note || undefined}
-        onChange={(event) => {
-          choose(event.target.value);
+    <div className="patch" ref={root}>
+      <button
+        type="button"
+        className="info"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label="Parche del juego"
+        title="Parche del juego"
+        onClick={() => {
+          setOpen(!open);
         }}
       >
-        {data.rulesets.map((ruleset) => (
-          <option key={ruleset.id} value={ruleset.id}>
-            {ruleset.label}
-          </option>
-        ))}
-      </select>
+        <Wrench aria-hidden size={18} />
+      </button>
+      {open ? (
+        <ul className="patch__menu" role="listbox" aria-label="Parche">
+          {data.rulesets.map((ruleset) => (
+            <li key={ruleset.id} role="presentation">
+              <button
+                type="button"
+                role="option"
+                aria-selected={ruleset.id === current}
+                title={ruleset.note || undefined}
+                onClick={() => {
+                  choose(ruleset.id);
+                  setOpen(false);
+                }}
+              >
+                <span>{ruleset.label}</span>
+                {ruleset.id === current ? <Check aria-hidden size={16} /> : null}
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }

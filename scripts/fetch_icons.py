@@ -79,9 +79,8 @@ RARITIES: dict[str, str] = {
 }
 
 
-# the semibot players: the whole robot for the team, the head for who lifts
+# the semibot head, tinted in the page with the lobby colors
 PLAYERS: dict[str, str] = {
-    "robot": "Semibot.png",
     "head": "Semibot Cropped.png",
 }
 

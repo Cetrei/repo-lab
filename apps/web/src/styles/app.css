@@ -656,12 +656,6 @@ section > h3 {
 
 /* Monster cards: one pass shows who can lift what, a click opens the calculation */
 
-.players {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3);
-}
-
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -677,81 +671,6 @@ section > h3 {
 
 .toolbar .stat {
   min-width: 9rem;
-}
-
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1) var(--space-4);
-  color: var(--text-secondary);
-  font-size: var(--text-xs);
-}
-
-.legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.cards {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-  gap: var(--space-3);
-  align-items: start;
-}
-
-.mcard {
-  padding: 0;
-  background: var(--surface-raised);
-  border-left: 3px solid var(--border-strong);
-}
-
-.mcard[data-tone="good"] {
-  border-left-color: var(--positive);
-}
-
-.mcard[data-tone="bad"] {
-  border-left-color: var(--negative);
-}
-
-.mcard summary {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  grid-template-areas:
-    "tile name chevron"
-    "lift lift lift"
-    "stun stun stun";
-  gap: var(--space-2) var(--space-3);
-  align-items: center;
-  padding: var(--space-3);
-  list-style: none;
-}
-
-.mcard summary::-webkit-details-marker {
-  display: none;
-}
-
-.mcard summary > .glyph {
-  grid-area: tile;
-}
-
-.mcard__name {
-  grid-area: name;
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-
-.mcard__chevron {
-  grid-area: chevron;
-  color: var(--text-secondary);
-  transition: transform var(--motion-base) var(--ease-enter);
-}
-
-.mcard[open] .mcard__chevron {
-  transform: rotate(180deg);
 }
 
 .verdict {
@@ -914,22 +833,6 @@ section > h3 {
 
 .glyph[data-kind="monster"] img {
   filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.6));
-}
-
-.mcard {
-  --tone: var(--border-strong);
-}
-
-.mcard[data-tone="good"] {
-  --tone: var(--positive);
-}
-
-.mcard[data-tone="bad"] {
-  --tone: var(--negative);
-}
-
-.mcard:hover .glyph[data-kind="monster"] img {
-  transform: scale(1.08);
 }
 
 .glyph[data-kind="monster"] img {
@@ -1251,21 +1154,6 @@ section > h3 {
   gap: var(--space-2);
 }
 
-.patch {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.patch > label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  color: var(--text-secondary);
-  font-size: var(--text-sm);
-  font-weight: 600;
-}
-
 /* Cajas: one card per rarity with its crate, like the upgrade cards */
 
 .cajas {
@@ -1384,74 +1272,6 @@ section > h3 {
   color: var(--text-secondary) !important;
 }
 
-/* Team: one robot per player, the strength upgrade tucked in a corner */
-
-.players {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-}
-
-.player {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  align-content: start;
-  gap: var(--space-1);
-  min-height: 10.5rem;
-  padding: var(--space-3) var(--space-3) var(--space-8, 2.75rem);
-  background: var(--surface-page);
-  border: var(--border-width) solid var(--border-subtle);
-  border-radius: var(--radius-md);
-}
-
-.player__name {
-  color: var(--text-secondary);
-  font-size: var(--text-xs);
-  font-weight: 600;
-}
-
-.player .semibot {
-  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
-}
-
-.player__strength {
-  position: absolute;
-  right: var(--space-2);
-  bottom: var(--space-2);
-  left: var(--space-2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-}
-
-.player__strength > :first-child {
-  flex: none;
-}
-
-.player__strength .field {
-  gap: 0;
-}
-
-.player__strength .stepper {
-  grid-template-columns: 28px 2.25rem 28px;
-}
-
-.player__strength .stepper .btn {
-  min-width: 28px;
-  min-height: 28px;
-  padding: 0;
-}
-
-.player__strength .stepper input {
-  min-height: 28px;
-  padding: 0;
-  text-align: center;
-  font-size: var(--text-sm);
-}
-
 /* Who has to grab: the heads of the semibots */
 
 .heads {
@@ -1461,7 +1281,6 @@ section > h3 {
 
 .heads .semibot {
   margin-inline-start: -8px;
-  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.6));
 }
 
 .heads .semibot:first-child {
@@ -1559,4 +1378,314 @@ section > h3 {
   border-radius: var(--radius-sm);
   color: var(--on-accent);
   font-size: var(--text-xs);
+}
+
+/* Semibot heads: the grey head of the wiki, tinted with one lobby color through --hue */
+
+.semibot {
+  display: block;
+  filter: sepia(1) saturate(3.2) hue-rotate(var(--hue, 0deg)) drop-shadow(0 1px 2px color-mix(in srgb, var(--raw-ink-950) 70%, transparent));
+}
+
+/* Team: a list like the lobby of the game, one row per player */
+
+.lobby {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.lobby__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-page);
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.lobby__row .field {
+  margin-inline-start: auto;
+}
+
+.field--compact .stepper {
+  grid-template-columns: 32px 3rem 32px;
+  min-height: 32px;
+}
+
+.field--compact .stepper .btn {
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+}
+
+.field--compact .stepper input {
+  min-height: 32px;
+  padding: 0;
+  font-size: var(--text-sm);
+}
+
+/* Monster cards: all the same size, the calculation opens in a dialog */
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 16rem);
+  justify-content: start;
+  gap: var(--space-3);
+}
+
+.mcard {
+  --tone: var(--border-strong);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas:
+    "tile name"
+    "lift lift"
+    "stun stun";
+  gap: var(--space-2) var(--space-3);
+  align-items: center;
+  width: 100%;
+  height: 9.5rem;
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  border: 0;
+  border-left: 3px solid var(--tone);
+  border-radius: var(--radius-sm);
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.mcard[data-tone="good"] {
+  --tone: var(--positive);
+}
+
+.mcard[data-tone="bad"] {
+  --tone: var(--negative);
+}
+
+.mcard:hover {
+  background: color-mix(in srgb, var(--tone) 10%, var(--surface-raised));
+}
+
+.mcard:hover .glyph[data-kind="monster"] img {
+  transform: scale(1.08);
+}
+
+.mcard > .glyph {
+  grid-area: tile;
+}
+
+.mcard__name {
+  grid-area: name;
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+}
+
+.mcard .verdict {
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+/* Header corner: the patch is one wrench, its list opens only to change it */
+
+.patch {
+  position: relative;
+}
+
+.patch__menu {
+  position: absolute;
+  inset-block-start: calc(100% + 6px);
+  inset-inline-end: 0;
+  z-index: 20;
+  min-width: 14rem;
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  background: var(--surface-panel);
+  border: var(--border-width) solid var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--raw-ink-950) 80%, transparent);
+}
+
+.patch__menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 36px;
+  padding: var(--space-1) var(--space-3);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--text-sm);
+  text-align: start;
+  cursor: pointer;
+}
+
+.patch__menu button:hover,
+.patch__menu button[aria-selected="true"] {
+  color: var(--accent);
+}
+
+/* Level selector: the level plate of the game, flat, with minus and plus on its sides */
+
+.field--sign {
+  justify-items: start;
+}
+
+.field--sign .stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 0;
+}
+
+.field--sign .stepper .btn,
+.field--sign .stepper .btn:first-child,
+.field--sign .stepper .btn:last-child {
+  border-radius: var(--radius-md);
+}
+
+.field--sign .stepper input {
+  box-sizing: border-box;
+  width: 5.5rem;
+  height: 7rem;
+  padding: 0;
+  color: var(--sign-ink);
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow:
+    0 0 4px var(--sign-glow),
+    0 0 14px var(--sign-glow);
+  background:
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--sign-ink) 8%, transparent) 0 2px, transparent 2px 5px),
+    linear-gradient(var(--sign-face-top), var(--sign-face-bottom));
+  border: 6px solid;
+  border-color: var(--sign-frame-light) var(--sign-frame-dark) var(--sign-frame-dark) var(--sign-frame-light);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 14px color-mix(in srgb, var(--raw-ink-950) 70%, transparent),
+    0 2px 8px color-mix(in srgb, var(--raw-ink-950) 70%, transparent);
+}
+
+.field--sign .stepper input[data-len="4"] {
+  font-size: 2.5rem;
+}
+
+.field--sign .stepper input[data-len="5"] {
+  font-size: 2rem;
+}
+
+.field--sign .stepper input[aria-invalid="true"] {
+  color: var(--negative);
+  text-shadow: 0 0 10px var(--negative);
+}
+
+/* Splash: the first screen while Python loads */
+
+.splash {
+  min-height: 100vh;
+  display: grid;
+}
+
+.splash__body {
+  place-self: center;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  width: min(22rem, 80vw);
+  text-align: center;
+}
+
+.splash__bar {
+  width: 100%;
+  height: 6px;
+  background: var(--surface-raised);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.splash__bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width var(--motion-slow) var(--ease-enter);
+}
+
+.splash p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* Spending upgrades */
+
+.spend,
+.changes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.spend {
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+}
+
+.spend__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-page);
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.spend__name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.spend__result {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.changes li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.changes li span {
+  flex: 1;
+}
+
+.changes b[data-up="true"] {
+  color: var(--positive);
+}
+
+.changes b[data-up="false"] {
+  color: var(--negative);
 }

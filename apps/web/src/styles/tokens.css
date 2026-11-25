@@ -21,6 +21,12 @@
   --raw-red-400: #f0644f;
   --raw-blue-400: #55a8ff;
   --raw-violet-400: #c978ff;
+  --raw-sign-frame-light: #b4673f;
+  --raw-sign-frame-dark: #5d2a1a;
+  --raw-sign-face-top: #1d2563;
+  --raw-sign-face-bottom: #0e1238;
+  --raw-sign-ink: #ff9a2e;
+  --raw-sign-glow: #ff6a00;
 
   /* Surfaces and text */
   --surface-page: var(--raw-ink-950);
@@ -31,6 +37,14 @@
   --text-primary: var(--raw-ink-100);
   --text-secondary: var(--raw-ink-300);
   --text-disabled: var(--raw-ink-500);
+
+  /* The level plate of the game, used by the level selector */
+  --sign-frame-light: var(--raw-sign-frame-light);
+  --sign-frame-dark: var(--raw-sign-frame-dark);
+  --sign-face-top: var(--raw-sign-face-top);
+  --sign-face-bottom: var(--raw-sign-face-bottom);
+  --sign-ink: var(--raw-sign-ink);
+  --sign-glow: var(--raw-sign-glow);
 
   /* Interaction */
   --accent: var(--raw-amber-400);

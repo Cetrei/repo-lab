@@ -45,6 +45,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useState } from "react";
+import type { CSSProperties } from "react";
 
 /**
  * Stylized glyphs, one per monster and per upgrade. They are the fallback when the game art of an entry
@@ -126,7 +127,7 @@ function glyphFor(kind: Kind, id: string): LucideIcon {
  * A square tile with the game art of a monster or an upgrade. Decorative: the name always sits next to
  * it. If the image cannot load, the stylized glyph takes its place.
  */
-export function GlyphTile({ kind, id, size = 40 }: { kind: Kind; id: string; size?: number }) {
+export function GlyphTile({ kind, id, size = 40, eager }: { kind: Kind; id: string; size?: number; eager?: boolean }) {
   const [failed, setFailed] = useState(false);
   const Glyph = glyphFor(kind, id);
   return (
@@ -139,8 +140,8 @@ export function GlyphTile({ kind, id, size = 40 }: { kind: Kind; id: string; siz
           alt=""
           width={size}
           height={size}
-          loading="lazy"
-          decoding="async"
+          loading={eager ? "eager" : "lazy"}
+          decoding={eager ? "sync" : "async"}
           draggable={false}
           onError={() => {
             setFailed(true);
@@ -177,21 +178,32 @@ export function RarityArt({ rarity, size = 72 }: { rarity: string; size?: number
   );
 }
 
-/** A semibot, the player of the game: the whole robot for a team member, the head for who lifts. */
-export function PlayerArt({ kind, height }: { kind: "robot" | "head"; height: number }) {
+/** Hues that turn the grey semibot head into the colors of the game lobby. */
+const HEAD_HUES = [0, 28, 60, 115, 170, 205, 260, 315];
+
+/** The lobby colors in a random order, so every head of a list gets a different one. */
+export function shuffledHues(): number[] {
+  const hues = [...HEAD_HUES];
+  for (let index = hues.length - 1; index > 0; index -= 1) {
+    const other = Math.floor(Math.random() * (index + 1));
+    [hues[index], hues[other]] = [hues[other] ?? 0, hues[index] ?? 0];
+  }
+  return hues;
+}
+
+/** The head of a semibot, the player of the game, tinted with one lobby color. */
+export function PlayerHead({ hue, size }: { hue: number; size: number }) {
   const [failed, setFailed] = useState(false);
-  const width = kind === "robot" ? Math.round(height * 0.48) : height;
   return failed ? (
-    <User aria-hidden size={Math.round(height * 0.6)} strokeWidth={1.75} />
+    <User aria-hidden size={Math.round(size * 0.6)} strokeWidth={1.75} />
   ) : (
     <img
       className="semibot"
-      data-kind={kind}
-      src={iconUrl("player", kind)}
+      style={{ "--hue": `${hue}deg` } as CSSProperties}
+      src={iconUrl("player", "head")}
       alt=""
-      width={width}
-      height={height}
-      loading="lazy"
+      width={size}
+      height={size}
       decoding="async"
       draggable={false}
       onError={() => {
@@ -203,11 +215,12 @@ export function PlayerArt({ kind, height }: { kind: "robot" | "head"; height: nu
 
 /** One head for a solo lift, a few overlapped heads when several players have to grab the monster. */
 export function Heads({ count }: { count: number }) {
+  const [hues] = useState(shuffledHues);
   const shown = Math.min(Math.max(count, 1), 3);
   return (
     <span className="heads" aria-hidden="true">
-      {Array.from({ length: shown }, (_, index) => (
-        <PlayerArt key={index} kind="head" height={22} />
+      {hues.slice(0, shown).map((hue) => (
+        <PlayerHead key={hue} hue={hue} size={22} />
       ))}
     </span>
   );
@@ -236,4 +249,25 @@ export function UpgradeArt({ id }: { id: string }) {
       }}
     />
   );
+}
+
+const warm: HTMLImageElement[] = [];
+
+/**
+ * Starts downloading and decoding every piece of game art while Python loads, so a dialog or a card never
+ * shows an image that is still arriving. The images stay referenced so the browser keeps them decoded.
+ */
+export function preloadArt(): void {
+  const base = import.meta.env.BASE_URL;
+  fetch(`${base}icons/manifest.json`)
+    .then((response) => response.json() as Promise<{ icons?: { file: string }[] }>)
+    .then((manifest) => {
+      for (const icon of manifest.icons ?? []) {
+        const image = new Image();
+        image.src = `${base}icons/${icon.file}`;
+        image.decode().catch(() => undefined);
+        warm.push(image);
+      }
+    })
+    .catch(() => undefined);
 }

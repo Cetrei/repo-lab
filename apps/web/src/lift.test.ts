@@ -51,7 +51,7 @@ describe("game art", () => {
       ...monsters.map((item) => ["monsters", item.id] as const),
       ...upgrades.map((item) => ["upgrades", item.id] as const),
       ...RARITIES.map((rarity) => ["rarities", rarity] as const),
-      ...["robot", "head"].map((id) => ["players", id] as const),
+      ...["head"].map((id) => ["players", id] as const),
     ];
     const missing = wanted.filter(([folder, id]) => !files.includes(`../public/icons/${folder}/${id}.png`));
     expect(missing).toEqual([]);

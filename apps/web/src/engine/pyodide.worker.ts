@@ -42,6 +42,13 @@ function describe(error: unknown): string {
 }
 
 async function start(bundleUrl: string): Promise<PythonCall> {
+  // The rules are small: they download while Pyodide itself is still arriving.
+  const bundle = fetch(bundleUrl).then((response) => {
+    if (!response.ok) throw new Error(`No se pudieron descargar las reglas (${response.status})`);
+    return response.arrayBuffer();
+  });
+  bundle.catch(() => undefined);
+
   loading("Descargando Pyodide");
   const module = (await import(/* @vite-ignore */ `${INDEX_URL}pyodide.mjs`)) as PyodideModule;
   const pyodide = await module.loadPyodide({ indexURL: INDEX_URL });
@@ -50,9 +57,7 @@ async function start(bundleUrl: string): Promise<PythonCall> {
   await pyodide.loadPackage("pyyaml");
 
   loading("Descargando las reglas");
-  const response = await fetch(bundleUrl);
-  if (!response.ok) throw new Error(`No se pudieron descargar las reglas (${response.status})`);
-  pyodide.unpackArchive(await response.arrayBuffer(), "zip", { extractDir: APP_DIR });
+  pyodide.unpackArchive(await bundle, "zip", { extractDir: APP_DIR });
 
   loading("Iniciando las reglas");
   pyodide.runPython(

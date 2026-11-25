@@ -28,7 +28,7 @@ function TierDialog({ tier, rules, onClose }: { tier: Tier; rules: SpawnRules; o
       <ul className="tiles" aria-label={`Monstruos de ${TIER_LABEL[tier]}`}>
         {members.map((member) => (
           <li key={member.id}>
-            <GlyphTile kind="monster" id={member.id} size={56} />
+            <GlyphTile kind="monster" id={member.id} size={56} eager />
             <span>{member.name}</span>
           </li>
         ))}
@@ -43,7 +43,7 @@ function TierDialog({ tier, rules, onClose }: { tier: Tier; rules: SpawnRules; o
             {rules.groups.map((group) => (
               <li key={group.monster_id}>
                 <span className="tiles__badge">
-                  <GlyphTile kind="monster" id={group.monster_id} size={56} />
+                  <GlyphTile kind="monster" id={group.monster_id} size={56} eager />
                   <b className="num">{`×${group.count}`}</b>
                 </span>
                 <span>{group.name}</span>
@@ -67,7 +67,7 @@ export function SpawningView() {
   return (
     <div className="workspace">
       <Panel className="controls" title="Tu partida" hint="Cuántos enemigos aparecen depende solo del nivel.">
-        <NumberField label="Nivel" value={level} min={1} max={10000} onChange={setLevel} />
+        <NumberField label="Nivel" variant="sign" value={level} min={1} max={10000} onChange={setLevel} />
       </Panel>
 
       <div className="stack">
