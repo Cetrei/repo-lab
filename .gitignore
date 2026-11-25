@@ -14,3 +14,6 @@ docs/transcripts/*.vtt
 
 # Generados por el build de la web
 apps/web/public/py/
+
+# Indice local para agentes, no se publica
+AGENT.md
