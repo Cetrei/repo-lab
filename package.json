@@ -1,0 +1,16 @@
+{
+  "name": "repo-lab",
+  "private": true,
+  "type": "module",
+  "description": "Calculadoras para R.E.P.O.",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @repo-lab/web",
+    "build": "npm run build --workspace @repo-lab/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  }
+}
