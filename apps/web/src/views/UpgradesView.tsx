@@ -4,6 +4,7 @@ import { useId, useMemo, useState } from "react";
 import { NumberField } from "../components/NumberField";
 import { InfoButton, Meter, Notice, Outcome, Panel, Stat, Stats } from "../components/ui";
 import { decimal, integer, percent } from "../format";
+import { useGameField } from "../game/GameProvider";
 import type { CallResult } from "../hooks/useCall";
 import { useCall } from "../hooks/useCall";
 import { GlyphTile, UpgradeArt, iconUrl } from "../icons";
@@ -26,11 +27,11 @@ function units(count: number): string {
 
 export function UpgradesView() {
   const catalog = useCall("upgrades.catalog", undefined);
-  const [held, setHeld] = useState<Counts>({});
-  const [consumed, setConsumed] = useState<string[]>([]);
-  const [wanted, setWanted] = useState<string[]>([]);
-  const [used, setUsed] = useState<Counts>({});
-  const [rerolls, setRerolls] = useState(0);
+  const [held, setHeld] = useGameField("held");
+  const [consumed, setConsumed] = useGameField("consumed");
+  const [wanted, setWanted] = useGameField("wanted");
+  const [used, setUsed] = useGameField("used");
+  const [rerolls, setRerolls] = useGameField("rerolls");
 
   const upgrades = useMemo(() => catalog.data?.upgrades ?? [], [catalog.data]);
   const names = useMemo(() => new Map(upgrades.map((u) => [u.id, u.name])), [upgrades]);
@@ -369,7 +370,11 @@ function UpgradeCard({ upgrade, held, buy, row, wanted, plan, consumed, onHeld, 
             <span className="status" data-tone={status.tone}>
               {status.text}
             </span>
-          ) : null}
+          ) : (
+            <span className="status status--none" aria-hidden="true">
+              {"\u00a0"}
+            </span>
+          )}
         </div>
       </div>
       {open ? (

@@ -2,9 +2,9 @@ import type { SpawnRules } from "@repo-lab/contract";
 import { Info } from "lucide-react";
 import { useState } from "react";
 import { Modal } from "../components/Modal";
-import { NumberField } from "../components/NumberField";
 import { Outcome, Panel, Stat, Stats } from "../components/ui";
 import { decimal, duration, integer, percent } from "../format";
+import { useGameField } from "../game/GameProvider";
 import { useCall } from "../hooks/useCall";
 import { GlyphTile } from "../icons";
 import { TIER_LABEL } from "../labels";
@@ -57,7 +57,7 @@ function TierDialog({ tier, rules, onClose }: { tier: Tier; rules: SpawnRules; o
 }
 
 export function SpawningView() {
-  const [level, setLevel] = useState(1);
+  const [level] = useGameField("level");
   const [open, setOpen] = useState<Tier | null>(null);
 
   const rules = useCall("spawning.rules", undefined);
@@ -65,12 +65,8 @@ export function SpawningView() {
   const despawn = useCall("spawning.despawn", undefined);
 
   return (
-    <div className="workspace">
-      <Panel className="controls" title="Tu partida" hint="Cuántos enemigos aparecen depende solo del nivel.">
-        <NumberField label="Nivel" variant="sign" value={level} min={1} max={10000} onChange={setLevel} />
-      </Panel>
-
-      <div className="stack">
+    <div className="stack stack--page">
+      <>
         <Panel title={`Enemigos en el nivel ${integer(level)}`} hint="Cuántos de cada tier aparecen al empezar el nivel.">
           <Outcome result={outlook}>
             {(data) => (
@@ -158,7 +154,7 @@ export function SpawningView() {
             <p className="hint">{`Un enemigo que ningún jugador ve desaparece solo entre ${duration(despawn.data.low)} y ${duration(despawn.data.high)}.`}</p>
           ) : null}
         </Panel>
-      </div>
+      </>
       {open !== null && rules.data ? (
         <TierDialog
           tier={open}

@@ -4,18 +4,28 @@ import { useState } from "react";
 import { GlyphTile, Heads, PlayerHead, shuffledHues } from "../icons";
 import { Modal } from "../components/Modal";
 import { NumberField } from "../components/NumberField";
+import { SegmentBar } from "../components/SegmentBar";
 import { Outcome, Panel, Stat, Stats } from "../components/ui";
 import { integer, signed } from "../format";
+import { useGameField } from "../game/GameProvider";
 import { useCall } from "../hooks/useCall";
 import { liftVerdict, stunVerdict } from "../lift";
 import type { Verdict } from "../lift";
 
 const FALLBACK_MAX_PLAYERS = 6;
+const FALLBACK_STRENGTH_CAP = 13;
+
+/** The most Strength upgrades that change anything: the heaviest monster a single player can lift alone. */
+export function strengthCap(monsters: readonly { solo_upgrades: number | null }[] | undefined): number {
+  const listed = (monsters ?? []).map((monster) => monster.solo_upgrades ?? 0);
+  return Math.max(1, ...listed, monsters ? 0 : FALLBACK_STRENGTH_CAP);
+}
 
 export function MonstersView() {
   const catalog = useCall("monsters.catalog", undefined);
   const maxPlayers = catalog.data?.max_players ?? FALLBACK_MAX_PLAYERS;
-  const [upgrades, setUpgrades] = useState<number[]>([0, 0]);
+  const cap = strengthCap(catalog.data?.monsters);
+  const [upgrades, setUpgrades] = useGameField("team");
   const [hues] = useState(shuffledHues);
   const [onlyLiftable, setOnlyLiftable] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
@@ -32,7 +42,7 @@ export function MonstersView() {
         title="Tu equipo"
         hint={
           catalog.data
-            ? `Cada jugador empieza con ${catalog.data.base_strength} de fuerza y suma 1 por cada mejora de Fuerza. La fuerza de quienes agarran se suma.`
+            ? `Cada jugador empieza con ${catalog.data.base_strength} de fuerza y suma 1 por cada mejora de Fuerza. La fuerza de quienes agarran se suma. La barra llega a ${cap}: con más mejoras no se levanta nada nuevo.`
             : "Cada jugador empieza con una fuerza base y suma 1 por cada mejora de Fuerza."
         }
       >
@@ -43,16 +53,15 @@ export function MonstersView() {
             <li key={index} className="lobby__row">
               <PlayerHead hue={hues[index % hues.length] ?? 0} size={40} />
               <GlyphTile kind="upgrade" id="strength" size={32} />
-              <NumberField
-                hideLabel
-                variant="compact"
+              <SegmentBar
+                className="lobby__bar"
                 label={`Mejoras de Fuerza del jugador ${index + 1}`}
-                value={value}
-                min={0}
-                max={99}
+                value={Math.min(value, cap)}
+                segments={cap}
                 onChange={(next) => {
                   setUpgrades(upgrades.map((current, at) => (at === index ? next : current)));
                 }}
+                segmentLabel={(count) => `Jugador ${index + 1}: ${count} ${count === 1 ? "mejora" : "mejoras"} de Fuerza`}
               />
             </li>
           ))}

@@ -5,6 +5,7 @@ import { NumberField } from "../components/NumberField";
 import { patchRequest, usePatch } from "../components/Patch";
 import { InfoButton, Meter, Outcome, Panel, Stat, Stats } from "../components/ui";
 import { decimal, integer, percent } from "../format";
+import { useGameField } from "../game/GameProvider";
 import type { CallResult } from "../hooks/useCall";
 import { useCall } from "../hooks/useCall";
 import { RarityArt } from "../icons";
@@ -17,9 +18,9 @@ function levelsText(value: number | null): string {
 
 export function CosmeticsView() {
   const { id: patch } = usePatch();
-  const [level, setLevel] = useState(1);
-  const [badLuck, setBadLuck] = useState(0);
-  const [levels, setLevels] = useState(10);
+  const [level] = useGameField("level");
+  const [badLuck, setBadLuck] = useGameField("badLuck");
+  const [levels, setLevels] = useGameField("runLevels");
 
   const chosen = patchRequest(patch);
   const levelResult = useCall("cosmetics.level", { level, bad_luck: badLuck, ...chosen });
@@ -29,11 +30,10 @@ export function CosmeticsView() {
   return (
     <div className="cajas">
       <Panel
-        title="Tu partida"
+        title="Mala suerte"
         hint="La mala suerte cuenta los niveles seguidos que terminaste sin ninguna caja. Cualquier caja la reinicia."
         className="cajas__setup"
       >
-        <NumberField label="Nivel" variant="sign" value={level} min={1} max={10000} onChange={setLevel} />
         <LuckBar label="Mala suerte" value={badLuck} max={500} onChange={setBadLuck}>
           {outlook ? (
             <>

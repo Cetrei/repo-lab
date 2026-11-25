@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { EngineStatus, useEngineToasts } from "./components/EngineStatus";
+import { LevelDock } from "./components/LevelDock";
 import { PatchProvider, PatchSelector } from "./components/Patch";
+import { SaveMenu } from "./components/SaveMenu";
 import { Splash } from "./components/Splash";
 import { useEngineState } from "./engine/EngineProvider";
+import { GameProvider } from "./game/GameProvider";
 import { GlyphTile } from "./icons";
 import { ROUTES, useRoute } from "./routes";
 
@@ -20,7 +23,8 @@ export function App() {
   if (phase === "loading") return <Splash />;
 
   return (
-    <PatchProvider>
+    <GameProvider>
+      <PatchProvider>
       <div className="hazard" aria-hidden />
       <div className="shell">
         <header className="header">
@@ -34,7 +38,10 @@ export function App() {
             ))}
           </div>
           <div className="corner">
-            <PatchSelector />
+            <div className="corner__tools">
+              <SaveMenu />
+              <PatchSelector />
+            </div>
             <EngineStatus />
           </div>
         </header>
@@ -58,6 +65,8 @@ export function App() {
           Proyecto de la comunidad, sin relación con los creadores de R.E.P.O. Los cálculos corren en tu navegador.
         </footer>
       </div>
-    </PatchProvider>
+      <LevelDock />
+      </PatchProvider>
+    </GameProvider>
   );
 }

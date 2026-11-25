@@ -8,11 +8,20 @@ import { MonstersView } from "./MonstersView";
 import { SourcesView } from "./SourcesView";
 import { SpawningView } from "./SpawningView";
 import { PatchProvider, PatchSelector } from "../components/Patch";
+import { LevelDock } from "../components/LevelDock";
+import { GameProvider } from "../game/GameProvider";
 import { UpgradesView } from "./UpgradesView";
 
 function show(view: ReactElement) {
   const engine = replayEngine();
-  render(<EngineProvider engine={engine}>{view}</EngineProvider>);
+  render(
+    <EngineProvider engine={engine}>
+      <GameProvider>
+        <LevelDock />
+        {view}
+      </GameProvider>
+    </EngineProvider>,
+  );
   return engine;
 }
 
@@ -60,10 +69,12 @@ describe("CosmeticsView", () => {
     const engine = replayEngine();
     render(
       <EngineProvider engine={engine}>
-        <PatchProvider>
-          <PatchSelector />
-          <CosmeticsView />
-        </PatchProvider>
+        <GameProvider>
+          <PatchProvider>
+            <PatchSelector />
+            <CosmeticsView />
+          </PatchProvider>
+        </GameProvider>
       </EngineProvider>,
     );
     const wrench = await screen.findByRole("button", { name: "Parche del juego" });
@@ -112,8 +123,15 @@ describe("MonstersView team", () => {
     show(<MonstersView />);
     const team = await screen.findByRole("list", { name: "Tu equipo" });
     expect(within(team).getAllByRole("listitem")).toHaveLength(2);
-    fireEvent.click(within(team).getByRole("button", { name: "Sumar a Mejoras de Fuerza del jugador 1" }));
-    expect((screen.getByLabelText("Mejoras de Fuerza del jugador 1") as HTMLInputElement).value).toBe("1");
+    fireEvent.click(within(team).getByRole("button", { name: "Jugador 1: 1 mejora de Fuerza" }));
+    expect(screen.getByRole("button", { name: "Jugador 1: 1 mejora de Fuerza" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "Jugador 1: 2 mejoras de Fuerza" }).getAttribute("aria-pressed")).toBe("false");
+  });
+
+  it("stops the bar at the most upgrades that change anything", async () => {
+    show(<MonstersView />);
+    const bar = await screen.findAllByRole("group", { name: /Mejoras de Fuerza del jugador/ });
+    expect(within(bar[0] as HTMLElement).getAllByRole("button")).toHaveLength(13);
   });
 });
 
@@ -153,17 +171,17 @@ describe("MonstersView", () => {
     await screen.findByRole("heading", { name: "Qué monstruos puedes levantar" });
     expect(engine.payloads("monsters.lift").at(-1)).toEqual({ upgrades: [0, 0] });
     fireEvent.click(screen.getByRole("button", { name: "Sumar a Jugadores" }));
-    type("Mejoras de Fuerza del jugador 1", "4");
+    fireEvent.click(screen.getByRole("button", { name: "Jugador 1: 4 mejoras de Fuerza" }));
     await waitFor(() => {
       expect(engine.payloads("monsters.lift").at(-1)).toEqual({ upgrades: [4, 0, 0] });
     });
-    expect(screen.getByLabelText("Mejoras de Fuerza del jugador 3")).toBeTruthy();
+    expect(screen.getByRole("group", { name: "Mejoras de Fuerza del jugador 3" })).toBeTruthy();
   });
 
   it("keeps what was typed when the team shrinks", async () => {
     const engine = show(<MonstersView />);
     await screen.findByRole("heading", { name: "Qué monstruos puedes levantar" });
-    type("Mejoras de Fuerza del jugador 1", "6");
+    fireEvent.click(screen.getByRole("button", { name: "Jugador 1: 6 mejoras de Fuerza" }));
     fireEvent.click(screen.getByRole("button", { name: "Restar a Jugadores" }));
     await waitFor(() => {
       expect(engine.payloads("monsters.lift").at(-1)).toEqual({ upgrades: [6] });
