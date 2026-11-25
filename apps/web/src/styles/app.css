@@ -991,7 +991,8 @@ section > h3 {
   margin: 0;
   padding: 0;
   list-style: none;
-  align-items: start;
+  /* Every card in a row stretches to the tallest, and the name below reserves two lines, so all cards match */
+  align-items: stretch;
 }
 
 .ucard {
@@ -1054,6 +1055,7 @@ section > h3 {
   margin: 0;
   font-size: var(--text-md);
   line-height: var(--leading-tight);
+  min-height: calc(2em * var(--leading-tight));
   overflow-wrap: anywhere;
 }
 
