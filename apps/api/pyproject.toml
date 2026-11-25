@@ -1,0 +1,19 @@
+[project]
+name = "repo-api"
+version = "0.1.0"
+description = "Capa de transporte sobre repo-core: endpoints con nombre, un despachador y un adaptador HTTP para desarrollo local."
+requires-python = ">=3.12"
+dependencies = ["repo-core"]
+
+[project.optional-dependencies]
+http = ["fastapi>=0.115", "uvicorn>=0.32"]
+
+[tool.uv.sources]
+repo-core = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/repo_api"]
