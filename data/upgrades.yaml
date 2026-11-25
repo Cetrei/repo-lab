@@ -1,0 +1,37 @@
+# Mejoras de la tienda. `cap` es cuantas unidades pueden estar en circulacion a la vez. Una unidad
+# comprada y sin usar sigue en circulacion y el juego no la vuelve a generar. `permanent` marca las
+# que no regresan al fondo comun una vez usadas.
+
+sources:
+  - name: R.E.P.O. wiki, Purchased Items y Upgrades
+    url: https://repo-2025horror.fandom.com/wiki/Upgrades
+    note: Limites por mejora y reglas de la tienda.
+  - name: SiniK, Why You Should NOT Use Your Upgrades On R.E.P.O
+    url: https://www.youtube.com/watch?v=xYEGPmfww9A
+    note: Fondo comun, tienda, camion y void, y la manipulacion de mejoras.
+
+upgrades:
+  - {id: strength, name: Strength, cap: 2}
+  - {id: range, name: Range, cap: 3}
+  - {id: stamina, name: Stamina, cap: 4}
+  - {id: sprint, name: Sprint, cap: 3}
+  - {id: crouch-rest, name: Crouch Rest, cap: 3}
+  - {id: health, name: Health, cap: 2}
+  - {id: map-player-count, name: Map Player Count, cap: 1, permanent: true}
+  - {id: tumble-launch, name: Tumble Launch, cap: 1}
+  - {id: tumble-wings, name: Tumble Wings, cap: 1}
+  - {id: tumble-climb, name: Tumble Climb, cap: 1}
+  - {id: extra-jump, name: Extra Jump, cap: 1}
+  - {id: death-head-battery, name: Death Head Battery, cap: 1}
+
+shop:
+  id: v0.4
+  label: Tienda actual (v0.4.x)
+  # Unidades que la tienda intenta mostrar por visita.
+  shop_slots: 10
+  # Lo que no cabe en el camion se queda en el void.
+  truck_capacity: 16
+  # El primer reroll cuesta esto y cada siguiente suma otro tanto.
+  reroll_step: 5000
+  selection_model: uniform over available units (assumption)
+  note: El primer reroll cuesta 5000 y cada siguiente suma otros 5000.

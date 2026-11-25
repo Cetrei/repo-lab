@@ -1,0 +1,1 @@
+"""Cosmetic box odds."""

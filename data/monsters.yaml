@@ -1,0 +1,50 @@
+# Fuerza para levantar cada monstruo. `lift` son las mejoras de Fuerza compradas que lista la fuente
+# (null si no se puede levantar). El juego compara la fuerza interna combinada del equipo, 5 por
+# jugador mas sus mejoras, con 5 mas `lift`. `stunned` es lo mismo con el monstruo aturdido.
+# `health` queda vacio cuando ninguna fuente legible lo dice, nunca se inventa.
+
+sources:
+  - name: itemlevel.net, How much strength do you need to pick up each monster
+    note: Tabla principal, 1 de octubre de 2026, 29 monstruos.
+  - name: Deltia's Gaming y gamerblurb, tablas de fuerza
+    note: Fuerza con el monstruo aturdido y algunos valores sueltos.
+  - name: R.E.P.O. wiki, Monsters
+    url: https://repo-2025horror.fandom.com/wiki/Monsters
+    note: Vida de los monstruos donde la tabla se pudo leer.
+  - name: pcgamer y fantime
+    note: Vida de algunos monstruos.
+
+rules:
+  base_strength: 5
+  max_players: 6
+
+monsters:
+  - {name: Gnome, lift: 0, health: 20}
+  - {name: Banger, lift: 0, stunned: 0, health: 50, note: Se suelta solo a los 3 segundos.}
+  - {name: Tick, lift: 0, note: "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13."}
+  - {name: Spewer, lift: 4, health: 65}
+  - {name: Birthday Boy, lift: 4, stunned: 1, health: 150}
+  - {name: Rugrat, lift: 4, health: 150}
+  - {name: Animal, lift: 4, stunned: 1, note: Con 2 o más jugadores se congela y deja 2 a 3 golpes.}
+  - {name: Upscream, lift: 4, health: 50}
+  - {name: Hidden, lift: 4, note: El agarre es inconsistente.}
+  - {name: Mentalist, lift: 4, health: 150}
+  - {name: Headgrab, lift: 4}
+  - {name: Bowtie, lift: 7, stunned: 2}
+  - {name: Shadow Child, lift: 9, health: 150}
+  - {name: Bella, lift: 9, stunned: 0, health: 200}
+  - {name: Chef, lift: 9, stunned: 1, health: 250}
+  - {name: Gambit, lift: 9}
+  - {name: Heart Hugger, lift: 9}
+  - {name: Oogly, lift: 9}
+  - {name: Huntsman, lift: 9, health: 250, note: Dispara si lo agarras en mal momento.}
+  - {name: Reaper, lift: 9, health: 250}
+  - {name: Headman, lift: 13, health: 250}
+  - {name: Robe, lift: 13, health: 250}
+  - {name: Clown, lift: 13, stunned: 1, health: 250}
+  - {name: Trudge, lift: 13, health: 500}
+  - {name: Cleanup Crew, lift: 13, stunned: 2, note: Una tabla nueva lo lista en 12. Se usa 13 por seguridad.}
+  - {name: Loom, lift: 13, note: El daño por caída no le afecta.}
+  - {name: Peeper, lift: null, health: 30, note: No se puede agarrar. Romper la línea de visión.}
+  - {name: Apex Predator, lift: null, stunned: 0, health: 150, note: Agarrar al pato lo transforma. No cuenta como levantarlo.}
+  - {name: Elsa, lift: null, stunned: 0, health: 600, note: "Se puede acariciar, no levantar."}

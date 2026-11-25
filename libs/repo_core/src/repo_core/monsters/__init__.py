@@ -1,0 +1,1 @@
+"""Monster strength and lifting."""

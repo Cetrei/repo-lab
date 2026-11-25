@@ -1,0 +1,40 @@
+# Aparicion y reaparicion de enemigos. Tiempos en segundos, probabilidades de 0 a 100.
+# Hay un solo video como fuente. No trae pesos por monstruo, asi que eso no esta modelado.
+
+sources:
+  - name: alter ego, REPO Spawning, Vision, and Noise Detection Explained
+    url: https://www.youtube.com/watch?v=GyCMcu3uPIE
+    note: Enemigos por nivel, grupos, despawn, respawn y ruido.
+  - name: itemlevel.net, Spawning, Vision and Noise Detection Explained
+    note: Mayo de 2025. Coincide en las cantidades por tier.
+
+# Enemigos por tier segun el nivel. Sin `to` la fila vale de `from` en adelante.
+tiers_by_level:
+  - {from: 1, to: 2, tier1: 1, tier2: 0, tier3: 1}
+  - {from: 3, to: 5, tier1: 1, tier2: 1, tier3: 1}
+  - {from: 6, to: 8, tier1: 2, tier2: 2, tier3: 2}
+  - {from: 9, to: 10, tier1: 2, tier2: 3, tier3: 2}
+  - {from: 11, tier1: 2, tier2: 3, tier3: 3}
+
+# Probabilidad de que la aparicion de un tier 3 sea un grupo entero.
+group_chance: 3.2
+
+despawn:
+  # Cuenta atras en dos partes. La segunda se detiene mientras un jugador esta dentro de la burbuja.
+  first_part: [180, 240]
+  second_part: [20, 40]
+  bubble_units: 20
+
+respawn:
+  # Hasta early_minutes el temporizador es `early`. Pasados late_minutes es `late`.
+  # Entre los dos el video no da cifra y el motor responde "desconocido".
+  early_minutes: 10
+  late_minutes: 50
+  early: [240, 300]
+  # Derivado: el video dice que un enemigo muerto tarda 3 segundos pasados los 50 minutos
+  # y que las muertes triplican el temporizador, de ahi la base de 1 segundo.
+  late: [1, 1]
+  kill_multiplier: 3
+  final_extraction: 1
+  noise_seconds_removed_per_second: 5
+  distance_units: [18, 34]

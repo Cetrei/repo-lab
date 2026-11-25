@@ -1,0 +1,39 @@
+# Cajas cosmeticas. Los porcentajes van como los publican las fuentes, de 0 a 100.
+# Para actualizar una regla basta con editar este archivo y correr las pruebas.
+
+sources:
+  - name: R.E.P.O. wiki, Cosmetic Boxes
+    url: https://repo-2025horror.fandom.com/wiki/Cosmetic_Boxes
+    note: Tablas del parche de mayo de 2026, espejo de la guia de FiziqR.
+  - name: FiziqR, guia en Steam sobre el juego descompilado
+    note: Origen de las tablas de aparicion y rareza.
+  - name: SiniK, R.E.P.O. Cosmetics Probabilities And Farming Strategies
+    url: https://www.youtube.com/watch?v=cYPnWvc24v4
+    note: Metodo de calculo con la regla del complemento.
+
+default: may-2026
+
+# Cuantas cajas pueden aparecer a la vez y cada cuantos niveles empieza la siguiente.
+slots:
+  count: 3
+  stride: 5
+
+rulesets:
+  - id: may-2026
+    label: Parche del 25 de mayo de 2026
+    patch: "2026-05-25"
+    # Subida de la probabilidad de aparicion por cada nivel seguido sin cajas.
+    bad_luck_bonus: 25
+    # Probabilidad de que una caja aparezca, del paso 1 al 6. La caja 1 empieza en el nivel 1,
+    # la 2 en el nivel 6 y la 3 en el nivel 11. Todas se quedan en el paso 6 desde el nivel 16.
+    spawn_by_step: [25, 33, 41, 49, 57, 65]
+    # Rareza de una caja ya aparecida, por paso: comun, poco comun, rara y ultra rara.
+    # Las tablas publicadas vienen redondeadas, el cargador reescala cada fila para que sume 100.
+    rarity_by_step:
+      - [69.90, 28.20, 1.90, 0.00]
+      - [66.42, 29.91, 3.61, 0.05]
+      - [61.89, 31.59, 6.03, 0.49]
+      - [56.07, 33.27, 9.39, 1.27]
+      - [48.21, 34.70, 13.81, 3.28]
+      - [37.58, 35.84, 19.74, 6.84]
+    note: Tablas sacadas del juego descompilado y espejadas en la wiki.
