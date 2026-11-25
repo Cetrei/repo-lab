@@ -22,6 +22,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from typing import Any
 
 YT_ARGS = ["--js-runtimes", "node", "--remote-components", "ejs:github"]
 TAG = re.compile(r"<[^>]+>")
@@ -38,11 +39,12 @@ def normalize_url(value: str) -> str:
     return value
 
 
-def metadata(url: str) -> dict:
+def metadata(url: str) -> dict[str, Any]:
     proc = run(["yt-dlp", *YT_ARGS, "--skip-download", "--dump-single-json", url])
     if proc.returncode != 0 or not proc.stdout.strip():
         sys.exit(f"yt-dlp could not read {url}\n{proc.stderr[-800:]}")
-    return json.loads(proc.stdout)
+    data: dict[str, Any] = json.loads(proc.stdout)
+    return data
 
 
 def clock(seconds: int) -> str:
