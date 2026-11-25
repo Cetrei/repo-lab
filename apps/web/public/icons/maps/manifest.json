@@ -1,0 +1,50 @@
+{
+  "wiki": "https://repo-2025horror.fandom.com",
+  "maps": [
+    {
+      "id": "headman-manor",
+      "title": "HMM.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:HMM.png",
+      "original": [
+        1016,
+        550
+      ]
+    },
+    {
+      "id": "mcjannek-station",
+      "title": "MJS.PNG",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:MJS.PNG",
+      "original": [
+        1145,
+        607
+      ]
+    },
+    {
+      "id": "museum-of-human-art",
+      "title": "MOHA.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:MOHA.png",
+      "original": [
+        1545,
+        715
+      ]
+    },
+    {
+      "id": "sunstone-valley-resort",
+      "title": "SVR.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:SVR.png",
+      "original": [
+        1235,
+        513
+      ]
+    },
+    {
+      "id": "swiftbroom-academy",
+      "title": "SBA.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:SBA.png",
+      "original": [
+        1131,
+        654
+      ]
+    }
+  ]
+}

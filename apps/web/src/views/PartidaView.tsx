@@ -125,6 +125,7 @@ export function PartidaView() {
           cap={strengthCap(catalog.data?.monsters)}
           onChange={setTeam}
           headSize={32}
+          slots={4}
         />
       </section>
 

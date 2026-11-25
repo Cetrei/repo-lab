@@ -145,8 +145,8 @@ export function MonsterDialog({
           <dd className="num">{total === undefined ? "No aplica" : integer(total)}</dd>
         </div>
         <div>
-          <dt>Vida</dt>
-          <dd className="num">{row.health === null ? "Sin dato" : integer(row.health)}</dd>
+          <dt>{row.health === null && row.drain !== null ? "Drena hasta" : "Vida"}</dt>
+          <dd className="num">{row.health === null ? (row.drain === null ? "Sin dato" : integer(row.drain)) : integer(row.health)}</dd>
         </div>
         {big && stunDamage !== undefined ? (
           <div className="detail__note">

@@ -13,12 +13,15 @@ export function TeamEditor({
   cap,
   onChange,
   headSize = 40,
+  slots = 0,
 }: {
   team: readonly number[];
   maxPlayers: number;
   cap: number;
   onChange(next: number[]): void;
   headSize?: number;
+  /** Rows kept on screen even when there are fewer players, drawn as empty seats so the panel does not jump. */
+  slots?: number;
 }) {
   const [hues] = useState(shuffledHues);
   const resize = (count: number) => {
@@ -44,6 +47,9 @@ export function TeamEditor({
               segmentLabel={(count) => `Jugador ${index + 1}: ${count} ${count === 1 ? "mejora" : "mejoras"} de Fuerza`}
             />
           </li>
+        ))}
+        {Array.from({ length: Math.max(0, slots - team.length) }, (_, index) => (
+          <li key={`seat-${index}`} className="lobby__row lobby__row--empty" aria-hidden="true" />
         ))}
       </ul>
     </>

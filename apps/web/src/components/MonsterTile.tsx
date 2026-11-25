@@ -41,7 +41,7 @@ export function MonsterTile({
 }) {
   const lift = effortVerdict(row);
   const stun = stunVerdict(row);
-  const sentence = `${row.name}, tier ${tier}. Levantar: ${lift.text}. Aturdido: ${stun.text}.${group ? ` Sale en grupos de ${group}.` : ""}`;
+  const sentence = `${row.name}, tier ${tier}. Levantar: ${lift.text}. Aturdido: ${stun.text}.${group ? ` Sale en grupos de ${group}.` : ""}${row.health === null && row.drain !== null ? ` Drena hasta ${row.drain} de vida.` : ""}`;
   return (
     <button type="button" className="mtile" data-tone={lift.tone} aria-haspopup="dialog" aria-label={sentence} title={sentence} onClick={onOpen}>
       <span className="mtile__tier num" aria-hidden>
@@ -52,7 +52,7 @@ export function MonsterTile({
       ) : null}
       <GlyphTile kind="monster" id={row.monster_id} size={48} />
       <span className="mtile__name">{row.name}</span>
-      <HealthBar health={row.health} />
+      <HealthBar health={row.health} drain={row.drain} />
       <span className="mtile__who" aria-hidden>
         <span className="mtile__lift" data-tone={lift.tone}>
           <Who verdict={lift} />

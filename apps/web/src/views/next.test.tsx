@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import { describe, expect, it } from "vitest";
 import { guarantee, guaranteeText } from "../components/BoxStrip";
 import { HealthBar } from "../components/HealthBar";
-import { visible } from "../components/ValuablesStrip";
+import { grouped, topDamage, visible } from "../components/ValuablesStrip";
 import { ChannelContext } from "../channel";
 import { EngineProvider } from "../engine/EngineProvider";
 import { GameProvider } from "../game/GameProvider";
@@ -82,9 +82,17 @@ describe("HealthBar", () => {
     expect(screen.getByRole("img", { name: "Vida 250" })).toBeTruthy();
   });
 
-  it("draws nothing for a monster without a figure", () => {
+  it("keeps an empty row of the same height for a monster without a figure", () => {
     const { container } = render(<HealthBar health={null} />);
-    expect(container.querySelector(".hp")).toBeNull();
+    expect(container.querySelector(".hp--empty")).not.toBeNull();
+    expect(container.querySelector(".hp__seg")).toBeNull();
+  });
+
+  it("draws what a monster drains apart from health, so it is not read as its health", () => {
+    const { container } = render(<HealthBar health={null} drain={100} />);
+    expect(container.querySelectorAll(".hp__seg")).toHaveLength(1);
+    expect(container.querySelector(".hp")?.getAttribute("data-drain")).toBe("true");
+    expect(screen.getByRole("img", { name: "Drena hasta 100 de vida" })).toBeTruthy();
   });
 });
 
@@ -104,6 +112,27 @@ describe("guarantee", () => {
     expect(guarantee(run, "ultra")).toEqual({ kind: "likely", levels: 12 });
     expect(guaranteeText({ kind: "likely", levels: 12 })).toBe("90 % en 12 niveles");
     expect(guarantee(run, "rare")).toEqual({ kind: "none" });
+  });
+});
+
+describe("grouped", () => {
+  const item = (id: string, size: string, high: number, mass = 1) =>
+    ({ id, size, high, mass, damage: [0, 5, 10, 15] }) as unknown as Valuable;
+
+  it("splits the valuables into big, medium and small, the tiny ones with the small ones", () => {
+    const groups = grouped([item("a", "tiny", 1), item("b", "wide", 1), item("c", "medium", 1), item("d", "small", 2)]);
+    expect(groups.map((entry) => entry.group)).toEqual(["large", "medium", "small"]);
+    expect(groups[2]?.items.map((entry) => entry.id)).toEqual(["d", "a"]);
+  });
+
+  it("leaves out a group with nothing in it and puts the most valuable first", () => {
+    const groups = grouped([item("a", "big", 10), item("b", "tall", 30), item("c", "very_tall", 20)]);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.items.map((entry) => entry.id)).toEqual(["b", "c", "a"]);
+  });
+
+  it("reads the most damage from the heaviest hit", () => {
+    expect(topDamage(item("a", "small", 1))).toBe(15);
   });
 });
 
@@ -168,7 +197,7 @@ describe("PartidaView", () => {
     });
     expect(fold.open).toBe(false);
     fold.open = true;
-    const list = await screen.findByRole("list", { name: "Valuables de Headman Manor" });
+    const list = await screen.findByRole("group", { name: "Valuables de Headman Manor" });
     expect(within(list).getByText("Piano")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "McJannek Station" }));
     await waitFor(() => {
@@ -182,7 +211,7 @@ describe("PartidaView", () => {
       if (!container.querySelector("details.fold")) throw new Error("no fold");
     });
     (container.querySelector("details.fold") as HTMLDetailsElement).open = true;
-    await screen.findByRole("list", { name: "Valuables de Headman Manor" });
+    await screen.findByRole("group", { name: "Valuables de Headman Manor" });
     const before = container.querySelectorAll(".vtile").length;
     fireEvent.click(screen.getByRole("button", { name: "Solo los que aturden enemigos grandes" }));
     const tiles = Array.from(container.querySelectorAll(".vtile"));
