@@ -96,7 +96,34 @@ class MonsterTests(unittest.TestCase):
     def test_stunned_requirement(self) -> None:
         check = lift_check(MONSTERS.get("bowtie"), [0])
         self.assertEqual(check.stunned_required, 7)
+        self.assertEqual(check.stunned_required_min, 7)
         self.assertFalse(check.can_lift_stunned)
+
+    def test_headman_stunned_is_a_range_because_the_sources_disagree(self) -> None:
+        headman = MONSTERS.get("headman")
+        self.assertEqual(headman.stunned_upgrades, (1, 4))
+        check = lift_check(headman, [0])
+        self.assertEqual((check.stunned_required_min, check.stunned_required), (6, 9))
+        self.assertFalse(check.can_lift_stunned)  # 5 misses even the lowest figure
+        self.assertIsNone(lift_check(headman, [2]).can_lift_stunned)  # 7 falls between 6 and 9
+        self.assertTrue(lift_check(headman, [4]).can_lift_stunned)  # 9 reaches the highest
+
+    def test_a_range_gives_the_sure_players_and_the_best_case(self) -> None:
+        check = lift_check(MONSTERS.get("headman"), [3, 0, 0])
+        self.assertEqual(check.players_needed_stunned, 2)
+        self.assertEqual(check.players_needed_stunned_min, 1)
+        alone = lift_check(MONSTERS.get("headman"), [2])
+        self.assertIsNone(alone.players_needed_stunned)
+        self.assertEqual(alone.players_needed_stunned_min, 1)
+
+    def test_one_stunned_figure_is_sure_and_none_is_no_data(self) -> None:
+        rugrat = lift_check(MONSTERS.get("rugrat"), [0])
+        self.assertEqual((rugrat.stunned_required_min, rugrat.stunned_required), (5, 5))
+        pony = lift_check(MONSTERS.get("pony"), [0])
+        self.assertEqual(MONSTERS.get("pony").stunned_upgrades, ())
+        self.assertIsNone(pony.stunned_required)
+        self.assertIsNone(pony.stunned_required_min)
+        self.assertIsNone(pony.can_lift_stunned)
 
     def test_table_order_and_unliftable_last(self) -> None:
         rows = lift_table([0, 0])

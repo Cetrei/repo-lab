@@ -37,6 +37,9 @@ with 5 plus the listed upgrades.
   with 0 and 1 upgrades, held with effort with 2 and 3, and clean with 4. It does not apply to the stunned
   figure. The hunter grabbed by the feet or the head when knocked out is a partial grab and is not modeled.
 * Conflict, Rugrat: pcgamer says 7 upgrades, itemlevel and gamerblurb say 4. 4 is used, pcgamer is older.
+* Conflict, Headman stunned: fantime says 1 and gamerblurb says 4, and no source read settles it. Both are kept
+  in `stunned: [1, 4]`, so the site shows the range (6 to 9 internal) and only says a team holds it stunned from
+  the highest figure. One value in `stunned` is a sure figure, a list is a range, no key is no data (Pony).
 * Conflict, Cleanup Crew: 13 in itemlevel, 12 in a newer chart. 13 is used.
 * Conflict, Tick: 0 and "do not grab" in itemlevel, 13 in gamerblurb. 0 is used with a note.
 * Health: only where a source states it (wiki Monsters, pcgamer, fantime). Missing health stays empty

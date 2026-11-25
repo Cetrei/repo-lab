@@ -476,7 +476,9 @@
             "name": "Gnome",
             "tier": 1,
             "solo_upgrades": 0,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 0,
             "big": false,
             "health": 20,
@@ -487,7 +489,9 @@
             "name": "Banger",
             "tier": 2,
             "solo_upgrades": 0,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 0,
             "big": false,
             "health": 50,
@@ -498,7 +502,7 @@
             "name": "Tick",
             "tier": 1,
             "solo_upgrades": null,
-            "stunned_upgrades": null,
+            "stunned_upgrades": [],
             "weight": 1,
             "big": false,
             "health": null,
@@ -509,7 +513,9 @@
             "name": "Spewer",
             "tier": 1,
             "solo_upgrades": 4,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 2,
             "big": false,
             "health": 65,
@@ -520,7 +526,9 @@
             "name": "Birthday Boy",
             "tier": 1,
             "solo_upgrades": 4,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 1,
             "big": false,
             "health": 150,
@@ -531,7 +539,9 @@
             "name": "Rugrat",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 1,
             "big": false,
             "health": 150,
@@ -542,7 +552,9 @@
             "name": "Animal",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": [
+              1
+            ],
             "weight": 2,
             "big": false,
             "health": 150,
@@ -553,7 +565,9 @@
             "name": "Upscream",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 1,
             "big": false,
             "health": 50,
@@ -564,7 +578,9 @@
             "name": "Hidden",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": [
+              1
+            ],
             "weight": 2,
             "big": false,
             "health": 100,
@@ -575,7 +591,9 @@
             "name": "Mentalist",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 3,
             "big": true,
             "health": 150,
@@ -586,7 +604,9 @@
             "name": "Headgrab",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 1,
             "big": false,
             "health": 150,
@@ -597,7 +617,9 @@
             "name": "Bowtie",
             "tier": 2,
             "solo_upgrades": 7,
-            "stunned_upgrades": 2,
+            "stunned_upgrades": [
+              2
+            ],
             "weight": 3,
             "big": true,
             "health": 200,
@@ -608,7 +630,9 @@
             "name": "Shadow Child",
             "tier": 1,
             "solo_upgrades": 9,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": [
+              1
+            ],
             "weight": 2,
             "big": false,
             "health": 150,
@@ -619,7 +643,9 @@
             "name": "Bella",
             "tier": 1,
             "solo_upgrades": 9,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 2,
             "big": false,
             "health": 200,
@@ -630,7 +656,9 @@
             "name": "Chef",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": 2,
+            "stunned_upgrades": [
+              2
+            ],
             "weight": 2,
             "big": false,
             "health": 150,
@@ -641,7 +669,9 @@
             "name": "Gambit",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": 3,
+            "stunned_upgrades": [
+              3
+            ],
             "weight": 3,
             "big": true,
             "health": 150,
@@ -652,7 +682,9 @@
             "name": "Heart Hugger",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 3,
             "big": true,
             "health": 300,
@@ -663,7 +695,9 @@
             "name": "Oogly",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 3,
             "big": true,
             "health": 200,
@@ -674,7 +708,9 @@
             "name": "Huntsman",
             "tier": 3,
             "solo_upgrades": 9,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": [
+              1
+            ],
             "weight": 3,
             "big": true,
             "health": 250,
@@ -685,7 +721,9 @@
             "name": "Reaper",
             "tier": 3,
             "solo_upgrades": 9,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": [
+              1
+            ],
             "weight": 3,
             "big": true,
             "health": 250,
@@ -696,7 +734,7 @@
             "name": "Pony",
             "tier": 3,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
+            "stunned_upgrades": [],
             "weight": 3,
             "big": true,
             "health": 400,
@@ -707,18 +745,23 @@
             "name": "Headman",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": null,
+            "stunned_upgrades": [
+              1,
+              4
+            ],
             "weight": 3,
             "big": true,
             "health": 250,
-            "note": ""
+            "note": "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb."
           },
           {
             "id": "robe",
             "name": "Robe",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 6,
+            "stunned_upgrades": [
+              6
+            ],
             "weight": 3,
             "big": true,
             "health": 250,
@@ -729,7 +772,9 @@
             "name": "Clown",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 3,
+            "stunned_upgrades": [
+              3
+            ],
             "weight": 4,
             "big": true,
             "health": 250,
@@ -740,7 +785,9 @@
             "name": "Trudge",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 5,
+            "stunned_upgrades": [
+              5
+            ],
             "weight": 4,
             "big": true,
             "health": 500,
@@ -751,7 +798,9 @@
             "name": "Cleanup Crew",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 5,
+            "stunned_upgrades": [
+              5
+            ],
             "weight": 3,
             "big": true,
             "health": 350,
@@ -762,7 +811,9 @@
             "name": "Loom",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 5,
+            "stunned_upgrades": [
+              5
+            ],
             "weight": 3,
             "big": true,
             "health": 500,
@@ -773,7 +824,7 @@
             "name": "Peeper",
             "tier": 1,
             "solo_upgrades": null,
-            "stunned_upgrades": null,
+            "stunned_upgrades": [],
             "weight": 2,
             "big": false,
             "health": 30,
@@ -784,7 +835,9 @@
             "name": "Apex Predator",
             "tier": 1,
             "solo_upgrades": null,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 1,
             "big": false,
             "health": 150,
@@ -795,7 +848,9 @@
             "name": "Elsa",
             "tier": 1,
             "solo_upgrades": null,
-            "stunned_upgrades": 0,
+            "stunned_upgrades": [
+              0
+            ],
             "weight": 1,
             "big": false,
             "health": 600,
@@ -838,9 +893,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 4
           },
@@ -865,9 +922,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 4
           },
@@ -892,9 +951,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -919,9 +980,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -946,9 +1009,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -973,9 +1038,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1000,9 +1067,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1027,9 +1096,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1054,9 +1125,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1081,9 +1154,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1108,9 +1183,11 @@
               0
             ],
             "stunned_required": 7,
+            "stunned_required_min": 7,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "hard",
             "hard_required": 9
           },
@@ -1135,9 +1212,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1162,9 +1241,11 @@
               0
             ],
             "stunned_required": 7,
+            "stunned_required_min": 7,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1189,9 +1270,11 @@
               0
             ],
             "stunned_required": 8,
+            "stunned_required_min": 8,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1216,9 +1299,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1243,9 +1328,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1270,9 +1357,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1297,9 +1386,11 @@
               0
             ],
             "stunned_required": null,
+            "stunned_required_min": null,
             "can_lift_stunned": null,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "none",
             "hard_required": 11
           },
@@ -1324,9 +1415,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1351,9 +1444,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 11
           },
@@ -1378,9 +1473,11 @@
               0
             ],
             "stunned_required": 10,
+            "stunned_required_min": 10,
             "can_lift_stunned": false,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "none",
             "hard_required": 14
           },
@@ -1405,9 +1502,11 @@
               0
             ],
             "stunned_required": 8,
+            "stunned_required_min": 8,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 14
           },
@@ -1415,7 +1514,7 @@
             "monster_id": "headman",
             "name": "Headman",
             "health": 250,
-            "note": "",
+            "note": "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb.",
             "liftable": true,
             "required": 18,
             "combined": 9,
@@ -1431,10 +1530,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 9,
+            "stunned_required_min": 6,
+            "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": null,
+            "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "none",
             "hard_required": 14
           },
@@ -1459,9 +1560,11 @@
               0
             ],
             "stunned_required": 10,
+            "stunned_required_min": 10,
             "can_lift_stunned": false,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "none",
             "hard_required": 14
           },
@@ -1486,9 +1589,11 @@
               0
             ],
             "stunned_required": 11,
+            "stunned_required_min": 11,
             "can_lift_stunned": false,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "none",
             "hard_required": 14
           },
@@ -1513,9 +1618,11 @@
               0
             ],
             "stunned_required": 10,
+            "stunned_required_min": 10,
             "can_lift_stunned": false,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "none",
             "hard_required": 14
           },
@@ -1533,9 +1640,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "never",
             "hard_required": null
           },
@@ -1553,9 +1662,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "never",
             "hard_required": null
           },
@@ -1573,9 +1684,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": null,
+            "stunned_required_min": null,
             "can_lift_stunned": null,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "never",
             "hard_required": null
           },
@@ -1593,9 +1706,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": null,
+            "stunned_required_min": null,
             "can_lift_stunned": null,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "never",
             "hard_required": null
           }
@@ -1641,9 +1756,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 4
           },
@@ -1668,9 +1785,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 4
           },
@@ -1695,9 +1814,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1722,9 +1843,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1749,9 +1872,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1776,9 +1901,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1803,9 +1930,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1830,9 +1959,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1857,9 +1988,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1884,9 +2017,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 7
           },
@@ -1911,9 +2046,11 @@
               0
             ],
             "stunned_required": 7,
+            "stunned_required_min": 7,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 9
           },
@@ -1938,9 +2075,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -1965,9 +2104,11 @@
               0
             ],
             "stunned_required": 7,
+            "stunned_required_min": 7,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -1992,9 +2133,11 @@
               0
             ],
             "stunned_required": 8,
+            "stunned_required_min": 8,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2019,9 +2162,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2046,9 +2191,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2073,9 +2220,11 @@
               0
             ],
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2100,9 +2249,11 @@
               0
             ],
             "stunned_required": null,
+            "stunned_required_min": null,
             "can_lift_stunned": null,
             "players_needed": 2,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2127,9 +2278,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2154,9 +2307,11 @@
               0
             ],
             "stunned_required": 6,
+            "stunned_required_min": 6,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 11
           },
@@ -2181,9 +2336,11 @@
               0
             ],
             "stunned_required": 10,
+            "stunned_required_min": 10,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 14
           },
@@ -2208,9 +2365,11 @@
               0
             ],
             "stunned_required": 8,
+            "stunned_required_min": 8,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 14
           },
@@ -2218,7 +2377,7 @@
             "monster_id": "headman",
             "name": "Headman",
             "health": 250,
-            "note": "",
+            "note": "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb.",
             "liftable": true,
             "required": 18,
             "combined": 41,
@@ -2234,10 +2393,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 9,
+            "stunned_required_min": 6,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null,
+            "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 14
           },
@@ -2262,9 +2423,11 @@
               0
             ],
             "stunned_required": 10,
+            "stunned_required_min": 10,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 14
           },
@@ -2289,9 +2452,11 @@
               0
             ],
             "stunned_required": 11,
+            "stunned_required_min": 11,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 2,
+            "players_needed_stunned_min": 2,
             "effort": "easy",
             "hard_required": 14
           },
@@ -2316,9 +2481,11 @@
               0
             ],
             "stunned_required": 10,
+            "stunned_required_min": 10,
             "can_lift_stunned": true,
             "players_needed": 2,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "easy",
             "hard_required": 14
           },
@@ -2336,9 +2503,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "never",
             "hard_required": null
           },
@@ -2356,9 +2525,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": 5,
+            "stunned_required_min": 5,
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
+            "players_needed_stunned_min": 1,
             "effort": "never",
             "hard_required": null
           },
@@ -2376,9 +2547,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": null,
+            "stunned_required_min": null,
             "can_lift_stunned": null,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "never",
             "hard_required": null
           },
@@ -2396,9 +2569,11 @@
             "min_players_without_upgrades": null,
             "upgrades_from_zero": null,
             "stunned_required": null,
+            "stunned_required_min": null,
             "can_lift_stunned": null,
             "players_needed": null,
             "players_needed_stunned": null,
+            "players_needed_stunned_min": null,
             "effort": "never",
             "hard_required": null
           }

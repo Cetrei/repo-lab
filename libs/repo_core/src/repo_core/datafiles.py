@@ -120,6 +120,20 @@ class Node:
         self._required(key, "an integer or null")
         return self.opt_integer(key)
 
+    def opt_integers(self, key: str) -> tuple[int, ...]:
+        """Nothing, one integer or a non empty list of integers: the figures the sources give, sorted.
+
+        An empty tuple means the key is missing or null. One value is a sure figure, several are a range.
+        """
+        expected = "an integer, a non empty list of integers or null"
+        value = self._raw.get(key)
+        if value is None:
+            return ()
+        items = [value] if _is_integer(value) else value
+        if not isinstance(items, list) or not items or not all(_is_integer(v) and v >= 0 for v in items):
+            raise self._fail(key, expected)
+        return tuple(sorted(set(int(v) for v in items)))
+
     def flag(self, key: str) -> bool:
         value = self._raw.get(key, False)
         if not isinstance(value, bool):

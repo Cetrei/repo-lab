@@ -1,6 +1,8 @@
 # Fuerza para levantar cada monstruo. `lift` son las mejoras de Fuerza compradas que lista la fuente
 # (null si no se puede levantar). El juego compara la fuerza interna combinada del equipo, 5 por
 # jugador mas sus mejoras, con 5 mas `lift`. `stunned` es lo mismo con el monstruo aturdido.
+# `stunned` acepta un numero cuando las fuentes coinciden (cifra segura) o una lista cuando se contradicen, por
+# ejemplo `stunned: [1, 4]`, y la web da el rango. Sin `stunned` ninguna fuente tiene la cifra.
 # `weight` es la clase de peso de la wiki, de 0 (muy ligero) a 4 (muy pesado).
 # `health` queda vacio cuando ninguna fuente legible lo dice, nunca se inventa.
 
@@ -48,7 +50,7 @@ monsters:
   - {name: Huntsman, tier: 3, lift: 9, stunned: 1, health: 250, weight: 3, note: Dispara si lo agarras en mal momento.}
   - {name: Reaper, tier: 3, lift: 9, stunned: 1, health: 250, weight: 3}
   - {name: Pony, tier: 3, lift: 9, health: 400, weight: 3, note: "Llegó con la actualización 0.5.0. Te agarra con la lengua."}
-  - {name: Headman, tier: 3, lift: 13, health: 250, weight: 3}
+  - {name: Headman, tier: 3, lift: 13, stunned: [1, 4], health: 250, weight: 3, note: "La fuerza aturdido difiere entre fuentes: 1 en fantime y 4 en gamerblurb."}
   - {name: Robe, tier: 3, lift: 13, stunned: 6, health: 250, weight: 3}
   - {name: Clown, tier: 3, lift: 13, stunned: 3, health: 250, weight: 4}
   - {name: Trudge, tier: 3, lift: 13, stunned: 5, health: 500, weight: 4}

@@ -7,6 +7,9 @@ combined internal strength (base strength per player plus their upgrades) with t
 
 `weight` is the weight class of the wiki, 0 (very light) to 4 (very heavy). Health is only filled where a
 source states it. A missing value stays `None`, never a guess.
+
+`stunned_upgrades` holds the stunned figures the sources give, sorted. Empty means no source has one, one
+value is a sure figure and several are a range, because the sources disagree.
 """
 
 from __future__ import annotations
@@ -27,7 +30,7 @@ class Monster:
     name: str
     tier: int
     solo_upgrades: int | None
-    stunned_upgrades: int | None = None
+    stunned_upgrades: tuple[int, ...] = ()
     weight: int = 2
     big: bool = False
     health: int | None = None
@@ -68,7 +71,7 @@ def _load() -> tuple[TableCatalog[Monster], int, int, float, int, list[dict[str,
                 name=name,
                 tier=tier,
                 solo_upgrades=row.required_integer_or_null("lift"),
-                stunned_upgrades=row.opt_integer("stunned"),
+                stunned_upgrades=row.opt_integers("stunned"),
                 weight=weight,
                 big=weight >= big_weight,
                 health=row.opt_integer("health"),

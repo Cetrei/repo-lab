@@ -43,9 +43,11 @@ class LiftCheck:
     min_players_without_upgrades: int | None
     upgrades_from_zero: tuple[int, ...] | None
     stunned_required: int | None
+    stunned_required_min: int | None
     can_lift_stunned: bool | None
     players_needed: int | None
     players_needed_stunned: int | None
+    players_needed_stunned_min: int | None
     effort: str
     hard_required: int | None
 
@@ -106,10 +108,34 @@ def effort_for(need: int | None, combined: int) -> str:
     return HARD if hard is not None and combined >= hard else NONE
 
 
+def stunned_range(monster: Monster) -> tuple[int, int] | None:
+    """The least and the most internal strength the sources ask to hold the monster stunned.
+
+    Both are the same when the sources agree, and None when none of them gives a figure.
+    """
+    if not monster.stunned_upgrades:
+        return None
+    return BASE_STRENGTH + monster.stunned_upgrades[0], BASE_STRENGTH + monster.stunned_upgrades[-1]
+
+
+def can_lift_stunned(figures: tuple[int, int] | None, combined: int) -> bool | None:
+    """True when the team reaches even the highest figure, False when it misses even the lowest.
+
+    None when there is no figure, or when the figures disagree and the team falls between them.
+    """
+    if figures is None:
+        return None
+    low, high = figures
+    if combined >= high:
+        return True
+    return False if combined < low else None
+
+
 def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
     combined = combined_strength(upgrades)
     need = required_strength(monster)
-    stunned_need = None if monster.stunned_upgrades is None else BASE_STRENGTH + monster.stunned_upgrades
+    stunned = stunned_range(monster)
+    stunned_low, stunned_high = stunned if stunned is not None else (None, None)
     return LiftCheck(
         monster_id=monster.id,
         name=monster.name,
@@ -123,10 +149,12 @@ def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
         missing=0 if need is None else max(0, need - combined),
         min_players_without_upgrades=None if need is None else ceil(need / BASE_STRENGTH),
         upgrades_from_zero=upgrades_from_zero(monster),
-        stunned_required=stunned_need,
-        can_lift_stunned=None if stunned_need is None else combined >= stunned_need,
+        stunned_required=stunned_high,
+        stunned_required_min=stunned_low,
+        can_lift_stunned=can_lift_stunned(stunned, combined),
         players_needed=players_needed(need, upgrades),
-        players_needed_stunned=players_needed(stunned_need, upgrades),
+        players_needed_stunned=players_needed(stunned_high, upgrades),
+        players_needed_stunned_min=players_needed(stunned_low, upgrades),
         effort=effort_for(need, combined),
         hard_required=hard_strength(need),
     )
