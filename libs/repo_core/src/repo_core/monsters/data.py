@@ -1,5 +1,6 @@
 """Monster table, read from data/monsters.yaml.
 
+`tier` is the danger level of the wiki (1 to 3), which sets how many of them a level spawns.
 `solo_upgrades` is the listed breakpoint, in purchased Strength upgrades. The game compares the
 combined internal strength (base strength per player plus their upgrades) with the base plus
 `solo_upgrades`. `None` means the monster cannot be lifted while it is active.
@@ -21,6 +22,7 @@ from ..errors import DataError
 class Monster:
     id: str
     name: str
+    tier: int
     solo_upgrades: int | None
     stunned_upgrades: int | None = None
     health: int | None = None
@@ -39,12 +41,16 @@ def _load() -> tuple[TableCatalog[Monster], int, int, list[dict[str, str]]]:
         raise DataError("monsters.yaml: rules.base_strength and rules.max_players must be at least 1")
     monsters = []
     for row in table.rows("monsters"):
-        row.only("name", "lift", "stunned", "health", "note")
+        row.only("name", "tier", "lift", "stunned", "health", "note")
         name = row.text("name")
+        tier = row.integer("tier")
+        if tier not in (1, 2, 3):
+            raise DataError(f"monsters.yaml: {name} has tier {tier}, it must be 1, 2 or 3")
         monsters.append(
             Monster(
                 id=_slug(name),
                 name=name,
+                tier=tier,
                 solo_upgrades=row.required_integer_or_null("lift"),
                 stunned_upgrades=row.opt_integer("stunned"),
                 health=row.opt_integer("health"),

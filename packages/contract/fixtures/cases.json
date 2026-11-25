@@ -474,6 +474,7 @@
           {
             "id": "gnome",
             "name": "Gnome",
+            "tier": 1,
             "solo_upgrades": 0,
             "stunned_upgrades": null,
             "health": 20,
@@ -482,6 +483,7 @@
           {
             "id": "banger",
             "name": "Banger",
+            "tier": 2,
             "solo_upgrades": 0,
             "stunned_upgrades": 0,
             "health": 50,
@@ -490,6 +492,7 @@
           {
             "id": "tick",
             "name": "Tick",
+            "tier": 1,
             "solo_upgrades": 0,
             "stunned_upgrades": null,
             "health": null,
@@ -498,6 +501,7 @@
           {
             "id": "spewer",
             "name": "Spewer",
+            "tier": 1,
             "solo_upgrades": 4,
             "stunned_upgrades": null,
             "health": 65,
@@ -506,6 +510,7 @@
           {
             "id": "birthday-boy",
             "name": "Birthday Boy",
+            "tier": 1,
             "solo_upgrades": 4,
             "stunned_upgrades": 1,
             "health": 150,
@@ -514,6 +519,7 @@
           {
             "id": "rugrat",
             "name": "Rugrat",
+            "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": null,
             "health": 150,
@@ -522,6 +528,7 @@
           {
             "id": "animal",
             "name": "Animal",
+            "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": 1,
             "health": null,
@@ -530,6 +537,7 @@
           {
             "id": "upscream",
             "name": "Upscream",
+            "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": null,
             "health": 50,
@@ -538,6 +546,7 @@
           {
             "id": "hidden",
             "name": "Hidden",
+            "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": null,
             "health": null,
@@ -546,6 +555,7 @@
           {
             "id": "mentalist",
             "name": "Mentalist",
+            "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": null,
             "health": 150,
@@ -554,6 +564,7 @@
           {
             "id": "headgrab",
             "name": "Headgrab",
+            "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": null,
             "health": null,
@@ -562,6 +573,7 @@
           {
             "id": "bowtie",
             "name": "Bowtie",
+            "tier": 2,
             "solo_upgrades": 7,
             "stunned_upgrades": 2,
             "health": null,
@@ -570,6 +582,7 @@
           {
             "id": "shadow-child",
             "name": "Shadow Child",
+            "tier": 1,
             "solo_upgrades": 9,
             "stunned_upgrades": null,
             "health": 150,
@@ -578,6 +591,7 @@
           {
             "id": "bella",
             "name": "Bella",
+            "tier": 1,
             "solo_upgrades": 9,
             "stunned_upgrades": 0,
             "health": 200,
@@ -586,6 +600,7 @@
           {
             "id": "chef",
             "name": "Chef",
+            "tier": 2,
             "solo_upgrades": 9,
             "stunned_upgrades": 1,
             "health": 250,
@@ -594,6 +609,7 @@
           {
             "id": "gambit",
             "name": "Gambit",
+            "tier": 2,
             "solo_upgrades": 9,
             "stunned_upgrades": null,
             "health": null,
@@ -602,6 +618,7 @@
           {
             "id": "heart-hugger",
             "name": "Heart Hugger",
+            "tier": 2,
             "solo_upgrades": 9,
             "stunned_upgrades": null,
             "health": null,
@@ -610,6 +627,7 @@
           {
             "id": "oogly",
             "name": "Oogly",
+            "tier": 2,
             "solo_upgrades": 9,
             "stunned_upgrades": null,
             "health": null,
@@ -618,6 +636,7 @@
           {
             "id": "huntsman",
             "name": "Huntsman",
+            "tier": 3,
             "solo_upgrades": 9,
             "stunned_upgrades": null,
             "health": 250,
@@ -626,6 +645,7 @@
           {
             "id": "reaper",
             "name": "Reaper",
+            "tier": 3,
             "solo_upgrades": 9,
             "stunned_upgrades": null,
             "health": 250,
@@ -634,6 +654,7 @@
           {
             "id": "headman",
             "name": "Headman",
+            "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": null,
             "health": 250,
@@ -642,6 +663,7 @@
           {
             "id": "robe",
             "name": "Robe",
+            "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": null,
             "health": 250,
@@ -650,6 +672,7 @@
           {
             "id": "clown",
             "name": "Clown",
+            "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": 1,
             "health": 250,
@@ -658,6 +681,7 @@
           {
             "id": "trudge",
             "name": "Trudge",
+            "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": null,
             "health": 500,
@@ -666,6 +690,7 @@
           {
             "id": "cleanup-crew",
             "name": "Cleanup Crew",
+            "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": 2,
             "health": null,
@@ -674,6 +699,7 @@
           {
             "id": "loom",
             "name": "Loom",
+            "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": null,
             "health": null,
@@ -682,6 +708,7 @@
           {
             "id": "peeper",
             "name": "Peeper",
+            "tier": 1,
             "solo_upgrades": null,
             "stunned_upgrades": null,
             "health": 30,
@@ -690,6 +717,7 @@
           {
             "id": "apex-predator",
             "name": "Apex Predator",
+            "tier": 1,
             "solo_upgrades": null,
             "stunned_upgrades": 0,
             "health": 150,
@@ -698,6 +726,7 @@
           {
             "id": "elsa",
             "name": "Elsa",
+            "tier": 1,
             "solo_upgrades": null,
             "stunned_upgrades": 0,
             "health": 600,
@@ -2963,6 +2992,258 @@
           ]
         ],
         "group_chance": 0.032,
+        "members": {
+          "tier1": [
+            {
+              "id": "gnome",
+              "name": "Gnome"
+            },
+            {
+              "id": "tick",
+              "name": "Tick"
+            },
+            {
+              "id": "spewer",
+              "name": "Spewer"
+            },
+            {
+              "id": "birthday-boy",
+              "name": "Birthday Boy"
+            },
+            {
+              "id": "shadow-child",
+              "name": "Shadow Child"
+            },
+            {
+              "id": "bella",
+              "name": "Bella"
+            },
+            {
+              "id": "peeper",
+              "name": "Peeper"
+            },
+            {
+              "id": "apex-predator",
+              "name": "Apex Predator"
+            },
+            {
+              "id": "elsa",
+              "name": "Elsa"
+            }
+          ],
+          "tier2": [
+            {
+              "id": "banger",
+              "name": "Banger"
+            },
+            {
+              "id": "rugrat",
+              "name": "Rugrat"
+            },
+            {
+              "id": "animal",
+              "name": "Animal"
+            },
+            {
+              "id": "upscream",
+              "name": "Upscream"
+            },
+            {
+              "id": "hidden",
+              "name": "Hidden"
+            },
+            {
+              "id": "mentalist",
+              "name": "Mentalist"
+            },
+            {
+              "id": "headgrab",
+              "name": "Headgrab"
+            },
+            {
+              "id": "bowtie",
+              "name": "Bowtie"
+            },
+            {
+              "id": "chef",
+              "name": "Chef"
+            },
+            {
+              "id": "gambit",
+              "name": "Gambit"
+            },
+            {
+              "id": "heart-hugger",
+              "name": "Heart Hugger"
+            },
+            {
+              "id": "oogly",
+              "name": "Oogly"
+            }
+          ],
+          "tier3": [
+            {
+              "id": "huntsman",
+              "name": "Huntsman"
+            },
+            {
+              "id": "reaper",
+              "name": "Reaper"
+            },
+            {
+              "id": "headman",
+              "name": "Headman"
+            },
+            {
+              "id": "robe",
+              "name": "Robe"
+            },
+            {
+              "id": "clown",
+              "name": "Clown"
+            },
+            {
+              "id": "trudge",
+              "name": "Trudge"
+            },
+            {
+              "id": "cleanup-crew",
+              "name": "Cleanup Crew"
+            },
+            {
+              "id": "loom",
+              "name": "Loom"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "monster_id": "animal",
+            "name": "Animal",
+            "tier": 2,
+            "count": 3
+          },
+          {
+            "monster_id": "apex-predator",
+            "name": "Apex Predator",
+            "tier": 1,
+            "count": 4
+          },
+          {
+            "monster_id": "banger",
+            "name": "Banger",
+            "tier": 2,
+            "count": 6
+          },
+          {
+            "monster_id": "bella",
+            "name": "Bella",
+            "tier": 1,
+            "count": 3
+          },
+          {
+            "monster_id": "birthday-boy",
+            "name": "Birthday Boy",
+            "tier": 1,
+            "count": 3
+          },
+          {
+            "monster_id": "bowtie",
+            "name": "Bowtie",
+            "tier": 2,
+            "count": 3
+          },
+          {
+            "monster_id": "chef",
+            "name": "Chef",
+            "tier": 2,
+            "count": 3
+          },
+          {
+            "monster_id": "elsa",
+            "name": "Elsa",
+            "tier": 1,
+            "count": 3
+          },
+          {
+            "monster_id": "gambit",
+            "name": "Gambit",
+            "tier": 2,
+            "count": 2
+          },
+          {
+            "monster_id": "gnome",
+            "name": "Gnome",
+            "tier": 1,
+            "count": 10
+          },
+          {
+            "monster_id": "headgrab",
+            "name": "Headgrab",
+            "tier": 2,
+            "count": 3
+          },
+          {
+            "monster_id": "heart-hugger",
+            "name": "Heart Hugger",
+            "tier": 2,
+            "count": 2
+          },
+          {
+            "monster_id": "hidden",
+            "name": "Hidden",
+            "tier": 2,
+            "count": 2
+          },
+          {
+            "monster_id": "mentalist",
+            "name": "Mentalist",
+            "tier": 2,
+            "count": 3
+          },
+          {
+            "monster_id": "oogly",
+            "name": "Oogly",
+            "tier": 2,
+            "count": 2
+          },
+          {
+            "monster_id": "peeper",
+            "name": "Peeper",
+            "tier": 1,
+            "count": 3
+          },
+          {
+            "monster_id": "rugrat",
+            "name": "Rugrat",
+            "tier": 2,
+            "count": 3
+          },
+          {
+            "monster_id": "shadow-child",
+            "name": "Shadow Child",
+            "tier": 1,
+            "count": 4
+          },
+          {
+            "monster_id": "spewer",
+            "name": "Spewer",
+            "tier": 1,
+            "count": 4
+          },
+          {
+            "monster_id": "tick",
+            "name": "Tick",
+            "tier": 1,
+            "count": 4
+          },
+          {
+            "monster_id": "upscream",
+            "name": "Upscream",
+            "tier": 2,
+            "count": 3
+          }
+        ],
         "despawn_first_part": [
           180,
           240
@@ -2999,6 +3280,11 @@
             "name": "itemlevel.net, Spawning, Vision and Noise Detection Explained",
             "url": "",
             "note": "Mayo de 2025. Coincide en las cantidades por tier."
+          },
+          {
+            "name": "R.E.P.O. wiki, Monsters",
+            "url": "https://repo-2025horror.fandom.com/wiki/Monsters",
+            "note": "Los grupos que reemplazan a un tier 3 y cuantos monstruos traen."
           }
         ]
       }
@@ -3131,7 +3417,7 @@
           {
             "name": "R.E.P.O. wiki, Monsters",
             "url": "https://repo-2025horror.fandom.com/wiki/Monsters",
-            "note": "Vida de los monstruos donde la tabla se pudo leer."
+            "note": "Vida de los monstruos donde la tabla se pudo leer, y el nivel de peligro de cada uno, que es su tier."
           },
           {
             "name": "pcgamer y fantime",
@@ -3161,6 +3447,11 @@
             "name": "itemlevel.net, Spawning, Vision and Noise Detection Explained",
             "url": "",
             "note": "Mayo de 2025. Coincide en las cantidades por tier."
+          },
+          {
+            "name": "R.E.P.O. wiki, Monsters",
+            "url": "https://repo-2025horror.fandom.com/wiki/Monsters",
+            "note": "Los grupos que reemplazan a un tier 3 y cuantos monstruos traen."
           }
         ]
       }

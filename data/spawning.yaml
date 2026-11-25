@@ -7,6 +7,9 @@ sources:
     note: Enemigos por nivel, grupos, despawn, respawn y ruido.
   - name: itemlevel.net, Spawning, Vision and Noise Detection Explained
     note: Mayo de 2025. Coincide en las cantidades por tier.
+  - name: R.E.P.O. wiki, Monsters
+    url: https://repo-2025horror.fandom.com/wiki/Monsters
+    note: Los grupos que reemplazan a un tier 3 y cuantos monstruos traen.
 
 # Enemigos por tier segun el nivel. Sin `to` la fila vale de `from` en adelante.
 tiers_by_level:
@@ -18,6 +21,31 @@ tiers_by_level:
 
 # Probabilidad de que la aparicion de un tier 3 sea un grupo entero.
 group_chance: 3.2
+
+# Grupos que pueden reemplazar a un enemigo de tier 3, con cuantos salen juntos.
+# Fuente: R.E.P.O. wiki, Monsters, seccion Spawning. El tier de cada monstruo esta en monsters.yaml.
+groups:
+  - {monster: Animal, count: 3}
+  - {monster: Apex Predator, count: 4}
+  - {monster: Banger, count: 6}
+  - {monster: Bella, count: 3}
+  - {monster: Birthday Boy, count: 3}
+  - {monster: Bowtie, count: 3}
+  - {monster: Chef, count: 3}
+  - {monster: Elsa, count: 3}
+  - {monster: Gambit, count: 2}
+  - {monster: Gnome, count: 10}
+  - {monster: Headgrab, count: 3}
+  - {monster: Heart Hugger, count: 2}
+  - {monster: Hidden, count: 2}
+  - {monster: Mentalist, count: 3}
+  - {monster: Oogly, count: 2}
+  - {monster: Peeper, count: 3}
+  - {monster: Rugrat, count: 3}
+  - {monster: Shadow Child, count: 4}
+  - {monster: Spewer, count: 4}
+  - {monster: Tick, count: 4}
+  - {monster: Upscream, count: 3}
 
 despawn:
   # Cuenta atras en dos partes. La segunda se detiene mientras un jugador esta dentro de la burbuja.

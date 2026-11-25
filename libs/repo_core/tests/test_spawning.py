@@ -1,6 +1,8 @@
 import unittest
 
 from repo_core.errors import InvalidInput
+from repo_core.monsters.data import MONSTERS
+from repo_core.spawning.data import RULES
 from repo_core.spawning.engine import despawn_window, enemy_counts, respawn_window, spawn_outlook
 
 
@@ -26,6 +28,25 @@ class SpawningTests(unittest.TestCase):
         self.assertAlmostEqual(spawn_outlook(1).p_any_group, 0.032)
         self.assertAlmostEqual(spawn_outlook(11).p_any_group, 1 - 0.968**3)
         self.assertAlmostEqual(spawn_outlook(11).expected_groups, 3 * 0.032)
+
+    def test_every_monster_belongs_to_exactly_one_tier(self) -> None:
+        listed = [
+            member.id
+            for tier in (RULES.members.tier1, RULES.members.tier2, RULES.members.tier3)
+            for member in tier
+        ]
+        self.assertEqual(sorted(listed), sorted(monster.id for monster in MONSTERS.all()))
+        self.assertEqual(len(RULES.members.tier1), 9)
+        self.assertEqual(len(RULES.members.tier2), 12)
+        self.assertEqual(len(RULES.members.tier3), 8)
+
+    def test_groups_are_tier_one_or_two_monsters_with_their_count(self) -> None:
+        by_id = {group.monster_id: group for group in RULES.groups}
+        self.assertEqual(len(by_id), len(RULES.groups))
+        self.assertEqual(by_id["gnome"].count, 10)
+        self.assertEqual(by_id["banger"].count, 6)
+        self.assertEqual(by_id["banger"].tier, 2)
+        self.assertTrue(all(group.tier in (1, 2) and group.count >= 2 for group in RULES.groups))
 
     def test_despawn_is_three_to_four_minutes_plus_twenty_to_forty_seconds(self) -> None:
         window = despawn_window()

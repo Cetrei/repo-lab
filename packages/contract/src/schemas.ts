@@ -102,6 +102,7 @@ export type RunOutlook = z.infer<typeof runOutlook>;
 export const monster = z.strictObject({
   id: z.string(),
   name: z.string(),
+  tier: z.int(),
   solo_upgrades: z.int().nullable(),
   stunned_upgrades: z.int().nullable(),
   health: z.int().nullable(),
@@ -231,9 +232,26 @@ export const tierCounts = z.strictObject({
 
 const intPair = z.tuple([z.int(), z.int()]);
 
+export const spawnMember = z.strictObject({ id: z.string(), name: z.string() });
+
+export const tierMembers = z.strictObject({
+  tier1: z.array(spawnMember),
+  tier2: z.array(spawnMember),
+  tier3: z.array(spawnMember),
+});
+
+export const spawnGroup = z.strictObject({
+  monster_id: z.string(),
+  name: z.string(),
+  tier: z.int(),
+  count: z.int(),
+});
+
 export const spawnRules = z.strictObject({
   bands: z.array(z.tuple([z.int(), z.int().nullable(), tierCounts])),
   group_chance: z.number(),
+  members: tierMembers,
+  groups: z.array(spawnGroup),
   despawn_first_part: intPair,
   despawn_second_part: intPair,
   despawn_bubble_units: z.int(),

@@ -2,8 +2,9 @@
 
 Source: video GyCMcu3uPIE (alter ego), see docs/DATA_SOURCES.md. The video gives how many enemies spawn
 per tier at each level, the chance of a tier 3 group, and the despawn and respawn timers. It does not
-give per monster weights or tier membership for the current roster, so the odds of meeting one
-specific monster are not modeled.
+give per monster weights, so the odds of meeting one specific monster are not modeled. Which monsters
+belong to each tier comes from monsters.yaml and the groups that can replace a tier 3 spawn come from
+the wiki, see the `groups` table.
 """
 
 from __future__ import annotations
@@ -13,6 +14,7 @@ from dataclasses import dataclass
 
 from ..datafiles import load_table
 from ..errors import DataError
+from ..monsters.data import MONSTERS
 
 
 @dataclass(frozen=True, slots=True)
@@ -27,9 +29,36 @@ class TierCounts:
 
 
 @dataclass(frozen=True, slots=True)
+class Member:
+    """A monster that can spawn, by its catalog id."""
+
+    id: str
+    name: str
+
+
+@dataclass(frozen=True, slots=True)
+class TierMembers:
+    tier1: tuple[Member, ...]
+    tier2: tuple[Member, ...]
+    tier3: tuple[Member, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class SpawnGroup:
+    """A group of one monster that can take the place of a tier 3 spawn."""
+
+    monster_id: str
+    name: str
+    tier: int
+    count: int
+
+
+@dataclass(frozen=True, slots=True)
 class SpawnRules:
     bands: tuple[tuple[int, int | None, TierCounts], ...]
     group_chance: float
+    members: TierMembers
+    groups: tuple[SpawnGroup, ...]
     despawn_first_part: tuple[int, int]
     despawn_second_part: tuple[int, int]
     despawn_bubble_units: int
@@ -62,6 +91,34 @@ def _bands() -> tuple[tuple[int, int | None, TierCounts], ...]:
     return tuple(bands)
 
 
+def _members() -> TierMembers:
+    by_tier: dict[int, list[Member]] = {1: [], 2: [], 3: []}
+    for monster in MONSTERS.all():
+        by_tier[monster.tier].append(Member(monster.id, monster.name))
+    return TierMembers(tuple(by_tier[1]), tuple(by_tier[2]), tuple(by_tier[3]))
+
+
+def _groups() -> tuple[SpawnGroup, ...]:
+    groups: list[SpawnGroup] = []
+    seen: set[str] = set()
+    for row in load_table("spawning.yaml").rows("groups"):
+        row.only("monster", "count")
+        name = row.text("monster")
+        monster = next((item for item in MONSTERS.all() if item.name == name), None)
+        if monster is None:
+            raise DataError(f"spawning.yaml: group of '{name}' is not a monster of monsters.yaml")
+        if monster.id in seen:
+            raise DataError(f"spawning.yaml: '{name}' has two groups")
+        if monster.tier == 3:
+            raise DataError(f"spawning.yaml: '{name}' is tier 3, only tier 1 and 2 form groups")
+        count = row.integer("count")
+        if count < 2:
+            raise DataError(f"spawning.yaml: the group of '{name}' needs at least 2 monsters")
+        seen.add(monster.id)
+        groups.append(SpawnGroup(monster.id, monster.name, monster.tier, count))
+    return tuple(groups)
+
+
 def _load() -> SpawnRules:
     table = load_table("spawning.yaml")
     despawn = table.child("despawn").only("first_part", "second_part", "bubble_units")
@@ -81,6 +138,8 @@ def _load() -> SpawnRules:
     return SpawnRules(
         bands=_bands(),
         group_chance=chance / 100,
+        members=_members(),
+        groups=_groups(),
         despawn_first_part=despawn.int_pair("first_part"),
         despawn_second_part=despawn.int_pair("second_part"),
         despawn_bubble_units=despawn.integer("bubble_units"),
