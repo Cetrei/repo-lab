@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Download the game art for every upgrade and monster from the R.E.P.O. wiki.
+"""Download the game art for every upgrade, monster and cosmetic crate from the R.E.P.O. wiki.
 
     python3 scripts/fetch_icons.py [--size 192]
 
@@ -70,6 +70,14 @@ MONSTERS: dict[str, str] = {
     "elsa": "Elsa monster.png",
 }
 
+# the four cosmetic crates, one per rarity of data/cosmetics.yaml
+RARITIES: dict[str, str] = {
+    "common": "Common cosm transp.png",
+    "uncommon": "Uncommon cosm transp.png",
+    "rare": "Rare cosm transp.png",
+    "ultra": "Ultra rare cosm transp.png",
+}
+
 
 def get(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": AGENT})
@@ -136,7 +144,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0] if __doc__ else None)
     parser.add_argument("--size", type=int, default=192, help="width in pixels of each saved image")
     args = parser.parse_args()
-    entries = fetch_kind("upgrades", UPGRADES, args.size) + fetch_kind("monsters", MONSTERS, args.size)
+    entries = (
+        fetch_kind("upgrades", UPGRADES, args.size)
+        + fetch_kind("monsters", MONSTERS, args.size)
+        + fetch_kind("rarities", RARITIES, args.size)
+    )
     manifest = {"wiki": "https://repo-2025horror.fandom.com", "icons": entries}
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
     print(f"{len(entries)} icons, manifest written")

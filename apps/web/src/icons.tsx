@@ -28,6 +28,7 @@ import {
   Megaphone,
   Mountain,
   Network,
+  Package,
   PartyPopper,
   PawPrint,
   Ribbon,
@@ -96,9 +97,9 @@ export const UPGRADE_GLYPHS: Record<string, LucideIcon> = {
   "death-head-battery": BatteryMedium,
 };
 
-type Kind = "monster" | "upgrade";
+type Kind = "monster" | "upgrade" | "rarity";
 
-const FOLDER: Record<Kind, string> = { monster: "monsters", upgrade: "upgrades" };
+const FOLDER: Record<Kind, string> = { monster: "monsters", upgrade: "upgrades", rarity: "rarities" };
 
 /**
  * Where the game art of a monster or an upgrade lives. The PNGs come from the community wiki through
@@ -110,6 +111,7 @@ export function iconUrl(kind: Kind, id: string): string {
 }
 
 function glyphFor(kind: Kind, id: string): LucideIcon {
+  if (kind === "rarity") return Package;
   return (kind === "monster" ? MONSTER_GLYPHS : UPGRADE_GLYPHS)[id] ?? CircleHelp;
 }
 
@@ -127,6 +129,32 @@ export function GlyphTile({ kind, id, size = 40 }: { kind: Kind; id: string; siz
       ) : (
         <img
           src={iconUrl(kind, id)}
+          alt=""
+          width={size}
+          height={size}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          onError={() => {
+            setFailed(true);
+          }}
+        />
+      )}
+    </span>
+  );
+}
+
+/** The cosmetic crate of a rarity, a transparent cutout that keeps its own proportions. */
+export function RarityArt({ rarity, size = 72 }: { rarity: string; size?: number }) {
+  const [failed, setFailed] = useState(false);
+  const Glyph = glyphFor("rarity", rarity);
+  return (
+    <span className="crate" data-rarity={rarity} style={{ width: size, height: size }} aria-hidden="true">
+      {failed ? (
+        <Glyph size={Math.round(size * 0.5)} strokeWidth={1.75} />
+      ) : (
+        <img
+          src={iconUrl("rarity", rarity)}
           alt=""
           width={size}
           height={size}

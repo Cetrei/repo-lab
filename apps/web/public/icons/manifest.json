@@ -451,6 +451,50 @@
         512,
         512
       ]
+    },
+    {
+      "kind": "rarities",
+      "id": "common",
+      "file": "rarities/common.png",
+      "title": "Common cosm transp.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Common_cosm_transp.png",
+      "original": [
+        291,
+        312
+      ]
+    },
+    {
+      "kind": "rarities",
+      "id": "uncommon",
+      "file": "rarities/uncommon.png",
+      "title": "Uncommon cosm transp.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Uncommon_cosm_transp.png",
+      "original": [
+        327,
+        363
+      ]
+    },
+    {
+      "kind": "rarities",
+      "id": "rare",
+      "file": "rarities/rare.png",
+      "title": "Rare cosm transp.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Rare_cosm_transp.png",
+      "original": [
+        277,
+        421
+      ]
+    },
+    {
+      "kind": "rarities",
+      "id": "ultra",
+      "file": "rarities/ultra.png",
+      "title": "Ultra rare cosm transp.png",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Ultra_rare_cosm_transp.png",
+      "original": [
+        369,
+        360
+      ]
     }
   ]
 }

@@ -1,3 +1,4 @@
+import { RARITIES } from "@repo-lab/contract";
 import { describe, expect, it } from "vitest";
 import cases from "../../../packages/contract/fixtures/cases.json";
 import manifest from "../public/icons/manifest.json";
@@ -43,12 +44,13 @@ describe("glyphs", () => {
 describe("game art", () => {
   const files = Object.keys(import.meta.glob("../public/icons/*/*.png"));
 
-  it("has a PNG and a wiki source for every monster and upgrade of the catalogs", () => {
+  it("has a PNG and a wiki source for every monster, upgrade and rarity of the catalogs", () => {
     const monsters = catalog<{ monsters: { id: string }[] }>("monsters.catalog").monsters;
     const upgrades = catalog<{ upgrades: { id: string }[] }>("upgrades.catalog").upgrades;
     const wanted = [
       ...monsters.map((item) => ["monsters", item.id] as const),
       ...upgrades.map((item) => ["upgrades", item.id] as const),
+      ...RARITIES.map((rarity) => ["rarities", rarity] as const),
     ];
     const missing = wanted.filter(([folder, id]) => !files.includes(`../public/icons/${folder}/${id}.png`));
     expect(missing).toEqual([]);
