@@ -53,18 +53,30 @@ class MonsterTests(unittest.TestCase):
         self.assertFalse(tick.liftable)
         self.assertEqual(tick.effort, NEVER)
 
-    def test_a_lone_rugrat_without_upgrades_is_held_with_effort(self) -> None:
+    def test_an_active_rugrat_is_out_of_reach_alone_with_zero_or_one_upgrade(self) -> None:
         rugrat = MONSTERS.get("rugrat")
-        self.assertEqual(lift_check(rugrat, [0]).effort, HARD)
+        self.assertEqual(lift_check(rugrat, [0]).effort, NONE)
+        self.assertEqual(lift_check(rugrat, [1]).effort, NONE)
+        self.assertEqual(lift_check(rugrat, [2]).effort, HARD)
         self.assertEqual(lift_check(rugrat, [3]).effort, HARD)
         self.assertEqual(lift_check(rugrat, [4]).effort, EASY)
         self.assertEqual(lift_check(rugrat, [0, 0]).effort, EASY)
 
+    def test_a_lone_rugrat_without_upgrades_holds_it_only_when_stunned(self) -> None:
+        rugrat = MONSTERS.get("rugrat")
+        for upgrades in ([0], [1]):
+            check = lift_check(rugrat, upgrades)
+            self.assertFalse(check.can_lift)
+            self.assertTrue(check.can_lift_stunned)
+            self.assertEqual(check.stunned_required, BASE_STRENGTH)
+            self.assertEqual(check.players_needed_stunned, 1)
+
     def test_effort_steps_with_the_team(self) -> None:
-        self.assertEqual(hard_strength(9), 5)
+        self.assertEqual(hard_strength(9), 7)
         self.assertEqual(hard_strength(None), None)
         self.assertEqual(effort_for(18, 5), NONE)
-        self.assertEqual(effort_for(18, 10), HARD)
+        self.assertEqual(effort_for(18, 13), NONE)
+        self.assertEqual(effort_for(18, 14), HARD)
         self.assertEqual(effort_for(18, 18), EASY)
         self.assertEqual(effort_for(None, 30), NEVER)
 

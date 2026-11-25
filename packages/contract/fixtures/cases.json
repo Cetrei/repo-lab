@@ -842,7 +842,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 3
+            "hard_required": 4
           },
           {
             "monster_id": "gnome",
@@ -869,7 +869,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 3
+            "hard_required": 4
           },
           {
             "monster_id": "animal",
@@ -896,7 +896,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "birthday-boy",
@@ -923,7 +923,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "headgrab",
@@ -950,7 +950,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "hidden",
@@ -977,7 +977,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "mentalist",
@@ -1004,7 +1004,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "rugrat",
@@ -1031,7 +1031,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "spewer",
@@ -1058,7 +1058,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "upscream",
@@ -1085,7 +1085,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "bowtie",
@@ -1112,7 +1112,7 @@
             "players_needed": null,
             "players_needed_stunned": 1,
             "effort": "hard",
-            "hard_required": 7
+            "hard_required": 9
           },
           {
             "monster_id": "bella",
@@ -1138,8 +1138,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "chef",
@@ -1165,8 +1165,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "gambit",
@@ -1192,8 +1192,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "heart-hugger",
@@ -1219,8 +1219,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "huntsman",
@@ -1246,8 +1246,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "oogly",
@@ -1273,8 +1273,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "pony",
@@ -1300,8 +1300,8 @@
             "can_lift_stunned": null,
             "players_needed": null,
             "players_needed_stunned": null,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "reaper",
@@ -1327,8 +1327,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "shadow-child",
@@ -1354,8 +1354,8 @@
             "can_lift_stunned": true,
             "players_needed": null,
             "players_needed_stunned": 1,
-            "effort": "hard",
-            "hard_required": 8
+            "effort": "none",
+            "hard_required": 11
           },
           {
             "monster_id": "cleanup-crew",
@@ -1382,7 +1382,7 @@
             "players_needed": null,
             "players_needed_stunned": null,
             "effort": "none",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "clown",
@@ -1409,7 +1409,7 @@
             "players_needed": null,
             "players_needed_stunned": 1,
             "effort": "none",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "headman",
@@ -1436,7 +1436,7 @@
             "players_needed": null,
             "players_needed_stunned": null,
             "effort": "none",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "loom",
@@ -1463,7 +1463,7 @@
             "players_needed": null,
             "players_needed_stunned": null,
             "effort": "none",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "robe",
@@ -1490,7 +1490,7 @@
             "players_needed": null,
             "players_needed_stunned": null,
             "effort": "none",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "trudge",
@@ -1517,7 +1517,7 @@
             "players_needed": null,
             "players_needed_stunned": null,
             "effort": "none",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "apex-predator",
@@ -1645,7 +1645,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 3
+            "hard_required": 4
           },
           {
             "monster_id": "gnome",
@@ -1672,7 +1672,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 3
+            "hard_required": 4
           },
           {
             "monster_id": "animal",
@@ -1699,7 +1699,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "birthday-boy",
@@ -1726,7 +1726,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "headgrab",
@@ -1753,7 +1753,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "hidden",
@@ -1780,7 +1780,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "mentalist",
@@ -1807,7 +1807,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "rugrat",
@@ -1834,7 +1834,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "spewer",
@@ -1861,7 +1861,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "upscream",
@@ -1888,7 +1888,7 @@
             "players_needed": 1,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 5
+            "hard_required": 7
           },
           {
             "monster_id": "bowtie",
@@ -1915,7 +1915,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 7
+            "hard_required": 9
           },
           {
             "monster_id": "bella",
@@ -1942,7 +1942,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "chef",
@@ -1969,7 +1969,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "gambit",
@@ -1996,7 +1996,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "heart-hugger",
@@ -2023,7 +2023,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "huntsman",
@@ -2050,7 +2050,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "oogly",
@@ -2077,7 +2077,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "pony",
@@ -2104,7 +2104,7 @@
             "players_needed": 2,
             "players_needed_stunned": null,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "reaper",
@@ -2131,7 +2131,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "shadow-child",
@@ -2158,7 +2158,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 8
+            "hard_required": 11
           },
           {
             "monster_id": "cleanup-crew",
@@ -2185,7 +2185,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "clown",
@@ -2212,7 +2212,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "headman",
@@ -2239,7 +2239,7 @@
             "players_needed": 2,
             "players_needed_stunned": null,
             "effort": "easy",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "loom",
@@ -2266,7 +2266,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "robe",
@@ -2293,7 +2293,7 @@
             "players_needed": 2,
             "players_needed_stunned": 2,
             "effort": "easy",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "trudge",
@@ -2320,7 +2320,7 @@
             "players_needed": 2,
             "players_needed_stunned": 1,
             "effort": "easy",
-            "hard_required": 10
+            "hard_required": 14
           },
           {
             "monster_id": "apex-predator",

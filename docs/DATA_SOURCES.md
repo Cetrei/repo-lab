@@ -28,7 +28,15 @@ Used: itemlevel.net, "How much strength do you need to pick up each monster" (Oc
 Rule: internal strength is 5 per player plus purchased Strength upgrades, and the team total is compared
 with 5 plus the listed upgrades.
 
-* Stunned strength and a few values: Deltia's Gaming and gamerblurb strength charts.
+* Stunned strength and a few values: Deltia's Gaming and gamerblurb strength charts. A stunned monster
+  needs 5 plus its `stunned` upgrades and is checked on its own, so a lone Rugrat without upgrades holds it
+  when it is knocked out (`stunned: 0`) but not while it is active.
+* Effort (yellow in the UI): `hard_ratio` is 0.75 of the strength needed while the monster is active. No
+  source gives it, it comes from the owner's play (2026-11-25): a lone Rugrat cannot be lifted with 0 or 1
+  upgrades (5 and 6 of 9), two players without upgrades can (10 of 9). With 0.75 the Rugrat is out of reach
+  with 0 and 1 upgrades, held with effort with 2 and 3, and clean with 4. It does not apply to the stunned
+  figure. The hunter grabbed by the feet or the head when knocked out is a partial grab and is not modeled.
+* Conflict, Rugrat: pcgamer says 7 upgrades, itemlevel and gamerblurb say 4. 4 is used, pcgamer is older.
 * Conflict, Cleanup Crew: 13 in itemlevel, 12 in a newer chart. 13 is used.
 * Conflict, Tick: 0 and "do not grab" in itemlevel, 13 in gamerblurb. 0 is used with a note.
 * Health: only where a source states it (wiki Monsters, pcgamer, fantime). Missing health stays empty

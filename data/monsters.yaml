@@ -18,10 +18,11 @@ sources:
 rules:
   base_strength: 5
   max_players: 6
-  # Un monstruo se levanta con esfuerzo cuando la fuerza del equipo llega a esta parte de la necesaria sin
-  # alcanzarla. No lo da ninguna fuente: sale de lo que el dueño ve jugando (un Rugrat sin mejoras se agarra
-  # a duras penas), ver docs/DATA_SOURCES.md.
-  hard_ratio: 0.55
+  # Un monstruo sin aturdir se levanta con esfuerzo cuando la fuerza del equipo llega a esta parte de la
+  # necesaria sin alcanzarla. No lo da ninguna fuente: sale de lo que el dueño ve jugando. Un Rugrat activo no
+  # se levanta solo con 0 ni con 1 mejora (5 y 6 de 9), y con 0,75 el mínimo queda en 7 de 9, o sea 2 mejoras.
+  # El caso aturdido va aparte, con `stunned`. Ver docs/DATA_SOURCES.md.
+  hard_ratio: 0.75
   # Desde esta clase de peso un monstruo es grande para los objetos que lo aturden.
   big_weight: 3
 
