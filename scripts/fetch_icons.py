@@ -68,6 +68,7 @@ MONSTERS: dict[str, str] = {
     "peeper": "Peeper Transparent.png",
     "apex-predator": "Apex Predator Transparent.png",
     "elsa": "Elsa monster.png",
+    "pony": "Pony Temp Image.webp",
 }
 
 # the four cosmetic crates, one per rarity of data/cosmetics.yaml
@@ -114,10 +115,10 @@ def file_info(titles: list[str]) -> dict[str, dict[str, Any]]:
 
 
 def scaled(url: str, width: int) -> str:
-    """The wiki serves a resized copy when the path carries scale-to-width-down."""
+    """The wiki serves a resized copy when the path carries scale-to-width-down, as a PNG with format=png."""
     base, _, query = url.partition("?")
     base = base.replace("/revision/latest", f"/revision/latest/scale-to-width-down/{width}")
-    return f"{base}?{query}" if query else base
+    return f"{base}?{query}&format=png" if query else f"{base}?format=png"
 
 
 def fetch_kind(kind: str, mapping: dict[str, str], width: int) -> list[dict[str, Any]]:

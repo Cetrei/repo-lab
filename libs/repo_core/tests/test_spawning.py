@@ -38,7 +38,7 @@ class SpawningTests(unittest.TestCase):
         self.assertEqual(sorted(listed), sorted(monster.id for monster in MONSTERS.all()))
         self.assertEqual(len(RULES.members.tier1), 9)
         self.assertEqual(len(RULES.members.tier2), 12)
-        self.assertEqual(len(RULES.members.tier3), 8)
+        self.assertEqual(len(RULES.members.tier3), 9)
 
     def test_groups_are_tier_one_or_two_monsters_with_their_count(self) -> None:
         by_id = {group.monster_id: group for group in RULES.groups}

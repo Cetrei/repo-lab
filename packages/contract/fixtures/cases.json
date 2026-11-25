@@ -476,7 +476,9 @@
             "name": "Gnome",
             "tier": 1,
             "solo_upgrades": 0,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 0,
+            "weight": 0,
+            "big": false,
             "health": 20,
             "note": ""
           },
@@ -486,6 +488,8 @@
             "tier": 2,
             "solo_upgrades": 0,
             "stunned_upgrades": 0,
+            "weight": 0,
+            "big": false,
             "health": 50,
             "note": "Se suelta solo a los 3 segundos."
           },
@@ -493,17 +497,21 @@
             "id": "tick",
             "name": "Tick",
             "tier": 1,
-            "solo_upgrades": 0,
+            "solo_upgrades": null,
             "stunned_upgrades": null,
+            "weight": 1,
+            "big": false,
             "health": null,
-            "note": "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13."
+            "note": "No se puede agarrar: se pega y drena hasta 100 de vida. La wiki lo lista en 0 y otra tabla en 13."
           },
           {
             "id": "spewer",
             "name": "Spewer",
             "tier": 1,
             "solo_upgrades": 4,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 0,
+            "weight": 2,
+            "big": false,
             "health": 65,
             "note": ""
           },
@@ -512,7 +520,9 @@
             "name": "Birthday Boy",
             "tier": 1,
             "solo_upgrades": 4,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": 0,
+            "weight": 1,
+            "big": false,
             "health": 150,
             "note": ""
           },
@@ -521,7 +531,9 @@
             "name": "Rugrat",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 0,
+            "weight": 1,
+            "big": false,
             "health": 150,
             "note": ""
           },
@@ -531,7 +543,9 @@
             "tier": 2,
             "solo_upgrades": 4,
             "stunned_upgrades": 1,
-            "health": null,
+            "weight": 2,
+            "big": false,
+            "health": 150,
             "note": "Con 2 o más jugadores se congela y deja 2 a 3 golpes."
           },
           {
@@ -539,7 +553,9 @@
             "name": "Upscream",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 0,
+            "weight": 1,
+            "big": false,
             "health": 50,
             "note": ""
           },
@@ -548,8 +564,10 @@
             "name": "Hidden",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": null,
-            "health": null,
+            "stunned_upgrades": 1,
+            "weight": 2,
+            "big": false,
+            "health": 100,
             "note": "El agarre es inconsistente."
           },
           {
@@ -557,7 +575,9 @@
             "name": "Mentalist",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 0,
+            "weight": 3,
+            "big": true,
             "health": 150,
             "note": ""
           },
@@ -566,8 +586,10 @@
             "name": "Headgrab",
             "tier": 2,
             "solo_upgrades": 4,
-            "stunned_upgrades": null,
-            "health": null,
+            "stunned_upgrades": 0,
+            "weight": 1,
+            "big": false,
+            "health": 150,
             "note": ""
           },
           {
@@ -576,7 +598,9 @@
             "tier": 2,
             "solo_upgrades": 7,
             "stunned_upgrades": 2,
-            "health": null,
+            "weight": 3,
+            "big": true,
+            "health": 200,
             "note": ""
           },
           {
@@ -584,7 +608,9 @@
             "name": "Shadow Child",
             "tier": 1,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 1,
+            "weight": 2,
+            "big": false,
             "health": 150,
             "note": ""
           },
@@ -594,6 +620,8 @@
             "tier": 1,
             "solo_upgrades": 9,
             "stunned_upgrades": 0,
+            "weight": 2,
+            "big": false,
             "health": 200,
             "note": ""
           },
@@ -602,17 +630,21 @@
             "name": "Chef",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": 1,
-            "health": 250,
-            "note": ""
+            "stunned_upgrades": 2,
+            "weight": 2,
+            "big": false,
+            "health": 150,
+            "note": "Otras fuentes le dan 250 de vida, la wiki 150."
           },
           {
             "id": "gambit",
             "name": "Gambit",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
-            "health": null,
+            "stunned_upgrades": 3,
+            "weight": 3,
+            "big": true,
+            "health": 150,
             "note": ""
           },
           {
@@ -620,8 +652,10 @@
             "name": "Heart Hugger",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
-            "health": null,
+            "stunned_upgrades": 0,
+            "weight": 3,
+            "big": true,
+            "health": 300,
             "note": ""
           },
           {
@@ -629,8 +663,10 @@
             "name": "Oogly",
             "tier": 2,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
-            "health": null,
+            "stunned_upgrades": 0,
+            "weight": 3,
+            "big": true,
+            "health": 200,
             "note": ""
           },
           {
@@ -638,7 +674,9 @@
             "name": "Huntsman",
             "tier": 3,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 1,
+            "weight": 3,
+            "big": true,
             "health": 250,
             "note": "Dispara si lo agarras en mal momento."
           },
@@ -647,9 +685,22 @@
             "name": "Reaper",
             "tier": 3,
             "solo_upgrades": 9,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 1,
+            "weight": 3,
+            "big": true,
             "health": 250,
             "note": ""
+          },
+          {
+            "id": "pony",
+            "name": "Pony",
+            "tier": 3,
+            "solo_upgrades": 9,
+            "stunned_upgrades": null,
+            "weight": 3,
+            "big": true,
+            "health": 400,
+            "note": "Llegó con la actualización 0.5.0. Te agarra con la lengua."
           },
           {
             "id": "headman",
@@ -657,6 +708,8 @@
             "tier": 3,
             "solo_upgrades": 13,
             "stunned_upgrades": null,
+            "weight": 3,
+            "big": true,
             "health": 250,
             "note": ""
           },
@@ -665,7 +718,9 @@
             "name": "Robe",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 6,
+            "weight": 3,
+            "big": true,
             "health": 250,
             "note": ""
           },
@@ -674,7 +729,9 @@
             "name": "Clown",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 1,
+            "stunned_upgrades": 3,
+            "weight": 4,
+            "big": true,
             "health": 250,
             "note": ""
           },
@@ -683,7 +740,9 @@
             "name": "Trudge",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": null,
+            "stunned_upgrades": 5,
+            "weight": 4,
+            "big": true,
             "health": 500,
             "note": ""
           },
@@ -692,8 +751,10 @@
             "name": "Cleanup Crew",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": 2,
-            "health": null,
+            "stunned_upgrades": 5,
+            "weight": 3,
+            "big": true,
+            "health": 350,
             "note": "Una tabla nueva lo lista en 12. Se usa 13 por seguridad."
           },
           {
@@ -701,8 +762,10 @@
             "name": "Loom",
             "tier": 3,
             "solo_upgrades": 13,
-            "stunned_upgrades": null,
-            "health": null,
+            "stunned_upgrades": 5,
+            "weight": 3,
+            "big": true,
+            "health": 500,
             "note": "El daño por caída no le afecta."
           },
           {
@@ -711,6 +774,8 @@
             "tier": 1,
             "solo_upgrades": null,
             "stunned_upgrades": null,
+            "weight": 2,
+            "big": false,
             "health": 30,
             "note": "No se puede agarrar. Romper la línea de visión."
           },
@@ -720,6 +785,8 @@
             "tier": 1,
             "solo_upgrades": null,
             "stunned_upgrades": 0,
+            "weight": 1,
+            "big": false,
             "health": 150,
             "note": "Agarrar al pato lo transforma. No cuenta como levantarlo."
           },
@@ -729,6 +796,8 @@
             "tier": 1,
             "solo_upgrades": null,
             "stunned_upgrades": 0,
+            "weight": 1,
+            "big": false,
             "health": 600,
             "note": "Se puede acariciar, no levantar."
           }
@@ -771,7 +840,9 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 3
           },
           {
             "monster_id": "gnome",
@@ -793,40 +864,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
-          },
-          {
-            "monster_id": "tick",
-            "name": "Tick",
-            "health": null,
-            "note": "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13.",
-            "liftable": true,
-            "required": 5,
-            "combined": 9,
-            "can_lift": true,
-            "margin": 4,
-            "missing": 0,
-            "min_players_without_upgrades": 1,
-            "upgrades_from_zero": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
-            "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 3
           },
           {
             "monster_id": "animal",
             "name": "Animal",
-            "health": null,
+            "health": 150,
             "note": "Con 2 o más jugadores se congela y deja 2 a 3 golpes.",
             "liftable": true,
             "required": 9,
@@ -846,7 +894,9 @@
             "stunned_required": 6,
             "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "birthday-boy",
@@ -868,15 +918,17 @@
               0,
               0
             ],
-            "stunned_required": 6,
+            "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "headgrab",
             "name": "Headgrab",
-            "health": null,
+            "health": 150,
             "note": "",
             "liftable": true,
             "required": 9,
@@ -893,15 +945,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "hidden",
             "name": "Hidden",
-            "health": null,
+            "health": 100,
             "note": "El agarre es inconsistente.",
             "liftable": true,
             "required": 9,
@@ -918,10 +972,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "mentalist",
@@ -943,10 +999,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "rugrat",
@@ -968,10 +1026,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "spewer",
@@ -993,10 +1053,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "upscream",
@@ -1018,15 +1080,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "bowtie",
             "name": "Bowtie",
-            "health": null,
+            "health": 200,
             "note": "",
             "liftable": true,
             "required": 12,
@@ -1046,7 +1110,9 @@
             "stunned_required": 7,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 7
           },
           {
             "monster_id": "bella",
@@ -1071,13 +1137,15 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "chef",
             "name": "Chef",
-            "health": 250,
-            "note": "",
+            "health": 150,
+            "note": "Otras fuentes le dan 250 de vida, la wiki 150.",
             "liftable": true,
             "required": 14,
             "combined": 9,
@@ -1093,15 +1161,17 @@
               0,
               0
             ],
-            "stunned_required": 6,
+            "stunned_required": 7,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "gambit",
             "name": "Gambit",
-            "health": null,
+            "health": 150,
             "note": "",
             "liftable": true,
             "required": 14,
@@ -1118,15 +1188,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 8,
+            "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "heart-hugger",
             "name": "Heart Hugger",
-            "health": null,
+            "health": 300,
             "note": "",
             "liftable": true,
             "required": 14,
@@ -1143,10 +1215,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "huntsman",
@@ -1168,16 +1242,45 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "oogly",
             "name": "Oogly",
-            "health": null,
+            "health": 200,
             "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 9,
+            "can_lift": false,
+            "margin": -5,
+            "missing": 5,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 5,
+            "can_lift_stunned": true,
+            "players_needed": null,
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
+          },
+          {
+            "monster_id": "pony",
+            "name": "Pony",
+            "health": 400,
+            "note": "Llegó con la actualización 0.5.0. Te agarra con la lengua.",
             "liftable": true,
             "required": 14,
             "combined": 9,
@@ -1196,7 +1299,9 @@
             "stunned_required": null,
             "can_lift_stunned": null,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "reaper",
@@ -1218,10 +1323,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "shadow-child",
@@ -1243,15 +1350,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "hard",
+            "hard_required": 8
           },
           {
             "monster_id": "cleanup-crew",
             "name": "Cleanup Crew",
-            "health": null,
+            "health": 350,
             "note": "Una tabla nueva lo lista en 12. Se usa 13 por seguridad.",
             "liftable": true,
             "required": 18,
@@ -1268,10 +1377,12 @@
               0,
               0
             ],
-            "stunned_required": 7,
-            "can_lift_stunned": true,
+            "stunned_required": 10,
+            "can_lift_stunned": false,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": null,
+            "effort": "none",
+            "hard_required": 10
           },
           {
             "monster_id": "clown",
@@ -1293,10 +1404,12 @@
               0,
               0
             ],
-            "stunned_required": 6,
+            "stunned_required": 8,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "none",
+            "hard_required": 10
           },
           {
             "monster_id": "headman",
@@ -1321,12 +1434,14 @@
             "stunned_required": null,
             "can_lift_stunned": null,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "none",
+            "hard_required": 10
           },
           {
             "monster_id": "loom",
             "name": "Loom",
-            "health": null,
+            "health": 500,
             "note": "El daño por caída no le afecta.",
             "liftable": true,
             "required": 18,
@@ -1343,10 +1458,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 10,
+            "can_lift_stunned": false,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "none",
+            "hard_required": 10
           },
           {
             "monster_id": "robe",
@@ -1368,10 +1485,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 11,
+            "can_lift_stunned": false,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "none",
+            "hard_required": 10
           },
           {
             "monster_id": "trudge",
@@ -1393,10 +1512,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 10,
+            "can_lift_stunned": false,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "none",
+            "hard_required": 10
           },
           {
             "monster_id": "apex-predator",
@@ -1414,7 +1535,9 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "never",
+            "hard_required": null
           },
           {
             "monster_id": "elsa",
@@ -1432,7 +1555,9 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "never",
+            "hard_required": null
           },
           {
             "monster_id": "peeper",
@@ -1450,7 +1575,29 @@
             "stunned_required": null,
             "can_lift_stunned": null,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "never",
+            "hard_required": null
+          },
+          {
+            "monster_id": "tick",
+            "name": "Tick",
+            "health": null,
+            "note": "No se puede agarrar: se pega y drena hasta 100 de vida. La wiki lo lista en 0 y otra tabla en 13.",
+            "liftable": false,
+            "required": null,
+            "combined": 9,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": null,
+            "can_lift_stunned": null,
+            "players_needed": null,
+            "players_needed_stunned": null,
+            "effort": "never",
+            "hard_required": null
           }
         ]
       }
@@ -1496,7 +1643,9 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 3
           },
           {
             "monster_id": "gnome",
@@ -1518,40 +1667,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
-          },
-          {
-            "monster_id": "tick",
-            "name": "Tick",
-            "health": null,
-            "note": "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13.",
-            "liftable": true,
-            "required": 5,
-            "combined": 41,
-            "can_lift": true,
-            "margin": 36,
-            "missing": 0,
-            "min_players_without_upgrades": 1,
-            "upgrades_from_zero": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
-            "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 3
           },
           {
             "monster_id": "animal",
             "name": "Animal",
-            "health": null,
+            "health": 150,
             "note": "Con 2 o más jugadores se congela y deja 2 a 3 golpes.",
             "liftable": true,
             "required": 9,
@@ -1571,7 +1697,9 @@
             "stunned_required": 6,
             "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "birthday-boy",
@@ -1593,15 +1721,17 @@
               0,
               0
             ],
-            "stunned_required": 6,
+            "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "headgrab",
             "name": "Headgrab",
-            "health": null,
+            "health": 150,
             "note": "",
             "liftable": true,
             "required": 9,
@@ -1618,15 +1748,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "hidden",
             "name": "Hidden",
-            "health": null,
+            "health": 100,
             "note": "El agarre es inconsistente.",
             "liftable": true,
             "required": 9,
@@ -1643,10 +1775,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "mentalist",
@@ -1668,10 +1802,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "rugrat",
@@ -1693,10 +1829,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "spewer",
@@ -1718,10 +1856,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "upscream",
@@ -1743,15 +1883,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 1,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 5
           },
           {
             "monster_id": "bowtie",
             "name": "Bowtie",
-            "health": null,
+            "health": 200,
             "note": "",
             "liftable": true,
             "required": 12,
@@ -1771,7 +1913,9 @@
             "stunned_required": 7,
             "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 7
           },
           {
             "monster_id": "bella",
@@ -1796,13 +1940,15 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "chef",
             "name": "Chef",
-            "health": 250,
-            "note": "",
+            "health": 150,
+            "note": "Otras fuentes le dan 250 de vida, la wiki 150.",
             "liftable": true,
             "required": 14,
             "combined": 41,
@@ -1818,15 +1964,17 @@
               0,
               0
             ],
-            "stunned_required": 6,
+            "stunned_required": 7,
             "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "gambit",
             "name": "Gambit",
-            "health": null,
+            "health": 150,
             "note": "",
             "liftable": true,
             "required": 14,
@@ -1843,15 +1991,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 8,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "heart-hugger",
             "name": "Heart Hugger",
-            "health": null,
+            "health": 300,
             "note": "",
             "liftable": true,
             "required": 14,
@@ -1868,10 +2018,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 5,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "huntsman",
@@ -1893,16 +2045,45 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "oogly",
             "name": "Oogly",
-            "health": null,
+            "health": 200,
             "note": "",
+            "liftable": true,
+            "required": 14,
+            "combined": 41,
+            "can_lift": true,
+            "margin": 27,
+            "missing": 0,
+            "min_players_without_upgrades": 3,
+            "upgrades_from_zero": [
+              9,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stunned_required": 5,
+            "can_lift_stunned": true,
+            "players_needed": 2,
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
+          },
+          {
+            "monster_id": "pony",
+            "name": "Pony",
+            "health": 400,
+            "note": "Llegó con la actualización 0.5.0. Te agarra con la lengua.",
             "liftable": true,
             "required": 14,
             "combined": 41,
@@ -1921,7 +2102,9 @@
             "stunned_required": null,
             "can_lift_stunned": null,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "reaper",
@@ -1943,10 +2126,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "shadow-child",
@@ -1968,15 +2153,17 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 6,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 8
           },
           {
             "monster_id": "cleanup-crew",
             "name": "Cleanup Crew",
-            "health": null,
+            "health": 350,
             "note": "Una tabla nueva lo lista en 12. Se usa 13 por seguridad.",
             "liftable": true,
             "required": 18,
@@ -1993,10 +2180,12 @@
               0,
               0
             ],
-            "stunned_required": 7,
+            "stunned_required": 10,
             "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 10
           },
           {
             "monster_id": "clown",
@@ -2018,10 +2207,12 @@
               0,
               0
             ],
-            "stunned_required": 6,
+            "stunned_required": 8,
             "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 10
           },
           {
             "monster_id": "headman",
@@ -2046,12 +2237,14 @@
             "stunned_required": null,
             "can_lift_stunned": null,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "easy",
+            "hard_required": 10
           },
           {
             "monster_id": "loom",
             "name": "Loom",
-            "health": null,
+            "health": 500,
             "note": "El daño por caída no le afecta.",
             "liftable": true,
             "required": 18,
@@ -2068,10 +2261,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 10,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 10
           },
           {
             "monster_id": "robe",
@@ -2093,10 +2288,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 11,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 2,
+            "effort": "easy",
+            "hard_required": 10
           },
           {
             "monster_id": "trudge",
@@ -2118,10 +2315,12 @@
               0,
               0
             ],
-            "stunned_required": null,
-            "can_lift_stunned": null,
+            "stunned_required": 10,
+            "can_lift_stunned": true,
             "players_needed": 2,
-            "players_needed_stunned": null
+            "players_needed_stunned": 1,
+            "effort": "easy",
+            "hard_required": 10
           },
           {
             "monster_id": "apex-predator",
@@ -2139,7 +2338,9 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "never",
+            "hard_required": null
           },
           {
             "monster_id": "elsa",
@@ -2157,7 +2358,9 @@
             "stunned_required": 5,
             "can_lift_stunned": true,
             "players_needed": null,
-            "players_needed_stunned": 1
+            "players_needed_stunned": 1,
+            "effort": "never",
+            "hard_required": null
           },
           {
             "monster_id": "peeper",
@@ -2175,7 +2378,29 @@
             "stunned_required": null,
             "can_lift_stunned": null,
             "players_needed": null,
-            "players_needed_stunned": null
+            "players_needed_stunned": null,
+            "effort": "never",
+            "hard_required": null
+          },
+          {
+            "monster_id": "tick",
+            "name": "Tick",
+            "health": null,
+            "note": "No se puede agarrar: se pega y drena hasta 100 de vida. La wiki lo lista en 0 y otra tabla en 13.",
+            "liftable": false,
+            "required": null,
+            "combined": 41,
+            "can_lift": false,
+            "margin": null,
+            "missing": 0,
+            "min_players_without_upgrades": null,
+            "upgrades_from_zero": null,
+            "stunned_required": null,
+            "can_lift_stunned": null,
+            "players_needed": null,
+            "players_needed_stunned": null,
+            "effort": "never",
+            "hard_required": null
           }
         ]
       }
@@ -3091,6 +3316,10 @@
               "name": "Reaper"
             },
             {
+              "id": "pony",
+              "name": "Pony"
+            },
+            {
               "id": "headman",
               "name": "Headman"
             },
@@ -3415,9 +3644,9 @@
             "note": "Fuerza con el monstruo aturdido y algunos valores sueltos."
           },
           {
-            "name": "R.E.P.O. wiki, Monsters",
+            "name": "R.E.P.O. wiki, Monsters y la ficha de cada monstruo",
             "url": "https://repo-2025horror.fandom.com/wiki/Monsters",
-            "note": "Vida de los monstruos donde la tabla se pudo leer, y el nivel de peligro de cada uno, que es su tier."
+            "note": "Vida, tier, clase de peso y fuerza aturdido de los 30 monstruos, leidos de la tabla completa el 25 de noviembre de 2026."
           },
           {
             "name": "pcgamer y fantime",

@@ -1,6 +1,7 @@
 # Fuerza para levantar cada monstruo. `lift` son las mejoras de Fuerza compradas que lista la fuente
 # (null si no se puede levantar). El juego compara la fuerza interna combinada del equipo, 5 por
 # jugador mas sus mejoras, con 5 mas `lift`. `stunned` es lo mismo con el monstruo aturdido.
+# `weight` es la clase de peso de la wiki, de 0 (muy ligero) a 4 (muy pesado).
 # `health` queda vacio cuando ninguna fuente legible lo dice, nunca se inventa.
 
 sources:
@@ -8,43 +9,50 @@ sources:
     note: Tabla principal, 1 de octubre de 2026, 29 monstruos.
   - name: Deltia's Gaming y gamerblurb, tablas de fuerza
     note: Fuerza con el monstruo aturdido y algunos valores sueltos.
-  - name: R.E.P.O. wiki, Monsters
+  - name: R.E.P.O. wiki, Monsters y la ficha de cada monstruo
     url: https://repo-2025horror.fandom.com/wiki/Monsters
-    note: Vida de los monstruos donde la tabla se pudo leer, y el nivel de peligro de cada uno, que es su tier.
+    note: Vida, tier, clase de peso y fuerza aturdido de los 30 monstruos, leidos de la tabla completa el 25 de noviembre de 2026.
   - name: pcgamer y fantime
     note: Vida de algunos monstruos.
 
 rules:
   base_strength: 5
   max_players: 6
+  # Un monstruo se levanta con esfuerzo cuando la fuerza del equipo llega a esta parte de la necesaria sin
+  # alcanzarla. No lo da ninguna fuente: sale de lo que el dueño ve jugando (un Rugrat sin mejoras se agarra
+  # a duras penas), ver docs/DATA_SOURCES.md.
+  hard_ratio: 0.55
+  # Desde esta clase de peso un monstruo es grande para los objetos que lo aturden.
+  big_weight: 3
 
 monsters:
-  - {name: Gnome, tier: 1, lift: 0, health: 20}
-  - {name: Banger, tier: 2, lift: 0, stunned: 0, health: 50, note: Se suelta solo a los 3 segundos.}
-  - {name: Tick, tier: 1, lift: 0, note: "No agarrar: se pega y drena hasta 100 de vida. Otra tabla lo lista en 13."}
-  - {name: Spewer, tier: 1, lift: 4, health: 65}
-  - {name: Birthday Boy, tier: 1, lift: 4, stunned: 1, health: 150}
-  - {name: Rugrat, tier: 2, lift: 4, health: 150}
-  - {name: Animal, tier: 2, lift: 4, stunned: 1, note: Con 2 o más jugadores se congela y deja 2 a 3 golpes.}
-  - {name: Upscream, tier: 2, lift: 4, health: 50}
-  - {name: Hidden, tier: 2, lift: 4, note: El agarre es inconsistente.}
-  - {name: Mentalist, tier: 2, lift: 4, health: 150}
-  - {name: Headgrab, tier: 2, lift: 4}
-  - {name: Bowtie, tier: 2, lift: 7, stunned: 2}
-  - {name: Shadow Child, tier: 1, lift: 9, health: 150}
-  - {name: Bella, tier: 1, lift: 9, stunned: 0, health: 200}
-  - {name: Chef, tier: 2, lift: 9, stunned: 1, health: 250}
-  - {name: Gambit, tier: 2, lift: 9}
-  - {name: Heart Hugger, tier: 2, lift: 9}
-  - {name: Oogly, tier: 2, lift: 9}
-  - {name: Huntsman, tier: 3, lift: 9, health: 250, note: Dispara si lo agarras en mal momento.}
-  - {name: Reaper, tier: 3, lift: 9, health: 250}
-  - {name: Headman, tier: 3, lift: 13, health: 250}
-  - {name: Robe, tier: 3, lift: 13, health: 250}
-  - {name: Clown, tier: 3, lift: 13, stunned: 1, health: 250}
-  - {name: Trudge, tier: 3, lift: 13, health: 500}
-  - {name: Cleanup Crew, tier: 3, lift: 13, stunned: 2, note: Una tabla nueva lo lista en 12. Se usa 13 por seguridad.}
-  - {name: Loom, tier: 3, lift: 13, note: El daño por caída no le afecta.}
-  - {name: Peeper, tier: 1, lift: null, health: 30, note: No se puede agarrar. Romper la línea de visión.}
-  - {name: Apex Predator, tier: 1, lift: null, stunned: 0, health: 150, note: Agarrar al pato lo transforma. No cuenta como levantarlo.}
-  - {name: Elsa, tier: 1, lift: null, stunned: 0, health: 600, note: "Se puede acariciar, no levantar."}
+  - {name: Gnome, tier: 1, lift: 0, stunned: 0, health: 20, weight: 0}
+  - {name: Banger, tier: 2, lift: 0, stunned: 0, health: 50, weight: 0, note: Se suelta solo a los 3 segundos.}
+  - {name: Tick, tier: 1, lift: null, weight: 1, note: "No se puede agarrar: se pega y drena hasta 100 de vida. La wiki lo lista en 0 y otra tabla en 13."}
+  - {name: Spewer, tier: 1, lift: 4, stunned: 0, health: 65, weight: 2}
+  - {name: Birthday Boy, tier: 1, lift: 4, stunned: 0, health: 150, weight: 1}
+  - {name: Rugrat, tier: 2, lift: 4, stunned: 0, health: 150, weight: 1}
+  - {name: Animal, tier: 2, lift: 4, stunned: 1, health: 150, weight: 2, note: Con 2 o más jugadores se congela y deja 2 a 3 golpes.}
+  - {name: Upscream, tier: 2, lift: 4, stunned: 0, health: 50, weight: 1}
+  - {name: Hidden, tier: 2, lift: 4, stunned: 1, health: 100, weight: 2, note: El agarre es inconsistente.}
+  - {name: Mentalist, tier: 2, lift: 4, stunned: 0, health: 150, weight: 3}
+  - {name: Headgrab, tier: 2, lift: 4, stunned: 0, health: 150, weight: 1}
+  - {name: Bowtie, tier: 2, lift: 7, stunned: 2, health: 200, weight: 3}
+  - {name: Shadow Child, tier: 1, lift: 9, stunned: 1, health: 150, weight: 2}
+  - {name: Bella, tier: 1, lift: 9, stunned: 0, health: 200, weight: 2}
+  - {name: Chef, tier: 2, lift: 9, stunned: 2, health: 150, weight: 2, note: "Otras fuentes le dan 250 de vida, la wiki 150."}
+  - {name: Gambit, tier: 2, lift: 9, stunned: 3, health: 150, weight: 3}
+  - {name: Heart Hugger, tier: 2, lift: 9, stunned: 0, health: 300, weight: 3}
+  - {name: Oogly, tier: 2, lift: 9, stunned: 0, health: 200, weight: 3}
+  - {name: Huntsman, tier: 3, lift: 9, stunned: 1, health: 250, weight: 3, note: Dispara si lo agarras en mal momento.}
+  - {name: Reaper, tier: 3, lift: 9, stunned: 1, health: 250, weight: 3}
+  - {name: Pony, tier: 3, lift: 9, health: 400, weight: 3, note: "Llegó con la actualización 0.5.0. Te agarra con la lengua."}
+  - {name: Headman, tier: 3, lift: 13, health: 250, weight: 3}
+  - {name: Robe, tier: 3, lift: 13, stunned: 6, health: 250, weight: 3}
+  - {name: Clown, tier: 3, lift: 13, stunned: 3, health: 250, weight: 4}
+  - {name: Trudge, tier: 3, lift: 13, stunned: 5, health: 500, weight: 4}
+  - {name: Cleanup Crew, tier: 3, lift: 13, stunned: 5, health: 350, weight: 3, note: Una tabla nueva lo lista en 12. Se usa 13 por seguridad.}
+  - {name: Loom, tier: 3, lift: 13, stunned: 5, health: 500, weight: 3, note: El daño por caída no le afecta.}
+  - {name: Peeper, tier: 1, lift: null, health: 30, weight: 2, note: No se puede agarrar. Romper la línea de visión.}
+  - {name: Apex Predator, tier: 1, lift: null, stunned: 0, health: 150, weight: 1, note: Agarrar al pato lo transforma. No cuenta como levantarlo.}
+  - {name: Elsa, tier: 1, lift: null, stunned: 0, health: 600, weight: 1, note: "Se puede acariciar, no levantar."}

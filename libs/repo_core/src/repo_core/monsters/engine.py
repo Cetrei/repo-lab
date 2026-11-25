@@ -3,6 +3,9 @@
 Rule (see docs/DATA_SOURCES.md): every player starts with 5 internal strength and adds 1 per
 purchased Strength upgrade. Strength of everyone who grabs adds up. A monster listed at N upgrades
 needs a combined internal strength of at least 5 + N.
+
+Below that figure a team may still hold the monster with effort. `HARD_RATIO` of the data file says from which
+share of the figure on, see `effort_for`.
 """
 
 from __future__ import annotations
@@ -14,9 +17,15 @@ from math import ceil
 from ..catalog import Catalog
 from ..checks import require_int
 from ..errors import InvalidInput
-from .data import BASE_STRENGTH, MAX_PLAYERS, MONSTERS, Monster
+from .data import BASE_STRENGTH, HARD_RATIO, MAX_PLAYERS, MONSTERS, Monster
 
 MAX_UPGRADES = 99
+
+# How a team stands against a monster it wants to lift.
+EASY = "easy"  # the team reaches the listed figure
+HARD = "hard"  # it holds the monster, but it costs
+NONE = "none"  # it cannot lift it yet
+NEVER = "never"  # no amount of strength lifts it
 
 
 @dataclass(frozen=True, slots=True)
@@ -37,6 +46,8 @@ class LiftCheck:
     can_lift_stunned: bool | None
     players_needed: int | None
     players_needed_stunned: int | None
+    effort: str
+    hard_required: int | None
 
 
 def combined_strength(upgrades: Sequence[int]) -> int:
@@ -75,6 +86,26 @@ def players_needed(need: int | None, upgrades: Sequence[int]) -> int | None:
     return None
 
 
+def hard_strength(need: int | None) -> int | None:
+    """The least combined strength that still holds a monster that needs `need`, at `HARD_RATIO` of it."""
+    if need is None:
+        return None
+    return min(need, max(1, ceil(need * HARD_RATIO)))
+
+
+def effort_for(need: int | None, combined: int) -> str:
+    """`easy` from the listed figure, `hard` from `hard_strength` up to it, `none` below.
+
+    `never` is the answer for a monster without a figure.
+    """
+    if need is None:
+        return NEVER
+    if combined >= need:
+        return EASY
+    hard = hard_strength(need)
+    return HARD if hard is not None and combined >= hard else NONE
+
+
 def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
     combined = combined_strength(upgrades)
     need = required_strength(monster)
@@ -96,6 +127,8 @@ def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
         can_lift_stunned=None if stunned_need is None else combined >= stunned_need,
         players_needed=players_needed(need, upgrades),
         players_needed_stunned=players_needed(stunned_need, upgrades),
+        effort=effort_for(need, combined),
+        hard_required=hard_strength(need),
     )
 
 

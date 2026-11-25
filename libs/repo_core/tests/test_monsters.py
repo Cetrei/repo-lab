@@ -4,7 +4,13 @@ from repo_core.errors import InvalidInput
 from repo_core.monsters.data import MONSTERS
 from repo_core.monsters.engine import (
     BASE_STRENGTH,
+    EASY,
+    HARD,
+    NEVER,
+    NONE,
     combined_strength,
+    effort_for,
+    hard_strength,
     lift_check,
     lift_table,
     players_needed,
@@ -13,8 +19,8 @@ from repo_core.monsters.engine import (
 
 
 class MonsterTests(unittest.TestCase):
-    def test_table_has_29_monsters(self) -> None:
-        self.assertEqual(len(MONSTERS.all()), 29)
+    def test_table_has_30_monsters(self) -> None:
+        self.assertEqual(len(MONSTERS.all()), 30)
 
     def test_internal_strength_is_five_plus_upgrades(self) -> None:
         headman = MONSTERS.get("headman")
@@ -41,8 +47,35 @@ class MonsterTests(unittest.TestCase):
         self.assertTrue(lift_check(MONSTERS.get("rugrat"), [0, 0]).can_lift)
         self.assertFalse(lift_check(MONSTERS.get("rugrat"), [0]).can_lift)
 
+    def test_gnome_always_lifts_and_tick_is_never_grabbed(self) -> None:
+        self.assertEqual(lift_check(MONSTERS.get("gnome"), [0]).effort, EASY)
+        tick = lift_check(MONSTERS.get("tick"), [99])
+        self.assertFalse(tick.liftable)
+        self.assertEqual(tick.effort, NEVER)
+
+    def test_a_lone_rugrat_without_upgrades_is_held_with_effort(self) -> None:
+        rugrat = MONSTERS.get("rugrat")
+        self.assertEqual(lift_check(rugrat, [0]).effort, HARD)
+        self.assertEqual(lift_check(rugrat, [3]).effort, HARD)
+        self.assertEqual(lift_check(rugrat, [4]).effort, EASY)
+        self.assertEqual(lift_check(rugrat, [0, 0]).effort, EASY)
+
+    def test_effort_steps_with_the_team(self) -> None:
+        self.assertEqual(hard_strength(9), 5)
+        self.assertEqual(hard_strength(None), None)
+        self.assertEqual(effort_for(18, 5), NONE)
+        self.assertEqual(effort_for(18, 10), HARD)
+        self.assertEqual(effort_for(18, 18), EASY)
+        self.assertEqual(effort_for(None, 30), NEVER)
+
+    def test_big_monsters_follow_the_weight_class(self) -> None:
+        self.assertFalse(MONSTERS.get("gnome").big)
+        self.assertFalse(MONSTERS.get("rugrat").big)
+        self.assertTrue(MONSTERS.get("reaper").big)
+        self.assertTrue(MONSTERS.get("trudge").big)
+
     def test_never_liftable_monsters(self) -> None:
-        for monster_id in ("peeper", "apex-predator", "elsa"):
+        for monster_id in ("peeper", "apex-predator", "elsa", "tick"):
             check = lift_check(MONSTERS.get(monster_id), [99, 99, 99, 99, 99, 99])
             self.assertFalse(check.liftable)
             self.assertFalse(check.can_lift)

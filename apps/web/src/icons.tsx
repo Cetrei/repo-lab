@@ -31,6 +31,7 @@ import {
   Package,
   PartyPopper,
   PawPrint,
+  Rabbit,
   Ribbon,
   Rocket,
   ScanEye,
@@ -82,6 +83,7 @@ export const MONSTER_GLYPHS: Record<string, LucideIcon> = {
   peeper: ScanEye,
   "apex-predator": Flame,
   elsa: Snowflake,
+  pony: Rabbit,
 };
 
 export const UPGRADE_GLYPHS: Record<string, LucideIcon> = {

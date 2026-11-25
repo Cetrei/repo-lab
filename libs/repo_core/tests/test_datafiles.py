@@ -49,7 +49,7 @@ class BundledDataTests(unittest.TestCase):
         self.assertIn(DEFAULT_RULESET_ID, RULESETS)
 
     def test_table_sizes_match_the_documented_numbers(self) -> None:
-        self.assertEqual(len(MONSTERS.all()), 29)
+        self.assertEqual(len(MONSTERS.all()), 30)
         self.assertEqual(len(UPGRADES.all()), 12)
         self.assertEqual(TOTAL_UNITS, 23)
 

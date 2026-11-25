@@ -105,6 +105,8 @@ export const monster = z.strictObject({
   tier: z.int(),
   solo_upgrades: z.int().nullable(),
   stunned_upgrades: z.int().nullable(),
+  weight: z.int(),
+  big: z.boolean(),
   health: z.int().nullable(),
   note: z.string(),
 });
@@ -133,6 +135,8 @@ export const liftCheck = z.strictObject({
   can_lift_stunned: z.boolean().nullable(),
   players_needed: z.int().nullable(),
   players_needed_stunned: z.int().nullable(),
+  effort: z.enum(["easy", "hard", "none", "never"]),
+  hard_required: z.int().nullable(),
 });
 export type LiftCheck = z.infer<typeof liftCheck>;
 

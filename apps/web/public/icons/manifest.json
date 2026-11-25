@@ -453,6 +453,17 @@
       ]
     },
     {
+      "kind": "monsters",
+      "id": "pony",
+      "file": "monsters/pony.png",
+      "title": "Pony Temp Image.webp",
+      "source": "https://repo-2025horror.fandom.com/wiki/File:Pony_Temp_Image.webp",
+      "original": [
+        170,
+        416
+      ]
+    },
+    {
       "kind": "rarities",
       "id": "common",
       "file": "rarities/common.png",
