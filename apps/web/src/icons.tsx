@@ -40,6 +40,7 @@ import {
   Sprout,
   Swords,
   Trash2,
+  User,
   Wind,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -97,9 +98,14 @@ export const UPGRADE_GLYPHS: Record<string, LucideIcon> = {
   "death-head-battery": BatteryMedium,
 };
 
-type Kind = "monster" | "upgrade" | "rarity";
+type Kind = "monster" | "upgrade" | "rarity" | "player";
 
-const FOLDER: Record<Kind, string> = { monster: "monsters", upgrade: "upgrades", rarity: "rarities" };
+const FOLDER: Record<Kind, string> = {
+  monster: "monsters",
+  upgrade: "upgrades",
+  rarity: "rarities",
+  player: "players",
+};
 
 /**
  * Where the game art of a monster or an upgrade lives. The PNGs come from the community wiki through
@@ -112,6 +118,7 @@ export function iconUrl(kind: Kind, id: string): string {
 
 function glyphFor(kind: Kind, id: string): LucideIcon {
   if (kind === "rarity") return Package;
+  if (kind === "player") return User;
   return (kind === "monster" ? MONSTER_GLYPHS : UPGRADE_GLYPHS)[id] ?? CircleHelp;
 }
 
@@ -166,6 +173,42 @@ export function RarityArt({ rarity, size = 72 }: { rarity: string; size?: number
           }}
         />
       )}
+    </span>
+  );
+}
+
+/** A semibot, the player of the game: the whole robot for a team member, the head for who lifts. */
+export function PlayerArt({ kind, height }: { kind: "robot" | "head"; height: number }) {
+  const [failed, setFailed] = useState(false);
+  const width = kind === "robot" ? Math.round(height * 0.48) : height;
+  return failed ? (
+    <User aria-hidden size={Math.round(height * 0.6)} strokeWidth={1.75} />
+  ) : (
+    <img
+      className="semibot"
+      data-kind={kind}
+      src={iconUrl("player", kind)}
+      alt=""
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      draggable={false}
+      onError={() => {
+        setFailed(true);
+      }}
+    />
+  );
+}
+
+/** One head for a solo lift, a few overlapped heads when several players have to grab the monster. */
+export function Heads({ count }: { count: number }) {
+  const shown = Math.min(Math.max(count, 1), 3);
+  return (
+    <span className="heads" aria-hidden="true">
+      {Array.from({ length: shown }, (_, index) => (
+        <PlayerArt key={index} kind="head" height={22} />
+      ))}
     </span>
   );
 }

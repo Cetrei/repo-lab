@@ -29,7 +29,7 @@ export function Stats({ children }: { children: ReactNode }) {
   return <dl className="stats">{children}</dl>;
 }
 
-export function Stat({ label, value, tone }: { label: string; value: ReactNode; tone?: "good" | "bad" }) {
+export function Stat({ label, value, tone }: { label: ReactNode; value: ReactNode; tone?: "good" | "bad" }) {
   return (
     <div className="stat">
       <dt>{label}</dt>

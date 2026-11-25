@@ -82,6 +82,16 @@ describe("CosmeticsView", () => {
   });
 });
 
+describe("MonstersView team", () => {
+  it("shows one semibot per player with the strength upgrades in its corner", async () => {
+    show(<MonstersView />);
+    const team = await screen.findByRole("list", { name: "Tu equipo" });
+    expect(within(team).getAllByRole("listitem")).toHaveLength(2);
+    fireEvent.click(within(team).getByRole("button", { name: "Sumar a Mejoras de Fuerza del jugador 1" }));
+    expect((screen.getByLabelText("Mejoras de Fuerza del jugador 1") as HTMLInputElement).value).toBe("1");
+  });
+});
+
 describe("MonstersView", () => {
   it("lists every monster with what the team can do", async () => {
     show(<MonstersView />);
@@ -200,6 +210,25 @@ describe("UpgradesView", () => {
       expect(engine.payloads("upgrades.reroll").at(-1)).toEqual({ rerolls: 3 });
     });
     expect(await screen.findByText("Costo total")).toBeTruthy();
+  });
+});
+
+describe("SpawningView tiers", () => {
+  it("opens the monsters of a tier and, for tier 3, the groups with their count", async () => {
+    show(<SpawningView />);
+    await screen.findByRole("heading", { name: "Enemigos en el nivel 1" });
+    fireEvent.click(await screen.findByRole("button", { name: "Qué monstruos son de Tier 1" }));
+    const dialog = await screen.findByRole("dialog", { name: "Monstruos de Tier 1" });
+    expect(within(dialog).getByText("Gnome")).toBeTruthy();
+    expect(within(dialog).queryByText("Grupos")).toBeNull();
+    fireEvent.keyDown(dialog, { key: "Escape" });
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).toBeNull();
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Qué grupos pueden salir" }));
+    const groups = within(await screen.findByRole("dialog", { name: "Monstruos de Tier 3" }));
+    expect(groups.getByText("Grupos")).toBeTruthy();
+    expect(groups.getByText("×10")).toBeTruthy();
   });
 });
 

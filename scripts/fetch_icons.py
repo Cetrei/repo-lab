@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Download the game art for every upgrade, monster and cosmetic crate from the R.E.P.O. wiki.
+"""Download the game art for upgrades, monsters, cosmetic crates and the semibot from the wiki.
 
     python3 scripts/fetch_icons.py [--size 192]
 
@@ -79,6 +79,13 @@ RARITIES: dict[str, str] = {
 }
 
 
+# the semibot players: the whole robot for the team, the head for who lifts
+PLAYERS: dict[str, str] = {
+    "robot": "Semibot.png",
+    "head": "Semibot Cropped.png",
+}
+
+
 def get(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": AGENT})
     with urllib.request.urlopen(request, timeout=30) as response:
@@ -148,6 +155,7 @@ def main() -> None:
         fetch_kind("upgrades", UPGRADES, args.size)
         + fetch_kind("monsters", MONSTERS, args.size)
         + fetch_kind("rarities", RARITIES, args.size)
+        + fetch_kind("players", PLAYERS, args.size)
     )
     manifest = {"wiki": "https://repo-2025horror.fandom.com", "icons": entries}
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")

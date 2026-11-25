@@ -1,7 +1,7 @@
 import type { LiftCheck } from "@repo-lab/contract";
-import { ChevronDown, User, Users, Zap } from "lucide-react";
+import { ChevronDown, Zap } from "lucide-react";
 import { useState } from "react";
-import { GlyphTile } from "../icons";
+import { GlyphTile, Heads, PlayerArt } from "../icons";
 import { NumberField } from "../components/NumberField";
 import { Outcome, Panel, Stat, Stats } from "../components/ui";
 import { integer, signed } from "../format";
@@ -34,21 +34,28 @@ export function MonstersView() {
         }
       >
         <NumberField label="Jugadores" value={upgrades.length} min={1} max={maxPlayers} onChange={resize} />
-        <div className="players">
+        <ul className="players" aria-label="Tu equipo">
           {upgrades.map((value, index) => (
-            <NumberField
-              // The position is the identity: players have no name and the list only grows or shrinks at the end.
-              key={index}
-              label={`Mejoras de Fuerza del jugador ${index + 1}`}
-              value={value}
-              min={0}
-              max={99}
-              onChange={(next) => {
-                setUpgrades(upgrades.map((current, at) => (at === index ? next : current)));
-              }}
-            />
+            // The position is the identity: players have no name and the list only grows or shrinks at the end.
+            <li key={index} className="player">
+              <PlayerArt kind="robot" height={96} />
+              <span className="player__name">{`Jugador ${index + 1}`}</span>
+              <div className="player__strength">
+                <GlyphTile kind="upgrade" id="strength" size={28} />
+                <NumberField
+                  hideLabel
+                  label={`Mejoras de Fuerza del jugador ${index + 1}`}
+                  value={value}
+                  min={0}
+                  max={99}
+                  onChange={(next) => {
+                    setUpgrades(upgrades.map((current, at) => (at === index ? next : current)));
+                  }}
+                />
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </Panel>
 
       <div className="stack">
@@ -80,10 +87,10 @@ export function MonstersView() {
                 </div>
                 <div className="legend" aria-hidden="true">
                   <span>
-                    <User size={14} /> Solo
+                    <Heads count={1} /> Solo
                   </span>
                   <span>
-                    <Users size={14} /> Con varios jugadores
+                    <Heads count={2} /> Con varios jugadores
                   </span>
                   <span>
                     <Zap size={14} /> Aturdido
@@ -110,7 +117,6 @@ export function MonstersView() {
 }
 
 function VerdictLine({ label, verdict, stun }: { label: string; verdict: Verdict; stun?: boolean }) {
-  const Who = verdict.players !== null && verdict.players > 1 ? Users : User;
   return (
     <div className="verdict" data-tone={verdict.tone}>
       <span className="verdict__label">
@@ -118,7 +124,7 @@ function VerdictLine({ label, verdict, stun }: { label: string; verdict: Verdict
         {label}
       </span>
       <span className="verdict__value">
-        {verdict.players !== null ? <Who size={16} aria-hidden="true" /> : null}
+        {verdict.players !== null ? <Heads count={verdict.players} /> : null}
         {verdict.text}
       </span>
     </div>

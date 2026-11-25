@@ -1383,3 +1383,180 @@ section > h3 {
 .toast-description {
   color: var(--text-secondary) !important;
 }
+
+/* Team: one robot per player, the strength upgrade tucked in a corner */
+
+.players {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+}
+
+.player {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: var(--space-1);
+  min-height: 10.5rem;
+  padding: var(--space-3) var(--space-3) var(--space-8, 2.75rem);
+  background: var(--surface-page);
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.player__name {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.player .semibot {
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+}
+
+.player__strength {
+  position: absolute;
+  right: var(--space-2);
+  bottom: var(--space-2);
+  left: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.player__strength > :first-child {
+  flex: none;
+}
+
+.player__strength .field {
+  gap: 0;
+}
+
+.player__strength .stepper {
+  grid-template-columns: 28px 2.25rem 28px;
+}
+
+.player__strength .stepper .btn {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+}
+
+.player__strength .stepper input {
+  min-height: 28px;
+  padding: 0;
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+/* Who has to grab: the heads of the semibots */
+
+.heads {
+  display: inline-flex;
+  align-items: center;
+}
+
+.heads .semibot {
+  margin-inline-start: -8px;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.6));
+}
+
+.heads .semibot:first-child {
+  margin-inline-start: 0;
+}
+
+/* Tiers: the (i) next to a count opens the list of who spawns */
+
+.stat__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.info--small {
+  min-width: 32px;
+  min-height: 32px;
+  margin-block: -6px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: rgb(0 0 0 / 0.7);
+}
+
+.modal__panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  width: min(42rem, 100%);
+  max-height: min(40rem, 100%);
+  padding: var(--space-4);
+  background: var(--surface-panel);
+  border: var(--border-width) solid var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.modal__header h2 {
+  font-size: var(--text-lg);
+}
+
+.modal__body {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  overflow-y: auto;
+}
+
+.modal__section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: var(--space-3);
+}
+
+.tiles li {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-1);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+.tiles__badge {
+  position: relative;
+  display: inline-grid;
+}
+
+.tiles__badge b {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  padding: 0 var(--space-1);
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--on-accent);
+  font-size: var(--text-xs);
+}

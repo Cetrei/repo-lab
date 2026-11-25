@@ -265,6 +265,7 @@ export const spawnRules = z.strictObject({
   respawn_distance_units: intPair,
   sources: z.array(source),
 });
+export type SpawnRules = z.infer<typeof spawnRules>;
 
 export const spawnOutlook = z.strictObject({
   level: z.int(),
