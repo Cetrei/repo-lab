@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+dist/
+.vite/
+*.local
+.DS_Store
+
+# Subtitulos descargados por scripts/transcribe.py. El texto limpio si se versiona.
+docs/transcripts/*.vtt
+
+# Generados por el build de la web
+apps/web/public/py/
