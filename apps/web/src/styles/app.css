@@ -1162,12 +1162,77 @@ section > h3 {
   padding-top: var(--space-4);
 }
 
+/* The setup is a narrow column on the left, so the cards on the right get the width and the crates keep their shape */
+@media (min-width: 56rem) {
+  .cajas {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.cajas__setup {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Bad luck: five segments, one per dry level, each one adds the same bonus to every roll */
+
+.luck {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.luck__bar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-1);
+}
+
+.luck__seg {
+  height: var(--space-4);
+  padding: 0;
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    background var(--motion-base) var(--ease-enter),
+    box-shadow var(--motion-base) var(--ease-enter);
+}
+
+.luck__seg:hover {
+  border-color: var(--border-strong);
+}
+
+.luck__seg[data-lit="true"] {
+  background: var(--accent);
+  border-color: var(--accent-pressed);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.luck[data-full="true"] .luck__seg[data-lit="true"] {
+  background: var(--positive);
+  border-color: var(--positive);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--positive) 45%, transparent);
+}
+
+.luck__seg:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.luck__note {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
 .rgrid {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   gap: var(--space-3);
   align-items: stretch;
 }
@@ -1178,13 +1243,27 @@ section > h3 {
 
 .rcard {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   gap: var(--space-3);
   padding: var(--space-3);
   background: var(--surface-raised);
   border: var(--border-width) solid var(--border-subtle);
   border-left: 3px solid var(--border-strong);
   border-radius: var(--radius-md);
+}
+
+.rcard > .crate {
+  align-self: center;
+}
+
+/* The wait for the first box of this rarity sits under its odds in the same card */
+.rcard__wait {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: var(--border-width) solid var(--border-subtle);
 }
 
 .rcard[data-rarity="common"] {
@@ -1239,12 +1318,15 @@ section > h3 {
 
 .crate {
   display: inline-grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   flex: none;
   color: var(--text-secondary);
 }
 
 .crate img {
+  min-width: 0;
+  min-height: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1383,8 +1465,21 @@ section > h3 {
 /* Semibot heads: the grey head of the wiki, tinted with one lobby color through --hue */
 
 .semibot {
+  position: relative;
+  display: block;
+  flex: none;
+}
+
+.semibot__body {
   display: block;
   filter: sepia(1) saturate(3.2) hue-rotate(var(--hue, 0deg)) drop-shadow(0 1px 2px color-mix(in srgb, var(--raw-ink-950) 70%, transparent));
+}
+
+/* The eyes sit on top of the tinted head, untouched by the filter, so they keep the colors of the game */
+.semibot__eyes {
+  position: absolute;
+  inset: 0;
+  display: block;
 }
 
 /* Team: a list like the lobby of the game, one row per player */

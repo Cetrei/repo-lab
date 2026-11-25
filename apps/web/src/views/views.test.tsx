@@ -25,16 +25,35 @@ describe("CosmeticsView", () => {
     show(<CosmeticsView />);
     expect(await screen.findByRole("list", { name: "Cajas por rareza" })).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Nivel 1" })).toBeTruthy();
-    expect(await screen.findByRole("list", { name: "Espera hasta la primera caja" })).toBeTruthy();
-    expect(screen.getAllByText("Cualquier caja").length).toBeGreaterThan(0);
+    // The wait for the first box of each rarity lives in the same cards as the odds of the level.
+    expect((await screen.findAllByText("Hasta la primera")).length).toBeGreaterThan(0);
+    expect(screen.queryByRole("list", { name: "Espera hasta la primera caja" })).toBeNull();
+    expect(screen.getAllByText(/Cualquier caja: la primera llega/).length).toBe(1);
   });
 
-  it("keeps the tables behind the (i) buttons until they are opened", async () => {
+  it("keeps the tables behind the (i) button until it is opened", async () => {
     show(<CosmeticsView />);
-    await screen.findByRole("list", { name: "Espera hasta la primera caja" });
+    await screen.findAllByText("Hasta la primera");
     expect(screen.queryByText("Cuántos niveles hacen falta para ver la primera caja")).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: "Más información sobre la espera hasta la primera caja" }));
+    fireEvent.click(screen.getByRole("button", { name: "Más información sobre las cajas del nivel" }));
     expect(await screen.findByText("Cuántos niveles hacen falta para ver la primera caja")).toBeTruthy();
+  });
+
+  it("lights the bad luck bar from the segments and keeps it in step with the number", async () => {
+    const engine = show(<CosmeticsView />);
+    await screen.findByRole("list", { name: "Cajas por rareza" });
+    fireEvent.click(screen.getByRole("button", { name: "3 niveles sin caja" }));
+    await waitFor(() => {
+      expect(engine.payloads("cosmetics.level").at(-1)).toEqual({ level: 1, bad_luck: 3 });
+    });
+    expect((screen.getByLabelText("Mala suerte") as HTMLInputElement).value).toBe("3");
+    expect(screen.getByRole("button", { name: "2 niveles sin caja" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: "4 niveles sin caja" }).getAttribute("aria-pressed")).toBe("false");
+    // Pressing the last lit segment again lowers the count by one.
+    fireEvent.click(screen.getByRole("button", { name: "3 niveles sin caja" }));
+    await waitFor(() => {
+      expect(engine.payloads("cosmetics.level").at(-1)).toEqual({ level: 1, bad_luck: 2 });
+    });
   });
 
   it("follows the patch chosen in the corner of the page", async () => {

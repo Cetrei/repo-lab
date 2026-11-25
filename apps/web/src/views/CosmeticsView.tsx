@@ -1,6 +1,6 @@
 import { RARITIES, type LevelOutlook, type RunOutlook } from "@repo-lab/contract";
-import { Package } from "lucide-react";
 import { useId, useState } from "react";
+import { LuckBar } from "../components/LuckBar";
 import { NumberField } from "../components/NumberField";
 import { patchRequest, usePatch } from "../components/Patch";
 import { InfoButton, Meter, Outcome, Panel, Stat, Stats } from "../components/ui";
@@ -24,28 +24,52 @@ export function CosmeticsView() {
   const chosen = patchRequest(patch);
   const levelResult = useCall("cosmetics.level", { level, bad_luck: badLuck, ...chosen });
   const runResult = useCall("cosmetics.run", { start_level: level, levels, bad_luck: badLuck, ...chosen });
+  const outlook = levelResult.data;
 
   return (
     <div className="cajas">
       <Panel
         title="Tu partida"
         hint="La mala suerte cuenta los niveles seguidos que terminaste sin ninguna caja. Cualquier caja la reinicia."
+        className="cajas__setup"
       >
-        <div className="fields-grid fields-grid--wide">
-          <NumberField label="Nivel" variant="sign" value={level} min={1} max={10000} onChange={setLevel} />
-          <NumberField label="Mala suerte" value={badLuck} min={0} max={500} onChange={setBadLuck} />
-        </div>
+        <NumberField label="Nivel" variant="sign" value={level} min={1} max={10000} onChange={setLevel} />
+        <LuckBar label="Mala suerte" value={badLuck} max={500} onChange={setBadLuck}>
+          {outlook ? (
+            <>
+              <b className="num">{`+${percent(outlook.modifier)}`}</b>
+              {" a cada tirada. "}
+              {outlook.p_dry < 0.0005 ? "La caja es segura." : `Sin ninguna caja: ${percent(outlook.p_dry)}.`}
+            </>
+          ) : null}
+        </LuckBar>
       </Panel>
 
-      <LevelPanel level={level} result={levelResult} />
-      <RunPanel level={level} levels={levels} onLevels={setLevels} result={runResult} />
+      <BoxesPanel level={level} levels={levels} onLevels={setLevels} levelResult={levelResult} runResult={runResult} />
     </div>
   );
 }
 
-function LevelPanel({ level, result }: { level: number; result: CallResult<LevelOutlook> }) {
+/**
+ * One card per rarity with both answers a player needs: what the level gives and how many levels pass until the
+ * first one shows up. They sit together because the second only makes sense next to the first.
+ */
+function BoxesPanel({
+  level,
+  levels,
+  onLevels,
+  levelResult,
+  runResult,
+}: {
+  level: number;
+  levels: number;
+  onLevels(next: number): void;
+  levelResult: CallResult<LevelOutlook>;
+  runResult: CallResult<RunOutlook>;
+}) {
   const [open, setOpen] = useState(false);
   const infoId = useId();
+  const run = runResult.data;
   return (
     <section className="panel plan">
       <header className="plan__header">
@@ -59,34 +83,56 @@ function LevelPanel({ level, result }: { level: number; result: CallResult<Level
           }}
         />
       </header>
-      <Outcome result={result}>
+      <Outcome result={levelResult}>
         {(data) => (
           <>
             <p className="plan__lead">
               <strong>{`Te sale al menos una caja el ${percent(data.p_any)} de las veces.`}</strong>{" "}
               <span className="muted">{`Esperas ${decimal(data.expected_boxes, 2)} cajas en total.`}</span>
             </p>
+            {run ? (
+              <p className="plan__lead muted">
+                {`${TARGET_LABEL.any}: la primera llega en ${levelsText(run.milestones.any.median)} la mitad de las veces y en ${levelsText(run.milestones.any.p90)} o menos 9 de cada 10.`}
+              </p>
+            ) : null}
             <ul className="rgrid" aria-label="Cajas por rareza">
-              {RARITIES.map((rarity) => (
-                <li key={rarity}>
-                  <article className="rcard" data-rarity={rarity}>
-                    <RarityArt rarity={rarity} />
-                    <div className="rcard__body">
-                      <h3 className={`rarity-${rarity}`}>{RARITY_LABEL[rarity]}</h3>
-                      <p className="rcard__big num">
-                        {decimal(data.expected_by_rarity[rarity], 3)}
-                        <span>cajas esperadas</span>
-                      </p>
-                      <p className="rcard__label">Al menos una</p>
-                      <Meter value={data.p_at_least_one[rarity]} text={percent(data.p_at_least_one[rarity])} rarity={rarity} />
-                    </div>
-                  </article>
-                </li>
-              ))}
+              {RARITIES.map((rarity) => {
+                const wait = run?.milestones[rarity];
+                return (
+                  <li key={rarity}>
+                    <article className="rcard" data-rarity={rarity}>
+                      <RarityArt rarity={rarity} size={120} height={144} />
+                      <div className="rcard__body">
+                        <h3 className={`rarity-${rarity}`}>{RARITY_LABEL[rarity]}</h3>
+                        <p className="rcard__big num">
+                          {decimal(data.expected_by_rarity[rarity], 3)}
+                          <span>cajas esperadas</span>
+                        </p>
+                        <p className="rcard__label">Al menos una en este nivel</p>
+                        <Meter value={data.p_at_least_one[rarity]} text={percent(data.p_at_least_one[rarity])} rarity={rarity} />
+                      </div>
+                      <div className="rcard__wait">
+                        <p className="rcard__label">Hasta la primera</p>
+                        <p className="rcard__big num">
+                          {wait ? levelsText(wait.median) : "Calculando"}
+                          <span>la mitad de las veces</span>
+                        </p>
+                        {wait ? (
+                          <p className="rcard__label">
+                            {"9 de cada 10: "}
+                            <b className="num">{levelsText(wait.p90)}</b>
+                          </p>
+                        ) : null}
+                      </div>
+                    </article>
+                  </li>
+                );
+              })}
             </ul>
             {open ? (
               <div id={infoId} className="plan__info">
                 <LevelDetails data={data} />
+                {run ? <RunDetails data={run} levels={levels} onLevels={onLevels} /> : null}
               </div>
             ) : null}
           </>
@@ -172,79 +218,6 @@ function LevelDetails({ data }: { data: LevelOutlook }) {
         </div>
       </details>
     </>
-  );
-}
-
-function RunPanel({
-  level,
-  levels,
-  onLevels,
-  result,
-}: {
-  level: number;
-  levels: number;
-  onLevels(next: number): void;
-  result: CallResult<RunOutlook>;
-}) {
-  const [open, setOpen] = useState(false);
-  const infoId = useId();
-  return (
-    <section className="panel">
-      <header className="plan__header">
-        <div>
-          <h2>Hasta tu primera caja</h2>
-          <p>{`Contando desde el nivel ${integer(level)}: cuántos niveles pasan hasta ver la primera de cada tipo.`}</p>
-        </div>
-        <InfoButton
-          open={open}
-          controls={infoId}
-          label="Más información sobre la espera hasta la primera caja"
-          onToggle={() => {
-            setOpen(!open);
-          }}
-        />
-      </header>
-      <Outcome result={result}>
-        {(data) => (
-          <>
-            <ul className="rgrid" aria-label="Espera hasta la primera caja">
-              {TARGETS.map((target) => {
-                const milestone = data.milestones[target];
-                return (
-                  <li key={target}>
-                    <article className="rcard rcard--wait" data-rarity={target === "any" ? undefined : target}>
-                      {target === "any" ? (
-                        <span className="crate" style={{ width: 56, height: 56 }} aria-hidden="true">
-                          <Package size={36} strokeWidth={1.75} />
-                        </span>
-                      ) : (
-                        <RarityArt rarity={target} size={56} />
-                      )}
-                      <div className="rcard__body">
-                        <h3 className={target === "any" ? undefined : `rarity-${target}`}>{TARGET_LABEL[target]}</h3>
-                        <p className="rcard__big num">
-                          {levelsText(milestone.median)}
-                          <span>la mitad de las veces</span>
-                        </p>
-                        <p className="rcard__label">
-                          {"9 de cada 10 veces: "}
-                          <b className="num">{levelsText(milestone.p90)}</b>
-                        </p>
-                      </div>
-                    </article>
-                  </li>
-                );
-              })}
-            </ul>
-            {open ? (
-              <div id={infoId} className="plan__info">
-                <RunDetails data={data} levels={levels} onLevels={onLevels} />
-              </div>
-            ) : null}
-          </>
-        )}
-      </Outcome>
-    </section>
   );
 }
 

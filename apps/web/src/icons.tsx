@@ -153,11 +153,11 @@ export function GlyphTile({ kind, id, size = 40, eager }: { kind: Kind; id: stri
 }
 
 /** The cosmetic crate of a rarity, a transparent cutout that keeps its own proportions. */
-export function RarityArt({ rarity, size = 72 }: { rarity: string; size?: number }) {
+export function RarityArt({ rarity, size = 72, height = size }: { rarity: string; size?: number; height?: number }) {
   const [failed, setFailed] = useState(false);
   const Glyph = glyphFor("rarity", rarity);
   return (
-    <span className="crate" data-rarity={rarity} style={{ width: size, height: size }} aria-hidden="true">
+    <span className="crate" data-rarity={rarity} style={{ width: size, height }} aria-hidden="true">
       {failed ? (
         <Glyph size={Math.round(size * 0.5)} strokeWidth={1.75} />
       ) : (
@@ -165,7 +165,7 @@ export function RarityArt({ rarity, size = 72 }: { rarity: string; size?: number
           src={iconUrl("rarity", rarity)}
           alt=""
           width={size}
-          height={size}
+          height={height}
           loading="lazy"
           decoding="async"
           draggable={false}
@@ -191,25 +191,37 @@ export function shuffledHues(): number[] {
   return hues;
 }
 
-/** The head of a semibot, the player of the game, tinted with one lobby color. */
+/**
+ * The head of a semibot, the player of the game, tinted with one lobby color. The tint is a filter, so the
+ * eyes are a second image laid on top of the tinted one and keep their own colors.
+ */
 export function PlayerHead({ hue, size }: { hue: number; size: number }) {
   const [failed, setFailed] = useState(false);
-  return failed ? (
-    <User aria-hidden size={Math.round(size * 0.6)} strokeWidth={1.75} />
-  ) : (
-    <img
-      className="semibot"
-      style={{ "--hue": `${hue}deg` } as CSSProperties}
-      src={iconUrl("player", "head")}
-      alt=""
-      width={size}
-      height={size}
-      decoding="async"
-      draggable={false}
-      onError={() => {
-        setFailed(true);
-      }}
-    />
+  if (failed) return <User aria-hidden size={Math.round(size * 0.6)} strokeWidth={1.75} />;
+  return (
+    <span className="semibot" style={{ "--hue": `${hue}deg`, width: size, height: size } as CSSProperties}>
+      <img
+        className="semibot__body"
+        src={iconUrl("player", "head")}
+        alt=""
+        width={size}
+        height={size}
+        decoding="async"
+        draggable={false}
+        onError={() => {
+          setFailed(true);
+        }}
+      />
+      <img
+        className="semibot__eyes"
+        src={iconUrl("player", "eyes")}
+        alt=""
+        width={size}
+        height={size}
+        decoding="async"
+        draggable={false}
+      />
+    </span>
   );
 }
 
@@ -268,6 +280,11 @@ export function preloadArt(): void {
         image.decode().catch(() => undefined);
         warm.push(image);
       }
+      // the eyes are cut from the head by scripts/make_eyes.py, so the manifest does not list them
+      const eyes = new Image();
+      eyes.src = iconUrl("player", "eyes");
+      eyes.decode().catch(() => undefined);
+      warm.push(eyes);
     })
     .catch(() => undefined);
 }
