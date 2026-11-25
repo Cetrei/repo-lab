@@ -1,6 +1,7 @@
 import type { ShopOutlook, Upgrade } from "@repo-lab/contract";
 import { useMemo, useState } from "react";
 import { NumberField } from "../components/NumberField";
+import { GlyphTile } from "../icons";
 import { Meter, Notice, Outcome, Panel, Stat, Stats } from "../components/ui";
 import { decimal, integer, percent } from "../format";
 import { useCall } from "../hooks/useCall";
@@ -52,18 +53,21 @@ export function UpgradesView() {
         hint="Unidades compradas que todavía no usaste. Cuentan como en circulación y la tienda no las vuelve a ofrecer."
       >
         {catalog.error ? <Notice tone="error" title="No se pudo leer el catálogo">{catalog.error.message}</Notice> : null}
-        {upgrades.map((upgrade) => (
-          <NumberField
-            key={upgrade.id}
-            label={`${upgrade.name} (tope ${upgrade.cap})`}
-            value={held[upgrade.id] ?? 0}
-            min={0}
-            max={upgrade.cap}
-            onChange={(next) => {
-              setHeld({ ...held, [upgrade.id]: next });
-            }}
-          />
-        ))}
+        <div className="fields-grid">
+          {upgrades.map((upgrade) => (
+            <NumberField
+              key={upgrade.id}
+              icon={<GlyphTile kind="upgrade" id={upgrade.id} size={24} />}
+              label={`${upgrade.name} (tope ${upgrade.cap})`}
+              value={held[upgrade.id] ?? 0}
+              min={0}
+              max={upgrade.cap}
+              onChange={(next) => {
+                setHeld({ ...held, [upgrade.id]: next });
+              }}
+            />
+          ))}
+        </div>
         {upgrades.some((u) => u.permanent) ? (
           <div className="field">
             <span className="label">Ya usadas y permanentes</span>
@@ -80,6 +84,7 @@ export function UpgradesView() {
                       setConsumed(toggle(consumed, upgrade.id));
                     }}
                   >
+                    <GlyphTile kind="upgrade" id={upgrade.id} size={20} />
                     {upgrade.name}
                   </button>
                 ))}
@@ -154,57 +159,59 @@ export function UpgradesView() {
           )}
         </Panel>
 
-        <Panel
-          title="Usar mejoras"
-          hint="Las unidades usadas vuelven al fondo común, salvo las permanentes, y el void rellena el camión."
-        >
-          {Object.entries(held).some(([, count]) => count > 0) ? (
-            <div className="row">
-              {upgrades
-                .filter((u) => (held[u.id] ?? 0) > 0)
-                .map((upgrade) => (
-                  <NumberField
-                    key={upgrade.id}
-                    label={`Usar ${upgrade.name}`}
-                    value={Math.min(used[upgrade.id] ?? 0, held[upgrade.id] ?? 0)}
-                    min={0}
-                    max={held[upgrade.id] ?? 0}
-                    onChange={(next) => {
-                      setUsed({ ...used, [upgrade.id]: next });
-                    }}
-                  />
-                ))}
-            </div>
-          ) : (
-            <p className="muted">Anota unidades en Lo que tienes para poder usarlas aquí.</p>
-          )}
-          {anyUsed ? (
-            <Outcome result={use}>
-              {(result) => (
-                <>
-                  <Stats>
-                    <Stat label="Unidades usadas" value={integer(result.units_used)} />
-                    <Stat label="Salen del void" value={integer(result.released_from_void)} />
-                    <Stat label="Quedan en el void" value={integer(result.void_after)} />
-                    <Stat label="Fondo común" value={integer(result.after.pool_total)} />
-                  </Stats>
-                  <ShopTable data={result.after} />
-                </>
+        <div className="pair">
+          <Panel
+            title="Usar mejoras"
+            hint="Las unidades usadas vuelven al fondo común, salvo las permanentes, y el void rellena el camión."
+          >
+            {Object.entries(held).some(([, count]) => count > 0) ? (
+              <div className="row">
+                {upgrades
+                  .filter((u) => (held[u.id] ?? 0) > 0)
+                  .map((upgrade) => (
+                    <NumberField
+                      key={upgrade.id}
+                      label={`Usar ${upgrade.name}`}
+                      value={Math.min(used[upgrade.id] ?? 0, held[upgrade.id] ?? 0)}
+                      min={0}
+                      max={held[upgrade.id] ?? 0}
+                      onChange={(next) => {
+                        setUsed({ ...used, [upgrade.id]: next });
+                      }}
+                    />
+                  ))}
+              </div>
+            ) : (
+              <p className="muted">Anota unidades en Lo que tienes para poder usarlas aquí.</p>
+            )}
+            {anyUsed ? (
+              <Outcome result={use}>
+                {(result) => (
+                  <>
+                    <Stats>
+                      <Stat label="Unidades usadas" value={integer(result.units_used)} />
+                      <Stat label="Salen del void" value={integer(result.released_from_void)} />
+                      <Stat label="Quedan en el void" value={integer(result.void_after)} />
+                      <Stat label="Fondo común" value={integer(result.after.pool_total)} />
+                    </Stats>
+                    <ShopTable data={result.after} />
+                  </>
+                )}
+              </Outcome>
+            ) : null}
+          </Panel>
+
+          <Panel title="Recargar la tienda" hint="El primer reroll cuesta una cantidad fija y cada siguiente suma otra igual.">
+            <NumberField label="Rerolls" value={rerolls} min={0} max={1000} onChange={setRerolls} />
+            <Outcome result={reroll}>
+              {(data) => (
+                <Stats>
+                  <Stat label="Costo total" value={`${integer(data.total_cost)}`} />
+                </Stats>
               )}
             </Outcome>
-          ) : null}
-        </Panel>
-
-        <Panel title="Recargar la tienda" hint="El primer reroll cuesta una cantidad fija y cada siguiente suma otra igual.">
-          <NumberField label="Rerolls" value={rerolls} min={0} max={1000} onChange={setRerolls} />
-          <Outcome result={reroll}>
-            {(data) => (
-              <Stats>
-                <Stat label="Costo total" value={`${integer(data.total_cost)}`} />
-              </Stats>
-            )}
-          </Outcome>
-        </Panel>
+          </Panel>
+        </div>
       </div>
     </div>
   );
@@ -221,6 +228,7 @@ function WantedChip({
 }) {
   return (
     <button type="button" className="chip" aria-pressed={pressed} onClick={onToggle}>
+      <GlyphTile kind="upgrade" id={upgrade.id} size={20} />
       {upgrade.name}
     </button>
   );
@@ -260,7 +268,12 @@ function ShopTable({ data }: { data: ShopOutlook }) {
           <tbody>
             {data.rows.map((row) => (
               <tr key={row.upgrade_id}>
-                <th scope="row">{row.name}</th>
+                <th scope="row">
+                  <span className="named">
+                    <GlyphTile kind="upgrade" id={row.upgrade_id} size={28} />
+                    {row.name}
+                  </span>
+                </th>
                 <td className="right num">{`${integer(row.held)} de ${integer(row.cap)}`}</td>
                 <td className="right num">{integer(row.pool)}</td>
                 <td>

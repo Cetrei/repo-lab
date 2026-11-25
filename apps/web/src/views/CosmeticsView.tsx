@@ -31,15 +31,10 @@ export function CosmeticsView() {
         title="Tu partida"
         hint="La mala suerte cuenta los niveles seguidos que terminaste sin ninguna caja. Cualquier caja la reinicia."
       >
-        <NumberField label="Nivel" value={level} min={1} max={10000} onChange={setLevel} />
-        <NumberField
-          label="Mala suerte"
-          value={badLuck}
-          min={0}
-          max={500}
-          onChange={setBadLuck}
-          hint="Niveles completos sin cajas."
-        />
+        <div className="fields-grid">
+          <NumberField label="Nivel" value={level} min={1} max={10000} onChange={setLevel} />
+          <NumberField label="Mala suerte" value={badLuck} min={0} max={500} onChange={setBadLuck} />
+        </div>
         {rulesets.data ? (
           <div className="field">
             <label htmlFor="ruleset">Reglas del juego</label>

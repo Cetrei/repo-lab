@@ -1,9 +1,12 @@
 import { Minus, Plus } from "lucide-react";
 import { useId, useState } from "react";
+import type { ReactNode } from "react";
 import { clamp } from "../format";
 
 interface NumberFieldProps {
   label: string;
+  /** Decorative, drawn before the label. The label stays the accessible name. */
+  icon?: ReactNode;
   value: number;
   min: number;
   max: number;
@@ -24,7 +27,7 @@ function parse(text: string, min: number, max: number): number | null {
  * last valid number stays in force, so nothing invalid ever reaches the engine.
  * States: default, hover and active (border and fill), focus (ring), invalid (red), disabled (greyed).
  */
-export function NumberField({ label, value, min, max, onChange, hint, step = 1, disabled }: NumberFieldProps) {
+export function NumberField({ label, icon, value, min, max, onChange, hint, step = 1, disabled }: NumberFieldProps) {
   const id = useId();
   const hintId = `${id}-hint`;
   const [draft, setDraft] = useState<string | null>(null);
@@ -38,7 +41,10 @@ export function NumberField({ label, value, min, max, onChange, hint, step = 1, 
 
   return (
     <div className="field">
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        {icon}
+        {label}
+      </label>
       <div className="stepper">
         <button
           type="button"
