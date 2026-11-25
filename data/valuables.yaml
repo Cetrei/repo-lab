@@ -1,0 +1,217 @@
+# Valuables of every location, read from the wiki by scripts/fetch_valuables.py. Do not edit by hand:
+# run the script again. `low` and `high` are the value range in dollars, `mass` the mass of the item,
+# `damage` its impact damage at the four hit strengths (none, light, medium, heavy). `noise` and `trigger`
+# are only there for the trap valuables.
+
+sources:
+  - name: R.E.P.O. wiki, Valuables
+    url: https://repo-2025horror.fandom.com/wiki/Valuables
+    note: Table of all valuables and table of trap valuables, read on the day the file was generated.
+
+locations:
+  - {id: any, name: "Any"}
+  - {id: headman-manor, name: "Headman Manor"}
+  - {id: mcjannek-station, name: "McJannek Station"}
+  - {id: museum-of-human-art, name: "Museum of Human Art"}
+  - {id: sunstone-valley-resort, name: "Sunstone Valley Resort"}
+  - {id: swiftbroom-academy, name: "Swiftbroom Academy"}
+
+valuables:
+  - {id: emerald-bracelet, name: "Emerald Bracelet", location: headman-manor, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: goblet, name: "Goblet", location: headman-manor, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: ocarina, name: "Ocarina", location: headman-manor, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: pocket-watch, name: "Pocket Watch", location: headman-manor, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: uranium-mug, name: "Uranium Mug", location: headman-manor, size: tiny, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8], note: "Radiation: 10 dps"}
+  - {id: coffee-cup, name: "Coffee Cup", location: mcjannek-station, size: tiny, low: 2000, high: 3000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: eraser, name: "Eraser", location: mcjannek-station, size: tiny, low: 500, high: 650, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: keycard, name: "Keycard", location: mcjannek-station, size: tiny, low: 250, high: 500, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: phone, name: "Phone", location: mcjannek-station, size: tiny, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: pills, name: "Pills", location: mcjannek-station, size: tiny, low: 500, high: 650, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: smartwatch, name: "Smartwatch", location: mcjannek-station, size: tiny, low: 500, high: 650, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: stapler, name: "Stapler", location: mcjannek-station, size: tiny, low: 500, high: 650, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: uranium-petri-dish, name: "Uranium Petri Dish", location: mcjannek-station, size: tiny, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: usb-stick, name: "USB Stick", location: mcjannek-station, size: tiny, low: 500, high: 650, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: cool-brain, name: "Cool Brain", location: museum-of-human-art, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: fish, name: "Fish", location: museum-of-human-art, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: golden-tooth, name: "Golden Tooth", location: museum-of-human-art, size: tiny, low: 900, high: 1100, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: gold-fish, name: "Gold Fish", location: museum-of-human-art, size: tiny, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: ruben-doll, name: "Ruben Doll", location: museum-of-human-art, size: tiny, low: 500, high: 600, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: silver-fish, name: "Silver Fish", location: museum-of-human-art, size: tiny, low: 900, high: 1100, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: toast, name: "Toast", location: museum-of-human-art, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: tooth, name: "Tooth", location: museum-of-human-art, size: tiny, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: fossil, name: "Fossil", location: sunstone-valley-resort, size: tiny, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: golden-coin, name: "Golden Coin", location: sunstone-valley-resort, size: tiny, low: 500, high: 650, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: golden-horseshoe, name: "Golden Horseshoe", location: sunstone-valley-resort, size: tiny, low: 500, high: 650, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: golden-lock, name: "Golden Lock", location: sunstone-valley-resort, size: tiny, low: 500, high: 650, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: lighter, name: "Lighter", location: sunstone-valley-resort, size: tiny, low: 950, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: mouth-harp, name: "Mouth Harp", location: sunstone-valley-resort, size: tiny, low: 500, high: 650, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: magnet, name: "Magnet", location: sunstone-valley-resort, size: tiny, low: 500, high: 650, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: snow-globe, name: "Snow Globe", location: sunstone-valley-resort, size: tiny, low: 2000, high: 3000, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: bird-skull, name: "Bird Skull", location: swiftbroom-academy, size: tiny, low: 500, high: 650, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: bug, name: "Bug", location: swiftbroom-academy, size: tiny, low: 500, high: 650, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: diamond, name: "Diamond", location: swiftbroom-academy, size: tiny, low: 2000, high: 3000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: eyeball, name: "Eyeball", location: swiftbroom-academy, size: tiny, low: 500, high: 650, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: glowing-jar, name: "Glowing Jar", location: swiftbroom-academy, size: tiny, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: small-gem, name: "Small Gem", location: swiftbroom-academy, size: tiny, low: 500, high: 650, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: small-potion, name: "Small Potion", location: swiftbroom-academy, size: tiny, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: small-enemy-valuable, name: "Small Enemy Valuable", location: any, size: small, low: 2000, high: 3000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: small-surplus-valuable, name: "Small Surplus Valuable", location: any, size: small, low: 1, high: 5000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: doll, name: "Doll", location: headman-manor, size: small, low: 500, high: 600, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: frog, name: "Frog", location: headman-manor, size: small, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8], noise: 15, trigger: "Random Timer"}
+  - {id: globe, name: "Globe", location: headman-manor, size: small, low: 1200, high: 2000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: instrument, name: "Instrument", location: headman-manor, size: small, low: 1200, high: 2000, mass: 1.5, damage: [0, 7, 15, 22]}
+  - {id: money, name: "Money", location: headman-manor, size: small, low: 500, high: 600, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: music-box, name: "Music Box", location: headman-manor, size: small, low: 3500, high: 4500, mass: 1.0, damage: [0, 5, 10, 15], noise: 35, trigger: "When grabbed"}
+  - {id: small-vase, name: "Small Vase", location: headman-manor, size: small, low: 1200, high: 2000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: toy-monkey, name: "Toy Monkey", location: headman-manor, size: small, low: 900, high: 1100, mass: 1.0, damage: [0, 5, 10, 15], noise: 35, trigger: "Random Timer"}
+  - {id: uranium-plate, name: "Uranium Plate", location: headman-manor, size: small, low: 2000, high: 3000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: bonsai-tree, name: "Bonsai Tree", location: mcjannek-station, size: small, low: 900, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: calculator, name: "Calculator", location: mcjannek-station, size: small, low: 850, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: camera, name: "Camera", location: mcjannek-station, size: small, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: hdd, name: "HDD", location: mcjannek-station, size: small, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: vhs, name: "VHS", location: mcjannek-station, size: small, low: 900, high: 2000, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: banana-bow, name: "Banana Bow", location: museum-of-human-art, size: small, low: 900, high: 1100, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: cocktail, name: "Cocktail", location: museum-of-human-art, size: small, low: 3500, high: 5000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: cube-ball, name: "Cube Ball", location: museum-of-human-art, size: small, low: 1200, high: 2000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: cubic-tower, name: "Cubic Tower", location: museum-of-human-art, size: small, low: 900, high: 1100, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: duck-man, name: "Duck Man", location: museum-of-human-art, size: small, low: 900, high: 1100, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: flesh-blob, name: "Flesh Blob", location: museum-of-human-art, size: small, low: 1200, high: 2000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: lady-bug, name: "Lady Bug", location: museum-of-human-art, size: small, low: 1200, high: 2000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: pimple-guy, name: "Pimple Guy", location: museum-of-human-art, size: small, low: 1200, high: 2000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: toy-car, name: "Toy Car", location: museum-of-human-art, size: small, low: 900, high: 1100, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: toy-plane, name: "Toy Plane", location: museum-of-human-art, size: small, low: 900, high: 1100, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: wire-figure, name: "Wire Figure", location: museum-of-human-art, size: small, low: 2000, high: 3000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: gold-bar, name: "Gold Bar", location: sunstone-valley-resort, size: small, low: 1200, high: 2000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: harmonica, name: "Harmonica", location: sunstone-valley-resort, size: small, low: 1200, high: 2000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: horse-on-wheels, name: "Horse on Wheels", location: sunstone-valley-resort, size: small, low: 850, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: lunch-box, name: "Lunch Box", location: sunstone-valley-resort, size: small, low: 900, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: pan-flute, name: "Pan Flute", location: sunstone-valley-resort, size: small, low: 1200, high: 2000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: post-card, name: "Post Card", location: sunstone-valley-resort, size: small, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: rattlesnake, name: "Rattlesnake", location: sunstone-valley-resort, size: small, low: 1200, high: 2000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: snake-in-a-can, name: "Snake in a Can", location: sunstone-valley-resort, size: small, low: 850, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: sippy-cup, name: "Sippy Cup", location: sunstone-valley-resort, size: small, low: 1200, high: 2000, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: chomp-book, name: "Chomp Book", location: swiftbroom-academy, size: small, low: 2000, high: 3000, mass: 0.5, damage: [0, 2, 5, 8], noise: 35, trigger: "Random Timer or Being Damaged"}
+  - {id: crown, name: "Crown", location: swiftbroom-academy, size: small, low: 500, high: 600, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: fortune-card, name: "Fortune Card", location: swiftbroom-academy, size: small, low: 850, high: 1100, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: gem-box, name: "Gem Box", location: swiftbroom-academy, size: small, low: 900, high: 1100, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: levitation-potion, name: "Levitation Potion", location: swiftbroom-academy, size: small, low: 2000, high: 3000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: love-potion, name: "Love Potion", location: swiftbroom-academy, size: small, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: pendant, name: "Pendant", location: swiftbroom-academy, size: small, low: 1200, high: 2000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: red-mushroom, name: "Red Mushroom", location: swiftbroom-academy, size: small, low: 2000, high: 3000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: medium-enemy-valuable, name: "Medium Enemy Valuable", location: any, size: medium, low: 3500, high: 4500, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: medium-surplus-valuable, name: "Medium Surplus Valuable", location: any, size: medium, low: 5001, high: 10000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: bottle, name: "Bottle", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15], noise: 15, trigger: "Being Damaged"}
+  - {id: clown-doll, name: "Clown Doll", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: gramophone, name: "Gramophone", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30], noise: 35, trigger: "Random Timer"}
+  - {id: kettle, name: "Kettle", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 0.65, damage: [0, 3, 6, 10]}
+  - {id: magnifying-glass, name: "Magnifying Glass", location: headman-manor, size: medium, low: 850, high: 1100, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: map, name: "Map", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: old-camera, name: "Old Camera", location: headman-manor, size: medium, low: 3500, high: 4500, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: radio, name: "Radio", location: headman-manor, size: medium, low: 3500, high: 4500, mass: 3.0, damage: [0, 15, 30, 45], noise: 35, trigger: "Random Timer"}
+  - {id: ship-in-a-bottle, name: "Ship in a Bottle", location: headman-manor, size: medium, low: 3500, high: 4500, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: trophy, name: "Trophy", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: vase, name: "Vase", location: headman-manor, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: 3d-printer, name: "3D Printer", location: mcjannek-station, size: medium, low: 5500, high: 7500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: computer, name: "Computer", location: mcjannek-station, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: fan, name: "Fan", location: mcjannek-station, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15], noise: 35, trigger: "When grabbed"}
+  - {id: fire-extinguisher, name: "Fire Extinguisher", location: mcjannek-station, size: medium, low: 3500, high: 4500, mass: 1.5, damage: [0, 7, 15, 22]}
+  - {id: flashlight, name: "Flashlight", location: mcjannek-station, size: medium, low: 1200, high: 2000, mass: 1.5, damage: [0, 7, 15, 22]}
+  - {id: laptop, name: "Laptop", location: mcjannek-station, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: propane-tank, name: "Propane Tank", location: mcjannek-station, size: medium, low: 3500, high: 4500, mass: 1.0, damage: [0, 5, 10, 15], noise: 15, trigger: "Being Damaged"}
+  - {id: sample-six-pack, name: "Sample Six Pack", location: mcjannek-station, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: sample, name: "Sample", location: mcjannek-station, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: scale, name: "Scale", location: mcjannek-station, size: medium, low: 3500, high: 4500, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: cubic-sculpture, name: "Cubic Sculpture", location: museum-of-human-art, size: medium, low: 4500, high: 5000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: gumball-machine, name: "Gumball Machine", location: museum-of-human-art, size: medium, low: 5500, high: 7500, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: handface, name: "Handface", location: museum-of-human-art, size: medium, low: 2000, high: 3000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: monkey-box, name: "Monkey Box", location: museum-of-human-art, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: pacifier, name: "Pacifier", location: museum-of-human-art, size: medium, low: 3500, high: 4500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: teeth-bot, name: "Teeth Bot", location: museum-of-human-art, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: backpack, name: "Backpack", location: sunstone-valley-resort, size: medium, low: 1200, high: 2000, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: banjo, name: "Banjo", location: sunstone-valley-resort, size: medium, low: 2000, high: 3000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: cowboy-action-figure, name: "Cowboy Action Figure", location: sunstone-valley-resort, size: medium, low: 1200, high: 2000, mass: 1.5, damage: [0, 7, 15, 22]}
+  - {id: cowboy-boot-trophy, name: "Cowboy Boot Trophy", location: sunstone-valley-resort, size: medium, low: 3500, high: 4500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: fluffy-buddy, name: "Fluffy Buddy", location: sunstone-valley-resort, size: medium, low: 2000, high: 3000, mass: 0.8, damage: [0, 4, 8, 12]}
+  - {id: golden-shovel, name: "Golden Shovel", location: sunstone-valley-resort, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: mineral-case, name: "Mineral Case", location: sunstone-valley-resort, size: medium, low: 4000, high: 5000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: suitcase, name: "Suitcase", location: sunstone-valley-resort, size: medium, low: 3500, high: 4500, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: crystal, name: "Crystal", location: swiftbroom-academy, size: medium, low: 2000, high: 3000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: crystal-ball, name: "Crystal Ball", location: swiftbroom-academy, size: medium, low: 5600, high: 6000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: eye-of-orpigox, name: "Eye of Orpigox", location: swiftbroom-academy, size: medium, low: 3500, high: 4500, mass: 3.5, damage: [0, 17, 35, 52]}
+  - {id: goblin-head, name: "Goblin Head", location: swiftbroom-academy, size: medium, low: 2000, high: 3000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: poison-chalice, name: "Poison Chalice", location: swiftbroom-academy, size: medium, low: 2000, high: 3000, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: power-crystal, name: "Power Crystal", location: swiftbroom-academy, size: medium, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: star-wand, name: "Star Wand", location: swiftbroom-academy, size: medium, low: 4500, high: 5000, mass: 0.5, damage: [0, 2, 5, 8]}
+  - {id: tentacle, name: "Tentacle", location: swiftbroom-academy, size: medium, low: 1200, high: 2000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: time-glass, name: "Time Glass", location: swiftbroom-academy, size: medium, low: 5500, high: 7500, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: big-enemy-valuable, name: "Big Enemy Valuable", location: any, size: big, low: 5500, high: 7500, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: big-surplus-valuable, name: "Big Surplus Valuable", location: any, size: big, low: 10001, high: 10001, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: big-vase, name: "Big Vase", location: headman-manor, size: big, low: 5500, high: 7500, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: chunky-vase, name: "Chunky Vase", location: headman-manor, size: big, low: 9500, high: 12000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: diamond-display, name: "Diamond Display", location: headman-manor, size: big, low: 4500, high: 5000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: scream-doll, name: "Scream Doll", location: headman-manor, size: big, low: 5500, high: 7500, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: telescope, name: "Telescope", location: headman-manor, size: big, low: 3500, high: 4500, mass: 2.0, damage: [0, 10, 20, 30]}
+  - {id: television, name: "Television", location: headman-manor, size: big, low: 5500, high: 7500, mass: 4.0, damage: [0, 20, 40, 60], noise: 35, trigger: "Random Timer"}
+  - {id: barrel, name: "Barrel", location: mcjannek-station, size: big, low: 9500, high: 12000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: big-sample, name: "Big Sample", location: mcjannek-station, size: big, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: creature-leg, name: "Creature Leg", location: mcjannek-station, size: big, low: 9500, high: 12000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: flamethrower, name: "Flamethrower", location: mcjannek-station, size: big, low: 3500, high: 4500, mass: 3.0, damage: [0, 20, 40, 60], noise: 5, trigger: "When damaged or when pulling the red trigger"}
+  - {id: guitar, name: "Guitar", location: mcjannek-station, size: big, low: 3500, high: 4500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: icepick, name: "Icepick", location: mcjannek-station, size: big, low: 2000, high: 3000, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: ice-saw, name: "Ice Saw", location: mcjannek-station, size: big, low: 3500, high: 4500, mass: 1.0, damage: [0, 5, 10, 15], noise: 15, trigger: "When grabbed"}
+  - {id: sample-cooler, name: "Sample Cooler", location: mcjannek-station, size: big, low: 3500, high: 4500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: baby-head, name: "Baby Head", location: museum-of-human-art, size: big, low: 5500, high: 7500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: egg, name: "Egg", location: museum-of-human-art, size: big, low: 3500, high: 4500, mass: 3.0, damage: [0, 0, 0, 45], note: "Varies (Up to 45)"}
+  - {id: gem-burger, name: "Gem Burger", location: museum-of-human-art, size: big, low: 5500, high: 7500, mass: 3.5, damage: [0, 17, 35, 52]}
+  - {id: golden-swirl, name: "Golden Swirl", location: museum-of-human-art, size: big, low: 9500, high: 12000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: museum-boombox, name: "Museum Boombox", location: museum-of-human-art, size: big, low: 5500, high: 7500, mass: 1.0, damage: [0, 5, 10, 15]}
+  - {id: uranium-mug-deluxe, name: "Uranium Mug Deluxe", location: museum-of-human-art, size: big, low: 5500, high: 7500, mass: 3.5, damage: [0, 17, 35, 52]}
+  - {id: energy-crystal-chunk, name: "Energy Crystal Chunk", location: sunstone-valley-resort, size: big, low: 5500, high: 7500, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: golden-wheel, name: "Golden Wheel", location: sunstone-valley-resort, size: big, low: 4000, high: 5000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: rocking-chair, name: "Rocking Chair", location: sunstone-valley-resort, size: big, low: 5500, high: 7500, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: cauldron-box, name: "Cauldron Box", location: swiftbroom-academy, size: big, low: 4500, high: 5000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: cube-of-knowledge, name: "Cube of Knowledge", location: swiftbroom-academy, size: big, low: 9500, high: 12000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: forever-candle, name: "Forever Candle", location: swiftbroom-academy, size: big, low: 5500, high: 7500, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: master-potion, name: "Master Potion", location: swiftbroom-academy, size: big, low: 4500, high: 5000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: spider-potion, name: "Spider Potion", location: swiftbroom-academy, size: big, low: 4500, high: 5000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: unicorn-horn, name: "Unicorn Horn", location: swiftbroom-academy, size: big, low: 3500, high: 4500, mass: 1.5, damage: [0, 7, 15, 22]}
+  - {id: animal-crate, name: "Animal Crate", location: headman-manor, size: wide, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60], noise: 35, trigger: "Not Standing Up-Right"}
+  - {id: dinosaur, name: "Dinosaur", location: headman-manor, size: wide, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: piano, name: "Piano", location: headman-manor, size: wide, low: 30000, high: 45000, mass: 6.0, damage: [0, 40, 80, 120]}
+  - {id: centrifuge, name: "Centrifuge", location: mcjannek-station, size: wide, low: 9500, high: 12000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: ice-block, name: "Ice Block", location: mcjannek-station, size: wide, low: 9500, high: 12000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: snow-bike, name: "Snow Bike", location: mcjannek-station, size: wide, low: 9500, high: 12000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: wide-sample-cooler, name: "Wide Sample Cooler", location: mcjannek-station, size: wide, low: 5500, high: 7500, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: horse, name: "Horse", location: museum-of-human-art, size: wide, low: 30000, high: 45000, mass: 8.0, damage: [0, 40, 80, 120]}
+  - {id: tray, name: "Tray", location: museum-of-human-art, size: wide, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: vinyl, name: "Vinyl", location: museum-of-human-art, size: wide, low: 18000, high: 25000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: worm, name: "Worm", location: museum-of-human-art, size: wide, low: 9500, high: 12000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: distillery, name: "Distillery", location: sunstone-valley-resort, size: wide, low: 18000, high: 25000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: golfcart, name: "Golfcart", location: sunstone-valley-resort, size: wide, low: 18000, high: 25000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: alchemy-station, name: "Alchemy Station", location: swiftbroom-academy, size: wide, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: dragon-skull, name: "Dragon Skull", location: swiftbroom-academy, size: wide, low: 45000, high: 50000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: goblin-arm, name: "Goblin Arm", location: swiftbroom-academy, size: wide, low: 9500, high: 12000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: griffin-statue, name: "Griffin Statue", location: swiftbroom-academy, size: wide, low: 30000, high: 45000, mass: 8.0, damage: [0, 40, 80, 120]}
+  - {id: harp, name: "Harp", location: headman-manor, size: tall, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: painting, name: "Painting", location: headman-manor, size: tall, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: heavy-water, name: "Heavy Water", location: mcjannek-station, size: tall, low: 30000, high: 45000, mass: 8.0, damage: [0, 40, 80, 120]}
+  - {id: jackhammer, name: "Jackhammer", location: mcjannek-station, size: tall, low: 9500, high: 12000, mass: 3.5, damage: [0, 17, 35, 52]}
+  - {id: science-station, name: "Science Station", location: mcjannek-station, size: tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: milk, name: "Milk", location: museum-of-human-art, size: tall, low: 9500, high: 12000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: tall-guy, name: "Tall Guy", location: museum-of-human-art, size: tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: bird-cage, name: "Bird Cage", location: sunstone-valley-resort, size: tall, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: popcorn-stand, name: "Popcorn Stand", location: sunstone-valley-resort, size: tall, low: 18000, high: 25000, mass: 6.0, damage: [0, 30, 60, 90]}
+  - {id: shooting-cowboy, name: "Shooting Cowboy", location: sunstone-valley-resort, size: tall, low: 18000, high: 25000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: dumgolf-s-staff, name: "Dumgolf's Staff", location: swiftbroom-academy, size: tall, low: 18000, high: 25000, mass: 3.5, damage: [0, 17, 35, 52]}
+  - {id: sword, name: "Sword", location: swiftbroom-academy, size: tall, low: 9500, high: 12000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: coffin, name: "Coffin", location: headman-manor, size: very_tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 40, 80, 120]}
+  - {id: golden-statue, name: "Golden Statue", location: headman-manor, size: very_tall, low: 18000, high: 25000, mass: 4.0, damage: [0, 20, 40, 60]}
+  - {id: grandfather-clock, name: "Grandfather Clock", location: headman-manor, size: very_tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75], noise: 60, trigger: "Random Timer"}
+  - {id: cryo-pod, name: "Cryo Pod", location: mcjannek-station, size: very_tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: server-rack, name: "Server Rack", location: mcjannek-station, size: very_tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: blender, name: "Blender", location: museum-of-human-art, size: very_tall, low: 18000, high: 25000, mass: 3.0, damage: [0, 15, 30, 45]}
+  - {id: traffic-light, name: "Traffic Light", location: museum-of-human-art, size: very_tall, low: 30000, high: 45000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: explosive-tower, name: "Explosive Tower", location: sunstone-valley-resort, size: very_tall, low: 45000, high: 50000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: zero-grav-crystal, name: "Zero-Grav Crystal", location: sunstone-valley-resort, size: very_tall, low: 18000, high: 25000, mass: 5.0, damage: [0, 25, 50, 75]}
+  - {id: broom, name: "Broom", location: swiftbroom-academy, size: very_tall, low: 9500, high: 12000, mass: 3.5, damage: [0, 17, 35, 52]}
+  - {id: troll-finger, name: "Troll Finger", location: swiftbroom-academy, size: very_tall, low: 45000, high: 50000, mass: 8.0, damage: [0, 40, 80, 120]}
