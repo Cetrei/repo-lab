@@ -26,6 +26,7 @@ class MonsterTests(unittest.TestCase):
         headman = MONSTERS.get("headman")
         check = lift_check(headman, [0])
         self.assertEqual(check.required, 18)
+        self.assertEqual(check.base_strength, 5)
         self.assertEqual(BASE_STRENGTH + headman.solo_upgrades, 18)
 
     def test_wiki_example_two_players_grab_headman(self) -> None:

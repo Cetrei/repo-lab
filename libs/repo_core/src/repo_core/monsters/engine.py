@@ -37,6 +37,7 @@ class LiftCheck:
     liftable: bool
     required: int | None
     combined: int
+    base_strength: int
     can_lift: bool
     margin: int | None
     missing: int
@@ -144,6 +145,7 @@ def lift_check(monster: Monster, upgrades: Sequence[int]) -> LiftCheck:
         liftable=need is not None,
         required=need,
         combined=combined,
+        base_strength=BASE_STRENGTH,
         can_lift=need is not None and combined >= need,
         margin=None if need is None else combined - need,
         missing=0 if need is None else max(0, need - combined),

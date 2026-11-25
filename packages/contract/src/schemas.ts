@@ -126,6 +126,7 @@ export const liftCheck = z.strictObject({
   liftable: z.boolean(),
   required: z.int().nullable(),
   combined: z.int(),
+  base_strength: z.int(),
   can_lift: z.boolean(),
   margin: z.int().nullable(),
   missing: z.int(),
