@@ -107,7 +107,7 @@ class Node:
         value = self._required(key, "an integer")
         if not _is_integer(value):
             raise self._fail(key, "an integer")
-        return value
+        return int(value)
 
     def opt_integer(self, key: str) -> int | None:
         value = self._raw.get(key)

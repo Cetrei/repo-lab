@@ -28,7 +28,7 @@ class Params:
         value = self._raw[name]
         if not _is_int(value):
             raise InvalidInput(f"{name} must be an integer")
-        return value
+        return int(value)
 
     def boolean(self, name: str, default: bool = False) -> bool:
         value = self._raw.get(name, default)
